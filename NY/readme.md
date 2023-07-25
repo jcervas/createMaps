@@ -13,7 +13,7 @@ mapshaper
 -filter target=clip STATEFP==36
 -style target=clip fill=none stroke=#000 opacity=1 stroke-opacity=1
 -clip target=ny-cd source=clip
--clip target=ny-cd source=clip
+-clip target=county source=clip
 -each target=ny-cd "cx=$.innerX, cy=$.innerY"
 -points target=ny-cd x=cx y=cy + name=district-labels
 -style target=district-labels label-text=id
