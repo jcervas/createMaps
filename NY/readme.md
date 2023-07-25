@@ -1,5 +1,7 @@
 NY
 
+```
+
 -clip clip
 -each target=ny "cx=$.innerX, cy=$.innerY"
 -points target=ny x=cx y=cy + name=district-labels
@@ -12,3 +14,4 @@ NY
 -each 'sqrtdensity = Math.sqrt(density)'
 
 -classify field=sqrtdensity save-as=fill breaks=10,20,40,80,160,320 colors=Greys classes=9 null-value="#fff"
+```
