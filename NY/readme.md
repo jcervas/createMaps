@@ -22,3 +22,4 @@ mapshaper
 -classify target=pop field=sqrtdensity save-as=fill breaks=10,20,40,80,160,320 colors=Greys classes=9 null-value="#fff"
 -style target=ny-cd fill=color stroke=none
 ```
+![](NY-2022-Congressional.png)
