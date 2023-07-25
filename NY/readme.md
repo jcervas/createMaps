@@ -1,7 +1,8 @@
 NY
 
 ```
-
+mapshaper
+-i 
 -clip clip
 -each target=ny "cx=$.innerX, cy=$.innerY"
 -points target=ny x=cx y=cy + name=district-labels
