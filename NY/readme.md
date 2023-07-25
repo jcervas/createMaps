@@ -5,6 +5,8 @@ mapshaper
 -i us-cartographic.geojson name=clip
 -i ny-cd-2022.geojson name=ny-cd
 -i tracts.json name=pop
+-dissolve target=pop COUNTYF + name=county
+-style target=county fill=none opacity=1 stroke=#fff stroke-width=0.5
 -dots target=pop fields=TOTAL save-as=fill r=0.1 per-dot=100
 -proj target=* '+proj=tmerc +lat_0=40 +lon_0=-76.58333333333333 +k=0.999938 +x_0=250000 +y_0=0 +ellps=GRS80 +datum=NAD83 +to_meter=0.3048006096012192 +no_defs'
 -filter target=clip STATEFP==36
