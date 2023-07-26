@@ -15,12 +15,14 @@ mapshaper -i blocks_simplified/TN_blocks20_simplified.json name=blocks \
   -each "cx=$.innerX, cy=$.innerY" \
   -dissolve fill target=blocks name=dissolved \
   -each 'type="blocks"' \
-  -i '/Volumes/GoogleDrive/My Drive/GitHub/Data Files/GIS/Cartographic/2021/cb_2021_us_all_500k/cb_2021_us_state_500k/cb_2021_us_state_500k.shp' \
+  -i '/Users/cervas/My Drive/GitHub/Data Files/GIS/Cartographic/2021/cb_2021_us_all_500k/cb_2021_us_state_500k/cb_2021_us_state_500k.shp' \
   -filter 'GEOID=="47"' \
   -proj EPSG:3662 \
   -style fill=none stroke=#000 stroke-width=1 \
-  -o '/Users/cervas/Library/Mobile Documents/com~apple~CloudDocs/Downloads/TN_simplified_pop.svg' format=svg combine-layers
+  -o '/Users/cervas/Downloads/tn_blocks.svg' format=svg combine-layers
 ```
+
+![](tn_blocks.png)
 
 ```
 mapshaper -i '/Volumes/GoogleDrive/My Drive/Projects/Redistricting/2022/TN/Senate Plans/2022 Enacted/TN-Senate-enacted.geojson' name=enacted \
