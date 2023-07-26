@@ -24,6 +24,9 @@ mapshaper -i blocks_simplified/TN_blocks20_simplified.json name=blocks \
 
 ![](tn_blocks.png)
 
+![](TN_House-urban.png)
+
+![](TN_Senate_enacted.png)
 ```
 mapshaper -i '/Volumes/GoogleDrive/My Drive/Projects/Redistricting/2022/TN/Senate Plans/2022 Enacted/TN-Senate-enacted.geojson' name=enacted \
   -proj EPSG:2274 \
