@@ -28,7 +28,7 @@ mapshaper -i blocks_simplified/TN_blocks20_simplified.json name=blocks \
 
 ![](TN_Senate_enacted.png)
 ```
-mapshaper -i '/Volumes/GoogleDrive/My Drive/Projects/Redistricting/2022/TN/Senate Plans/2022 Enacted/TN-Senate-enacted.geojson' name=enacted \
+mapshaper -i '/Users/cervas/My Drive/GitHub/districting/2022/TN-Lee-v-Moore/Other Plans/Senate 2022 Enacted/TN-Senate-enacted.geojson' name=enacted \
   -proj EPSG:2274 \
   -filter target=enacted '[17,19,20,21].indexOf(id) > -1' + name=enacted_zoom \
   -each target=enacted_zoom "cx=$.innerX, cy=$.innerY" \
@@ -36,7 +36,7 @@ mapshaper -i '/Volumes/GoogleDrive/My Drive/Projects/Redistricting/2022/TN/Senat
   -points target=enacted_zoom x=cx y=cy + name=enacted-district-labels \
   -innerlines target=enacted_zoom + name=enacted-lines \
   -style target=enacted-lines stroke=#aaa stroke-width=0.5 stroke-dasharray="2" \
-  -i '/Volumes/GoogleDrive/My Drive/Projects/Redistricting/2022/TN/Senate Plans/Concept 1/concept1.geojson' name=concept1 \
+  -i '/Users/cervas/My Drive/GitHub/districting/2022/TN-Lee-v-Moore/Illustrative-Plans/Senate Concept 1/concept1.geojson' name=concept1 \
   -proj EPSG:2274 \
   -filter target=concept1 '[18,19,20,21].indexOf(id) > -1' + name=concept1_zoom \
   -each target=concept1_zoom "cx=$.innerX, cy=$.innerY" \
@@ -44,7 +44,7 @@ mapshaper -i '/Volumes/GoogleDrive/My Drive/Projects/Redistricting/2022/TN/Senat
   -points target=concept1_zoom x=cx y=cy + name=concept1-district-labels \
   -innerlines target=concept1_zoom + name=concept1-lines \
   -style target=concept1-lines stroke=#aaa stroke-width=0.5 stroke-dasharray="2" \
-  -i '/Volumes/GoogleDrive/My Drive/Projects/Redistricting/2022/TN/Senate Plans/Concept 1a/concept1a.geojson' name=concept1a \
+  -i '/Users/cervas/My Drive/GitHub/districting/2022/TN-Lee-v-Moore/Illustrative-Plans/Senate Concept 1a/concept1a.geojson' name=concept1a \
   -proj EPSG:2274 \
   -filter target=concept1a '[18,19,20,21].indexOf(id) > -1' + name=concept1a_zoom \
   -each target=concept1a_zoom "cx=$.innerX, cy=$.innerY" \
@@ -52,7 +52,7 @@ mapshaper -i '/Volumes/GoogleDrive/My Drive/Projects/Redistricting/2022/TN/Senat
   -points target=concept1a_zoom x=cx y=cy + name=concept1a-district-labels \
   -innerlines target=concept1a_zoom + name=concept1a-lines \
   -style target=concept1a-lines stroke=#aaa stroke-width=0.5 stroke-dasharray="2" \
-  -i '/Volumes/GoogleDrive/My Drive/Projects/Redistricting/2022/TN/Senate Plans/Concept 1b/concept1b.geojson' name=concept1b \
+  -i '/Users/cervas/My Drive/GitHub/districting/2022/TN-Lee-v-Moore/Illustrative-Plans/Senate Concept 1b/concept1b.geojson' name=concept1b \
   -proj EPSG:2274 \
   -filter target=concept1b '[18,19,20,21].indexOf(id) > -1' + name=concept1b_zoom \
   -each target=concept1b_zoom "cx=$.innerX, cy=$.innerY" \
@@ -60,7 +60,7 @@ mapshaper -i '/Volumes/GoogleDrive/My Drive/Projects/Redistricting/2022/TN/Senat
   -points target=concept1b_zoom x=cx y=cy + name=concept1b-district-labels \
   -innerlines target=concept1b_zoom + name=concept1b-lines \
   -style target=concept1b-lines stroke=#aaa stroke-width=0.5 stroke-dasharray="2" \
-  -i '/Volumes/GoogleDrive/My Drive/Projects/Redistricting/2022/TN/Senate Plans/Senate-Constitutional-Numbering-Map/sendems.geojson' name=sendems \
+  -i '/Users/cervas/My Drive/GitHub/districting/2022/TN-Lee-v-Moore/Other Plans/Senate-Constitutional-Numbering-Map/sendems.geojson' name=sendems \
   -proj EPSG:2274 \
   -filter target=sendems '[18,19,20,21].indexOf(id) > -1' + name=sendems_zoom \
   -each target=sendems_zoom "cx=$.innerX, cy=$.innerY" \
@@ -68,7 +68,7 @@ mapshaper -i '/Volumes/GoogleDrive/My Drive/Projects/Redistricting/2022/TN/Senat
   -points target=sendems_zoom x=cx y=cy + name=sendems-district-labels \
   -innerlines target=sendems_zoom + name=sendems-lines \
   -style target=sendems-lines stroke=#aaa stroke-width=0.5 stroke-dasharray="2" \
-  -i '/Volumes/GoogleDrive/My Drive/GitHub/Data Files/Census/TN2020.pl/GIS/counties/TN_counties20.shp' name=counties \
+  -i '/Users/cervas/My Drive/GitHub/Data Files/Census/TN2020.pl/GIS/counties/TN_counties20.shp' name=counties \
   -proj EPSG:2274 \
   -filter target=counties '["Davidson","Rutherford","Shelby","Hamilton","Knox"].indexOf(NAME) > -1' + name=urban \
   -each target=urban "cx=$.centroidX, cy=$.centroidY" \
@@ -93,11 +93,11 @@ mapshaper -i '/Volumes/GoogleDrive/My Drive/Projects/Redistricting/2022/TN/Senat
   -style target=sendems fill='ContColor(id)' stroke="#333333" \
   -style target=davidson fill=none stroke=#000 stroke-width=2 \
   -proj EPSG:2274 target="enacted_zoom,concept1_zoom,concept1a_zoom,concept1b_zoom,enacted-lines,concept1-lines,concept1a-lines,concept1b-lines,davidson,enacted-district-labels,concept1-district-labels,concept1a-district-labels,concept1b-district-labels,county-labels,davidson,counties" \
-  -o target="enacted_zoom,enacted-lines,davidson,enacted-district-labels,county-labels" '/Volumes/GoogleDrive/My Drive/Projects/Redistricting/2022/TN/Maps/Senate/Zoom/TN_Senate_enacted.svg' format=svg combine-layers \
-  -o target="sendems_zoom,sendems-lines,davidson,sendems-district-labels,county-labels" '/Volumes/GoogleDrive/My Drive/Projects/Redistricting/2022/TN/Maps/Senate/Zoom/TN_Senate_sendems.svg' format=svg combine-layers \
-  -o target="concept1_zoom,concept1-lines,davidson,concept1-district-labels,county-labels" '/Volumes/GoogleDrive/My Drive/Projects/Redistricting/2022/TN/Maps/Senate/Zoom/TN_Senate_concept1.svg' format=svg combine-layers \
-  -o target="concept1a_zoom,concept1a-lines,davidson,concept1a-district-labels,county-labels" '/Volumes/GoogleDrive/My Drive/Projects/Redistricting/2022/TN/Maps/Senate/Zoom/TN_Senate_concept1a.svg' format=svg combine-layers \
-  -o target="concept1b_zoom,concept1b-lines,davidson,concept1b-district-labels,county-labels" '/Volumes/GoogleDrive/My Drive/Projects/Redistricting/2022/TN/Maps/Senate/Zoom/TN_Senate_concept1b.svg' format=svg combine-layers \
+  -o target="enacted_zoom,enacted-lines,davidson,enacted-district-labels,county-labels" '/Users/cervas/Downloads/tn/TN_Senate_enacted.svg' format=svg combine-layers \
+  -o target="sendems_zoom,sendems-lines,davidson,sendems-district-labels,county-labels" '/Users/cervas/Downloads/tn/TN_Senate_sendems.svg' format=svg combine-layers \
+  -o target="concept1_zoom,concept1-lines,davidson,concept1-district-labels,county-labels" '/Users/cervas/Downloads/tn/TN_Senate_concept1.svg' format=svg combine-layers \
+  -o target="concept1a_zoom,concept1a-lines,davidson,concept1a-district-labels,county-labels" '/Users/cervas/Downloads/tn/TN_Senate_concept1a.svg' format=svg combine-layers \
+  -o target="concept1b_zoom,concept1b-lines,davidson,concept1b-district-labels,county-labels" '/Users/cervas/Downloads/tn/TN_Senate_concept1b.svg' format=svg combine-layers \
   -innerlines target=counties + name=counties-lines \
   -style target=counties-lines stroke=#aaa stroke-width=0.5 stroke-dasharray="2 2"  \
   -dissolve target=counties STATEFP no-replace name=TN \
@@ -106,14 +106,14 @@ mapshaper -i '/Volumes/GoogleDrive/My Drive/Projects/Redistricting/2022/TN/Senat
   -dissolve target=concept1_zoom + name=concept1_zoom-area \
   -style target="enacted_zoom-area" stroke=none fill=#222 \
   -style target="concept1_zoom-area" stroke=none fill=#222 \
-  -o target="counties-lines,enacted_zoom-area,TN" '/Volumes/GoogleDrive/My Drive/Projects/Redistricting/2022/TN/Maps/Senate/Zoom/TN_Senate_enacted_st.svg' format=svg combine-layers width=200 \
-  -o target="counties-lines,concept1_zoom-area,TN" '/Volumes/GoogleDrive/My Drive/Projects/Redistricting/2022/TN/Maps/Senate/Zoom/TN_Senate_concepts_st.svg' format=svg combine-layers width=200 \
-  -o target="counties-lines,enacted,TN" '/Volumes/GoogleDrive/My Drive/Projects/Redistricting/2022/TN/Maps/Senate/Plans/TN_Senate_enacted.svg' format=svg combine-layers \
-  -o target="counties-lines,sendems,TN" '/Volumes/GoogleDrive/My Drive/Projects/Redistricting/2022/TN/Maps/Senate/Plans/TN_Senate_sendems.svg' format=svg combine-layers \
-  -o target="counties-lines,concept1,TN" '/Volumes/GoogleDrive/My Drive/Projects/Redistricting/2022/TN/Maps/Senate/Plans/TN_Senate_concept1.svg' format=svg combine-layers \
-  -o target="counties-lines,concept1a,TN" '/Volumes/GoogleDrive/My Drive/Projects/Redistricting/2022/TN/Maps/Senate/Plans/TN_Senate_concept1a.svg' format=svg combine-layers \
-  -o target="counties-lines,concept1b,TN" '/Volumes/GoogleDrive/My Drive/Projects/Redistricting/2022/TN/Maps/Senate/Plans/TN_Senate_concept1b.svg' format=svg combine-layers \
-  -o target="counties-lines,urban,TN,county-labels-urban" '/Volumes/GoogleDrive/My Drive/Projects/Redistricting/2022/TN/Maps/TN_House-urban.svg' format=svg combine-layers
+  -o target="counties-lines,enacted_zoom-area,TN" '/Users/cervas/Downloads/tn/TN_Senate_enacted_st.svg' format=svg combine-layers width=200 \
+  -o target="counties-lines,concept1_zoom-area,TN" '/Users/cervas/Downloads/tn/TN_Senate_concepts_st.svg' format=svg combine-layers width=200 \
+  -o target="counties-lines,enacted,TN" '/Users/cervas/Downloads/tn/TN_Senate_enacted.svg' format=svg combine-layers \
+  -o target="counties-lines,sendems,TN" '/Users/cervas/Downloads/tn/TN_Senate_sendems.svg' format=svg combine-layers \
+  -o target="counties-lines,concept1,TN" '/Users/cervas/Downloads/tn/TN_Senate_concept1.svg' format=svg combine-layers \
+  -o target="counties-lines,concept1a,TN" '/Users/cervas/Downloads/tn/TN_Senate_concept1a.svg' format=svg combine-layers \
+  -o target="counties-lines,concept1b,TN" '/Users/cervas/Downloads/tn/TN_Senate_concept1b.svg' format=svg combine-layers \
+  -o target="counties-lines,urban,TN,county-labels-urban" '/Users/cervas/Downloads/tn/TN_House-urban.svg' format=svg combine-layers
 ```
 
 ```{r}
