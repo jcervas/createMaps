@@ -1,7 +1,16 @@
+Import Block file with command `name=blocks`
+
+Import Block csv with commands `name=blocks_csv string-fields=GEOCODE`
+
+Join the data
+`-join target=blocks source=blocks_csv keys=GEOID20,GEOCODE`
 
 ```
 -filter target=clip STATEFP==01
 -style target=clip fill=none stroke=#000 opacity=1 stroke-opacity=1
+
+-filter target=cities ST=='AL'
+-filter target=cities POP_CLASS>=7
 
 -dissolve target=pop COUNTYF + name=county
 -style target=county fill=none stroke-opacity=0.5 stroke=#fff stroke-width=0.5
