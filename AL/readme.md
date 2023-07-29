@@ -32,7 +32,7 @@ Load USA_MajorCities.geojson with command `name=cities`
 
 Run this to create a layer for counties
 ```
--dissolve target=pop COUNTYF + name=county
+-dissolve target=blocks COUNTYFP20 + name=county
 -style target=county fill=none stroke-opacity=0.5 stroke=#fff stroke-width=0.5
 ```
 
