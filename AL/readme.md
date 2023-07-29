@@ -12,7 +12,7 @@ Join the data
 This creates the Black percentage in the blocks layer
 ```
 -each target=blocks 'blackper=BLACK/TOTAL'
--classify target=blocks field=blackper save-as=fill key-style="gradient" key-tile-height=10 key-width=320 key-font-size=10 nice colors='#ffffff,#f0f0f0,#d9d9d9,#bdbdbd' breaks=.1,.25,.5 null-value="#fff"
+-classify target=blocks field=blackper save-as=fill key-name="legend_Black" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 nice colors='#ffffff,#f0f0f0,#d9d9d9,#bdbdbd,#969696' breaks=0.1,0.25,0.5,0.75 null-value="#fff"
 ```
 
 Import a cartographic shapefile to clip shoreline. Use command `name=clip`
@@ -46,4 +46,5 @@ Project all layers
 -proj target=* '+proj=tmerc +lat_0=30 +lon_0=-87.5 +k=0.9999333333333333 +x_0=600000.0000000001 +y_0=0 +ellps=GRS80 +datum=NAD83 +to_meter=0.3048006096012192 +no_defs'
 ```
 
+![](legend_Black.png)
 ![](al.png)
