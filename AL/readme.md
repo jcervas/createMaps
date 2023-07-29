@@ -27,7 +27,7 @@ Load USA_MajorCities.geojson with command `name=cities`
 -filter target=cities POP_CLASS>=7
 -filter target=cities POP_CLASS>=7 + name=cities-labels
 -style target=cities-labels label-text=NAME
--style target=cities r=2
+-style target=cities r=4
 ```
 
 Run this to create a layer for counties
@@ -38,12 +38,19 @@ Run this to create a layer for counties
 
 Add the Congressional District Shapefile with command `name=cd`
 ```
--style target=cd stroke-width=2
+-style target=cd_2021 stroke-width=1 fill=none stroke-opacity=1 stroke=#000
 ```
 
 Project all layers
 ```
 -proj target=* '+proj=tmerc +lat_0=30 +lon_0=-87.5 +k=0.9999333333333333 +x_0=600000.0000000001 +y_0=0 +ellps=GRS80 +datum=NAD83 +to_meter=0.3048006096012192 +no_defs'
+```
+
+Clip layers to cartographic layer
+```
+-clip target=blocks clip
+-clip target=county clip
+-clip target=cd_2021 clip
 ```
 
 ![](legend_Black.png)
