@@ -57,6 +57,9 @@ Load USA_MajorCities.geojson with command `name=cities`
 -filter target=cities POP_CLASS>=7 + name=cities-labels
 -style target=cities-labels label-text=NAME
 -style target=cities r=4
-// Arrange labels and merge
+```
+
+Arrange labels and merge
+```
 -merge-layers target=* force
 ```
