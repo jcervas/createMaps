@@ -6,7 +6,7 @@ Join the data
 
 ```
 -simplify target=blocks 10%
--join target=blocks source=blocks_csv keys=GEOID20,GEOCODE`
+-join target=blocks source=blocks_csv keys=GEOID20,GEOCODE
 ```
 
 This creates the Black percentage in the blocks layer
