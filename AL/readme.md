@@ -53,5 +53,5 @@ Clip layers to cartographic layer
 -clip target=cd_2021 clip
 ```
 
-![](legend_Black.png)
-![](al.png)
+![](images/legend_Black.png)
+![](images/al.png)
