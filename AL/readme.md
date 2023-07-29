@@ -46,6 +46,11 @@ us-cart layers to cartographic layer
 -clip target=cd_2021 us-cart
 ```
 
+Output as .svg file
+```
+-o target=blocks,county,cd_2021,cities,us-cart format=svg
+```
+
 ![](images/legend_Black.png)
 ![](images/al.png)
 
@@ -55,7 +60,7 @@ Load USA_MajorCities.geojson with command `name=cities`
 -filter target=cities ST=='AL'
 -filter target=cities POP_CLASS>=7
 -filter target=cities POP_CLASS>=7 + name=cities-labels
--style target=cities-labels label-text=NAME
+-style target=cities-labels label-text=NAME text-anchor=start font-weight=500 line-height=16px font-family=helvetica class="g-text-shadow"
 -style target=cities r=4
 ```
 
