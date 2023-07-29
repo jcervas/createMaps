@@ -15,10 +15,10 @@ This creates the Black percentage in the blocks layer
 -classify target=blocks field=blackper save-as=fill key-name="legend_Black" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 nice colors='#ffffff,#f0f0f0,#d9d9d9,#bdbdbd,#969696' breaks=0.1,0.25,0.5,0.75 null-value="#fff"
 ```
 
-Import a cartographic shapefile to clip shoreline. Use command `name=clip`
+Import a cartographic shapefile to us-cart shoreline. Use command `name=us-cart`
 ```
--filter target=clip STATEFP==01
--style target=clip fill=none stroke=#000 opacity=1 stroke-opacity=1
+-filter target=us-cart STATEFP==01
+-style target=us-cart fill=none stroke=#000 opacity=1 stroke-opacity=1
 ```
 
 Run this to create a layer for counties
@@ -39,11 +39,11 @@ Project all layers
 -proj target=* '+proj=tmerc +lat_0=30 +lon_0=-87.5 +k=0.9999333333333333 +x_0=600000.0000000001 +y_0=0 +ellps=GRS80 +datum=NAD83 +to_meter=0.3048006096012192 +no_defs'
 ```
 
-Clip layers to cartographic layer
+us-cart layers to cartographic layer
 ```
--clip target=blocks clip
--clip target=county clip
--clip target=cd_2021 clip
+-us-cart target=blocks us-cart
+-us-cart target=county us-cart
+-us-cart target=cd_2021 us-cart
 ```
 
 ![](images/legend_Black.png)
