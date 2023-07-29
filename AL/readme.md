@@ -46,6 +46,11 @@ us-cart layers to cartographic layer
 -clip target=cd_2021 us-cart
 ```
 
+Output as .svg file
+```
+-o target=blocks,county,cd_2021,cities,us-cart format=svg
+```
+
 ![](images/legend_Black.png)
 ![](images/al.png)
 
