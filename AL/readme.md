@@ -21,15 +21,6 @@ Import a cartographic shapefile to clip shoreline. Use command `name=clip`
 -style target=clip fill=none stroke=#000 opacity=1 stroke-opacity=1
 ```
 
-Load USA_MajorCities.geojson with command `name=cities`
-```
--filter target=cities ST=='AL'
--filter target=cities POP_CLASS>=7
--filter target=cities POP_CLASS>=7 + name=cities-labels
--style target=cities-labels label-text=NAME
--style target=cities r=4
-```
-
 Run this to create a layer for counties
 ```
 -dissolve target=blocks COUNTYFP20 + name=county
@@ -40,6 +31,8 @@ Add the Congressional District Shapefile with command `name=cd`
 ```
 -style target=cd_2021 stroke-width=1 fill=none stroke-opacity=1 stroke=#000
 ```
+
+Add `cities` layer, which is preprocessed (see below)
 
 Project all layers
 ```
@@ -55,3 +48,15 @@ Clip layers to cartographic layer
 
 ![](images/legend_Black.png)
 ![](images/al.png)
+
+
+Load USA_MajorCities.geojson with command `name=cities`
+```
+-filter target=cities ST=='AL'
+-filter target=cities POP_CLASS>=7
+-filter target=cities POP_CLASS>=7 + name=cities-labels
+-style target=cities-labels label-text=NAME
+-style target=cities r=4
+// Arrange labels and merge
+-merge-layers target=* force
+```
