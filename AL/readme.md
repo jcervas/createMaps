@@ -41,9 +41,9 @@ Project all layers
 
 us-cart layers to cartographic layer
 ```
--us-cart target=blocks us-cart
--us-cart target=county us-cart
--us-cart target=cd_2021 us-cart
+-clip target=blocks us-cart
+-clip target=county us-cart
+-clip target=cd_2021 us-cart
 ```
 
 ![](images/legend_Black.png)
