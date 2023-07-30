@@ -1,0 +1,249 @@
+
+Set Working Directory
+`cd "/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS"`
+
+
+```
+mapshaper -i blocks/*.shp -o blocks_simplified/PA_blocks20.json format=geojson
+
+# Blocks
+mapshaper -i blocks_simplified/PA_blocks20.json  \
+  -simplify 0.1% \
+  -clean \
+  -o blocks_simplified/PA_blocks20_simplified.json format=geojson force
+
+mapshaper blocks_simplified/PA_blocks20_simplified.json \
+  -dissolve COUNTY copy-fields='STATE,COUNTY' calc='TOTAL = sum(TOTAL),ALAND = sum(ALAND)' + name=PA_Counties \
+  -o blocks_simplified/PA_Counties.json format=geojson
+```
+
+
+# Water
+```
+mapshaper -i blocks_simplified/PA_blocks20.json  \
+  -filter 'ALAND<1' \
+  -simplify 0.1% \
+  -clean \
+  -o blocks_simplified/water_simplified.json format=geojson force
+```
+
+
+# Tracts
+```
+mapshaper -i ./tracts/pa_tracts20.shp  \
+  -simplify 1% \
+  -clean \
+  -o blocks_simplified/PA_tracts20_simplified.json format=geojson force
+```
+
+
+```
+ mapshaper blocks_simplified/PA_Counties.json \
+   -dissolve STATE copy-fields='STATE' calc='TOTAL = sum(TOTAL)' + name=PA \
+   -o blocks_simplified/PA.json format=geojson
+```
+
+
+```
+ mapshaper blocks_simplified/PA_Counties.json \
+   -each 'density = TOTAL / (ALAND/2589988)' \
+   -colorizer name=getColor colors='#fbf3e8,#fee8c8,#fdd49e,#fdbb84,#fc8d59,#ef6548,#d7301f,#b30000,#7f0000' breaks=1,10,50,200,500,1000,2000,4000 \
+   -each 'color = getColor(density)' \
+   -style fill=color stroke=none stroke-width=0 \
+   -o target=PA_Counties blocks_simplified/PA_Counties.svg
+```
+
+```
+mapshaper -i blocks_simplified/PA_tracts20_simplified.json name=blocks \
+  -proj EPSG:3652 \
+  -each 'density = TOTAL / (ALAND/2589988)' target=blocks \
+  -each 'sqrtdensity = Math.sqrt(density)' \
+  -classify field=sqrtdensity save-as=fill nice colors=OrRd classes=9 null-value="#fff" \
+  -colorizer name=getColor colors='#fbf3e8,#fee8c8,#fdd49e,#fdbb84,#fc8d59,#ef6548,#d7301f,#b30000,#7f0000' breaks=1,10,50,200,500,1000,2000,4000 \
+  -each 'color = getColor(density)' \
+  -each 'type="blocks"' \
+  -style fill=color stroke=none stroke-width=0 \
+  -i blocks_simplified/PA_Counties.json \
+  -each 'type="counties"' \
+  -proj EPSG:3652 \
+  -style fill=none stroke=#000 stroke-width=0.5 opacity=0.25 \
+  -i blocks_simplified/PA_2022_Senate.geojson \
+  -rename-layers blocks,water,counties,senate \
+  -each 'type="senate"' \
+  -proj EPSG:3652 \
+  -style fill=none stroke=#000 stroke-width=1 \
+  -i '/Users/cervas/My Drive/GitHub/Data Files/GIS/Cartographic/2021/cb_2021_us_all_500k/cb_2021_us_state_500k/cb_2021_us_state_500k.shp' \
+  -filter 'GEOID=="42"' \
+  -proj EPSG:3652 \
+  -style fill=none stroke=#000 stroke-width=1 \
+  -o blocks_simplified/PA_tracts_pop.svg format=svg svg-data=TOTAL combine-layers
+
+# -each 'color="#FFF"' where='ALAND == "0"' \
+```
+
+
+# R census command
+```
+data2020 <- censusapi::getCensus(
+    name = "dec/pl",
+    vintage = 2020,
+    vars = c("NAME", "P1_001N"), 
+    region = "county:*",
+key= "7865f31139b09e17c5865a59c240bdf07f9f44fd",
+    regionin = "state:42")
+head(data2020)
+```
+
+
+```
+cd '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl'
+mapshaper -i 'GIS/PA 2020 State House.geojson' -info \
+  -proj EPSG:3652 \
+  -classify field=PopDevPct save-as=fill breaks=-0.1,-0.05,0,0.05,0.1 colors='#fcfcbe,#fdc78d,#fb8d67,#e45563,#ac337b,#6b1f7b,#2c1160' null-value="#fff" \
+  -style opacity=1 stroke=#fff stroke-width=0.20 stroke-opacity=1.0 \
+  -each 'type="house"' \
+  -i GIS/blocks_simplified/PA_Counties.json \
+  -each 'type="counties"' \
+  -proj EPSG:3652 \
+  -style fill=none stroke=#000 stroke-width=0.0 stroke-opacity=0.25 \
+  -i '/Users/cervas/My Drive/GitHub/Data Files/GIS/Cartographic/2021/cb_2021_us_all_500k/cb_2021_us_state_500k/cb_2021_us_state_500k.shp' \
+  -filter 'GEOID=="42"' \
+  -proj EPSG:3652 \
+  -style fill=none stroke=#000 stroke-width=1 \
+  -o maps/PA_house_2020.svg format=svg svg-data='NAME,PopDevPct' combine-layers
+```
+
+```
+cd '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl'
+mapshaper -i 'GIS/PA 2020 State House.geojson' name=plan \
+  -proj EPSG:3652 \
+  -classify field=PopDevPct save-as=fill key-style="gradient" key-tile-height=10 key-width=320 key-font-size=10 continuous breaks=-0.1,0,0.1 colors='#FFB81C,#ffffff,#003594' null-value="#e4e5e7" \
+  -style opacity=1 stroke=#fff stroke-width=0.4 stroke-opacity=1 \
+  -each 'type="plan"' \
+  -info \
+  -i 'GIS/blocks_simplified/PA_Counties.json' \
+  -each 'type="counties"' \
+  -proj EPSG:3652 \
+  -style fill=none stroke=#000 stroke-width=0.0 stroke-opacity=0.25 \
+  -i '/Users/cervas/My Drive/GitHub/Data Files/GIS/Cartographic/2021/cb_2021_us_all_500k/cb_2021_us_state_500k/cb_2021_us_state_500k.shp' name=PA \
+  -filter 'GEOID=="42"' \
+  -proj EPSG:3652 \
+  -style fill=none stroke=#000 stroke-width=1 \
+  -clip target=plan source=PA \
+  -o maps/PA_House_2020.svg format=svg svg-data='NAME,PopDevPct' combine-layers
+```
+
+
+```
+cd '/Users/cervas/My Drive/GitHub/Data Files'
+mapshaper -i 'Census/PA2020.pl/GIS/tracts/tracts.json' name=tracts \
+  -i 'Census/PA2020.pl/GIS/tracts/tracts.json' name=Blacks \
+  -i 'Census/PA2020.pl/GIS/tracts/tracts.json' name=Asians \
+  -i 'Census/PA2020.pl/GIS/tracts/tracts.json' name=Hispanics \
+  -i 'Census/PA2020.pl/GIS/tracts/tracts.json' name=Minorities \
+  -i 'Census/PA2020.pl/GIS/cb_2021_us_state_500k.json' name=PA \
+  -filter target="PA" 'GEOID=="42"' \
+  -i Census/PA2020.pl/GIS/blocks_simplified/PA_Counties.json name=counties \
+  -each 'density = Math.sqrt(TOTAL / (ALAND20/2589988))' target=tracts \
+  -info target=tracts \
+  -classify target="tracts" field=density save-as=fill key-name="legend_Density" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 breaks=10,15,25,40,50,60,70,80 colors='#ffffe5','#fff7bc','#fee391','#fec44f','#fe9929','#ec7014','#cc4c02','#993404','#662506' null-value="#fbf3e8" \
+  -classify target="Blacks" field=black_per save-as=fill key-name="legend_Black" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 breaks=0.1,0.2,0.3,0.4,0.5 colors='#eff3ff','#c6dbef','#9ecae1','#6baed6','#3182bd','#08519c' null-value="#eff3ff" \
+  -classify target="Hispanics" field=his_per save-as=fill key-name="legend_Hispanic" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 breaks=0.1,0.2,0.3,0.4,0.5 colors='#edf8e9','#c7e9c0','#a1d99b','#74c476','#31a354','#006d2c' null-value="#ecf7e9" \
+  -classify target="Asians" field=asian_per save-as=fill key-name="legend_Asian" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 breaks=0.1,0.2,0.3,0.4,0.5 colors='#feedde','#fdd0a2','#fdae6b','#fd8d3c','#e6550d','#a63603' null-value="#feedde" \
+  -classify target="Minorities" field=minority_p save-as=fill key-name="legend_Minorities" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 breaks=0.1,0.2,0.3,0.4,0.5 colors='#f7f7f7','#d9d9d9','#bdbdbd','#969696','#636363','#252525' null-value="#f7f7f7" \
+  -each target="counties" 'type="counties"' \
+  -proj EPSG:3652 target="Blacks,Asians,Hispanics,Minorities,tracts,PA,counties" \
+  -style target="counties" fill=none stroke=#000 stroke-width=0.0 stroke-opacity=0.25 \
+  -style target="PA" fill=none stroke=#000 stroke-width=1 \
+  -clip target="Blacks" source=PA \
+  -clip target="Asians" source=PA \
+  -clip target="Hispanics" source=PA \
+  -clip target="Minorities" source=PA \
+  -dots target=tracts fields=TOTAL per-dot=100 colors="#662506" r=0.2 evenness=0 + name=dot_Total \
+  -dots target=tracts fields=BLACK per-dot=100 colors="#08519c" r=0.2 evenness=0 + name=dot_Blacks \
+  -o target="Blacks,PA" maps/Black_PA_2020.svg format=svg svg-data='NAME,cntyname,BLACK,black_per' combine-layers \
+  -o target="tracts,PA" maps/Density_PA_2020.svg format=svg svg-data='NAME,cntyname,density,TOTAL' combine-layers \
+  -o target="Hispanics,PA" maps/Hispanics_PA_2020.svg format=svg svg-data='NAME,cntyname,HISPANIC,his_per' combine-layers \
+  -o target="Asians,PA" maps/Asians_PA_2020.svg format=svg svg-data='NAME,cntyname,ASIAN,asian_per' combine-layers \
+  -o target="Minorities,PA" maps/Minorities_PA_2020.svg format=svg svg-data='NAME,cntyname,minority_p' combine-layers \
+  -o target="dot_Total,PA" maps/dots_Total_PA_2020.svg format=svg combine-layers \
+  -o target="dot_Blacks,PA" maps/dots_Black_PA_2020.svg format=svg combine-layers
+```
+
+
+```
+mapshaper -i '/Users/cervas/My Drive/Projects/Redistricting/2022/PA/GIS/precincts.json' name='precincts' \
+  -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/cb_2021_us_state_500k.json' name=PA \
+  -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/LDPC_gis/WP_Counties.json' name=counties \
+  -filter target="PA" 'GEOID=="42"' \
+  -proj EPSG:3652 target='counties,precincts,PA' \
+  -clip target="precincts" source=PA \
+  -clip target="counties" source=PA \
+  -innerlines target="counties" \
+  -style target="counties" stroke=#fff stroke-width=1.0 stroke-opacity=0.5 \
+  -each 'margin = Y20PRESD-Y20PRESR' target=precincts \
+  -each 'density = (Y20PRESD+Y20PRESR)/(ALAND20/2589988)' target=precincts \
+  -classify target="precincts" field=margin save-as=fill key-name="legend_Political" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 breaks=-1000,-750,-500,-250,-1,1,250,500,750,1000 colors='#ca0020','#ffffff','#0571b0' null-value="#fff" \
+  -style target="precincts" opacity=density/330 \
+  -dots target=precincts fields='Y20PRESD,Y20PRESR' per-dot=10 colors="#445e96,#ba3a33" r=0.2 evenness=0 + name=dot_DEM \
+  -style target="PA" fill=none stroke=#000 stroke-width=1 \
+  -o target="precincts,counties,PA" "/Users/cervas/My Drive/Projects/Redistricting/2022/PA/GIS/PA_2020_precinct.svg" format=svg combine-layers \
+  -o target="dot_DEM,counties,PA" "/Users/cervas/My Drive/Projects/Redistricting/2022/PA/GIS/PA_2020_precinct_dots.svg" format=svg combine-layers  
+```
+
+
+```
+mapshaper -i "GIS/2021-10-14 LRC Data Release No. 2 (with prisoner reallocations)/Geography/WP_Municipalities_reallocated.shp" \
+  -proj EPSG:3652 \
+  -each 'density = P0010001 / (ALAND20/2589988)' \
+  -each 'sqrtdensity = Math.sqrt(density)' \
+  -classify field=sqrtdensity save-as=fill nice colors=OrRd classes=9 null-value="#fff" \
+  -each 'type="muni"' \
+  -i GIS/blocks_simplified/PA_Counties.json \
+  -each 'type="counties"' \
+  -proj EPSG:3652 \
+  -style fill=none stroke=#000 stroke-width=0.5 opacity=0.25 \
+  -i '/Users/cervas/My Drive/GitHub/Data Files/GIS/Cartographic/2021/cb_2021_us_all_500k/cb_2021_us_state_500k/cb_2021_us_state_500k.shp' \
+  -filter 'GEOID=="42"' \
+  -proj EPSG:3652 \
+  -style fill=none stroke=#000 stroke-width=1 \
+  -o blocks_simplified/PA_muni.svg format=svg svg-data=TOTAL combine-layers
+```
+
+`mapshaper blocks_simplified/PA_blocks20_simplified.json -info`
+
+`mapshaper blocks_simplified/PA_blocks20_simplified.json -calc 'min(TOTAL)' -calc 'median(TOTAL)' -calc 'mean(TOTAL)' -calc 'max(TOTAL)' -calc 'sum(TOTAL)'``
+
+
+# Generate a tract-level Shapefile of populated areas by dissolving census blocks with non-zero population.
+```
+mapshaper blocks/*.shp \
+  -each 'TRACT=GEOID.substr(0,11)' \
+  -filter 'TOTAL > 0' \
+  -dissolve TRACT sum-fields=TOTAL \
+  -o blocks_simplified/out.json
+```
+
+`-merge-layers force target=water, {NAME OF LAYER 2}``
+
+```
+mapshaper -i "/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/2021-10-14 LRC Data Release No. 2 (with prisoner reallocations)/Geography/WP_Tracts_reallocated.shp" name=map \
+  -join "/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/PL_diff.P1.csv" keys=GEOID20,GEO_ID string-fields=GEO_ID \
+  -proj EPSG:3652 \
+  -each 'diff=P0010001-P001001' \
+  -classify field=diff save-as=fill breaks=0,500,1000 colors=#ca0020,#f4a582,#bababa,#404040 null-value="#fff" \
+  -o /Users/cervas/Downloads/PA_tract_diff.svg format=svg svg-data=diff
+```
+
+
+# Nordenbergmander
+```
+mapshaper -i "/Users/cervas/My Drive/Projects/Redistricting/2022/PA/data/Plans/PA-LRC-House-Preliminary.geojson" name=LRCpre \
+  -i "/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/Certified-Geography/WP_Municipalities.shp" name=muni \
+  -proj target="muni,LRCpre" EPSG:3652 \
+  -style target=muni fill=none stroke=#000 stroke-width=0.5 stroke-opacity=0.25 \
+  -style target=LRCpre fill=none stroke=#000 stroke-width=1 \
+  -filter target=LRCpre 'NAME == "84"' + name=HD84 \
+  -clip target=muni source=HD84 + name=HD84muni \
+  -o target="HD84muni,HD84" '/Users/cervas/Downloads/LRCpre84.svg' format=svg combine-layers
+```
