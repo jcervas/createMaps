@@ -2,38 +2,9 @@
 Set Working Directory
 `cd "/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS"`
 
+# Base Map
 
-# Blocks
-```
-mapshaper -i blocks/*.shp -simplify 0.1% -clean -o blocks_simplified/PA_blocks20_simplified.json format=geojson
-
-mapshaper blocks_simplified/PA_blocks20_simplified.json \
-  -dissolve COUNTY copy-fields='STATE,COUNTY' calc='TOTAL = sum(TOTAL),ALAND = sum(ALAND)' + name=PA_Counties \
-  -o blocks_simplified/PA_Counties.json format=geojson
-```
-
-
-# Water
-```
-mapshaper -i blocks_simplified/PA_blocks20_simplified.json  \
-  -filter 'ALAND<1' \
-  -simplify 0.1% \
-  -clean \
-  -o blocks_simplified/water_simplified.json format=geojson force
-```
-
-
-# Simplified Tracts
-```
-mapshaper -i ./tracts/pa_tracts20.shp -simplify 1% -clean -o blocks_simplified/PA_tracts20_simplified.json format=geojson force
-```
-
-
-To find the density in square miles, divide area by `2589988`.
-
-
-
-# Counties
+## Counties
 ```
  mapshaper '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/counties/pa_counties20.shp' name=counties \
   -i '/Users/cervas/My Drive/GitHub/Data Files/GIS/Cartographic/2021/cb_2021_us_all_500k/cb_2021_us_state_500k/cb_2021_us_state_500k.shp' name=us-cart \
@@ -52,6 +23,67 @@ To output the map, run this.
 ```
   -o target=us-cart,counties,counties-labels blocks_simplified/PA_Counties.svg
 ```
+
+## PA House 2013 Population Deviations
+```
+  -i '/Users/cervas/My Drive/Projects/Redistricting/2022/PA/data/Plans/PA-2020-State-House.geojson' name=house \
+  -proj EPSG:3652 \
+  -classify field=PopDevPct save-as=fill breaks=-0.05,0,0.05 colors=PuOr null-value="#fff" key-name="legend_popdev" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 \
+  -style opacity=1 stroke=#fff stroke-width=0.0 stroke-opacity=0.5 \
+  -each 'type="house"' \
+```
+
+Output map
+```
+  -o target=us-cart,house,counties '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_house_2020.svg' format=svg svg-data='NAME,PopDevPct'
+```
+
+## PA Senate 2013 Population Deviations
+```
+  -i '/Users/cervas/My Drive/Projects/Redistricting/2022/PA/data/Plans/PA-2020-State-Senate.geojson' name=senate \
+  -proj EPSG:3652 \
+  -classify field=PopDevPct save-as=fill breaks=-0.05,0,0.05 colors=PuOr null-value="#fff" \
+  -style opacity=1 stroke=#fff stroke-width=0.0 stroke-opacity=0.5 \
+  -each 'type="senate"' \
+```
+
+Output map
+```
+  -o target=us-cart,senate,counties '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_senate_2020.svg' format=svg svg-data='NAME,PopDevPct'
+```
+
+
+# Create GIS files
+
+To find the density in square miles, divide area by `2589988`.
+
+## Blocks
+```
+mapshaper -i blocks/*.shp -simplify 0.1% -clean -o blocks_simplified/PA_blocks20_simplified.json format=geojson
+
+mapshaper blocks_simplified/PA_blocks20_simplified.json \
+  -dissolve COUNTY copy-fields='STATE,COUNTY' calc='TOTAL = sum(TOTAL),ALAND = sum(ALAND)' + name=PA_Counties \
+  -o blocks_simplified/PA_Counties.json format=geojson
+```
+
+# Simplified Tracts
+```
+mapshaper -i ./tracts/pa_tracts20.shp -simplify 1% -clean -o blocks_simplified/PA_tracts20_simplified.json format=geojson force
+```
+
+
+## Water
+```
+mapshaper -i blocks_simplified/PA_blocks20_simplified.json  \
+  -filter 'ALAND<1' \
+  -simplify 0.1% \
+  -clean \
+  -o blocks_simplified/water_simplified.json format=geojson force
+```
+
+To change the color of water areas: 
+`-each 'color="#FFF"' where='ALAND == "0"' \`
+
 
 
 ```
@@ -81,42 +113,8 @@ mapshaper -i blocks_simplified/PA_tracts20_simplified.json name=blocks \
 
 ```
 
-To change the color of water areas: 
-`-each 'color="#FFF"' where='ALAND == "0"' \`
 
 
-PA House 2013 Population Deviations
-```
-  -i '/Users/cervas/My Drive/Projects/Redistricting/2022/PA/data/Plans/PA-2020-State-House.geojson' name=house \
-  -proj EPSG:3652 \
-  -classify field=PopDevPct save-as=fill breaks=-0.05,0,0.05 colors=PuOr null-value="#fff" \
-  -style opacity=1 stroke=#fff stroke-width=0.20 stroke-opacity=0.5 \
-  -each 'type="house"' \
-```
-
-```
-  -o target=us-cart,counties,house '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_house_2020.svg' format=svg svg-data='NAME,PopDevPct'
-```
-
-```
-cd '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl'
-mapshaper -i 'GIS/PA 2020 State House.geojson' name=plan \
-  -proj EPSG:3652 \
-  -classify field=PopDevPct save-as=fill key-style="gradient" key-tile-height=10 key-width=320 key-font-size=10 continuous breaks=-0.1,0,0.1 colors='#FFB81C,#ffffff,#003594' null-value="#e4e5e7" \
-  -style opacity=1 stroke=#fff stroke-width=0.4 stroke-opacity=1 \
-  -each 'type="plan"' \
-  -info \
-  -i 'GIS/blocks_simplified/PA_Counties.json' \
-  -each 'type="counties"' \
-  -proj EPSG:3652 \
-  -style fill=none stroke=#000 stroke-width=0.0 stroke-opacity=0.25 \
-  -i '/Users/cervas/My Drive/GitHub/Data Files/GIS/Cartographic/2021/cb_2021_us_all_500k/cb_2021_us_state_500k/cb_2021_us_state_500k.shp' name=PA \
-  -filter 'GEOID=="42"' \
-  -proj EPSG:3652 \
-  -style fill=none stroke=#000 stroke-width=1 \
-  -clip target=plan source=PA \
-  -o maps/PA_House_2020.svg format=svg svg-data='NAME,PopDevPct' combine-layers
-```
 
 
 ```
