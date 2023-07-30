@@ -87,7 +87,7 @@ To change the color of water areas:
 
 PA House 2013 Population Deviations
 ```
-mapshaper  -i '/Users/cervas/My Drive/Projects/Redistricting/2022/PA/data/Plans/PA-2020-State-House.geojson' + name=house \
+  -i '/Users/cervas/My Drive/Projects/Redistricting/2022/PA/data/Plans/PA-2020-State-House.geojson' + name=house \
   -proj EPSG:3652 \
   -classify field=PopDevPct save-as=fill breaks=-0.05,0,0.05 colors=PuOr null-value="#fff" \
   -style opacity=1 stroke=#fff stroke-width=0.20 stroke-opacity=0.5 \
