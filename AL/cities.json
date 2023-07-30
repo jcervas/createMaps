@@ -1,0 +1,20 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-85.4899892349999,32.6069065200001]},"properties":{"NAME":"Auburn","r":4}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-86.796474014,33.5288008380001]},"properties":{"NAME":"Birmingham","r":4}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-86.981528273,34.60362365]},"properties":{"NAME":"Decatur","r":4}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-85.407058289,31.233495458]},"properties":{"NAME":"Dothan","r":4}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-86.804249982,33.3875087170001]},"properties":{"NAME":"Hoover","r":4}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-86.583478177,34.7276429500001]},"properties":{"NAME":"Huntsville","r":4}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-88.051434328,30.685270168]},"properties":{"NAME":"Mobile","r":4}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-86.3033632189999,32.3778974620001]},"properties":{"NAME":"Montgomery","r":4}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-87.562916786,33.2073171910001]},"properties":{"NAME":"Tuscaloosa","r":4}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-85.4899892349999,32.6069065200001]},"properties":{"NAME":"Auburn","label-text":"Auburn","text-anchor":"start","font-weight":"500","line-height":"16px","font-family":"helvetica","class":"g-text-shadow"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-86.796474014,33.5288008380001]},"properties":{"NAME":"Birmingham","label-text":"Birmingham","text-anchor":"start","font-weight":"500","line-height":"16px","font-family":"helvetica","class":"g-text-shadow"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-86.981528273,34.60362365]},"properties":{"NAME":"Decatur","label-text":"Decatur","text-anchor":"start","font-weight":"500","line-height":"16px","font-family":"helvetica","class":"g-text-shadow"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-85.407058289,31.233495458]},"properties":{"NAME":"Dothan","label-text":"Dothan","text-anchor":"start","font-weight":"500","line-height":"16px","font-family":"helvetica","class":"g-text-shadow"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-86.804249982,33.3875087170001]},"properties":{"NAME":"Hoover","label-text":"Hoover","text-anchor":"start","font-weight":"500","line-height":"16px","font-family":"helvetica","class":"g-text-shadow"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-86.583478177,34.7276429500001]},"properties":{"NAME":"Huntsville","label-text":"Huntsville","text-anchor":"start","font-weight":"500","line-height":"16px","font-family":"helvetica","class":"g-text-shadow"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-88.051434328,30.685270168]},"properties":{"NAME":"Mobile","label-text":"Mobile","text-anchor":"start","font-weight":"500","line-height":"16px","font-family":"helvetica","class":"g-text-shadow"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-86.3033632189999,32.3778974620001]},"properties":{"NAME":"Montgomery","label-text":"Montgomery","text-anchor":"start","font-weight":"500","line-height":"16px","font-family":"helvetica","class":"g-text-shadow"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-87.562916786,33.2073171910001]},"properties":{"NAME":"Tuscaloosa","label-text":"Tuscaloosa","text-anchor":"start","font-weight":"500","line-height":"16px","font-family":"helvetica","class":"g-text-shadow"}}
+]}
