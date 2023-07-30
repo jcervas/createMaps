@@ -60,6 +60,7 @@ Load USA_MajorCities.geojson with command `name=cities`
 -filter target=cities ST=='AL'
 -filter target=cities POP_CLASS>=7
 -filter target=cities POP_CLASS>=7 + name=cities-labels
+-filter-fields target=* NAME
 -style target=cities-labels label-text=NAME text-anchor=start font-weight=500 line-height=16px font-family=helvetica class="g-text-shadow"
 -style target=cities r=4
 ```
