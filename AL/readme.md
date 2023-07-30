@@ -24,7 +24,7 @@ Import a cartographic shapefile to us-cart shoreline. Use command `name=us-cart`
 Run this to create a layer for counties
 ```
 -dissolve target=blocks COUNTYFP20 + name=county
--style target=county fill=none stroke-opacity=0.5 stroke=#fff stroke-width=0.5
+-style target=county fill=none stroke-opacity=1 stroke=#fff stroke-width=1
 ```
 
 Add the Congressional District Shapefile with command `name=cd`
@@ -67,7 +67,8 @@ Load USA_MajorCities.geojson with command `name=cities`
 -style target=cities r=4
 -each target=cities type='point'
 -each target=cities-labels type='text-label'
--o target=* force format=geojson
+-merge-layers target=* force
+-o target=* format=geojson
 ```
 
 Arrange labels and merge
