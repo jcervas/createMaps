@@ -67,7 +67,7 @@ Load USA_MajorCities.geojson with command `name=cities`
 -style target=cities r=4
 -each target=cities type='point'
 -each target=cities-labels type='text-label'
--o target=* force
+-o target=* force format=geojson
 ```
 
 Arrange labels and merge
