@@ -95,7 +95,7 @@ To change the color of water areas:
 
 ## Tract density map
 ```
-mapshaper -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/tracts/tracts.json' name=tracts \
+  -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/tracts/tracts.json' name=tracts \
   -proj EPSG:3652 \
   -each 'density = TOTAL / (ALAND20/2589988)' target=tracts \
   -each 'sqrtdensity = Math.sqrt(density)' \
@@ -104,7 +104,7 @@ mapshaper -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/trac
 ```
 
 ```
-  -o target=us-cart,counties,tracts blocks_simplified/PA_tracts_pop.svg format=svg svg-data=TOTAL
+  -o target=us-cart,tracts,counties blocks_simplified/PA_tracts_pop.svg format=svg svg-data=TOTAL
 ```
 
 
