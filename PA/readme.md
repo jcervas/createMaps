@@ -71,7 +71,7 @@ Output map
 ```
 
 ```
-  -o target=us-cart,tracts,counties blocks_simplified/PA_tracts_pop.svg format=svg svg-data=TOTAL
+  -o target=tracts,counties,us-cart blocks_simplified/PA_tracts_pop.svg format=svg svg-data=TOTAL
 ```
 
 
