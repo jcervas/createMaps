@@ -34,7 +34,7 @@ To output the map, run this.
   -proj EPSG:3652 \
   -clip us-cart \
   -classify field=PopDevPct save-as=fill breaks=-0.05,0,0.05 colors=PuOr null-value="#fff" key-name="legend_popdev" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 \
-  -style opacity=1 stroke=fill stroke-width=0.0 stroke-opacity=0.5 \
+  -style opacity=1 stroke=fill stroke-width=0.0 stroke-opacity=0 \
   -each 'type="house"' \
 ```
 
@@ -49,7 +49,7 @@ Output map
   -proj EPSG:3652 \
   -clip us-cart \
   -classify field=PopDevPct save-as=fill breaks=-0.05,0,0.05 colors=PuOr null-value="#fff" \
-  -style opacity=1 stroke=fill stroke-width=0.0 stroke-opacity=0.5 \
+  -style opacity=1 stroke=fill stroke-width=0.0 stroke-opacity=0 \
   -each 'type="senate"' \
 ```
 
