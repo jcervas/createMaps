@@ -4,12 +4,16 @@ Set Working Directory
 
 # Base Map
 
-## Counties
+## Cartographic Map (for water boundaries)
 ```
- mapshaper '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/counties/pa_counties20.shp' name=counties \
-  -i '/Users/cervas/My Drive/GitHub/Data Files/GIS/Cartographic/2021/cb_2021_us_all_500k/cb_2021_us_state_500k/cb_2021_us_state_500k.shp' name=us-cart \
+   mapshaper -i '/Users/cervas/My Drive/GitHub/Data Files/GIS/Cartographic/2021/cb_2021_us_all_500k/cb_2021_us_state_500k/cb_2021_us_state_500k.shp' name=us-cart \
   -filter target=us-cart STATEFP==42 \
   -style target=us-cart fill=none stroke=#000 opacity=1 stroke-opacity=1 \
+```
+
+## Counties
+```
+  -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/counties/pa_counties20.shp' name=counties \
   -proj target='counties,us-cart' EPSG:3652 \
   -clip target=counties us-cart \
   -each target=counties 'cx=this.innerX, cy=this.innerY' \
@@ -28,6 +32,7 @@ To output the map, run this.
 ```
   -i '/Users/cervas/My Drive/Projects/Redistricting/2022/PA/data/Plans/PA-2020-State-House.geojson' name=house \
   -proj EPSG:3652 \
+  -clip us-cart \
   -classify field=PopDevPct save-as=fill breaks=-0.05,0,0.05 colors=PuOr null-value="#fff" key-name="legend_popdev" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 \
   -style opacity=1 stroke=#fff stroke-width=0.0 stroke-opacity=0.5 \
   -each 'type="house"' \
@@ -42,6 +47,7 @@ Output map
 ```
   -i '/Users/cervas/My Drive/Projects/Redistricting/2022/PA/data/Plans/PA-2020-State-Senate.geojson' name=senate \
   -proj EPSG:3652 \
+  -clip us-cart \
   -classify field=PopDevPct save-as=fill breaks=-0.05,0,0.05 colors=PuOr null-value="#fff" \
   -style opacity=1 stroke=#fff stroke-width=0.0 stroke-opacity=0.5 \
   -each 'type="senate"' \
