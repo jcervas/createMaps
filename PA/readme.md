@@ -41,7 +41,7 @@ To output the map, run this.
 
 Output map
 ```
-  -o target=us-cart,house,counties '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_house_2020.svg' format=svg svg-data='NAME,PopDevPct'
+  -o target=house,counties,us-cart '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_house_2020.svg' format=svg svg-data='NAME,PopDevPct'
 ```
 
 ## PA Senate 2013 Population Deviations
@@ -57,7 +57,21 @@ Output map
 
 Output map
 ```
-  -o target=us-cart,senate,counties '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_senate_2020.svg' format=svg svg-data='NAME,PopDevPct'
+  -o target=senate,counties,us-cart '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_senate_2020.svg' format=svg svg-data='NAME,PopDevPct'
+```
+
+## Tract density map
+```
+  -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/tracts/tracts.json' name=tracts \
+  -proj EPSG:3652 \
+  -each 'density = TOTAL / (ALAND20/2589988)' target=tracts \
+  -each 'sqrtdensity = Math.sqrt(density)' \
+  -classify field=sqrtdensity save-as=fill nice colors=OrRd classes=9 null-value="#fff" \
+  -each 'type="tracts"' \
+```
+
+```
+  -o target=us-cart,tracts,counties blocks_simplified/PA_tracts_pop.svg format=svg svg-data=TOTAL
 ```
 
 
@@ -91,21 +105,6 @@ mapshaper -i blocks_simplified/PA_blocks20_simplified.json  \
 
 To change the color of water areas: 
 `-each 'color="#FFF"' where='ALAND == "0"' \`
-
-
-## Tract density map
-```
-  -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/tracts/tracts.json' name=tracts \
-  -proj EPSG:3652 \
-  -each 'density = TOTAL / (ALAND20/2589988)' target=tracts \
-  -each 'sqrtdensity = Math.sqrt(density)' \
-  -classify field=sqrtdensity save-as=fill nice colors=OrRd classes=9 null-value="#fff" \
-  -each 'type="tracts"' \
-```
-
-```
-  -o target=us-cart,tracts,counties blocks_simplified/PA_tracts_pop.svg format=svg svg-data=TOTAL
-```
 
 
 
