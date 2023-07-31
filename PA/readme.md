@@ -93,35 +93,19 @@ To change the color of water areas:
 `-each 'color="#FFF"' where='ALAND == "0"' \`
 
 
-
+## Tract density map
 ```
-mapshaper -i blocks_simplified/PA_tracts20_simplified.json name=blocks \
+mapshaper -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/tracts/tracts.json' name=tracts \
   -proj EPSG:3652 \
-  -each 'density = TOTAL / (ALAND/2589988)' target=blocks \
+  -each 'density = TOTAL / (ALAND20/2589988)' target=tracts \
   -each 'sqrtdensity = Math.sqrt(density)' \
   -classify field=sqrtdensity save-as=fill nice colors=OrRd classes=9 null-value="#fff" \
-  -colorizer name=getColor colors='#fbf3e8,#fee8c8,#fdd49e,#fdbb84,#fc8d59,#ef6548,#d7301f,#b30000,#7f0000' breaks=1,10,50,200,500,1000,2000,4000 \
-  -each 'color = getColor(density)' \
-  -each 'type="blocks"' \
-  -style fill=color stroke=none stroke-width=0 \
-  -i blocks_simplified/PA_Counties.json \
-  -each 'type="counties"' \
-  -proj EPSG:3652 \
-  -style fill=none stroke=#000 stroke-width=0.5 opacity=0.25 \
-  -i blocks_simplified/PA_2022_Senate.geojson \
-  -rename-layers blocks,water,counties,senate \
-  -each 'type="senate"' \
-  -proj EPSG:3652 \
-  -style fill=none stroke=#000 stroke-width=1 \
-  -i '/Users/cervas/My Drive/GitHub/Data Files/GIS/Cartographic/2021/cb_2021_us_all_500k/cb_2021_us_state_500k/cb_2021_us_state_500k.shp' \
-  -filter 'GEOID=="42"' \
-  -proj EPSG:3652 \
-  -style fill=none stroke=#000 stroke-width=1 \
-  -o blocks_simplified/PA_tracts_pop.svg format=svg svg-data=TOTAL combine-layers
-
+  -each 'type="tracts"' \
 ```
 
-
+```
+  -o target=us-cart,counties,tracts blocks_simplified/PA_tracts_pop.svg format=svg svg-data=TOTAL
+```
 
 
 
