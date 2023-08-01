@@ -27,8 +27,7 @@ Set Working Directory
 Load USA_MajorCities.geojson with command `name=cities`
 ```
 -i '/Users/cervas/My Drive/GitHub/Data Files/GIS/USA_Major_Cities.geojson' name=cities \
--proj target='cities' EPSG:3652 \
--filter target=cities ST=='PA' \
+-proj target=cities EPSG:3652 \
 -filter target=cities '["Pittsburgh","Erie", "State College","Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
 -filter target=cities '["Pittsburgh","Erie", "State College","Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' + name=cities-labels \
 -filter-fields target=cities NAME \
@@ -39,8 +38,8 @@ Load USA_MajorCities.geojson with command `name=cities`
 -style target=cities-labels 'dy=15' where='["Allentown", "Erie","State College"].indexOf(NAME) > -1' \
 -each target=cities-labels 'dx=-5' where='["Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
 -style target=cities r=4 \
--each target=cities type='point' \
--each target=cities-labels type='text-label' \
+-each target=cities 'type="point"' \
+-each target=cities-labels 'type="text-label"' \
 -merge-layers target=cities-labels,cities force \
 ```
 
