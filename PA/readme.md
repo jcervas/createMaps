@@ -70,6 +70,7 @@ Output map
   -each 'type="tracts"' \
   -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/blocks_simplified/water_simplified.json' name=water \
     -proj EPSG:3652 \
+  -clip us-cart
   -style fill=#000 stroke=none \
 ```
 
