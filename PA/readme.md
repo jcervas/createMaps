@@ -85,7 +85,6 @@ Load USA_MajorCities.geojson with command `name=cities`
   -each 'sqrtdensity = Math.sqrt(density)' \
   -classify field=sqrtdensity save-as=fill nice colors=OrRd classes=9 null-value="#fff" \
   -each 'type="tracts"' \
-  -style fill=#000 stroke=none \
 ```
 
 # Output maps
