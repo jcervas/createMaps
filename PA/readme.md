@@ -68,10 +68,12 @@ Output map
   -each 'sqrtdensity = Math.sqrt(density)' \
   -classify field=sqrtdensity save-as=fill nice colors=OrRd classes=9 null-value="#fff" \
   -each 'type="tracts"' \
+  -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/blocks_simplified/water_simplified.json' name=water \
+  -style fill=#000, stroke=none \
 ```
 
 ```
-  -o target=tracts,counties,us-cart blocks_simplified/PA_tracts_pop.svg format=svg svg-data=TOTAL
+  -o target=tracts,water,counties,us-cart blocks_simplified/PA_tracts_pop.svg format=svg svg-data=TOTAL
 ```
 
 
@@ -81,8 +83,10 @@ To find the density in square miles, divide area by `2589988`.
 
 ## Blocks
 ```
-mapshaper -i blocks/*.shp -simplify 0.1% -clean -o blocks_simplified/PA_blocks20_simplified.json format=geojson
+mapshaper -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/blocks/pa_blocks20.shp' -simplify 0.1% -clean -o '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/blocks_simplified' format=geojson
+```
 
+```
 mapshaper blocks_simplified/PA_blocks20_simplified.json \
   -dissolve COUNTY copy-fields='STATE,COUNTY' calc='TOTAL = sum(TOTAL),ALAND = sum(ALAND)' + name=PA_Counties \
   -o blocks_simplified/PA_Counties.json format=geojson
@@ -96,11 +100,12 @@ mapshaper -i ./tracts/pa_tracts20.shp -simplify 1% -clean -o blocks_simplified/P
 
 ## Water
 ```
-mapshaper -i blocks_simplified/PA_blocks20_simplified.json  \
+mapshaper -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/blocks_simplified/pa_blocks20.json' name=water \
   -filter 'ALAND<1' \
   -simplify 0.1% \
   -clean \
-  -o blocks_simplified/water_simplified.json format=geojson force
+  -dissolve
+  -o '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/blocks_simplified/water_simplified.json' format=geojson force
 ```
 
 To change the color of water areas: 
