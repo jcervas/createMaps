@@ -92,7 +92,7 @@ Load USA_MajorCities.geojson with command `name=cities`
 
 Output "Counties" map:
 ```
-  -o target=us-cart,counties,counties-labels,cities blocks_simplified/PA_Counties.svg
+  -o target=us-cart,counties,counties-labels,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_counties.svg'
 ```
 
 Output "House" map:
@@ -109,7 +109,7 @@ Output "Senate" map:
 
 Output "tracts" map:
 ```
-  -o target=tracts,water,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/blocks_simplified/PA_tracts_pop.svg' format=svg svg-data=TOTAL
+  -o target=tracts,water,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_tracts_pop.svg' format=svg svg-data=TOTAL
 ```
 
 
