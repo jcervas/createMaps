@@ -109,7 +109,7 @@ Output "Senate" map:
 
 Output "tracts" map:
 ```
-  -o target=tracts,water,counties,cities,us-cart blocks_simplified/PA_tracts_pop.svg format=svg svg-data=TOTAL
+  -o target=tracts,water,counties,cities,us-cart '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/blocks_simplified/PA_tracts_pop.svg' format=svg svg-data=TOTAL
 ```
 
 
