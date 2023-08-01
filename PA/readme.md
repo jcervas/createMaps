@@ -32,13 +32,13 @@ Load USA_MajorCities.geojson with command `name=cities`
 -filter target=cities '["Pittsburgh","Erie", "State College","Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
 -filter target=cities '["Pittsburgh","Erie", "State College","Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' + name=cities-labels \
 -filter-fields target=cities NAME \
--style target=cities-labels label-text=NAME text-anchor=start font-size=13px font-weight=800 line-height=16px font-family=helvetica class="g-text-shadow p" stroke-width=1 stroke=#fff \
+-style target=cities-labels label-text=NAME text-anchor=start font-size=13px font-weight=800 line-height=16px font-family=helvetica class="g-text-shadow p" stroke-width=.025 stroke=#fff \
 -style target=cities-labels 'text-anchor=middle' where='["Pittsburgh","Erie", "State College"].indexOf(NAME) > -1' \
 -style target=cities-labels 'text-anchor=end' where='["Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
 -style target=cities-labels 'dy=-10' where='["Pittsburgh", "State College"].indexOf(NAME) > -1' \
 -style target=cities-labels 'dy=15' where='["Allentown", "Erie","State College"].indexOf(NAME) > -1' \
 -each target=cities-labels 'dx=-5' where='["Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
--style target=cities r=4 \
+-style target=cities r=4 stroke=#fff stroke-width=0.25 \
 -each target=cities 'type="point"' \
 -each target=cities-labels 'type="text-label"' \
 -merge-layers target=cities-labels,cities force \
