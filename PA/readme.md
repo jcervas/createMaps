@@ -42,7 +42,6 @@ Load USA_MajorCities.geojson with command `name=cities`
 -each target=cities type='point' \
 -each target=cities-labels type='text-label' \
 -merge-layers target=* force \
--o target=* format=geojson
 ```
 
 # Specialized maps
