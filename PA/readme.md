@@ -63,12 +63,13 @@ Output map
 ## Tract density map
 ```
   -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/tracts/tracts.json' name=tracts \
-  -proj EPSG:3652 \
+    -proj EPSG:3652 \
   -each 'density = TOTAL / (ALAND20/2589988)' target=tracts \
   -each 'sqrtdensity = Math.sqrt(density)' \
   -classify field=sqrtdensity save-as=fill nice colors=OrRd classes=9 null-value="#fff" \
   -each 'type="tracts"' \
   -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/blocks_simplified/water_simplified.json' name=water \
+    -proj EPSG:3652 \
   -style fill=#000 stroke=none \
 ```
 
