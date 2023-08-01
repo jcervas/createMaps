@@ -31,7 +31,7 @@ Load USA_MajorCities.geojson with command `name=cities`
 -filter target=cities ST=='PA' \
 -filter target=cities '["Pittsburgh","Erie", "State College","Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
 -filter target=cities '["Pittsburgh","Erie", "State College","Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' + name=cities-labels \
--filter-fields target=* NAME \
+-filter-fields target=cities NAME \
 -style target=cities-labels label-text=NAME text-anchor=start font-size=13px font-weight=800 line-height=16px font-family=helvetica class="g-text-shadow p" \
 -style target=cities-labels 'text-anchor=middle' where='["Pittsburgh","Erie", "State College"].indexOf(NAME) > -1' \
 -style target=cities-labels 'text-anchor=end' where='["Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
@@ -72,13 +72,13 @@ Load USA_MajorCities.geojson with command `name=cities`
 ## Tract density map
 ```
   -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/tracts/tracts.json' name=tracts \
-    -proj EPSG:3652 \
+  -proj EPSG:3652 \
   -each 'density = TOTAL / (ALAND20/2589988)' target=tracts \
   -each 'sqrtdensity = Math.sqrt(density)' \
   -classify field=sqrtdensity save-as=fill nice colors=OrRd classes=9 null-value="#fff" \
   -each 'type="tracts"' \
   -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/blocks_simplified/water_simplified.json' name=water \
-    -proj EPSG:3652 \
+  -proj EPSG:3652 \
   -clip us-cart \
   -style fill=#000 stroke=none \
 ```
@@ -104,7 +104,7 @@ Output "Senate" map:
 
 Output "tracts" map:
 ```
-  -o target=tracts,water,counties,us-cart blocks_simplified/PA_tracts_pop.svg format=svg svg-data=TOTAL
+  -o target=tracts,water,counties,cities,us-cart blocks_simplified/PA_tracts_pop.svg format=svg svg-data=TOTAL
 ```
 
 
