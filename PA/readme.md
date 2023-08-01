@@ -44,6 +44,15 @@ Load USA_MajorCities.geojson with command `name=cities`
 -merge-layers target=cities-labels,cities force \
 ```
 
+## Water
+```
+  -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/blocks_simplified/water_simplified.json' name=water \
+  -style target=water fill=#000 stroke=none \
+  -proj EPSG:3652 \
+  -each 'type="water"' \
+  -clip us-cart \
+```
+
 # Specialized maps
 
 ## PA House 2013 Population Deviations
@@ -77,9 +86,6 @@ Load USA_MajorCities.geojson with command `name=cities`
   -each 'sqrtdensity = Math.sqrt(density)' \
   -classify field=sqrtdensity save-as=fill nice colors=OrRd classes=9 null-value="#fff" \
   -each 'type="tracts"' \
-  -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/blocks_simplified/water_simplified.json' name=water \
-  -proj EPSG:3652 \
-  -clip us-cart \
   -style fill=#000 stroke=none \
 ```
 
