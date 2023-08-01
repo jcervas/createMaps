@@ -32,6 +32,7 @@ Load USA_MajorCities.geojson with command `name=cities`
 -filter target=cities '["Pittsburgh","Erie", "State College","Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
 -filter target=cities '["Pittsburgh","Erie", "State College","Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' + name=cities-labels \
 -filter-fields target=cities NAME \
+-each `FID=NAME` \
 -style target=cities-labels label-text=NAME text-anchor=start font-size=13px font-weight=800 line-height=16px font-family=helvetica class="g-text-shadow p" stroke-width=0.25 stroke=#fff \
 -style target=cities-labels 'text-anchor=middle' where='["Pittsburgh","Erie", "State College"].indexOf(NAME) > -1' \
 -style target=cities-labels 'text-anchor=end' where='["Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
@@ -97,19 +98,19 @@ Output "Counties" map:
 
 Output "House" map:
 ```
-  -o target=house,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_house_2020.svg' format=svg svg-data='NAME,PopDevPct'
+  -o target=house,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_house_2020.svg'
 ```
 
 
 Output "Senate" map:
 ```
-  -o target=senate,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_senate_2020.svg' format=svg svg-data='NAME,PopDevPct'
+  -o target=senate,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_senate_2020.svg'
 ```
 
 
 Output "tracts" map:
 ```
-  -o target=tracts,water,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_tracts_pop.svg' format=svg svg-data=TOTAL
+  -o target=tracts,water,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_tracts_pop.svg'
 ```
 
 
