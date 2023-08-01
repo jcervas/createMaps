@@ -58,24 +58,24 @@ Load USA_MajorCities.geojson with command `name=cities`
 ### PA House 2013 Population Deviations
 ```
   -i '/Users/cervas/My Drive/Projects/Redistricting/2022/PA/data/Plans/PA-2020-State-House.geojson' name=house \
-  -proj EPSG:3652 \
-  -clip us-cart \
-  -classify field=PopDevPct save-as=fill breaks=-0.05,0,0.05 colors=PuOr null-value="#fff" key-name="legend_popdev" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 \
-  -style opacity=1 stroke=fill stroke-width=0.0 stroke-opacity=0 \
-  -dissolve field=fill \
-  -each 'type="house"' \
+  -proj target=house EPSG:3652 \
+  -clip target=house us-cart \
+  -classify target=house field=PopDevPct save-as=fill breaks=-0.05,0,0.05 colors=PuOr null-value="#fff" key-name="legend_popdev" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 \
+  -style target=house opacity=1 stroke=fill stroke-width=0.0 stroke-opacity=0 \
+  -dissolve target=house field=fill \
+  -each target=house 'type="house"' \
 ```
 
 
 ### PA Senate 2013 Population Deviations
 ```
   -i '/Users/cervas/My Drive/Projects/Redistricting/2022/PA/data/Plans/PA-2020-State-Senate.geojson' name=senate \
-  -proj EPSG:3652 \
-  -clip us-cart \
-  -classify field=PopDevPct save-as=fill breaks=-0.05,0,0.05 colors=PuOr null-value="#fff" \
-  -style opacity=1 stroke=fill stroke-width=0.0 stroke-opacity=0 \
-  -dissolve field=fill \
-  -each 'type="senate"' \
+  -proj target=senate EPSG:3652 \
+  -clip target=senate us-cart \
+  -classify target=senate field=PopDevPct save-as=fill breaks=-0.05,0,0.05 colors=PuOr null-value="#fff" \
+  -style target=senate opacity=1 stroke=fill stroke-width=0.0 stroke-opacity=0 \
+  -dissolve target=senate field=fill \
+  -each target=senate 'type="senate"' \
 ```
 
 ### Tract density map
@@ -92,7 +92,7 @@ Load USA_MajorCities.geojson with command `name=cities`
 
 Output "Counties" map:
 ```
-  -o target=us-cart,counties,counties-labels,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_counties.svg'
+  -o target=us-cart,counties,counties-labels '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_counties.svg'
 ```
 
 Output "House" map:
