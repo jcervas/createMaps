@@ -9,10 +9,6 @@ Set Working Directory
    mapshaper -i '/Users/cervas/My Drive/GitHub/Data Files/GIS/Cartographic/2021/cb_2021_us_all_500k/cb_2021_us_state_500k/cb_2021_us_state_500k.shp' name=us-cart \
   -filter target=us-cart STATEFP==42 \
   -style target=us-cart fill=none stroke=#000 opacity=1 stroke-opacity=1 \
-```
-
-### Counties
-```
   -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/counties/pa_counties20.shp' name=counties \
   -proj target='counties,us-cart' EPSG:3652 \
   -clip target=counties us-cart \
@@ -21,32 +17,21 @@ Set Working Directory
   -style target=counties-labels label-text=NAME_x text-anchor=middle font-size=10px font-weight=800 line-height=16px font-family=helvetica class="g-text-shadow p" \
   -innerlines target=counties \
   -style target=counties fill=none stroke=#000 stroke-width=1 stroke-dasharray="0 3 0" \
-```
-
-### Add Major City Labels
-Load USA_MajorCities.geojson with command `name=cities`
-```
--i '/Users/cervas/My Drive/GitHub/Data Files/GIS/USA_Major_Cities.geojson' name=cities \
--proj target=cities EPSG:3652 \
--filter target=cities '["PA"].indexOf(ST) > -1' \
--filter target=cities '["Pittsburgh","Erie", "State College","Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
--filter target=cities '["Pittsburgh","Erie", "State College","Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' + name=cities-labels \
--filter-fields target=cities NAME \
--each `FID=NAME` \
--style target=cities-labels label-text=NAME text-anchor=start font-size=13px font-weight=800 line-height=16px font-family=helvetica class="g-text-shadow p" stroke-width=0.25 stroke=#fff \
--style target=cities-labels 'text-anchor=middle' where='["Pittsburgh","Erie", "State College"].indexOf(NAME) > -1' \
--style target=cities-labels 'text-anchor=end' where='["Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
--style target=cities-labels 'dy=-10' where='["Pittsburgh", "State College"].indexOf(NAME) > -1' \
--style target=cities-labels 'dy=15' where='["Allentown", "Erie","State College"].indexOf(NAME) > -1' \
--each target=cities-labels 'dx=-5' where='["Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
--style target=cities r=4 stroke=#fff stroke-width=0.25 \
--each target=cities 'type="point"' \
--each target=cities-labels 'type="text-label"' \
--merge-layers target=cities-labels,cities force \
-```
-
-### Water
-```
+  -i '/Users/cervas/My Drive/GitHub/Data Files/GIS/USA_Major_Cities.geojson' name=cities \
+  -proj target=cities EPSG:3652 \
+  -filter target=cities '["PA"].indexOf(ST) > -1' \
+  -filter target=cities '["Pittsburgh","Erie", "State College","Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
+  -filter target=cities '["Pittsburgh","Erie", "State College","Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' + name=cities-labels \
+  -style target=cities-labels label-text=NAME text-anchor=start font-size=13px font-weight=800 line-height=16px font-family=helvetica class="g-text-shadow p" stroke-width=0.25 stroke=#fff \
+  -style target=cities-labels 'text-anchor=middle' where='["Pittsburgh","Erie", "State College"].indexOf(NAME) > -1' \
+  -style target=cities-labels 'text-anchor=end' where='["Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
+  -style target=cities-labels 'dy=-10' where='["Pittsburgh", "State College"].indexOf(NAME) > -1' \
+  -style target=cities-labels 'dy=15' where='["Allentown", "Erie","State College"].indexOf(NAME) > -1' \
+  -each target=cities-labels 'dx=-5' where='["Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
+  -style target=cities r=4 stroke=#fff stroke-width=0.25 \
+  -each target=cities 'type="point"' \
+  -each target=cities-labels 'type="text-label"' \
+  -merge-layers target=cities-labels,cities force \
   -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/blocks_simplified/water_simplified.json' name=water \
   -style target=water fill=#000 stroke=none \
   -proj EPSG:3652 \
@@ -61,7 +46,7 @@ Load USA_MajorCities.geojson with command `name=cities`
   -i '/Users/cervas/My Drive/Projects/Redistricting/2022/PA/data/Plans/PA-2020-State-House.geojson' name=house \
   -proj target=house EPSG:3652 \
   -clip target=house us-cart \
-  -classify target=house field=PopDevPct save-as=fill breaks=-0.05,0,0.05 colors=PuOr null-value="#fff" key-name="legend_popdev" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 \
+  -classify target=house field=PopDevPct save-as=fill breaks=-0.05,0,0.05 colors=PuOr null-value="#fff" key-name="legend_popdev" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" \
   -style target=house opacity=1 stroke=fill stroke-width=0.0 stroke-opacity=0 \
   -dissolve target=house field=fill \
   -each target=house 'type="house"' \
@@ -84,10 +69,38 @@ Load USA_MajorCities.geojson with command `name=cities`
   -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/tracts/tracts.json' name=tracts \
   -proj EPSG:3652 \
   -each 'density = TOTAL / (ALAND20/2589988)' target=tracts \
-  -each 'sqrtdensity = Math.sqrt(density)' \
-  -classify field=sqrtdensity save-as=fill nice colors=OrRd classes=9 null-value="#fff" \
+  -classify field=density save-as=fill nice colors=OrRd classes=5 null-value="#fff" key-name="legend_popdensity" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 \
   -each 'type="tracts"' \
 ```
+
+
+## Political Maps
+
+### State House
+```
+  -i '/Users/cervas/My Drive/Projects/Redistricting/2022/PA/data/Plans/PA-2022-State-House.geojson' name=house2021 \
+  -i '/Users/cervas/My Drive/GitHub/Data/Elections/State Legislature/PA/data/STH_house_dist.csv' name=house2022 string-fields=district \
+  -proj target=house2021 EPSG:3652 \
+  -clip target=house2021 us-cart \
+  -join target=house2021 source=house2022 keys=NAME,district \
+  -classify target=house2021 field=DEM save-as=fill breaks=0.5 colors=#C93135,#1375B7 null-value=#eee \
+  -style target=house2021 opacity=1 stroke=#000 stroke-width=0.5 stroke-opacity=1 \
+```
+
+### State Senate
+```
+  -i '/Users/cervas/My Drive/Projects/Redistricting/2022/PA/data/Plans/PA-2022-State-Senate.geojson' name=senate2021 \
+  -i '/Users/cervas/My Drive/GitHub/Data/Elections/State Legislature/PA/data/STS_sen_dist.csv' name=senate2022 string-fields=district \
+  -proj target=senate2021 EPSG:3652 \
+  -clip target=senate2021 us-cart \
+  -join target=senate2021 source=senate2022 keys=NAME,district \
+  -classify target=senate2021 field=DEM save-as=fill breaks=0.5 colors=#C93135,#1375B7 null-value=#eee \
+  -style target=senate2021 opacity=1 stroke=#000 stroke-width=0.5 stroke-opacity=1 \
+```
+
+  -style fill-pattern='hatches 45deg 2px red 2px grey'
+
+
 
 # Output maps
 
@@ -96,23 +109,57 @@ Output "Counties" map:
   -o target=us-cart,counties,counties-labels '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_counties.svg'
 ```
 
-Output "House" map:
+Output "House" Deviation map:
 ```
   -o target=house,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_house_2020.svg'
 ```
 
 
-Output "Senate" map:
+Output "Senate" Deviation map:
 ```
   -o target=senate,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_senate_2020.svg'
 ```
 
 
-Output "tracts" map:
+Output "tracts" density map:
 ```
   -o target=tracts,water,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_tracts_pop.svg'
 ```
 
+Output "House" Election map:
+```
+  -o target=house2021,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_house_2022_election.svg'
+```
+
+
+Output "House" Election map:
+```
+  -o target=house2021,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_house_2022_election.svg'
+```
+
+Output "Senate" Election map:
+```
+  -o target=senate2021,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_senate_2022_election.svg'
+```
+
+House District Map:
+```
+ -classify target=house2021 field=id save-as=fill colors=#90EE90,#FFE4E1,#4682B4,#00c3ff,#ffb800,#005eff,#7B68EE,#38ffbf,#dcff1b,#FFFFE0,#ff2700,#62ff95,#ff8400,#11fae6,#ffe400,#001bff,#7FFF00,#0093ff,#F4A460,#7FFF00,#AFEEEE,#9370DB,#4682B4,#FFFFE0,#CD853F,#FF4500 \
+ -style opacity=1 stroke=none \
+-o target=house2021,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_house_2021.svg'
+
+```
+
+Senate District Map:
+```
+ -classify target=senate2021 field=id save-as=fill colors=#90EE90,#FFE4E1,#4682B4,#00c3ff,#ffb800,#005eff,#7B68EE,#38ffbf,#dcff1b,#FFFFE0,#ff2700,#62ff95,#ff8400,#11fae6,#ffe400,#001bff,#7FFF00,#0093ff,#F4A460,#7FFF00,#AFEEEE,#9370DB,#4682B4,#FFFFE0,#CD853F,#FF4500 \
+ -style opacity=1 stroke=none \
+-o target=senate2021,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_senate_2021.svg'
+
+```
+
+District colors:
+#90EE90,#FFE4E1,#4682B4,#00c3ff,#ffb800,#005eff,#7B68EE,#38ffbf,#dcff1b,#FFFFE0,#ff2700,#62ff95,#ff8400,#11fae6,#ffe400,#001bff,#7FFF00,#0093ff,#F4A460,#7FFF00,#AFEEEE,#9370DB,#4682B4,#FFFFE0,#CD853F,#FF4500
 
 # Create GIS files
 
@@ -162,11 +209,11 @@ mapshaper -i 'Census/PA2020.pl/GIS/tracts/tracts.json' name=tracts \
   -i Census/PA2020.pl/GIS/blocks_simplified/PA_Counties.json name=counties \
   -each 'density = Math.sqrt(TOTAL / (ALAND20/2589988))' target=tracts \
   -info target=tracts \
-  -classify target="tracts" field=density save-as=fill key-name="legend_Density" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 breaks=10,15,25,40,50,60,70,80 colors='#ffffe5','#fff7bc','#fee391','#fec44f','#fe9929','#ec7014','#cc4c02','#993404','#662506' null-value="#fbf3e8" \
-  -classify target="Blacks" field=black_per save-as=fill key-name="legend_Black" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 breaks=0.1,0.2,0.3,0.4,0.5 colors='#eff3ff','#c6dbef','#9ecae1','#6baed6','#3182bd','#08519c' null-value="#eff3ff" \
-  -classify target="Hispanics" field=his_per save-as=fill key-name="legend_Hispanic" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 breaks=0.1,0.2,0.3,0.4,0.5 colors='#edf8e9','#c7e9c0','#a1d99b','#74c476','#31a354','#006d2c' null-value="#ecf7e9" \
-  -classify target="Asians" field=asian_per save-as=fill key-name="legend_Asian" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 breaks=0.1,0.2,0.3,0.4,0.5 colors='#feedde','#fdd0a2','#fdae6b','#fd8d3c','#e6550d','#a63603' null-value="#feedde" \
-  -classify target="Minorities" field=minority_p save-as=fill key-name="legend_Minorities" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 breaks=0.1,0.2,0.3,0.4,0.5 colors='#f7f7f7','#d9d9d9','#bdbdbd','#969696','#636363','#252525' null-value="#f7f7f7" \
+  -classify target="tracts" field=density save-as=fill key-name="legend_Density" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" breaks=10,15,25,40,50,60,70,80 colors='#ffffe5','#fff7bc','#fee391','#fec44f','#fe9929','#ec7014','#cc4c02','#993404','#662506' null-value="#fbf3e8" \
+  -classify target="Blacks" field=black_per save-as=fill key-name="legend_Black" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" breaks=0.1,0.2,0.3,0.4,0.5 colors='#eff3ff','#c6dbef','#9ecae1','#6baed6','#3182bd','#08519c' null-value="#eff3ff" \
+  -classify target="Hispanics" field=his_per save-as=fill key-name="legend_Hispanic" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" breaks=0.1,0.2,0.3,0.4,0.5 colors='#edf8e9','#c7e9c0','#a1d99b','#74c476','#31a354','#006d2c' null-value="#ecf7e9" \
+  -classify target="Asians" field=asian_per save-as=fill key-name="legend_Asian" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" breaks=0.1,0.2,0.3,0.4,0.5 colors='#feedde','#fdd0a2','#fdae6b','#fd8d3c','#e6550d','#a63603' null-value="#feedde" \
+  -classify target="Minorities" field=minority_p save-as=fill key-name="legend_Minorities" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" breaks=0.1,0.2,0.3,0.4,0.5 colors='#f7f7f7','#d9d9d9','#bdbdbd','#969696','#636363','#252525' null-value="#f7f7f7" \
   -each target="counties" 'type="counties"' \
   -proj EPSG:3652 target="Blacks,Asians,Hispanics,Minorities,tracts,PA,counties" \
   -style target="counties" fill=none stroke=#000 stroke-width=0.0 stroke-opacity=0.25 \
@@ -199,7 +246,7 @@ mapshaper -i '/Users/cervas/My Drive/Projects/Redistricting/2022/PA/GIS/precinct
   -style target="counties" stroke=#fff stroke-width=1.0 stroke-opacity=0.5 \
   -each 'margin = Y20PRESD-Y20PRESR' target=precincts \
   -each 'density = (Y20PRESD+Y20PRESR)/(ALAND20/2589988)' target=precincts \
-  -classify target="precincts" field=margin save-as=fill key-name="legend_Political" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 breaks=-1000,-750,-500,-250,-1,1,250,500,750,1000 colors='#ca0020','#ffffff','#0571b0' null-value="#fff" \
+  -classify target="precincts" field=margin save-as=fill key-name="legend_Political" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" breaks=-1000,-750,-500,-250,-1,1,250,500,750,1000 colors='#ca0020','#ffffff','#0571b0' null-value="#fff" \
   -style target="precincts" opacity=density/330 \
   -dots target=precincts fields='Y20PRESD,Y20PRESR' per-dot=10 colors="#445e96,#ba3a33" r=0.2 evenness=0 + name=dot_DEM \
   -style target="PA" fill=none stroke=#000 stroke-width=1 \
