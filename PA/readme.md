@@ -85,6 +85,10 @@ Set Working Directory
   -join target=house2021 source=house2022 keys=NAME,district \
   -classify target=house2021 field=DEM save-as=fill breaks=0.5 colors=#C93135,#1375B7 null-value=#eee \
   -style target=house2021 opacity=1 stroke=#000 stroke-width=0.5 stroke-opacity=1 \
+  -each target=house2021 'cx=this.innerX, cy=this.innerY' \
+  -points target=house2021 x=cx y=cy + name=house2021-labels \
+  -style target=house2021-labels label-text=id text-anchor=middle font-size=8px font-weight=800 line-height=8px font-family=helvetica class="g-text-shadow p" \
+  -style target=house2021-labels fill=#000 stroke=none \
 ```
 
 ### State Senate
@@ -96,6 +100,10 @@ Set Working Directory
   -join target=senate2021 source=senate2022 keys=NAME,district \
   -classify target=senate2021 field=DEM save-as=fill breaks=0.5 colors=#C93135,#1375B7 null-value=#eee \
   -style target=senate2021 opacity=1 stroke=#000 stroke-width=0.5 stroke-opacity=1 \
+  -each target=senate2021 'cx=this.innerX, cy=this.innerY' \
+  -points target=senate2021 x=cx y=cy + name=senate2021-labels \
+  -style target=senate2021-labels label-text=id text-anchor=middle font-size=8px font-weight=800 line-height=8px font-family=helvetica class="g-text-shadow p" \
+  -style target=senate2021-labels fill=#000 stroke=none \
 ```
 
   -style fill-pattern='hatches 45deg 2px red 2px grey'
@@ -144,9 +152,9 @@ Output "Senate" Election map:
 
 House District Map:
 ```
- -classify target=house2021 field=id save-as=fill colors=#90EE90,#FFE4E1,#4682B4,#00c3ff,#ffb800,#005eff,#7B68EE,#38ffbf,#dcff1b,#FFFFE0,#ff2700,#62ff95,#ff8400,#11fae6,#ffe400,#001bff,#7FFF00,#0093ff,#F4A460,#7FFF00,#AFEEEE,#9370DB,#4682B4,#FFFFE0,#CD853F,#FF4500 \
+ -classify target=house2021 save-as=fill colors=Category20 non-adjacent \
  -style opacity=1 stroke=none \
--o target=house2021,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_house_2021.svg'
+-o target=house2021,counties,us-cart,house2021-labels,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_house_2021.svg'
 
 ```
 
@@ -154,7 +162,7 @@ Senate District Map:
 ```
  -classify target=senate2021 field=id save-as=fill colors=#90EE90,#FFE4E1,#4682B4,#00c3ff,#ffb800,#005eff,#7B68EE,#38ffbf,#dcff1b,#FFFFE0,#ff2700,#62ff95,#ff8400,#11fae6,#ffe400,#001bff,#7FFF00,#0093ff,#F4A460,#7FFF00,#AFEEEE,#9370DB,#4682B4,#FFFFE0,#CD853F,#FF4500 \
  -style opacity=1 stroke=none \
--o target=senate2021,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_senate_2021.svg'
+-o target=senate2021,counties,us-cart,senate2021-labels,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_senate_2021.svg'
 
 ```
 
