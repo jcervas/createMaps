@@ -55,7 +55,7 @@ Set Working Directory
   -simplify target=tracts,tracts-grey 0.01 \
 ```
 
-# Specialized maps
+## Specialized maps
 
 ### PA House 2013 Population Deviations
 ```
@@ -67,7 +67,6 @@ Set Working Directory
   -dissolve target=house field=fill \
   -each target=house 'type="house"' \
 ```
-
 
 ### PA Senate 2013 Population Deviations
 ```
@@ -94,11 +93,11 @@ Set Working Directory
   -points target=house2021 x=cx y=cy + name=house2021-labels \
   -style target=house2021-labels label-text=id text-anchor=middle font-size=8px font-weight=800 line-height=8px font-family=helvetica class="g-text-shadow p" \
   -style target=house2021-labels fill=#000 stroke=none \
+  -simplify target=house2021 0.1 \
   -innerlines target=house2021 + name=house2021-lines \
   -dissolve target=house2021 field=fill \
   -style opacity=0.75 \
-  -simplify target=house2021 0.1 \
-  -clip target=house2021 us-cart \
+  -clip target=house2021,house2021-lines us-cart \
 ```
 
 ### State Senate
@@ -113,11 +112,11 @@ Set Working Directory
   -points target=senate2021 x=cx y=cy + name=senate2021-labels \
   -style target=senate2021-labels label-text=id text-anchor=middle font-size=8px font-weight=800 line-height=8px font-family=helvetica class="g-text-shadow p" \
   -style target=senate2021-labels fill=#000 stroke=none \
+  -simplify target=senate2021 0.1 \
   -innerlines target=senate2021 + name=senate2021-lines \
   -dissolve target=senate2021 field=fill \
   -style opacity=0.75 \
-  -simplify target=senate2021 0.1 \
-  -clip target=senate2021 us-cart \
+  -clip target=senate2021,senate2021-lines us-cart \
 ```
 
   -style fill-pattern='hatches 45deg 2px red 2px grey'
@@ -162,7 +161,7 @@ House District Map:
 ```
  -classify target=house2021 save-as=fill colors=Category20 non-adjacent \
  -style opacity=0.5 stroke=none \
--o target=tracts-grey,house2021,counties,us-cart,house2021-labels,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_house_2021.svg' \
+-o target=tracts-grey,house2021,house2021-lines,counties,us-cart,house2021-labels,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_house_2021.svg' \
 
 ```
 
@@ -170,7 +169,7 @@ Senate District Map:
 ```
  -classify target=senate2021 field=id save-as=fill colors=#90EE90,#FFE4E1,#4682B4,#00c3ff,#ffb800,#005eff,#7B68EE,#38ffbf,#dcff1b,#FFFFE0,#ff2700,#62ff95,#ff8400,#11fae6,#ffe400,#001bff,#7FFF00,#0093ff,#F4A460,#7FFF00,#AFEEEE,#9370DB,#4682B4,#FFFFE0,#CD853F,#FF4500 \
  -style opacity=0.5 stroke=none \
--o target=tracts-grey,senate2021,counties,us-cart,senate2021-labels,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_senate_2021.svg' \
+-o target=tracts-grey,senate2021,senate2021-lines,counties,us-cart,senate2021-labels,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_senate_2021.svg' \
 
 ```
 
