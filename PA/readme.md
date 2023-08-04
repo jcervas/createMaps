@@ -39,6 +39,20 @@ Set Working Directory
   -clip us-cart \
 ```
 
+
+### Tract density map
+```
+  -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/tracts/tracts.json' name=tracts \
+  -proj EPSG:3652 \
+  -clip target=tracts us-cart \
+  -each 'density = TOTAL / (ALAND20/2589988)' target=tracts \
+  -classify field=density save-as=fill nice colors=OrRd classes=5 null-value="#fff" key-name="legend_popdensity" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 \
+  -each 'type="tracts"' \
+  -filter target=tracts STATEFP20==42 + name=tracts-grey \
+  -classify field=density save-as=fill nice colors=greys classes=5 \
+  -dissolve colors \
+```
+
 # Specialized maps
 
 ### PA House 2013 Population Deviations
@@ -63,19 +77,6 @@ Set Working Directory
   -dissolve target=senate field=fill \
   -each target=senate 'type="senate"' \
 ```
-
-### Tract density map
-```
-  -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/tracts/tracts.json' name=tracts \
-  -proj EPSG:3652 \
--clip target=tracts us-cart \
-  -each 'density = TOTAL / (ALAND20/2589988)' target=tracts \
-  -classify field=density save-as=fill nice colors=OrRd classes=5 null-value="#fff" key-name="legend_popdensity" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 \
-  -each 'type="tracts"' \
--filter target=tracts STATEFP20==42 + name=tracts-grey \
--classify field=density save-as=fill nice colors=greys classes=5 \
-```
-
 
 ## Political Maps
 
