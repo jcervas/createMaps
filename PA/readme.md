@@ -8,6 +8,7 @@ Set Working Directory
 ```
    mapshaper -i '/Users/cervas/My Drive/GitHub/Data Files/GIS/Cartographic/2021/cb_2021_us_all_500k/cb_2021_us_state_500k/cb_2021_us_state_500k.shp' name=us-cart \
   -filter target=us-cart STATEFP==42 \
+  -simplify target=us-cart 0.1 \
   -style target=us-cart fill=none stroke=#000 opacity=1 stroke-opacity=1 \
   -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/counties/pa_counties20.shp' name=counties \
   -proj target='counties,us-cart' EPSG:3652 \
