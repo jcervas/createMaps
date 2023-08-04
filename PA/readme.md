@@ -50,9 +50,9 @@ Set Working Directory
   -each target=tracts 'type="tracts"' \
   -clip target=tracts us-cart \
   -filter target=tracts STATEFP20==42 + name=tracts-grey \
-  -classify target=tracts field=density save-as=fill nice colors=greys classes=5 \
-  -dissolve target=tracts fields=fill \
-  -simplify target=tracts 0.01 \
+  -classify target=tracts-grey field=density save-as=fill nice colors=greys classes=5 \
+  -dissolve target=tracts,tracts-grey fields=fill \
+  -simplify target=tracts,tracts-grey 0.01 \
 ```
 
 # Specialized maps
