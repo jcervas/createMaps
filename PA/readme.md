@@ -13,7 +13,7 @@ Set Working Directory
   -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/counties/pa_counties20.shp' name=counties \
   -proj target='counties,us-cart' EPSG:3652 \
   -clip target=counties us-cart \
-  -simplify target=counties 0.1 \
+  -simplify target=counties 0.01 \
   -each target=counties 'cx=this.innerX, cy=this.innerY' \
   -points target=counties x=cx y=cy + name=counties-labels \
   -style target=counties-labels label-text=NAME_x text-anchor=middle font-size=10px font-weight=800 line-height=16px font-family=helvetica class="g-text-shadow p" \
@@ -52,6 +52,7 @@ Set Working Directory
   -filter target=tracts STATEFP20==42 + name=tracts-grey \
   -classify field=density save-as=fill nice colors=greys classes=5 \
   -dissolve fields=fill \
+  -simplify 0.01 \
 ```
 
 # Specialized maps
@@ -95,7 +96,7 @@ Set Working Directory
   -style target=house2021-labels label-text=id text-anchor=middle font-size=8px font-weight=800 line-height=8px font-family=helvetica class="g-text-shadow p" \
   -style target=house2021-labels fill=#000 stroke=none \
   -dissolve target=house2021 field=fill \
-  -simplify target=house2021 0.05 \
+  -simplify target=house2021 0.01 \
 ```
 
 ### State Senate
@@ -112,7 +113,7 @@ Set Working Directory
   -style target=senate2021-labels label-text=id text-anchor=middle font-size=8px font-weight=800 line-height=8px font-family=helvetica class="g-text-shadow p" \
   -style target=senate2021-labels fill=#000 stroke=none \
   -dissolve target=senate2021 field=fill \
-  -simplify target=senate2021 0.05 \
+  -simplify target=senate2021 0.01 \
 ```
 
   -style fill-pattern='hatches 45deg 2px red 2px grey'
