@@ -12,6 +12,7 @@ Set Working Directory
   -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/counties/pa_counties20.shp' name=counties \
   -proj target='counties,us-cart' EPSG:3652 \
   -clip target=counties us-cart \
+  -simplify target=counties 0.1 \
   -each target=counties 'cx=this.innerX, cy=this.innerY' \
   -points target=counties x=cx y=cy + name=counties-labels \
   -style target=counties-labels label-text=NAME_x text-anchor=middle font-size=10px font-weight=800 line-height=16px font-family=helvetica class="g-text-shadow p" \
