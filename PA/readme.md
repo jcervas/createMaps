@@ -128,41 +128,41 @@ Set Working Directory
 
 Output "Counties" map:
 ```
-  -o target=us-cart,counties,counties-labels '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_counties.svg'
+  -o target=us-cart,counties,counties-labels '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_counties.svg' \
 ```
 
 Output "House" Deviation map:
 ```
-  -o target=house,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_house_2020.svg'
+  -o target=house,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_house_2020.svg' \
 ```
 
 
 Output "Senate" Deviation map:
 ```
-  -o target=senate,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_senate_2020.svg'
+  -o target=senate,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_senate_2020.svg' \
 ```
 
 
 Output "tracts" density map:
 ```
-  -o target=tracts,water,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_tracts_pop.svg'
+  -o target=tracts,water,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_tracts_pop.svg' \
 ```
 
 Output "House" Election map:
 ```
-  -o target=tracts-grey,house2021,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_house_2022_election.svg'
+  -o target=tracts-grey,house2021,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_house_2022_election.svg' \
 ```
 
 Output "Senate" Election map:
 ```
-  -o target=tracts-grey,senate2021,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_senate_2022_election.svg'
+  -o target=tracts-grey,senate2021,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_senate_2022_election.svg' \
 ```
 
 House District Map:
 ```
  -classify target=house2021 save-as=fill colors=Category20 non-adjacent \
  -style opacity=0.5 stroke=none \
--o target=tracts-grey,house2021,counties,us-cart,house2021-labels,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_house_2021.svg'
+-o target=tracts-grey,house2021,counties,us-cart,house2021-labels,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_house_2021.svg' \
 
 ```
 
@@ -170,7 +170,7 @@ Senate District Map:
 ```
  -classify target=senate2021 field=id save-as=fill colors=#90EE90,#FFE4E1,#4682B4,#00c3ff,#ffb800,#005eff,#7B68EE,#38ffbf,#dcff1b,#FFFFE0,#ff2700,#62ff95,#ff8400,#11fae6,#ffe400,#001bff,#7FFF00,#0093ff,#F4A460,#7FFF00,#AFEEEE,#9370DB,#4682B4,#FFFFE0,#CD853F,#FF4500 \
  -style opacity=0.5 stroke=none \
--o target=tracts-grey,senate2021,counties,us-cart,senate2021-labels,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_senate_2021.svg'
+-o target=tracts-grey,senate2021,counties,us-cart,senate2021-labels,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_senate_2021.svg' \
 
 ```
 
