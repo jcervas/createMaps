@@ -95,8 +95,8 @@ Set Working Directory
   -style target=house2021-labels label-text=id text-anchor=middle font-size=8px font-weight=800 line-height=8px font-family=helvetica class="g-text-shadow p" \
   -style target=house2021-labels fill=#000 stroke=none \
   -dissolve target=house2021 field=fill \
-  -simplify target=house2021 0.02 \
   -clip target=house2021 us-cart \
+  -simplify target=house2021 0.02 \
 ```
 
 ### State Senate
@@ -112,8 +112,8 @@ Set Working Directory
   -style target=senate2021-labels label-text=id text-anchor=middle font-size=8px font-weight=800 line-height=8px font-family=helvetica class="g-text-shadow p" \
   -style target=senate2021-labels fill=#000 stroke=none \
   -dissolve target=senate2021 field=fill \
-  -simplify target=senate2021 0.02 \
   -clip target=senate2021 us-cart \
+  -simplify target=senate2021 0.02 \
 ```
 
   -style fill-pattern='hatches 45deg 2px red 2px grey'
