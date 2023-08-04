@@ -97,8 +97,8 @@ Set Working Directory
   -innerlines target=house2021 + name=house2021-lines \
   -dissolve target=house2021 field=fill \
   -style opacity=0.75 \
+  -simplify target=house2021 0.1 \
   -clip target=house2021 us-cart \
-  -simplify target=house2021 0.02 \
 ```
 
 ### State Senate
@@ -116,8 +116,8 @@ Set Working Directory
   -innerlines target=senate2021 + name=senate2021-lines \
   -dissolve target=senate2021 field=fill \
   -style opacity=0.75 \
+  -simplify target=senate2021 0.1 \
   -clip target=senate2021 us-cart \
-  -simplify target=senate2021 0.02 \
 ```
 
   -style fill-pattern='hatches 45deg 2px red 2px grey'
