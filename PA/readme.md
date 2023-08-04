@@ -50,7 +50,7 @@ Set Working Directory
   -each 'type="tracts"' \
   -filter target=tracts STATEFP20==42 + name=tracts-grey \
   -classify field=density save-as=fill nice colors=greys classes=5 \
-  -dissolve colors \
+  -dissolve fields=colors \
 ```
 
 # Specialized maps
