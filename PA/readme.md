@@ -39,7 +39,6 @@ Set Working Directory
   -clip us-cart \
 ```
 
-
 ### Tract density map
 ```
   -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/tracts/tracts.json' name=tracts \
@@ -50,7 +49,7 @@ Set Working Directory
   -each 'type="tracts"' \
   -filter target=tracts STATEFP20==42 + name=tracts-grey \
   -classify field=density save-as=fill nice colors=greys classes=5 \
-  -dissolve fields=colors \
+  -dissolve fields=fill \
 ```
 
 # Specialized maps
