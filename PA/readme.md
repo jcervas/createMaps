@@ -44,15 +44,15 @@ Set Working Directory
 ### Tract density map
 ```
   -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/tracts/tracts.json' name=tracts \
-  -proj EPSG:3652 \
-  -each 'density = TOTAL / (ALAND20/2589988)' target=tracts \
-  -classify field=density save-as=fill nice colors=OrRd classes=5 null-value="#fff" key-name="legend_popdensity" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 \
-  -each 'type="tracts"' \
-  -filter target=tracts STATEFP20==42 + name=tracts-grey \
-  -classify field=density save-as=fill nice colors=greys classes=5 \
-  -dissolve fields=fill \
-  -simplify 0.01 \
+  -proj target=tracts EPSG:3652 \
+  -each target=tracts 'density = TOTAL / (ALAND20/2589988)' target=tracts \
+  -classify target=tracts field=density save-as=fill nice colors=OrRd classes=5 null-value="#fff" key-name="legend_popdensity" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 \
+  -each target=tracts 'type="tracts"' \
   -clip target=tracts us-cart \
+  -filter target=tracts STATEFP20==42 + name=tracts-grey \
+  -classify target=tracts field=density save-as=fill nice colors=greys classes=5 \
+  -dissolve target=tracts fields=fill \
+  -simplify target=tracts 0.01 \
 ```
 
 # Specialized maps
