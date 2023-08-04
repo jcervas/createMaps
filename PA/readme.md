@@ -47,7 +47,7 @@ Set Working Directory
   -proj target=house EPSG:3652 \
   -clip target=house us-cart \
   -classify target=house field=PopDevPct save-as=fill breaks=-0.05,0,0.05 colors=PuOr null-value="#fff" key-name="legend_popdev" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" \
-  -style target=house opacity=1 stroke=fill stroke-width=0.0 stroke-opacity=0 \
+  -style target=house opacity=0.75 stroke=fill stroke-width=0.0 stroke-opacity=0 \
   -dissolve target=house field=fill \
   -each target=house 'type="house"' \
 ```
@@ -59,7 +59,7 @@ Set Working Directory
   -proj target=senate EPSG:3652 \
   -clip target=senate us-cart \
   -classify target=senate field=PopDevPct save-as=fill breaks=-0.05,0,0.05 colors=PuOr null-value="#fff" \
-  -style target=senate opacity=1 stroke=fill stroke-width=0.0 stroke-opacity=0 \
+  -style target=senate opacity=0.75 stroke=fill stroke-width=0.0 stroke-opacity=0 \
   -dissolve target=senate field=fill \
   -each target=senate 'type="senate"' \
 ```
@@ -87,7 +87,7 @@ Set Working Directory
   -clip target=house2021 us-cart \
   -join target=house2021 source=house2022 keys=NAME,district \
   -classify target=house2021 field=DEM save-as=fill breaks=0.5 colors=#C93135,#1375B7 null-value=#eee \
-  -style target=house2021 opacity=0.5 stroke=#000 stroke-width=0.5 stroke-opacity=1 \
+  -style target=house2021 opacity=0.75 stroke=#000 stroke-width=0.5 stroke-opacity=1 \
   -each target=house2021 'cx=this.innerX, cy=this.innerY' \
   -points target=house2021 x=cx y=cy + name=house2021-labels \
   -style target=house2021-labels label-text=id text-anchor=middle font-size=8px font-weight=800 line-height=8px font-family=helvetica class="g-text-shadow p" \
@@ -102,7 +102,7 @@ Set Working Directory
   -clip target=senate2021 us-cart \
   -join target=senate2021 source=senate2022 keys=NAME,district \
   -classify target=senate2021 field=DEM save-as=fill breaks=0.5 colors=#C93135,#1375B7 null-value=#eee \
-  -style target=senate2021 opacity=0.5 stroke=#000 stroke-width=0.5 stroke-opacity=1 \
+  -style target=senate2021 opacity=0.75 stroke=#000 stroke-width=0.5 stroke-opacity=1 \
   -each target=senate2021 'cx=this.innerX, cy=this.innerY' \
   -points target=senate2021 x=cx y=cy + name=senate2021-labels \
   -style target=senate2021-labels label-text=id text-anchor=middle font-size=8px font-weight=800 line-height=8px font-family=helvetica class="g-text-shadow p" \
