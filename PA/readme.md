@@ -72,7 +72,7 @@ Set Working Directory
   -classify field=density save-as=fill nice colors=OrRd classes=5 null-value="#fff" key-name="legend_popdensity" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 \
   -each 'type="tracts"' \
 -filter target=tracts STATEFP20==42 + name=tracts-grey \
--classify field=density save-as=fill nice colors=greys classes=5 \ 
+-classify field=density save-as=fill nice colors=greys classes=5 \
 ```
 
 
