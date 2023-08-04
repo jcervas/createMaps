@@ -45,7 +45,6 @@ Set Working Directory
 ```
   -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/tracts/tracts.json' name=tracts \
   -proj EPSG:3652 \
-  -clip target=tracts us-cart \
   -each 'density = TOTAL / (ALAND20/2589988)' target=tracts \
   -classify field=density save-as=fill nice colors=OrRd classes=5 null-value="#fff" key-name="legend_popdensity" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 \
   -each 'type="tracts"' \
@@ -53,6 +52,7 @@ Set Working Directory
   -classify field=density save-as=fill nice colors=greys classes=5 \
   -dissolve fields=fill \
   -simplify 0.01 \
+  -clip target=tracts us-cart \
 ```
 
 # Specialized maps
@@ -87,7 +87,6 @@ Set Working Directory
   -i '/Users/cervas/My Drive/Projects/Redistricting/2022/PA/data/Plans/PA-2022-State-House.geojson' name=house2021 \
   -i '/Users/cervas/My Drive/GitHub/Data/Elections/State Legislature/PA/data/STH_house_dist.csv' name=house2022 string-fields=district \
   -proj target=house2021 EPSG:3652 \
-  -clip target=house2021 us-cart \
   -join target=house2021 source=house2022 keys=NAME,district \
   -classify target=house2021 field=DEM save-as=fill breaks=0.5 colors=#C93135,#1375B7 null-value=#eee \
   -style target=house2021 opacity=0.75 stroke=#000 stroke-width=0.5 stroke-opacity=1 \
@@ -96,7 +95,8 @@ Set Working Directory
   -style target=house2021-labels label-text=id text-anchor=middle font-size=8px font-weight=800 line-height=8px font-family=helvetica class="g-text-shadow p" \
   -style target=house2021-labels fill=#000 stroke=none \
   -dissolve target=house2021 field=fill \
-  -simplify target=house2021 0.01 \
+  -simplify target=house2021 0.02 \
+  -clip target=house2021 us-cart \
 ```
 
 ### State Senate
@@ -104,7 +104,6 @@ Set Working Directory
   -i '/Users/cervas/My Drive/Projects/Redistricting/2022/PA/data/Plans/PA-2022-State-Senate.geojson' name=senate2021 \
   -i '/Users/cervas/My Drive/GitHub/Data/Elections/State Legislature/PA/data/STS_sen_dist.csv' name=senate2022 string-fields=district \
   -proj target=senate2021 EPSG:3652 \
-  -clip target=senate2021 us-cart \
   -join target=senate2021 source=senate2022 keys=NAME,district \
   -classify target=senate2021 field=DEM save-as=fill breaks=0.5 colors=#C93135,#1375B7 null-value=#eee \
   -style target=senate2021 opacity=0.75 stroke=#000 stroke-width=0.5 stroke-opacity=1 \
@@ -113,7 +112,8 @@ Set Working Directory
   -style target=senate2021-labels label-text=id text-anchor=middle font-size=8px font-weight=800 line-height=8px font-family=helvetica class="g-text-shadow p" \
   -style target=senate2021-labels fill=#000 stroke=none \
   -dissolve target=senate2021 field=fill \
-  -simplify target=senate2021 0.01 \
+  -simplify target=senate2021 0.02 \
+  -clip target=senate2021 us-cart \
 ```
 
   -style fill-pattern='hatches 45deg 2px red 2px grey'
