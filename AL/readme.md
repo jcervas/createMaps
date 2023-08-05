@@ -32,7 +32,7 @@ Add the Congressional District Shapefile with command `name=cd`
 
 Run this to create a layer for counties
 ```
--dissolve target=tracts COUNTYFP20 + name=county \
+-dissolve target=tracts COUNTYF + name=county \
 -style target=county fill=none stroke-opacity=1 stroke=#fff stroke-width=1 \
 ```
 
