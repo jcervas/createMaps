@@ -129,41 +129,41 @@ Set Working Directory
 
 Output "Counties" map:
 ```
-  -o target=us-cart,counties,counties-labels '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_counties.svg' \
+  -o target=us-cart,counties,counties-labels '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_counties.svg' \
 ```
 
 Output "House" Deviation map:
 ```
-  -o target=house,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_house_2020.svg' \
+  -o target=house,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_house_2020.svg' \
 ```
 
 
 Output "Senate" Deviation map:
 ```
-  -o target=senate,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_senate_2020.svg' \
+  -o target=senate,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_senate_2020.svg' \
 ```
 
 
 Output "tracts" density map:
 ```
-  -o target=tracts,water,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_tracts_pop.svg' \
+  -o target=tracts,water,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_tracts_pop.svg' \
 ```
 
 Output "House" Election map:
 ```
-  -o target=tracts-grey,house2021,house2021-lines,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_house_2022_election.svg' \
+  -o target=tracts-grey,house2021,house2021-lines,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_house_2022_election.svg' \
 ```
 
 Output "Senate" Election map:
 ```
-  -o target=tracts-grey,senate2021,senate2021-lines,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_senate_2022_election.svg' \
+  -o target=tracts-grey,senate2021,senate2021-lines,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_senate_2022_election.svg' \
 ```
 
 House District Map:
 ```
  -classify target=house2021 save-as=fill colors=Category20 non-adjacent \
  -style opacity=0.5 stroke=none \
- -o target=tracts-grey,house2021,house2021-lines,counties,us-cart,house2021-labels,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_house_2021.svg' \
+ -o target=tracts-grey,house2021,house2021-lines,counties,us-cart,house2021-labels,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_house_2021.svg' \
 
 ```
 
