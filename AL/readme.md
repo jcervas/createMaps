@@ -43,6 +43,7 @@ Project all layers
 us-cart layers to cartographic layer
 ```
 -clip target=blocks us-cart \
+-clip target=tracts us-cart \
 -clip target=county us-cart \
 -clip target=cd2021 us-cart \
 -clip target=livingston3 us-cart \
