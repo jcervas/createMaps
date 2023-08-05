@@ -57,8 +57,10 @@ us-cart layers to cartographic layer
 
 Output as .svg file
 ```
--o target=blocks,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021.svg' format=svg \
--o target=tracts,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3.svg' format=svg \
+-o target=blocks,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021_blocks.svg' format=svg \
+-o target=tracts,county,livingston3,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3_blocks.svg' format=svg \
+-o target=blocks,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021_tracts.svg' format=svg \
+-o target=tracts,county,livingston3,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3_tracts.svg' format=svg \
 ```
 
 ![](images/legend_Black.png)
