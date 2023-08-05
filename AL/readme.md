@@ -2,7 +2,7 @@ Import Block and Tract file with command `name=blocks`
 ```
 mapshaper \
 -i '/Users/cervas/My Drive/GitHub/Data Files/Census/AL2020.pl/GIS/blocks/blocks.json' name=blocks \
-- '/Users/cervas/My Drive/GitHub/Data Files/Census/AL2020.pl/GIS/tracts/tl_2020_01_tract20.shp' name=tracts \
+-i '/Users/cervas/My Drive/GitHub/Data Files/Census/AL2020.pl/GIS/tracts/tl_2020_01_tract20.shp' name=tracts \
 -simplify target=blocks 0.01 \
 -simplify target=tracts 0.01 \
 ```
