@@ -11,7 +11,7 @@ Run this to create a layer for counties
 ```
 -dissolve target=tracts COUNTYF + name=county \
 -innerlines \
--style target=counties fill=none stroke=#fff stroke-width=1 stroke-dasharray="0 3 0" \
+-style target=county fill=none stroke=#fff stroke-width=1 stroke-dasharray="0 3 0" \
 ```
 
 This creates the Black percentage in the blocks/tracts layer
