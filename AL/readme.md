@@ -45,6 +45,10 @@ Add the Congressional District Shapefile with command `name=cd`
 -i '/Users/cervas/My Drive/GitHub/createMaps/AL/plans/Livingston_Congressional_Plan_3.json' name=livingston3 \
 -style target=cd2021 stroke-width=1 fill=none stroke-opacity=1 stroke=#000 \
 -style target=livingston3 stroke-width=1 fill=none stroke-opacity=1 stroke=#000 \
+-each target=cd2021 'cx=this.innerX, cy=this.innerY' \
+-points target=cd2021 x=cx y=cy + name=cd2021-labels \
+-style target=cd2021-labels label-text=DISTRICT text-anchor=middle font-size=14px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
+  
 ```
 
 Add `cities` layer, which is preprocessed (see below)
@@ -104,7 +108,7 @@ Load USA_MajorCities.geojson with command `name=cities`
 -filter target=cities POP_CLASS>=7
 -filter target=cities POP_CLASS>=7 + name=cities-labels
 -filter-fields target=* NAME
--style target=cities-labels label-text=NAME text-anchor=start font-size=13px font-weight=800 line-height=16px font-family=helvetica class="g-text-shadow p"
+-style target=cities-labels label-text=NAME text-anchor=start font-size=13px font-weight=800 line-height=16px font-family=arial class="g-text-shadow p"
 -each target=cities-labels dx=5
 -each target=cities-labels dy=0
 -style target=cities r=4
