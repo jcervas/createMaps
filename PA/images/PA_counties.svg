@@ -1,0 +1,244 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny" width="800" height="461" viewBox="0 0 800 461" stroke-linecap="round" stroke-linejoin="round">
+<g id="us-cart">
+<path d="M 13.65 50.62 24.81 45.87 29.46 44.67 34.74 42.21 39.17 40.93 47.7 36.74 51.4 34.01 54.79 32.92 63.09 27.44 65.72 21.32 68.21 18.61 72.34 17.36 75.63 22.39 85.8 16.58 93.18 11.76 97.26 10.07 101.02 7.43 104.84 6.89 115.98 1 114.95 49.44 153.52 50.4 192.76 50.89 218.86 51.37 233.32 51.81 270.46 51.81 313.91 52.31 333.47 52.14 350.46 52.51 372.56 52.59 416.18 52.27 467.01 52.14 494.23 51.5 517.08 51.27 555.47 51.27 571.29 51.13 634.44 49.87 651.59 49.67 702.67 48.11 705.16 49.24 705.07 52.55 709.49 56.95 711.68 55.89 713.71 58.64 715.41 64.3 715.01 67.83 716.1 70.78 721.53 73 724.93 70.87 729.88 74.12 732.72 73.64 736.22 75.06 736.48 78.77 740.22 80.65 737.9 87.42 741.76 87.79 744.88 91.09 745.58 97.77 743.06 99.09 745.32 102.56 744.59 105.08 745.84 107.16 746.85 115.11 742.84 117.43 746.7 121.33 747.62 123.73 750.67 126.84 749.89 129.01 752.79 131.74 753.45 134.69 755.51 134.77 756.02 139.53 759.19 140.06 762.61 138.89 765.82 140.56 767.8 143.05 768.77 146.58 772.79 145.35 775.78 147.54 779.92 145.53 781.41 148.72 786.37 148.68 788.7 147.19 789.55 153.02 792.66 154.45 795.8 158.37 795.35 160.16 791.91 162.07 787.56 162.45 785.21 166.29 778.62 172.1 776.49 175.13 775.21 179.85 772.86 184.11 774 185.38 771.15 192.57 765.85 200.38 758.03 205.97 756.84 208.87 759.68 210.03 754.09 213.57 752.34 218.45 741.42 225.12 738.58 227.53 740.52 234.28 743.69 239.35 745.95 241.12 746.5 244.36 749.65 248.2 748.45 252.57 744.72 252.73 743.86 254.23 745.81 257.12 742.65 263.19 739.22 266.39 734.14 265.83 733.41 268.27 730.88 270.59 732.91 274.42 730.19 281.37 733.85 283.73 730.89 289.33 732.63 293.26 730.94 295.1 732.23 297.2 732.13 301.93 734.74 303.87 739.95 301.79 744.96 303.06 749.42 307.5 750.53 318.31 749.63 323.07 751.43 329.65 756.17 332.12 760.01 330.74 764.52 333.33 766.78 338.71 767.58 342.66 772.58 347.09 775.52 348.17 778.2 350.79 782.01 358.66 788.57 362.21 791.89 364.63 794.27 369.66 799 374.17 798.8 376.71 796.65 378.74 794.14 379.09 791.04 381.56 786.33 380.48 784.96 381.18 783.48 385.37 780.58 388.33 773.91 391.17 770.68 391.53 766.06 394.55 760.01 400.47 754.43 403.53 751.52 408.36 747.88 409.48 744.12 412.04 743.62 417.67 744.68 420.41 743.5 424.35 741.94 425.52 737.24 425.96 732.07 429.77 725.13 432.19 717.1 432.43 713.84 434.15 705.66 441.16 704.48 440.35 700.23 438.01 693.96 435.85 684.06 435.08 677.63 436.13 671.4 438.58 666.18 442.02 662.69 445.4 659.21 450.22 656.49 456.62 654.45 456.67 625.44 457.39 567.41 458.46 526.41 459.03 488.38 459.65 422.31 460 387.09 459.91 366.28 459.66 335.28 459.56 274.7 459.14 220.34 458.48 182.06 458.01 144.99 457.54 93.03 456.48 29.98 454.72 1 453.82 2.22 415.3 3.49 375.5 4.52 342.9 5.38 321.39 5.27 319.39 6.19 289.87 7.76 239.43 9.66 180.84 10.66 147.48 11.93 105.59 13.65 50.62 Z" fill="none" stroke="#000" opacity="1" stroke-opacity="1"/>
+</g>
+<g id="counties" fill="none" stroke="black" stroke-width="1">
+<path d="M 7.38 251.89 56.35 252.65" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 56.35 252.65 56.84 285.1" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 56.84 285.1 57 295.89 52.76 296.73 45.63 302.61 26.89 319.34" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 26.89 319.34 5.29 318.73" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 221.54 118.61 220.71 151.92 218.36 149.26 206.67 148.83 206.37 154.2 202.54 154.12 202.11 168.89" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 202.11 168.89 199.8 171.66 196.09 168.66 194.92 170.39 189.71 169.3 186.74 170.22" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 186.74 170.22 187.26 152.51 167.77 151.89 161.28 151.12 161.09 159.99 150.66 159.8" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 150.66 159.8 150.8 150.21 144.96 150.02 146.3 145.63 146.9 117.14" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 146.9 117.14 167.17 117.19 195.12 117.6 221.54 118.61" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 493.39 51.54 497.43 85.9 500.52 119.67 501.1 123.86" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 501.1 123.86 500.02 125.4 494.75 126.76 490.72 129.66 489.65 132.11 468.59 133.04 446.03 133.72 403.78 134.2" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 403.78 134.2 402.2 52.43" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 492.67 297.19 495.93 300.61 504.25 297.19 518.93 293.36 520.32 292.21 526.35 291.49" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 526.35 291.49 549.24 309.6" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 549.24 309.6 529.96 324.24 535.91 343.53 539.28 353.9 545.45 373.87 545.88 373.76" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 545.88 373.76 543.66 374.8 540.39 375.02 535.29 379.57 528.25 381.59 524.74 387.71" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 524.74 387.71 521.71 385.82 520.87 379.35 513.75 373.53 509.86 372.69 508.37 369.74 505.68 368.92" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 505.68 368.92 499.37 362.83 496.6 357.39 497.84 350.73" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 497.84 350.73 494.7 345.58 486.42 345.79 483.52 344.37 482.18 339.66 484.29 337.65 485.61 333.26 492.9 325.65 492.36 321.79 487.95 317.23 488.33 312.39 486.87 308.03 490.54 304.56 492.17 301.43 492.67 297.19" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 690.6 112.48 686.18 48.62" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 743.52 118.12 730.85 141.16 728.43 144.24 728.7 146.99 724.47 150.46 720.23 151.64 720.75 154.45 718.35 159.89 710.58 161.24 706.93 161.05 709.95 166.72 712.43 167.38 712.02 171.4 708.73 181.26 706.4 184.05" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 706.4 184.05 686.66 185.76" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 686.66 185.76 687.9 183.87 692.61 182.97 695.2 180.62 692.73 142.04 690.6 112.48" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 2.39 410.79 8.36 412.79 11.41 409.12 19.34 408.5 21.76 405.67 29.86 403.85 31.41 401.75 34.56 401.56 37.33 404.77 41.01 403.48 47.69 405.02 49.83 403.97 56.12 407.67 62.1 407.49 65.73 404.16 67.52 404.98 67.16 409.6 71.4 410.02 74.18 409.05" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 74.18 409.05 72.51 413.39 74.62 415.13 79.66 414.56 83.89 419.76 83.4 423.77 85.11 427.75 82.94 429.88 83.71 432.23 84.89 444.25 82.04 445.38 82.53 449.72 86.11 452.24 84.29 456.24" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 202.11 168.89 204.03 166.77 207.92 167.11 214.47 165.79 218.46 162.9 220.5 165.31 250.48 183.44 250.02 189.2 253.82 189.32 253.74 194.39" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 253.74 194.39 246.16 194.15 240.85 206.71 240.53 238.96 240.28 247.16" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 240.28 247.16 184.63 245.4" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 184.63 245.4 185.73 220.79 185.05 220.52" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 185.05 220.52 185.66 215.48 186.74 170.22" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 512.48 251.61 510.84 257.86 505.88 264.74 504.66 270.46 505.13 280.18 502.01 286.55 497.27 290.63 493.92 295.4" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 493.92 295.4 484.89 294.68 484.55 291.59 481.01 291.61 480.83 288.58 472.92 288.78 470.72 286.03 465.17 288.67 446.43 285.82" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 446.43 285.82 437.42 284.42 436.99 265.53" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 436.99 265.53 441.74 263.76 467.8 257.05 475.32 254.39 481.06 255.1 493.4 250.72 501.9 251.27 504.48 250.41 512.48 251.61" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 185.05 220.52 178.83 224.2 175.47 227.73 173.12 226.93 170.67 229.03 164.47 229.05 161.78 230.98 157.12 228.35 156.48 231.02 152.24 231.08 147.84 229.71 143.28 233.25 140.9 231.55 136.38 231.28 134.14 233.81 130.17 233.14 133.13 229.58 130.22 222.55 124.03 219.6 125.49 216.48 122.27 211.59 122.49 200.5 121.31 198.01" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 121.31 198.01 120.56 197.39" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 120.56 197.39 123.95 195.38 124.19 192.78 126.86 189.47 126.9 183.07 129.26 183.14 130.07 178.94 133.17 179.02 133.39 171.08 141.85 171.34 141.91 168.67 150.44 168.88 150.66 159.8" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 253.74 194.39 262.19 191.69 262.43 185.2 277.91 186.66 317.75 189.8" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 317.75 189.8 337.11 192.31" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 337.11 192.31 341.46 199.91 344.53 203.66" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 344.53 203.66 342.22 207.36 334.49 210.67 337.9 220.73 341.93 224.1 339.71 226.22 342.01 229.64 338.5 233.86 339.06 238.48 334.7 240.05 327.07 237.94 328.5 241.42 324.95 244.95 319.74 246.63 319.52 250.31 315.69 256.87 310.36 257.84 306.8 265.16 303.36 267.06 301.59 272.3 298.27 274.81 300.5 278.73" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 300.5 278.73 302.02 280.38" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 302.02 280.38 294.64 280 272.03 279.74 262.97 280.12 240.36 279.59" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 240.36 279.59 239.75 278.67 240.28 247.16" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 240.36 279.59 239.38 280.21 233.48 297.08 223.43 322.49 216.12 338.14" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 216.12 338.14 214.1 335.16 210.33 333.62 204.5 340.58 201.18 338.97 198.5 342.64 195.84 342.29 191.28 334.85 185.34 334.93 183.25 332.45 175.39 329.7 171.71 330.46 171.67 325.73 164.33 327.25 158.66 326.18 157.19 323.08 153.97 320.38 150.76 320.95 150.09 315.35 151.44 312.98" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 151.44 312.98 161.56 299.97 184.24 269.61 184.63 245.4" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 497.84 350.73 489.76 354.05 485.53 354.93 473.04 355.96 465.65 357.65 449.27 360 443.5 361.98 440.99 360.59 441.24 357.6 433.52 362.93 428.63 364.26 431.07 359.82 427.82 358.68 421.4 364.49 412.74 370.8 409.83 370.88 403.34 376.85 402.08 374.49" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 402.08 374.49 403.41 369.77 401.86 368.4 398.61 371.07 396.34 361.65 394.23 358.18" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 394.23 358.18 399.1 352.35 408.73 344.29 413.3 342.74 412.21 338.59 425.08 329.98 429.5 327.56 446.37 317.14 458.77 311.02 462.98 309.7 460.86 305.67 471.7 303.13 482.6 301.56 492.67 297.19" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 293.44 123.21 293.41 120.46 322.59 120.58" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 322.59 120.58 343.07 146.1 351.32 146.24" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 351.32 146.24 351.32 165.44 337.11 192.31" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 317.75 189.8 318.13 173.18 315.47 173.14 315.61 158.62 293.24 158.42 293.44 123.21" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 65.56 214.27 72.73 205.58 79.36 196.59" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 79.36 196.59 120.56 197.39" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 121.31 198.01 120.4 235.99 119.09 274.53 118.86 287.34" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 118.86 287.34 118.86 287.37" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 118.86 287.37 88.68 286.01 56.84 285.1" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 56.35 252.65 55.99 226.55 65.56 214.27" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 723.89 409.36 733.44 402.89 725.16 395.53 730.57 388.43 735.5 391.89 737.09 389.72 746.51 396.38 748.13 392.19 753.2 385.44 758.96 379.52" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 758.96 379.52 766.22 383.41 766.99 389.2 764.06 392.23 765.1 395.32" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 733.4 428.76 732.21 427.27 726.32 427.25 729.07 415.45 727.95 411.65 723.89 409.36" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 330.69 380.36 338.26 385.98 359.35 391.76 367.77 398.99" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 367.77 398.99 365.18 401.32 359.99 409.9 357.66 419.1 352.48 432.89 348.66 440.96 335.28 459.56" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 296.4 459.29 303.62 448.85 307.78 440.97 312.21 427.05 318.87 411.03 321.01 407.88 321.07 402.3 324.19 399.32 321.29 397.53 320.73 394.42 327.36 388.08 330.69 380.36" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 597.75 50.61 601.13 89.63 602.95 112.59" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 602.95 112.59 591.85 113.51 589.2 132.61" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 589.2 132.61 550.27 129.03 509.31 125.01" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 509.31 125.01 501.1 123.86" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 333.63 277.74 357.06 286.32 363.87 281.93 373.37 277.03 380.99 281.36 387.77 279.95 388.92 282.23 392.86 279.52" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 392.86 279.52 393.5 281.9 390.16 283.95 389.81 288.43 392.08 289 383.29 296.95 380.45 298.09 373.74 306.49 370.98 311.65 374.43 320.59 371.78 323.42 361.1 338.7 364.48 338.66 368.88 344.69 371.42 344.02 381.9 344.08 383.22 342.32" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 383.22 342.32 389.95 362.88" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 389.95 362.88 387.05 365.28 381 373.51 377.14 380.18 368.84 397.62 367.77 398.99" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 330.69 380.36 316.83 369.67 314.02 356.54" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 314.02 356.54 317.68 349.06 328.09 331.47 331.59 323.71 328.39 321.03 329.28 314.54 326.67 314.85 322.51 310 325.09 305.48 324.3 303.42 326.75 299.38 322.56 295.53 319.22 289.22 321.57 285.42 330.55 280.39 333.63 277.74" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 258.99 365.87 261.01 363.05 262.26 354.06 264.34 350.95" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 264.34 350.95 276.7 357.17 279.98 358.19 287.84 365.93 289.79 355.59 309.65 366.49 314.02 356.54" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 237.31 458.67 243.17 445.78 244.58 440.77 244.23 399.01 247.47 396.8 256.38 371.57 258.99 365.87" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 8.94 202.96 44.24 203.46 44.19 205.42 59.14 206.43 65.56 214.27" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 351.32 146.24 403.95 145.59" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 403.95 145.59 404.08 152.3 405.77 152.25 413.64 167.04 417.33 167.92 420.47 170.64 421.04 174.94 424.66 179.67 426.79 180.66 430.91 185.85 437.59 191.75 441.49 191.91 445.61 196.15 448.14 200.17 462.83 218.65 465.56 218.61" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 465.56 218.61 465.58 222.99" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 465.58 222.99 439.11 233.36 425.51 235.69 416.25 237.78 406.55 222.77 408.99 220.88 400.87 214.88 389.43 210.83 384.61 211.95 379.88 205.24 378.16 205.78 378.1 199.52 376.95 198.66 364.22 199.3 363.55 186.09 360.05 190.68 355.21 192.27 353.36 194.64 353.36 200.22 347.35 203.75 344.53 203.66" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 559.33 180.61 564.59 174.67 577.76 174.14" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 577.76 174.14 576.85 192.42 582.7 205.97 589.26 204.67 589.59 219.83 589.23 220.46 592.71 238.36" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 592.71 238.36 582.49 250.37 579.67 265.04 569.79 269.91" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 569.79 269.91 565.4 259.6 553.22 261.36 552.24 257.44 552.35 250.96 549.44 251.04" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 549.44 251.04 551.4 239.66 549.31 235.15 544.11 230.16 544.43 224 543.35 220.52 536.68 218.82 536.36 214.13 533.52 202.41" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 533.52 202.41 540.03 201.96 559.33 180.61" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 636.64 286.25 645.78 293.81 686.94 326.27" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 686.94 326.27 664.96 363.49" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 664.96 363.49 658.71 368.13 641.16 382.75" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 641.16 382.75 602.44 351.53" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 602.44 351.53 594.86 343.67 591.23 342.73 562.4 320" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 562.4 320 565.34 320.02 576.14 316.32 587.48 315.83 592.44 313.66 598.94 312.43 601.17 310.55 607.83 307.4 611.42 306.63 613.3 304.17 616.81 303.49 620.55 304.38 622.92 293.24 636.64 286.25" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 10.95 137.89 33.57 139.36 63.87 140.99 63.86 139.93 80.81 139.7" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 80.81 139.7 79.36 196.59" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 592.71 238.36 617.26 246.39 621.35 244.35" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 621.35 244.35 636.86 261.38 654.61 275.46" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 654.61 275.46 647.92 280.6 641.57 283.29 636.64 286.25" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 562.4 320 549.24 309.6" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 526.35 291.49 527.22 290.61 543.84 282.81 569.79 269.91" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 589.2 132.61 588.22 138.02 581.23 162.22" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 581.23 162.22 577.76 174.14" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 559.33 180.61 545.66 177.67 539.69 175.75 518.31 157.9 509.31 125.01" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 499.02 205.77 500.6 202.49 508.16 200.9 513.19 199.07 521.06 199.64" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 521.06 199.64 520.92 213.93 515.55 229.02 513.39 240.04 521.21 238.55 531.15 236.01 534.72 236.61 539.34 240.52 545.38 241.08 543.92 245.24 546.35 251.09 549.44 251.04" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 492.67 297.19 493.92 295.4" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 512.48 251.61 509.42 250.26 505.47 246.16 502.04 239.36 501.24 235.43 502.8 232.05 504.58 221.55 504.25 217.52 499.95 212.51 499.02 205.77" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 302.02 280.38 293.76 294.46 289.89 294 288.4 298 289.25 302.85 284.02 311.74 278.64 315 275.66 319 275.52 324.34 273.11 330.55 273.76 331.77 272.48 343.4 266.87 346.21 264.34 350.95" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 258.99 365.87 232.99 365.28 227.13 364.34 225.66 359.84 222.25 358.02 204.58 357.75" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 204.58 357.75 209.65 348.75 210.99 347.94 216.12 338.14" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 656.04 113.2 690.6 112.48" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 686.66 185.76 685.25 188.15 682.07 187.14 679.06 190.84 677.31 195.78 674.12 198.78" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 674.12 198.78 669.23 197.14 667.46 194.35 666.75 181.81 663.07 180.66 661.58 176.49 661.5 167.25 654.25 165.82 650.72 162.86 643.65 159.05 641.85 156.87 641.46 151.99" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 641.46 151.99 649.57 137.75 645.42 134.67 649.67 126.59 648.98 125.54 654.82 114.38 656.04 113.2" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 602.95 112.59 606.65 113.79 656.04 113.2" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 641.46 151.99 640.86 152.47 618.67 160.1 581.23 162.22" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 664.96 363.49 671.23 363.3 675.69 365.46 678.71 364.11 682.09 371.41 684.26 369.22 686.61 374.76 690.5 377.82 690.98 381.38 693.33 383.43 696.23 382.86 698.65 390.22 703.56 388.4 707.51 394.78 711.83 393.85" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 711.83 393.85 704.53 398.29 706.06 400.82 699.42 407.04 701.93 408.5 690.01 416.13 687.48 419.23 687.06 422.36 683.74 426.3 680.12 428.84 680.7 435.43 M 680.94 435.39 682.75 435.14" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 606.52 457.74 611.09 457.22 615.81 450.76 618.17 446.4 623.61 434.11 624.1 430.48 626.46 426.85 624.93 421.54 627.12 419.46 625.17 416.11 632.95 400.74 632.76 393.39 631.7 387.93 641.16 382.75" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 706.4 184.05 737.31 180.87 734.23 199.17 745.06 200.49 750.43 209.69 754.06 210.47 756.84 208.87" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 739.84 231.91 738.94 233.27 727.04 239.17 724.02 242.56 725.24 244.26 720.61 247.48 716.2 251.7 705.11 257.11 692.83 260.34" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 692.83 260.34 690.05 254.74 678.59 236.27 689.08 229.59 679.86 218.67 677.82 215.49 672.8 210.85 672.31 208.98 667.71 205.95" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 667.71 205.95 670.57 204.81 674.12 198.78" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 467.7 397.21 482.51 383.19 484.91 383.04 493.32 379.87 496.18 380.65 500.27 371.07 504.61 370.78 505.68 368.92" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 524.74 387.71 528.14 390.82 532.81 397.78 545.58 400.76 550.61 399.67 551.58 403.84 555.7 409.37 556.18 413.05 559.25 418.15 562.68 420.42 570.62 424.15 572.82 432.55 576.45 435.82 578.24 440.26 581.39 442.36 586.95 448.42 591.99 456.44 592.14 458.01" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 487.22 459.61 486.91 439.74 493.13 435.1 490.67 432.25 489.07 427.06 491.37 424.51 490.97 420.27 484.11 407.09 477.23 404.48 473.88 400.03 467.7 397.21" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 221.54 118.61 240.5 118.97 259.16 118.77 284.98 117.85 285.06 123.06 293.44 123.21" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 692.83 260.34 683.71 261.99 674.63 265.69" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 674.63 265.69 663.06 269.04 654.61 275.46" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 621.35 244.35 641.44 234.44 645.24 231.55 647.66 231.34 656.98 226.62 655.46 222.49 653.45 222.51 651.63 219.15 651.31 214.45 654.53 209.54 656.55 209.67 662 204.44 665.22 203.92 667.71 205.95" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 300.5 278.73 331.55 277.04 333.63 277.74" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 171.24 400.92 174.99 396.41 176.57 392.45 180.65 390.74 182.9 387.09 186.38 388.76 188.85 385.42 189.86 379.65 195.05 373.86 204.58 357.75" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 156.63 457.67 157.62 450.49 156.92 447.59 160.15 443.46 160.65 440.05 158.46 437.09 153.61 433.98 156.36 425.65 171.24 400.92" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 135.05 49.94 134.32 76.48" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 134.32 76.48 125.19 76.07 62.81 74.99 12.94 73.44" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 91.33 383.79 109.43 383.94 114.93 387.79 116.84 386.85 123.96 392.41 125.8 390.83 130.45 390.66 132.29 388.59 137.49 387.35 142.54 382.48 148.55 381.96 151.74 387.08 156.68 389.61 157.68 391.65 162.86 394.7 164.54 400.13 171.24 400.92" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 74.18 409.05 74.6 405.17 77.98 403.69 80.21 407.06 82.99 406.36 85.86 402.6 89.22 402.42 90.84 399.64 89.11 397.6 96.48 390.08 94.76 385.81 91.33 383.79" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 394.23 358.18 389.95 362.88" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 383.22 342.32 387.14 337.18 397.72 326.25 402.3 322.21 402.28 318.05 417.95 305.94 417.9 300.98 424.12 296.79 433.4 291.58 446.43 285.82" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 322.57 52.26 322.42 74.32 322.59 120.58" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 221.54 118.61 223.05 81.57 226.7 81.54 227.35 76.02 227.78 59.72 227.43 51.64" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 392.86 279.52 396.77 276.8 404.82 273.87 425.78 262.63 435.93 258.45" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 435.93 258.45 436.99 265.53" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 686.94 326.27 693.31 331.21" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 693.31 331.21 719.81 350.91 758.96 379.52" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 723.89 409.36 718.87 401.83 717.62 402.51 711.83 393.85" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 146.9 117.14 133.32 116.98" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 133.32 116.98 134.32 76.48" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 521.06 199.64 528.38 202.75 533.52 202.41" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 423.69 459.99 423.08 442.04 421.92 419.94" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 421.92 419.94 431.17 410.9 455.13 405.31 461.12 404.48 467.7 397.21" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 674.63 265.69 675.75 272.33 681.84 277.41 686.28 277.44 692.57 288.79 699.51 286.34 706.13 294.17 705.14 299.05 703.42 301.85 713.31 309.47" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 713.31 309.47 703.14 318.52 693.31 331.21" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 731.59 296.16 723.36 301.15 713.31 309.47" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 421.92 419.94 424.24 414.86 418.54 409.03 413.68 399.38 411.93 393.92 409.21 388.65 402.97 382.68 400.31 376.26 402.08 374.49" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 403.78 134.2 403.95 145.59" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 118.86 287.37 119.3 291.7 114.49 298.47 108.98 300.74 107.38 305.22 108.54 308.67 112.42 308.74 117.1 313.11 116.28 330.82 113.1 333.14 112.38 335.52 107.01 339.72 103.39 356.4 104.3 359.72 101.46 364.36 104.83 366.1 92.52 371.22" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 92.52 371.22 88.54 371.58 80.73 367.91 80.2 363.52 86.86 361.23 50.24 345.85 48.17 343.28 26.89 319.34" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 499.02 205.77 490.33 204.11 488.03 215.03 475.81 215.6 469.66 218.54 465.56 218.61" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 602.44 351.53 581.21 362.79 563.73 366.07 545.88 373.76" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 465.58 222.99 457.53 232.27 447.41 247.17 435.93 258.45" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 92.52 371.22 95.32 374.88 93.36 377.6 89.38 376.94 87.74 378.82 91.33 383.79" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 133.32 116.98 133.29 118.23 112.46 117.63 104.32 116.66 104.16 120.25 101.36 122.85 95.6 125.02 93.22 129.26 86.51 135.63 80.81 139.7" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+<path d="M 151.44 312.98 149.53 312.24 145.35 313.81 143.06 310.58 141.1 310.59 136.42 306.61 133.83 299.69 130.11 292.94 126.54 290.24 126.3 288.25 122.25 285.58 118.86 287.34" stroke="#000" stroke-width="1" stroke-dasharray="0 3 0" stroke-linecap="butt"/>
+</g>
+<g id="counties-labels" font-family="sans-serif" font-size="12" text-anchor="middle">
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(31.6 281.6)">Beaver</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(183.6 134.9)">Forest</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(449.9 92.9)">Tioga</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(512.9 337.2)">Dauphin</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(717.4 109.1)">Wayne</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(42.6 429.4)">Greene</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(213.8 206.1)">Jefferson</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(479 271.7)">Snyder</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(157 198.1)">Clarion</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(284.4 227.5)">Clearfield</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(202.1 295.3)">Indiana</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(453.8 338.8)">Perry</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(313.1 139.6)">Cameron</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(88.1 242.7)">Butler</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(741.7 403.4)">Philadelphia</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(334.1 424.4)">Fulton</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(548.9 90.1)">Bradford</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(343.2 357)">Huntingdon</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(280.8 409)">Bedford</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(32.8 227.8)">Lawrence</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(399.7 188.8)">Clinton</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(566.2 220.7)">Columbia</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(639 334.6)">Berks</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(45.7 171.3)">Mercer</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(598.7 282.2)">Schuylkill</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(550.9 153.9)">Sullivan</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(530.8 264.3)">Northumberland</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(251.1 320.6)">Cambria</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(671.3 147.7)">Lackawanna</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(615.9 137)">Wyoming</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(659.9 408.4)">Chester</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(710.7 212.7)">Monroe</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(523.7 425.9)">York</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(261.3 152)">Elk</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(661.1 247.7)">Carbon</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(302.2 326.8)">Blair</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(206.6 420.1)">Somerset</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(78.7 48)">Erie</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(122.3 424.1)">Fayette</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(434.5 307.8)">Juniata</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(273.8 85)">McKean</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(401 301.3)">Mifflin</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(711 369.2)">Montgomery</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(179.4 84)">Warren</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(528.6 225.8)">Montour</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(707.7 421.5)">Delaware</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(456.9 432.4)">Adams</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(677 295.9)">Lehigh</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(713.1 274.5)">Northampton</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(450.2 383.2)">Cumberland</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(388.2 424.2)">Franklin</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(622.5 195.7)">Luzerne</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(363.4 97.7)">Potter</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(77.8 321.6)">Allegheny</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(746.1 346.8)">Bucks</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(470.7 168.4)">Lycoming</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(557.9 344.2)">Lebanon</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(372.8 241.9)">Centre</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(753 163.1)">Pike</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(644.5 81.6)">Susquehanna</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(36.2 372)">Washington</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(479.9 235.2)">Union</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(67.4 107.5)">Crawford</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(110.1 153.2)">Venango</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(594.1 396.4)">Lancaster</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(150.9 262.7)">Armstrong</text>
+<text y="0" x="0" text-anchor="middle" font-size="10px" font-weight="800" font-family="helvetica" class="g-text-shadow p" transform="translate(148.3 353.2)">Westmoreland</text>
+</g>
+</svg>
