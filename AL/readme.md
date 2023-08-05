@@ -42,12 +42,15 @@ Import a cartographic shapefile to us-cart shoreline. Use command `name=us-cart`
 Add the Congressional District Shapefile with command `name=cd`
 ```
 -i '/Users/cervas/My Drive/GitHub/createMaps/AL/plans/AL 2022 Congressional.geojson' name=cd2021 \
--i '/Users/cervas/My Drive/GitHub/createMaps/AL/plans/Livingston_Congressional_Plan_3.json' name=livingston3 \
+-i '/Users/cervas/My Drive/GitHub/createMaps/AL/plans/Livingston_Congressional_Plan_3.geojson' name=livingston3 \
 -style target=cd2021 stroke-width=1 fill=none stroke-opacity=1 stroke=#000 \
 -style target=livingston3 stroke-width=1 fill=none stroke-opacity=1 stroke=#000 \
 -each target=cd2021 'cx=this.innerX, cy=this.innerY' \
+-each target=livingston3 'cx=this.innerX, cy=this.innerY' \
 -points target=cd2021 x=cx y=cy + name=cd2021-labels \
--style target=cd2021-labels label-text=DISTRICT text-anchor=middle font-size=14px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
+-points target=livingston3 x=cx y=cy + name=livingston3-labels \
+-style target=cd2021-labels label-text=NAME text-anchor=middle font-size=14px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
+-style target=livingston3-labels label-text=NAME text-anchor=middle font-size=14px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
 ```
 
 Add `cities` layer, which is preprocessed (see below)
