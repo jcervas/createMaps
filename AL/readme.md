@@ -13,14 +13,22 @@ Run this to create a layer for counties
 -style target=county fill=none stroke-opacity=1 stroke=#fff stroke-width=1 \
 ```
 
-This creates the Black percentage in the blocks layer
+This creates the Black percentage in the blocks/tracts layer
 ```
 -each target=blocks 'blackper=BLACK/TOTAL*100' \
+-each target=blocks 'density = TOTAL / (ALAND/2589988)' target=tracts
 -each target=tracts 'blackper=BLACK/TOTAL*100' \
--classify target=blocks field=blackper save-as=fill key-name="legend_Black" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix='%' nice colors='#ffffff,#f0f0f0,#d9d9d9,#bdbdbd,#969696' breaks=10,25,50,75 null-value="#fff" \
--classify target=tracts field=blackper save-as=fill nice colors='#ffffff,#f0f0f0,#d9d9d9,#bdbdbd,#969696' breaks=10,25,50,75 null-value="#fff" \
+-each target=tracts 'density = TOTAL / (ALAND/2589988)' target=tracts
+-filter target=blocks STAT==01 + name=blocks_b
+-filter target=tracts STAT==01 + name=tracts_b
+-classify target=blocks field=density save-as=fill nice colors=OrRd classes=5 null-value="#fff" key-name="legend_popdensity" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 \
+-classify target=tracts field=density save-as=fill nice colors=OrRd classes=5 null-value="#fff" key-name="legend_popdensity" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 \
+-classify target=blocks_b field=blackper save-as=fill key-name="legend_Black" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix='%' nice colors='#ffffff,#f0f0f0,#d9d9d9,#bdbdbd,#969696' breaks=10,25,50,75 null-value="#fff" \
+-classify target=tracts_b field=blackper save-as=fill nice colors='#ffffff,#f0f0f0,#d9d9d9,#bdbdbd,#969696' breaks=10,25,50,75 null-value="#fff" \
 -dissolve target=blocks field=fill \
 -dissolve target=tracts field=fill \
+-dissolve target=blocks_b field=fill \
+-dissolve target=tracts_b field=fill \
 ```
 
 Import a cartographic shapefile to us-cart shoreline. Use command `name=us-cart`
@@ -45,7 +53,7 @@ Add `cities` layer, which is preprocessed (see below)
 
 Project all layers
 ```
--proj target=blocks,tracts,us-cart,county,cities,cd2021,livingston3 '+proj=tmerc +lat_0=30 +lon_0=-87.5 +k=0.9999333333333333 +x_0=600000.0000000001 +y_0=0 +ellps=GRS80 +datum=NAD83 +to_meter=0.3048006096012192 +no_defs' \
+-proj target=blocks,blocks_b,tracts,tracts_b,us-cart,county,cities,cd2021,livingston3 '+proj=tmerc +lat_0=30 +lon_0=-87.5 +k=0.9999333333333333 +x_0=600000.0000000001 +y_0=0 +ellps=GRS80 +datum=NAD83 +to_meter=0.3048006096012192 +no_defs' \
 ```
 
 us-cart layers to cartographic layer
@@ -57,12 +65,20 @@ us-cart layers to cartographic layer
 -clip target=livingston3 us-cart \
 ```
 
-Output as .svg file
+Output Population Density as .svg files
 ```
 -o target=blocks,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021_blocks.svg' format=svg \
 -o target=blocks,county,livingston3,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3_blocks.svg' format=svg \
 -o target=tracts,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021_tracts.svg' format=svg \
 -o target=tracts,county,livingston3,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3_tracts.svg' format=svg \
+```
+
+Output Racial compostion as .svg files
+```
+-o target=blocks_b,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021-black-blocks.svg' format=svg \
+-o target=blocks_b,county,livingston3,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3-black-blocks.svg' format=svg \
+-o target=tracts_b,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021-black-tracts.svg' format=svg \
+-o target=tracts_b,county,livingston3,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3-black-tracts.svg' format=svg \
 ```
 
 ![](images/legend_Black.png)
