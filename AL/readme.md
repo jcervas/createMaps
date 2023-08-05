@@ -43,7 +43,7 @@ Add `cities` layer, which is preprocessed (see below)
 
 Project all layers
 ```
--proj target=blocks,tracts,us-cart,county,cd2021,livingston3 '+proj=tmerc +lat_0=30 +lon_0=-87.5 +k=0.9999333333333333 +x_0=600000.0000000001 +y_0=0 +ellps=GRS80 +datum=NAD83 +to_meter=0.3048006096012192 +no_defs' \
+-proj target=blocks,tracts,us-cart,county,cities,cd2021,livingston3 '+proj=tmerc +lat_0=30 +lon_0=-87.5 +k=0.9999333333333333 +x_0=600000.0000000001 +y_0=0 +ellps=GRS80 +datum=NAD83 +to_meter=0.3048006096012192 +no_defs' \
 ```
 
 us-cart layers to cartographic layer
