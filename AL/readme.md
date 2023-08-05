@@ -10,7 +10,8 @@ mapshaper \
 Run this to create a layer for counties
 ```
 -dissolve target=tracts COUNTYF + name=county \
--style target=county fill=none stroke-opacity=1 stroke=#fff stroke-width=1 \
+-innerlines
+-style target=counties fill=none stroke=#fff stroke-width=1 stroke-dasharray="0 3 0" \
 ```
 
 This creates the Black percentage in the blocks/tracts layer
@@ -21,8 +22,8 @@ This creates the Black percentage in the blocks/tracts layer
 -each target=tracts 'density = TOTAL / (ALAND/2589988)' target=tracts \
 -filter target=blocks STATE==01 + name=blocks_b \
 -filter target=tracts STATE==01 + name=tracts_b \
--classify target=blocks field=density save-as=fill nice colors=OrRd classes=5 null-value="#fff" key-name="legend_popdensity" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 \
--classify target=tracts field=density save-as=fill nice colors=OrRd classes=5 null-value="#fff" key-name="legend_popdensity" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 \
+-classify target=blocks field=density save-as=fill nice field=density save-as=fill nice colors=greys classes=5 \
+-classify target=tracts field=density save-as=fill nice field=density save-as=fill nice colors=greys classes=5 \
 -classify target=blocks_b field=blackper save-as=fill key-name="legend_Black" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix='%' nice colors='#ffffff,#f0f0f0,#d9d9d9,#bdbdbd,#969696' breaks=10,25,50,75 null-value="#fff" \
 -classify target=tracts_b field=blackper save-as=fill nice colors='#ffffff,#f0f0f0,#d9d9d9,#bdbdbd,#969696' breaks=10,25,50,75 null-value="#fff" \
 -dissolve target=blocks field=fill \
@@ -81,6 +82,14 @@ Output Racial compostion as .svg files
 -o target=blocks_b,county,livingston3,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3-black-blocks.svg' format=svg \
 -o target=tracts_b,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021-black-tracts.svg' format=svg \
 -o target=tracts_b,county,livingston3,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3-black-tracts.svg' format=svg \
+```
+
+Output District Map as .svg files
+```
+ -classify target=cd2021 save-as=fill colors=Category20 non-adjacent \
+ -style opacity=0.5 stroke=none \
+ -o target=tracts,cd2021,county,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021.svg' \
+ -o target=tracts,cd2021,county,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3.svg' \
 ```
 
 ![](images/legend_Black.png)
