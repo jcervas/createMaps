@@ -43,6 +43,7 @@ Project all layers
 us-cart layers to cartographic layer
 ```
 -clip target=blocks us-cart \
+-clip target=tracts us-cart \
 -clip target=county us-cart \
 -clip target=cd2021 us-cart \
 -clip target=livingston3 us-cart \
@@ -51,7 +52,7 @@ us-cart layers to cartographic layer
 Output as .svg file
 ```
 -o target=blocks,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021.svg' format=svg \
--o target=blocks,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3.svg' format=svg \
+-o target=tracts,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3.svg' format=svg \
 ```
 
 ![](images/legend_Black.png)
