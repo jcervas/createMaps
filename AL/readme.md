@@ -7,6 +7,12 @@ mapshaper \
 -simplify target=tracts 0.01 \
 ```
 
+Run this to create a layer for counties
+```
+-dissolve target=tracts COUNTYF + name=county \
+-style target=county fill=none stroke-opacity=1 stroke=#fff stroke-width=1 \
+```
+
 This creates the Black percentage in the blocks layer
 ```
 -each target=blocks 'blackper=BLACK/TOTAL*100' \
@@ -30,12 +36,6 @@ Add the Congressional District Shapefile with command `name=cd`
 -i '/Users/cervas/My Drive/GitHub/createMaps/AL/plans/Livingston_Congressional_Plan_3.json' name=livingston3 \
 -style target=cd2021 stroke-width=1 fill=none stroke-opacity=1 stroke=#000 \
 -style target=livingston3 stroke-width=1 fill=none stroke-opacity=1 stroke=#000 \
-```
-
-Run this to create a layer for counties
-```
--dissolve target=tracts COUNTYF + name=county \
--style target=county fill=none stroke-opacity=1 stroke=#fff stroke-width=1 \
 ```
 
 Add `cities` layer, which is preprocessed (see below)
