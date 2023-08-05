@@ -21,12 +21,6 @@ Import a cartographic shapefile to us-cart shoreline. Use command `name=us-cart`
 -style target=us-cart fill=none stroke=#000 opacity=1 stroke-opacity=1 \
 ```
 
-Run this to create a layer for counties
-```
--dissolve target=blocks COUNTYFP20 + name=county \
--style target=county fill=none stroke-opacity=1 stroke=#fff stroke-width=1 \
-```
-
 Add the Congressional District Shapefile with command `name=cd`
 ```
 -i '/Users/cervas/My Drive/GitHub/createMaps/AL/plans/AL 2022 Congressional.geojson' name=cd2021 \
@@ -35,7 +29,16 @@ Add the Congressional District Shapefile with command `name=cd`
 -style target=livingston3 stroke-width=1 fill=none stroke-opacity=1 stroke=#000 \
 ```
 
+Run this to create a layer for counties
+```
+-dissolve target=tracts COUNTYFP20 + name=county \
+-style target=county fill=none stroke-opacity=1 stroke=#fff stroke-width=1 \
+```
+
 Add `cities` layer, which is preprocessed (see below)
+```
+-i '/Users/cervas/My Drive/GitHub/createMaps/AL/cities.json' name=cities \
+```
 
 Project all layers
 ```
