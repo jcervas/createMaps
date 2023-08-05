@@ -22,8 +22,8 @@ This creates the Black percentage in the blocks/tracts layer
 -each target=tracts 'density = TOTAL / (ALAND/2589988)' target=tracts \
 -filter target=blocks STATE==01 + name=blocks_b \
 -filter target=tracts STATE==01 + name=tracts_b \
--classify target=blocks field=density save-as=fill nice field=density save-as=fill nice colors=greys classes=5 \
--classify target=tracts field=density save-as=fill nice field=density save-as=fill nice colors=greys classes=5 \
+-classify target=blocks field=density save-as=fill nice colors=greys classes=5 \
+-classify target=tracts field=density save-as=fill nice colors=greys classes=5 \
 -classify target=blocks_b field=blackper save-as=fill key-name="legend_Black" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix='%' nice colors='#ffffff,#f0f0f0,#d9d9d9,#bdbdbd,#969696' breaks=10,25,50,75 null-value="#fff" \
 -classify target=tracts_b field=blackper save-as=fill nice colors='#ffffff,#f0f0f0,#d9d9d9,#bdbdbd,#969696' breaks=10,25,50,75 null-value="#fff" \
 -dissolve target=blocks field=fill \
