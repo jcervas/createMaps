@@ -17,8 +17,8 @@ Run this to create a layer for counties
 This creates the Black percentage in the blocks/tracts layer
 ```
 -each target=blocks 'blackper=BLACK/TOTAL*100' \
--each target=blocks 'density = TOTAL / (ALAND/2589988)' target=tracts \
 -each target=tracts 'blackper=BLACK/TOTAL*100' \
+-each target=blocks 'density = TOTAL / (ALAND/2589988)' target=tracts \
 -each target=tracts 'density = TOTAL / (ALAND/2589988)' target=tracts \
 -filter target=blocks STATE==01 + name=blocks_b \
 -filter target=tracts STATE==01 + name=tracts_b \
