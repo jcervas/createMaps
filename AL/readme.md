@@ -49,8 +49,8 @@ Add the Congressional District Shapefile with command `name=cd`
 -each target=livingston3 'cx=this.innerX, cy=this.innerY' \
 -points target=cd2021 x=cx y=cy + name=cd2021-labels \
 -points target=livingston3 x=cx y=cy + name=livingston3-labels \
--style target=cd2021-labels label-text=NAME text-anchor=middle font-size=14px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
--style target=livingston3-labels label-text=NAME text-anchor=middle font-size=14px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
+-style target=cd2021-labels label-text=NAME text-anchor=middle fill=#000 stroke=none font-size=14px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
+-style target=livingston3-labels label-text=NAME text-anchor=middle fill=#000 stroke=none font-size=14px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
 ```
 
 Add `cities` layer, which is preprocessed (see below)
