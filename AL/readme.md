@@ -7,12 +7,29 @@ mapshaper \
 -simplify target=tracts 0.01 \
 ```
 
-This creates the Black percentage in the blocks layer
+Run this to create a layer for counties
 ```
--each target=blocks 'blackper=BLACK/TOTAL' \
--each target=tracts 'blackper=BLACK/TOTAL' \
--classify target=blocks field=blackper save-as=fill key-name="legend_Black" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 nice colors='#ffffff,#f0f0f0,#d9d9d9,#bdbdbd,#969696' breaks=0.1,0.25,0.5,0.75 null-value="#fff" \
--classify target=tracts field=blackper save-as=fill key-name="legend_Black" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 nice colors='#ffffff,#f0f0f0,#d9d9d9,#bdbdbd,#969696' breaks=0.1,0.25,0.5,0.75 null-value="#fff" \
+-dissolve target=tracts COUNTYF + name=county \
+-innerlines \
+-style target=county fill=none stroke=#fff stroke-width=1 stroke-dasharray="0 3 0" \
+```
+
+This creates the Black percentage in the blocks/tracts layer
+```
+-each target=blocks 'blackper=BLACK/TOTAL*100' \
+-each target=tracts 'blackper=BLACK/TOTAL*100' \
+-each target=blocks 'density = TOTAL / (ALAND/2589988)' \
+-each target=tracts 'density = TOTAL / (ALAND/2589988)' \
+-filter target=blocks STATE==01 + name=blocks_b \
+-filter target=tracts STATE==01 + name=tracts_b \
+-classify target=blocks field=density save-as=fill nice colors=greys classes=5 \
+-classify target=tracts field=density save-as=fill nice colors=greys classes=5 \
+-classify target=blocks_b field=blackper save-as=fill key-name="legend_Black" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix='%' nice colors='#ffffff,#f0f0f0,#d9d9d9,#bdbdbd,#969696' breaks=10,25,50,75 null-value="#fff" \
+-classify target=tracts_b field=blackper save-as=fill nice colors='#ffffff,#f0f0f0,#d9d9d9,#bdbdbd,#969696' breaks=10,25,50,75 null-value="#fff" \
+-dissolve target=blocks field=fill \
+-dissolve target=tracts field=fill \
+-dissolve target=blocks_b field=fill \
+-dissolve target=tracts_b field=fill \
 ```
 
 Import a cartographic shapefile to us-cart shoreline. Use command `name=us-cart`
@@ -30,12 +47,6 @@ Add the Congressional District Shapefile with command `name=cd`
 -style target=livingston3 stroke-width=1 fill=none stroke-opacity=1 stroke=#000 \
 ```
 
-Run this to create a layer for counties
-```
--dissolve target=tracts COUNTYFP20 + name=county \
--style target=county fill=none stroke-opacity=1 stroke=#fff stroke-width=1 \
-```
-
 Add `cities` layer, which is preprocessed (see below)
 ```
 -i '/Users/cervas/My Drive/GitHub/createMaps/AL/cities.json' name=cities \
@@ -43,22 +54,44 @@ Add `cities` layer, which is preprocessed (see below)
 
 Project all layers
 ```
--proj target=blocks,tracts,us-cart,county,cd2021,livingston3 '+proj=tmerc +lat_0=30 +lon_0=-87.5 +k=0.9999333333333333 +x_0=600000.0000000001 +y_0=0 +ellps=GRS80 +datum=NAD83 +to_meter=0.3048006096012192 +no_defs' \
+-proj target=blocks,blocks_b,tracts,tracts_b,us-cart,county,cities,cd2021,livingston3 '+proj=tmerc +lat_0=30 +lon_0=-87.5 +k=0.9999333333333333 +x_0=600000.0000000001 +y_0=0 +ellps=GRS80 +datum=NAD83 +to_meter=0.3048006096012192 +no_defs' \
 ```
 
 us-cart layers to cartographic layer
 ```
 -clip target=blocks us-cart \
 -clip target=tracts us-cart \
+-clip target=blocks_b us-cart \
+-clip target=tracts_b us-cart \
 -clip target=county us-cart \
 -clip target=cd2021 us-cart \
 -clip target=livingston3 us-cart \
 ```
 
-Output as .svg file
+Output Population Density as .svg files
 ```
--o target=blocks,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021.svg' format=svg \
--o target=tracts,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3.svg' format=svg \
+-o target=blocks,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021_blocks.svg' format=svg \
+-o target=blocks,county,livingston3,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3_blocks.svg' format=svg \
+-o target=tracts,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021_tracts.svg' format=svg \
+-o target=tracts,county,livingston3,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3_tracts.svg' format=svg \
+```
+
+Output Racial compostion as .svg files
+```
+-o target=blocks_b,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021-black-blocks.svg' format=svg \
+-o target=blocks_b,county,livingston3,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3-black-blocks.svg' format=svg \
+-o target=tracts_b,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021-black-tracts.svg' format=svg \
+-o target=tracts_b,county,livingston3,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3-black-tracts.svg' format=svg \
+```
+
+Output District Map as .svg files
+```
+ -classify target=cd2021 save-as=fill colors=Category20 non-adjacent \
+ -classify target=livingston3 save-as=fill colors=Category20 non-adjacent \
+ -style target=cd2021 opacity=0.75 stroke=none \
+ -style target=livingston3 opacity=0.75 stroke=none \
+ -o target=tracts,cd2021,county,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021.svg' \
+ -o target=tracts,livingston3,county,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3.svg'
 ```
 
 ![](images/legend_Black.png)
