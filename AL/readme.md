@@ -87,9 +87,11 @@ Output Racial compostion as .svg files
 Output District Map as .svg files
 ```
  -classify target=cd2021 save-as=fill colors=Category20 non-adjacent \
- -style opacity=0.5 stroke=none \
+ -classify target=livingston3 save-as=fill colors=Category20 non-adjacent \
+ -style target=cd2021 opacity=0.75 stroke=none \
+ -style target=livingston3 opacity=0.75 stroke=none \
  -o target=tracts,cd2021,county,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021.svg' \
- -o target=tracts,cd2021,county,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3.svg' \
+ -o target=tracts,cd2021,county,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3.svg'
 ```
 
 ![](images/legend_Black.png)
