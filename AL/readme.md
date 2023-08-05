@@ -48,7 +48,6 @@ Add the Congressional District Shapefile with command `name=cd`
 -each target=cd2021 'cx=this.innerX, cy=this.innerY' \
 -points target=cd2021 x=cx y=cy + name=cd2021-labels \
 -style target=cd2021-labels label-text=DISTRICT text-anchor=middle font-size=14px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
-  
 ```
 
 Add `cities` layer, which is preprocessed (see below)
