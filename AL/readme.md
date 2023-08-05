@@ -31,7 +31,8 @@ Add the Congressional District Shapefile with command `name=cd`
 ```
 -i '/Users/cervas/My Drive/GitHub/createMaps/AL/plans/AL 2022 Congressional.geojson' name=cd2021 \
 -i '/Users/cervas/My Drive/GitHub/createMaps/AL/plans/Livingston_Congressional_Plan_3.json' name=livingston3 \
--style target=cd2021,livingston3 stroke-width=1 fill=none stroke-opacity=1 stroke=#000 \
+-style target=cd2021 stroke-width=1 fill=none stroke-opacity=1 stroke=#000 \
+-style target=livingston3 stroke-width=1 fill=none stroke-opacity=1 stroke=#000 \
 ```
 
 Add `cities` layer, which is preprocessed (see below)
