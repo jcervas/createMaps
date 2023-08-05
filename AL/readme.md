@@ -13,6 +13,8 @@ This creates the Black percentage in the blocks layer
 -each target=tracts 'blackper=BLACK/TOTAL*100' \
 -classify target=blocks field=blackper save-as=fill key-name="legend_Black" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix='%' nice colors='#ffffff,#f0f0f0,#d9d9d9,#bdbdbd,#969696' breaks=10,25,50,75 null-value="#fff" \
 -classify target=tracts field=blackper save-as=fill nice colors='#ffffff,#f0f0f0,#d9d9d9,#bdbdbd,#969696' breaks=10,25,50,75 null-value="#fff" \
+-dissolve target=blocks field=fill \
+-dissolve target=tracts field=fill \
 ```
 
 Import a cartographic shapefile to us-cart shoreline. Use command `name=us-cart`
@@ -58,8 +60,8 @@ us-cart layers to cartographic layer
 Output as .svg file
 ```
 -o target=blocks,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021_blocks.svg' format=svg \
--o target=tracts,county,livingston3,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3_blocks.svg' format=svg \
--o target=blocks,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021_tracts.svg' format=svg \
+-o target=blocks,county,livingston3,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3_blocks.svg' format=svg \
+-o target=tracts,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021_tracts.svg' format=svg \
 -o target=tracts,county,livingston3,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3_tracts.svg' format=svg \
 ```
 
