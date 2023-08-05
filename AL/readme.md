@@ -9,7 +9,8 @@ mapshaper \
 
 This creates the Black percentage in the blocks layer
 ```
--each target=blocks,tracts 'blackper=BLACK/TOTAL' \
+-each target=blocks 'blackper=BLACK/TOTAL' \
+-each target=tracts 'blackper=BLACK/TOTAL' \
 -classify target=blocks field=blackper save-as=fill key-name="legend_Black" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 nice colors='#ffffff,#f0f0f0,#d9d9d9,#bdbdbd,#969696' breaks=0.1,0.25,0.5,0.75 null-value="#fff" \
 -classify target=tracts field=blackper save-as=fill key-name="legend_Black" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 nice colors='#ffffff,#f0f0f0,#d9d9d9,#bdbdbd,#969696' breaks=0.1,0.25,0.5,0.75 null-value="#fff" \
 ```
