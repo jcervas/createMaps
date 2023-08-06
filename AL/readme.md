@@ -45,22 +45,11 @@ Add the Congressional District Shapefile with command `name=cd`
 -i '/Users/cervas/My Drive/GitHub/createMaps/AL/plans/Livingston_Congressional_Plan_3.geojson' name=livingston3 \
 -style target=cd2021 stroke-width=1 fill=none stroke-opacity=1 stroke=#000 \
 -style target=livingston3 stroke-width=1 fill=none stroke-opacity=1 stroke=#000 \
--each target=cd2021 'cx=this.innerX, cy=this.innerY' \
--each target=livingston3 'cx=this.innerX, cy=this.innerY' \
--points target=cd2021 x=cx y=cy + name=cd2021-labels \
--points target=livingston3 x=cx y=cy + name=livingston3-labels \
--style target=cd2021-labels label-text=NAME text-anchor=middle fill=#000 stroke=none opacity=1 font-size=18px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
--style target=livingston3-labels label-text=NAME text-anchor=middle fill=#000 stroke=none opacity=1 font-size=18px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
 ```
 
 Add `cities` layer, which is preprocessed (see below)
 ```
 -i '/Users/cervas/My Drive/GitHub/createMaps/AL/cities.json' name=cities \
-```
-
-Project all layers
-```
--proj target=blocks,blocks_b,tracts,tracts_b,us-cart,county,cities,cd2021,livingston3 '+proj=tmerc +lat_0=30 +lon_0=-87.5 +k=0.9999333333333333 +x_0=600000.0000000001 +y_0=0 +ellps=GRS80 +datum=NAD83 +to_meter=0.3048006096012192 +no_defs' \
 ```
 
 us-cart layers to cartographic layer
@@ -72,6 +61,21 @@ us-cart layers to cartographic layer
 -clip target=county us-cart \
 -clip target=cd2021 us-cart \
 -clip target=livingston3 us-cart \
+```
+
+Project all layers
+```
+-proj target=blocks,blocks_b,tracts,tracts_b,us-cart,county,cities,cd2021,livingston3 '+proj=tmerc +lat_0=30 +lon_0=-87.5 +k=0.9999333333333333 +x_0=600000.0000000001 +y_0=0 +ellps=GRS80 +datum=NAD83 +to_meter=0.3048006096012192 +no_defs' \
+```
+
+Label Districts
+```
+-each target=cd2021 'cx=this.innerX, cy=this.innerY' \
+-each target=livingston3 'cx=this.innerX, cy=this.innerY' \
+-points target=cd2021 x=cx y=cy + name=cd2021-labels \
+-points target=livingston3 x=cx y=cy + name=livingston3-labels \
+-style target=cd2021-labels label-text=NAME text-anchor=middle fill=#000 stroke=none opacity=1 font-size=18px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
+-style target=livingston3-labels label-text=NAME text-anchor=middle fill=#000 stroke=none opacity=1 font-size=18px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
 ```
 
 Output Population Density as .svg files
