@@ -101,7 +101,7 @@ Output District Map as .svg files
  -style target=cd2021 opacity=0.75 stroke=none \
  -style target=livingston3 opacity=0.75 stroke=none \
  -o target=tracts,cd2021,county,cities,us-cart,cd2021-labels '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021.svg' \
- -o target=tracts,livingston3,county,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3.svg'
+ -o target=tracts,livingston3,county,cities,us-cart,livingston3-labels '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3.svg'
 ```
 
 ![](images/legend_Black.png)
