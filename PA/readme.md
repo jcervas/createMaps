@@ -24,13 +24,13 @@ Set Working Directory
   -filter target=cities '["PA"].indexOf(ST) > -1' \
   -filter target=cities '["Pittsburgh","Erie", "State College","Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
   -filter target=cities '["Pittsburgh","Erie", "State College","Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' + name=cities-labels \
-  -style target=cities-labels label-text=NAME text-anchor=start font-size=13px font-weight=800 line-height=16px font-family=arial class="g-text-shadow p" stroke-width=0.25 stroke=#fff \
+  -style target=cities-labels label-text=NAME text-anchor=start font-size=13px font-weight=800 line-height=16px font-family=arial class="g-text-shadow p" \
   -style target=cities-labels 'text-anchor=middle' where='["Pittsburgh","Erie", "State College"].indexOf(NAME) > -1' \
   -style target=cities-labels 'text-anchor=end' where='["Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
   -style target=cities-labels 'dy=-10' where='["Pittsburgh", "State College"].indexOf(NAME) > -1' \
   -style target=cities-labels 'dy=15' where='["Allentown", "Erie","State College"].indexOf(NAME) > -1' \
   -each target=cities-labels 'dx=-5' where='["Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
-  -style target=cities r=4 stroke=#fff stroke-width=0.25 \
+  -style target=cities r=4 stroke=#fff \
   -each target=cities 'type="point"' \
   -each target=cities-labels 'type="text-label"' \
   -merge-layers target=cities-labels,cities force \
