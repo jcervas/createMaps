@@ -121,8 +121,6 @@ Set Working Directory
 
   -style fill-pattern='hatches 45deg 2px red 2px grey'
 
-
-
 # Output maps
 
 Output "Counties" map:
@@ -160,11 +158,10 @@ Output "Senate" Election map:
 House District Map:
 ```
 -filter target=house2021 "TotalPop>='0'" + name=house2021-districts \
+-classify save-as=fill colors=Category20 non-adjacent \
 -dissolve field=fill copy-fields=fill \
 -style opacity=0.75 \
- -classify save-as=fill colors=Category20 non-adjacent \
- -style opacity=0.5 stroke=none \
- -o target=tracts-grey,house2021-districts,house2021-lines,counties,us-cart,house2021-labels,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_house_2021.svg' \
+-o target=tracts-grey,house2021-districts,house2021-lines,counties,us-cart,house2021-labels,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_house_2021.svg' \
 ```
 
 Senate District Map:
