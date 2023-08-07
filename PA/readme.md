@@ -16,7 +16,7 @@ Set Working Directory
   -simplify target=counties 0.01 \
   -each target=counties 'cx=this.innerX, cy=this.innerY' \
   -points target=counties x=cx y=cy + name=counties-labels \
-  -style target=counties-labels label-text=NAME_x text-anchor=middle font-size=10px font-weight=800 line-height=16px font-family=helvetica class="g-text-shadow p" \
+  -style target=counties-labels label-text=NAME_x text-anchor=middle font-size=10px font-weight=800 line-height=16px font-family=arial class="g-text-shadow p" \
   -innerlines target=counties \
   -style target=counties fill=none stroke=#000 stroke-width=1 stroke-dasharray="0 3 0" \
   -i '/Users/cervas/My Drive/GitHub/Data Files/GIS/USA_Major_Cities.geojson' name=cities \
@@ -24,7 +24,7 @@ Set Working Directory
   -filter target=cities '["PA"].indexOf(ST) > -1' \
   -filter target=cities '["Pittsburgh","Erie", "State College","Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
   -filter target=cities '["Pittsburgh","Erie", "State College","Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' + name=cities-labels \
-  -style target=cities-labels label-text=NAME text-anchor=start font-size=13px font-weight=800 line-height=16px font-family=helvetica class="g-text-shadow p" stroke-width=0.25 stroke=#fff \
+  -style target=cities-labels label-text=NAME text-anchor=start font-size=13px font-weight=800 line-height=16px font-family=arial class="g-text-shadow p" stroke-width=0.25 stroke=#fff \
   -style target=cities-labels 'text-anchor=middle' where='["Pittsburgh","Erie", "State College"].indexOf(NAME) > -1' \
   -style target=cities-labels 'text-anchor=end' where='["Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
   -style target=cities-labels 'dy=-10' where='["Pittsburgh", "State College"].indexOf(NAME) > -1' \
@@ -91,13 +91,11 @@ Set Working Directory
   -style target=house2021 opacity=0.75 stroke=#000 stroke-width=0.5 stroke-opacity=1 \
   -each target=house2021 'cx=this.innerX, cy=this.innerY' \
   -points target=house2021 x=cx y=cy + name=house2021-labels \
-  -style target=house2021-labels label-text=id text-anchor=middle font-size=8px font-weight=800 line-height=8px font-family=helvetica class="g-text-shadow p" \
+  -style target=house2021-labels label-text=id text-anchor=middle font-size=8px font-weight=800 line-height=8px font-family=arial class="g-text-shadow p" \
   -style target=house2021-labels fill=#000 stroke=none \
   -simplify target=house2021 0.1 \
   -innerlines target=house2021 + name=house2021-lines \
   -style target=house2021-lines stroke=#000 stroke-opacity=0.5 \
-  -dissolve target=house2021 field=fill \
-  -style opacity=0.75 \
   -clip target=house2021,house2021-lines us-cart \
 ```
 
@@ -111,7 +109,7 @@ Set Working Directory
   -style target=senate2021 opacity=0.75 stroke=#000 stroke-width=0.5 stroke-opacity=1 \
   -each target=senate2021 'cx=this.innerX, cy=this.innerY' \
   -points target=senate2021 x=cx y=cy + name=senate2021-labels \
-  -style target=senate2021-labels label-text=id text-anchor=middle font-size=8px font-weight=800 line-height=8px font-family=helvetica class="g-text-shadow p" \
+  -style target=senate2021-labels label-text=id text-anchor=middle font-size=8px font-weight=800 line-height=8px font-family=arial class="g-text-shadow p" \
   -style target=senate2021-labels fill=#000 stroke=none \
   -simplify target=senate2021 0.1 \
   -innerlines target=senate2021 + name=senate2021-lines \
@@ -122,8 +120,6 @@ Set Working Directory
 ```
 
   -style fill-pattern='hatches 45deg 2px red 2px grey'
-
-
 
 # Output maps
 
@@ -161,10 +157,11 @@ Output "Senate" Election map:
 
 House District Map:
 ```
- -classify target=house2021 save-as=fill colors=Category20 non-adjacent \
- -style opacity=0.5 stroke=none \
- -o target=tracts-grey,house2021,house2021-lines,counties,us-cart,house2021-labels,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_house_2021.svg' \
-
+-filter target=house2021 "TotalPop>='0'" + name=house2021-districts \
+-classify save-as=fill colors=Category20 non-adjacent \
+-dissolve field=fill copy-fields=fill \
+-style opacity=0.75 \
+-o target=tracts-grey,house2021-districts,house2021-lines,counties,us-cart,house2021-labels,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_house_2021.svg' \
 ```
 
 Senate District Map:
@@ -172,7 +169,6 @@ Senate District Map:
  -classify target=senate2021 field=id save-as=fill colors=#90EE90,#FFE4E1,#4682B4,#00c3ff,#ffb800,#005eff,#7B68EE,#38ffbf,#dcff1b,#FFFFE0,#ff2700,#62ff95,#ff8400,#11fae6,#ffe400,#001bff,#7FFF00,#0093ff,#F4A460,#7FFF00,#AFEEEE,#9370DB,#4682B4,#FFFFE0,#CD853F,#FF4500 \
  -style opacity=0.5 stroke=none \
 -o target=tracts-grey,senate2021,senate2021-lines,counties,us-cart,senate2021-labels,cities '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/maps/PA_senate_2021.svg' \
-
 ```
 
 District colors:

@@ -111,16 +111,16 @@ Output District Map as .svg files
 Load USA_MajorCities.geojson with command `name=cities`
 ```
 mapshaper -i '/Users/cervas/My Drive/GitHub/createMaps/AL/USA_Major_Cities.geojson' name=cities \
--filter target=cities ST=='AL' \
--filter target=cities POP_CLASS>=7 \
--filter target=cities POP_CLASS>=7 + name=cities-labels \
+-filter target=cities "ST=='AL'" \
+-filter target=cities "POP_CLASS>=7" \
+-filter target=cities "POP_CLASS>=7" + name=cities-labels \
 -filter-fields target=cities,cities-labels NAME \
 -style target=cities-labels label-text=NAME text-anchor=start font-size=13px font-weight=800 line-height=16px font-family=arial class="g-text-shadow p" \
 -each target=cities-labels dx=5 \
 -each target=cities-labels dy=0 \
 -style target=cities r=4 \
--each target=cities type='point' \
--each target=cities-labels type='text-label' \
+-each target=cities "type='point'" \
+-each target=cities-labels "type='text-label'" \
 -merge-layers target=cities,cities-labels force \
 -o target=cities,cities-labels '/Users/cervas/My Drive/GitHub/createMaps/AL/cities.json' format=geojson
 ```
