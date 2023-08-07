@@ -96,7 +96,7 @@ Set Working Directory
   -simplify target=house2021 0.1 \
   -innerlines target=house2021 + name=house2021-lines \
   -style target=house2021-lines stroke=#000 stroke-opacity=0.5 \
-  -dissolve target=house2021 field=fill \
+  -dissolve target=house2021 field=fill copy-fields=fill \
   -style opacity=0.75 \
   -clip target=house2021,house2021-lines us-cart \
 ```
