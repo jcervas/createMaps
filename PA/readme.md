@@ -171,6 +171,24 @@ Senate District Map:
 -o target=tracts-grey,senate2021-districts,senate2021-lines,counties,us-cart,senate2021-labels,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_senate_2021.svg' \
 ```
 
+# ai2html
+
+To create css and html for web deployment, use ai2html. Add the following text to a new layer in .svg file and rename layers to correspond to css.
+```
+ai2html-css
+
+.g-Shadow p {
+   text-shadow: 1px 1px 0px rgba(254,254,254,.15);
+}
+.g-district-labels p {
+    text-shadow: 1px 1px 1px rgba(254,254,254,.25),-1px 1px 1px rgba(254,254,254,.25),1px -1px 1px rgba(254,254,254,0.25),-1px -1px 1px rgba(254,254,254,.25);
+}
+.g-cities p {
+    text-shadow: 1px 1px 1px rgba(254,254,254,.25),-1px 1px 1px rgba(254,254,254,.25),1px -1px 1px rgba(254,254,254,0.25),-1px -1px 1px rgba(254,254,254,.25);
+}
+```
+
+
 District colors:
 #90EE90,#FFE4E1,#4682B4,#00c3ff,#ffb800,#005eff,#7B68EE,#38ffbf,#dcff1b,#FFFFE0,#ff2700,#62ff95,#ff8400,#11fae6,#ffe400,#001bff,#7FFF00,#0093ff,#F4A460,#7FFF00,#AFEEEE,#9370DB,#4682B4,#FFFFE0,#CD853F,#FF4500
 
