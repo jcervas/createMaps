@@ -114,8 +114,6 @@ Set Working Directory
   -simplify target=senate2021 0.1 \
   -innerlines target=senate2021 + name=senate2021-lines \
   -style target=senate2021-lines stroke=#000 stroke-opacity=0.5 \
-  -dissolve target=senate2021 field=fill \
-  -style opacity=0.75 \
   -clip target=senate2021,senate2021-lines us-cart \
 ```
 
@@ -170,7 +168,7 @@ Senate District Map:
 -classify save-as=fill colors=Category20 non-adjacent \
 -dissolve field=fill copy-fields=fill \
 -style opacity=0.75 \
--o target=tracts-grey,senate2021-districts,senate2021-lines,counties,us-cart,house2021-labels,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_senate_2021.svg' \
+-o target=tracts-grey,senate2021-districts,senate2021-lines,counties,us-cart,senate2021-labels,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_senate_2021.svg' \
 ```
 
 District colors:
