@@ -168,7 +168,7 @@ Senate District Map:
 -classify save-as=fill colors=Category20 non-adjacent \
 -dissolve field=fill copy-fields=fill \
 -style opacity=0.75 \
--o target=tracts-grey,senate2021-districts,senate2021-lines,counties,us-cart,house2021-labels,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_senate_2021.svg' \
+-o target=tracts-grey,senate2021-districts,senate2021-lines,counties,us-cart,senate2021-labels,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_senate_2021.svg' \
 ```
 
 District colors:
