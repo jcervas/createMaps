@@ -114,8 +114,6 @@ Set Working Directory
   -simplify target=senate2021 0.1 \
   -innerlines target=senate2021 + name=senate2021-lines \
   -style target=senate2021-lines stroke=#000 stroke-opacity=0.5 \
-  -dissolve target=senate2021 field=fill \
-  -style opacity=0.75 \
   -clip target=senate2021,senate2021-lines us-cart \
 ```
 
