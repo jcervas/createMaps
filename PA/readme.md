@@ -16,7 +16,7 @@ Set Working Directory
   -simplify target=counties 0.01 \
   -each target=counties 'cx=this.innerX, cy=this.innerY' \
   -points target=counties x=cx y=cy + name=counties-labels \
-  -style target=counties-labels label-text=NAME_x text-anchor=middle font-size=10px font-weight=800 line-height=16px font-family=helvetica class="g-text-shadow p" \
+  -style target=counties-labels label-text=NAME_x text-anchor=middle font-size=10px font-weight=800 line-height=16px font-family=arial class="g-text-shadow p" \
   -innerlines target=counties \
   -style target=counties fill=none stroke=#000 stroke-width=1 stroke-dasharray="0 3 0" \
   -i '/Users/cervas/My Drive/GitHub/Data Files/GIS/USA_Major_Cities.geojson' name=cities \
@@ -24,7 +24,7 @@ Set Working Directory
   -filter target=cities '["PA"].indexOf(ST) > -1' \
   -filter target=cities '["Pittsburgh","Erie", "State College","Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
   -filter target=cities '["Pittsburgh","Erie", "State College","Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' + name=cities-labels \
-  -style target=cities-labels label-text=NAME text-anchor=start font-size=13px font-weight=800 line-height=16px font-family=helvetica class="g-text-shadow p" stroke-width=0.25 stroke=#fff \
+  -style target=cities-labels label-text=NAME text-anchor=start font-size=13px font-weight=800 line-height=16px font-family=arial class="g-text-shadow p" stroke-width=0.25 stroke=#fff \
   -style target=cities-labels 'text-anchor=middle' where='["Pittsburgh","Erie", "State College"].indexOf(NAME) > -1' \
   -style target=cities-labels 'text-anchor=end' where='["Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
   -style target=cities-labels 'dy=-10' where='["Pittsburgh", "State College"].indexOf(NAME) > -1' \
@@ -91,7 +91,7 @@ Set Working Directory
   -style target=house2021 opacity=0.75 stroke=#000 stroke-width=0.5 stroke-opacity=1 \
   -each target=house2021 'cx=this.innerX, cy=this.innerY' \
   -points target=house2021 x=cx y=cy + name=house2021-labels \
-  -style target=house2021-labels label-text=id text-anchor=middle font-size=8px font-weight=800 line-height=8px font-family=helvetica class="g-text-shadow p" \
+  -style target=house2021-labels label-text=id text-anchor=middle font-size=8px font-weight=800 line-height=8px font-family=arial class="g-text-shadow p" \
   -style target=house2021-labels fill=#000 stroke=none \
   -simplify target=house2021 0.1 \
   -innerlines target=house2021 + name=house2021-lines \
@@ -111,7 +111,7 @@ Set Working Directory
   -style target=senate2021 opacity=0.75 stroke=#000 stroke-width=0.5 stroke-opacity=1 \
   -each target=senate2021 'cx=this.innerX, cy=this.innerY' \
   -points target=senate2021 x=cx y=cy + name=senate2021-labels \
-  -style target=senate2021-labels label-text=id text-anchor=middle font-size=8px font-weight=800 line-height=8px font-family=helvetica class="g-text-shadow p" \
+  -style target=senate2021-labels label-text=id text-anchor=middle font-size=8px font-weight=800 line-height=8px font-family=arial class="g-text-shadow p" \
   -style target=senate2021-labels fill=#000 stroke=none \
   -simplify target=senate2021 0.1 \
   -innerlines target=senate2021 + name=senate2021-lines \
