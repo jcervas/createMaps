@@ -1,0 +1,10 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-106.649432255,35.093261324]},"properties":{"NAME":"Albuquerque","r":4,"type":"point"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-106.777098137,32.302977239]},"properties":{"NAME":"Las Cruces","r":4,"type":"point"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-106.657566725,35.243931607]},"properties":{"NAME":"Rio Rancho","r":4,"type":"point"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-105.94683025,35.6813419860001]},"properties":{"NAME":"Santa Fe","r":4,"type":"point"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-106.649432255,35.093261324]},"properties":{"NAME":"Albuquerque","label-text":"Albuquerque","text-anchor":"start","font-size":"13px","font-weight":"800","line-height":"16px","font-family":"arial","class":"g-text-shadow p","dx":5,"dy":0,"type":"text-label"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-106.777098137,32.302977239]},"properties":{"NAME":"Las Cruces","label-text":"Las Cruces","text-anchor":"start","font-size":"13px","font-weight":"800","line-height":"16px","font-family":"arial","class":"g-text-shadow p","dx":5,"dy":0,"type":"text-label"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-106.657566725,35.243931607]},"properties":{"NAME":"Rio Rancho","label-text":"Rio Rancho","text-anchor":"start","font-size":"13px","font-weight":"800","line-height":"16px","font-family":"arial","class":"g-text-shadow p","dx":5,"dy":0,"type":"text-label"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-105.94683025,35.6813419860001]},"properties":{"NAME":"Santa Fe","label-text":"Santa Fe","text-anchor":"start","font-size":"13px","font-weight":"800","line-height":"16px","font-family":"arial","class":"g-text-shadow p","dx":5,"dy":0,"type":"text-label"}}
+]}
