@@ -1,6 +1,6 @@
 
-
-![cd2022](https://github.com/jcervas/createMaps/assets/30814734/78d7a343-e3d1-4563-b636-c79bb14d52f8)
+# 2022 West Virginia Congressional Map
+![](images/cd2022.svg)
 
 
 ```{r}
@@ -90,3 +90,17 @@ mapshaper -i '/Users/cervas/My Drive/GitHub/createMaps/NM/USA_Major_Cities.geojs
 -each target=cities-labels "type='text-label'" \
 -merge-layers target=cities,cities-labels force \
 -o target=cities,cities-labels '/Users/cervas/My Drive/GitHub/createMaps/WV/cities.json' format=geojson
+
+
+## Add css to .svg
+
+<style media="screen,print">
+/* Custom CSS */
+.g-Shadow p {
+    text-shadow: 1px 1px 0px rgba(254, 254, 254, .15);
+}
+
+.g-text-shadow {
+    text-shadow: 1px 1px 1px rgba(254, 254, 254, 1), -1px 1px 1px rgba(254, 254, 254, 1), 1px -1px 1px rgba(254, 254, 254, 1), -1px -1px 1px rgba(254, 254, 254, 1);
+}
+</style>
