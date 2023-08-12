@@ -1,6 +1,6 @@
 
-
-![cd2022](/images/cd2022.svg)
+# 2022 West Virginia Congressional Map
+![](images/cd2022.svg)
 
 
 ```{r}
