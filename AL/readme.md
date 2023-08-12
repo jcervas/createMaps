@@ -104,7 +104,7 @@ Output District Map as .svg files
  -o target=tracts,livingston3,county,cities,us-cart,livingston3-labels '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3.svg'
 ```
 
-![](images/legend_Black.png)
+![](images/legend_Black.svg)
 ![](images/cd2021.svg)
 
 
