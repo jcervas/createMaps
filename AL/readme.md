@@ -105,7 +105,7 @@ Output District Map as .svg files
 ```
 
 ![](images/legend_Black.png)
-![](images/al.png)
+![](images/cd2021.svg)
 
 
 Load USA_MajorCities.geojson with command `name=cities`
