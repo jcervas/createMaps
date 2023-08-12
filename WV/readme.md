@@ -1,6 +1,6 @@
 
 
-![cd2022](https://github.com/jcervas/createMaps/assets/30814734/78d7a343-e3d1-4563-b636-c79bb14d52f8)
+![cd2022](images/cd2022.svg)
 
 
 ```{r}
