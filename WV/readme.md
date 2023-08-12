@@ -1,6 +1,6 @@
 
 
-![cd2022](images/cd2022.svg)
+![cd2022](/images/cd2022.svg)
 
 
 ```{r}
