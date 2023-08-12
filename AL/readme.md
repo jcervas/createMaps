@@ -104,7 +104,8 @@ Output District Map as .svg files
  -o target=tracts,livingston3,county,cities,us-cart,livingston3-labels '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3.svg'
 ```
 
-2022 Alabama Congressional Map
+# 2022 Alabama Congressional Map
+Map nullified in Allen v. Milligan
 ![](images/cd2021.svg)
 
 
