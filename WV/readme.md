@@ -53,7 +53,6 @@ mapshaper \
 -o target=blocks-bw,water '/Users/cervas/My Drive/GitHub/createMaps/WV/images/WV_blocks_bw.svg' format=svg \
 -o target=blkgrps-styled,water,county,cities '/Users/cervas/My Drive/GitHub/createMaps/WV/images/WV_blkgrps.svg' format=svg \
 -o target=tracts-styled,water,county,cities '/Users/cervas/My Drive/GitHub/createMaps/WV/images/WV_tracts.svg' format=svg \
-
 ```
 
 ```
