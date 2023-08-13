@@ -53,7 +53,6 @@ mapshaper \
 -o target=blocks-bw,water '/Users/cervas/My Drive/GitHub/createMaps/WV/images/WV_blocks_bw.svg' format=svg \
 -o target=blkgrps-styled,water,county,cities '/Users/cervas/My Drive/GitHub/createMaps/WV/images/WV_blkgrps.svg' format=svg \
 -o target=tracts-styled,water,county,cities '/Users/cervas/My Drive/GitHub/createMaps/WV/images/WV_tracts.svg' format=svg \
-
 ```
 
 ```
@@ -65,9 +64,9 @@ mapshaper \
 -each target=cd2022 'cx=this.innerX, cy=this.innerY' \
 -points target=cd2022 x=cx y=cy + name=cd2022-labels \
 -style target=cd2022-labels label-text=CODE text-anchor=middle fill=#000 stroke=none opacity=1 font-size=18px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
--classify target=cd2022 save-as=fill colors=Category20 non-adjacent \
+-classify target=cd2022 save-as=fill colors=#ffbb78,#1f77b4,#2ca02c,#aec7e8 non-adjacent \
 -style target=cd2022 opacity=0.75 stroke=none \
--o target=tracts,cd2022,county,cities,us-cart,cd2022-labels '/Users/cervas/My Drive/GitHub/createMaps/WV/images/cd2022.svg' \
+-o target=tracts-styled,cd2022,county,cities,us-cart,cd2022-labels '/Users/cervas/My Drive/GitHub/createMaps/WV/images/cd2022.svg'
 ```
 
 
@@ -93,7 +92,7 @@ mapshaper -i '/Users/cervas/My Drive/GitHub/createMaps/NM/USA_Major_Cities.geojs
 
 
 ## Add css to .svg
-
+```{css}
 <style media="screen,print">
 /* Custom CSS */
 .g-Shadow p {
@@ -104,3 +103,4 @@ mapshaper -i '/Users/cervas/My Drive/GitHub/createMaps/NM/USA_Major_Cities.geojs
     text-shadow: 1px 1px 1px rgba(254, 254, 254, 1), -1px 1px 1px rgba(254, 254, 254, 1), 1px -1px 1px rgba(254, 254, 254, 1), -1px -1px 1px rgba(254, 254, 254, 1);
 }
 </style>
+```
