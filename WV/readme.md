@@ -92,7 +92,7 @@ mapshaper -i '/Users/cervas/My Drive/GitHub/createMaps/NM/USA_Major_Cities.geojs
 
 
 ## Add css to .svg
-
+```{css}
 <style media="screen,print">
 /* Custom CSS */
 .g-Shadow p {
@@ -103,3 +103,4 @@ mapshaper -i '/Users/cervas/My Drive/GitHub/createMaps/NM/USA_Major_Cities.geojs
     text-shadow: 1px 1px 1px rgba(254, 254, 254, 1), -1px 1px 1px rgba(254, 254, 254, 1), 1px -1px 1px rgba(254, 254, 254, 1), -1px -1px 1px rgba(254, 254, 254, 1);
 }
 </style>
+```
