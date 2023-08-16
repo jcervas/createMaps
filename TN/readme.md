@@ -1,5 +1,5 @@
 
-# 2022 West Virginia Congressional Map
+# 2022 Tennessee Congressional Map
 ![](images/cd2022.svg)
 
 
@@ -27,6 +27,8 @@ mapshaper-xl 20gb \
 -style target=water fill=#fff \
 -dissolve target=blocks field=TRACTCE20 calc=' TOTAL = sum(P1_001N), COUNTYFP20 = max(COUNTYFP20), ALAND20 = sum(ALAND20), STATEFP20 = max(STATEFP20)' + name=tracts \
 -dissolve target=blocks field=blkgrp calc=' TOTAL = sum(P1_001N), COUNTYFP20 = max(COUNTYFP20), ALAND20 = sum(ALAND20), STATEFP20 = max(STATEFP20)' + name=blkgrps \
+-dissolve target=tracts + name=ST \
+-style target=ST fill=none opacity=1 stroke="#000" \
 -each target=blocks 'density = P1_001N / (ALAND20/2589988)' \
 -each target=blkgrps 'density = TOTAL / (ALAND20/2589988)' \
 -each target=tracts 'density = TOTAL / (ALAND20/2589988)' \
@@ -64,14 +66,14 @@ mapshaper-xl 20gb \
 -each target=cd2022 'cx=this.innerX, cy=this.innerY' \
 -points target=cd2022 x=cx y=cy + name=cd2022-labels \
 -style target=cd2022-labels label-text=CODE text-anchor=middle fill=#000 stroke=none opacity=1 font-size=18px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
--classify target=cd2022 save-as=fill colors=#ffbb78,#1f77b4,#2ca02c,#aec7e8 non-adjacent \
+-classify target=cd2022 save-as=fill colors=Category20 non-adjacent \
 -style target=cd2022 opacity=0.75 stroke=none \
--o target=tracts-styled,cd2022,county,cities,us-cart,cd2022-labels '/Users/cervas/My Drive/GitHub/createMaps/TN/images/cd2022.svg'
+-o target=tracts-styled,cd2022,county,cities,ST,cd2022-labels '/Users/cervas/My Drive/GitHub/createMaps/TN/images/cd2022.svg'
 ```
 
 
--filter target=us-cart 'STATEFP == "35"' \
--style target=us-cart fill=none stroke=#000 opacity=1 stroke-opacity=1 \
+-filter target=ST 'STATEFP == "35"' \
+-style target=ST fill=none stroke=#000 opacity=1 stroke-opacity=1 \
 
 mapshaper -i '/Users/cervas/My Drive/GitHub/createMaps/USA_Major_Cities.geojson' name=cities \
 -filter target=cities "ST=='TN'" \
