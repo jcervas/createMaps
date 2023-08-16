@@ -1,0 +1,14 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-85.305213776,35.0429215980001]},"properties":{"NAME":"Chattanooga","r":4,"type":"point"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-87.3550076989999,36.530678997]},"properties":{"NAME":"Clarksville","r":4,"type":"point"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-83.921606773,35.960373314]},"properties":{"NAME":"Knoxville","r":4,"type":"point"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-90.0421944609999,35.141042269]},"properties":{"NAME":"Memphis","r":4,"type":"point"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-86.4092143089999,35.8508638130001]},"properties":{"NAME":"Murfreesboro","r":4,"type":"point"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-86.777307917,36.166471098]},"properties":{"NAME":"Nashville","r":4,"type":"point"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-85.305213776,35.0429215980001]},"properties":{"NAME":"Chattanooga","label-text":"Chattanooga","text-anchor":"start","font-size":"13px","font-weight":"800","line-height":"16px","font-family":"arial","class":"g-text-shadow p","dx":5,"dy":0,"type":"text-label"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-87.3550076989999,36.530678997]},"properties":{"NAME":"Clarksville","label-text":"Clarksville","text-anchor":"start","font-size":"13px","font-weight":"800","line-height":"16px","font-family":"arial","class":"g-text-shadow p","dx":5,"dy":0,"type":"text-label"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-83.921606773,35.960373314]},"properties":{"NAME":"Knoxville","label-text":"Knoxville","text-anchor":"start","font-size":"13px","font-weight":"800","line-height":"16px","font-family":"arial","class":"g-text-shadow p","dx":5,"dy":0,"type":"text-label"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-90.0421944609999,35.141042269]},"properties":{"NAME":"Memphis","label-text":"Memphis","text-anchor":"start","font-size":"13px","font-weight":"800","line-height":"16px","font-family":"arial","class":"g-text-shadow p","dx":5,"dy":0,"type":"text-label"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-86.4092143089999,35.8508638130001]},"properties":{"NAME":"Murfreesboro","label-text":"Murfreesboro","text-anchor":"start","font-size":"13px","font-weight":"800","line-height":"16px","font-family":"arial","class":"g-text-shadow p","dx":5,"dy":0,"type":"text-label"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-86.777307917,36.166471098]},"properties":{"NAME":"Nashville","label-text":"Nashville","text-anchor":"start","font-size":"13px","font-weight":"800","line-height":"16px","font-family":"arial","class":"g-text-shadow p","dx":5,"dy":0,"type":"text-label"}}
+]}
