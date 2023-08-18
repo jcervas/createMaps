@@ -1,0 +1,14 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-81.521863541,41.080046031]},"properties":{"NAME":"Akron","r":4,"type":"point"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-84.510923285,39.10709069]},"properties":{"NAME":"Cincinnati","r":4,"type":"point"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-81.687303357,41.505176369]},"properties":{"NAME":"Cleveland","r":4,"type":"point"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-82.988930285,39.988404529]},"properties":{"NAME":"Columbus","r":4,"type":"point"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-84.198783675,39.768711039]},"properties":{"NAME":"Dayton","r":4,"type":"point"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-83.533838786,41.6522881270001]},"properties":{"NAME":"Toledo","r":4,"type":"point"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-81.521863541,41.080046031]},"properties":{"NAME":"Akron","label-text":"Akron","text-anchor":"start","font-size":"13px","font-weight":"800","line-height":"16px","font-family":"arial","class":"g-text-shadow p","dx":5,"dy":0,"type":"text-label"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-84.510923285,39.10709069]},"properties":{"NAME":"Cincinnati","label-text":"Cincinnati","text-anchor":"start","font-size":"13px","font-weight":"800","line-height":"16px","font-family":"arial","class":"g-text-shadow p","dx":5,"dy":0,"type":"text-label"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-81.687303357,41.505176369]},"properties":{"NAME":"Cleveland","label-text":"Cleveland","text-anchor":"start","font-size":"13px","font-weight":"800","line-height":"16px","font-family":"arial","class":"g-text-shadow p","dx":5,"dy":0,"type":"text-label"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-82.988930285,39.988404529]},"properties":{"NAME":"Columbus","label-text":"Columbus","text-anchor":"start","font-size":"13px","font-weight":"800","line-height":"16px","font-family":"arial","class":"g-text-shadow p","dx":5,"dy":0,"type":"text-label"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-84.198783675,39.768711039]},"properties":{"NAME":"Dayton","label-text":"Dayton","text-anchor":"start","font-size":"13px","font-weight":"800","line-height":"16px","font-family":"arial","class":"g-text-shadow p","dx":5,"dy":0,"type":"text-label"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-83.533838786,41.6522881270001]},"properties":{"NAME":"Toledo","label-text":"Toledo","text-anchor":"start","font-size":"13px","font-weight":"800","line-height":"16px","font-family":"arial","class":"g-text-shadow p","dx":5,"dy":0,"type":"text-label"}}
+]}
