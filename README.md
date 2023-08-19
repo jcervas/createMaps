@@ -28,3 +28,10 @@ data_filtered$GEOID20 <- gsub("1400000US", "", data_filtered$GEO_ID)
 # data_filtered$blkgrp <- substr(data_filtered$GEOID20, 1, 12)
 write.csv(data_filtered, "/Users/cervas/My Drive/GitHub/createMaps/tractscsv.csv")
 ```
+
+```
+mapshaper-xl 20gb \
+-i '/Users/cervas/My Drive/GitHub/createMaps/us-tracts-originial.json' name=us-tracts \
+-i '/Users/cervas/My Drive/GitHub/createMaps/tractscsv.csv' string-fields=GEOID20 name=tracts-csv \
+-join
+```
