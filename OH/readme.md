@@ -22,6 +22,7 @@ mapshaper-xl 20gb \
 -i '/Users/cervas/My Drive/GitHub/createMaps/OH/blockscsv.csv' name=blockscsv string-fields=GEOID20 \
 -i '/Users/cervas/My Drive/GitHub/createMaps/OH/cities.json' name=cities \
 -i '/Users/cervas/My Drive/GitHub/Data Files/GIS/Congress/US_2022_Districts.json' name=cd2022 \
+-filter target=cd2022 'ST=="OH"' \
 -i '/Users/cervas/My Drive/GitHub/createMaps/us-cart.json' name=us-cart \
 -filter target=us-cart 'STUSPS == "OH"' \
 -style target=us-cart fill=none stroke=#000 opacity=1 stroke-opacity=1 \
@@ -61,7 +62,6 @@ mapshaper-xl 20gb \
 ```
 
 ```
--filter target=cd2022 'ST=="OH"' \
 -style target=cd2022 stroke-width=1 fill=none stroke-opacity=1 stroke=#000 \
 -each target=cd2022 'cx=this.innerX, cy=this.innerY' \
 -points target=cd2022 x=cx y=cy + name=cd2022-labels \

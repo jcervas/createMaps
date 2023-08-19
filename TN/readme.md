@@ -13,13 +13,18 @@ data_filtered$blkgrp <- substr(data_filtered$GEOID20, 1, 12)
 write.csv(data_filtered, "/Users/cervas/My Drive/GitHub/createMaps/TN/blockscsv.csv")
 ```
 
-cd '/Users/cervas/My Drive/GitHub/createMaps/TN'
+
 
 ```
+cd '/Users/cervas/My Drive/GitHub/createMaps/TN'
 mapshaper-xl 20gb \
 -i '/Users/cervas/My Drive/GitHub/Data Files/GIS/Tigerline/TIGER2020PL/blocks/TN/tl_2020_47_tabblock20.shp' name=blocks \
 -i '/Users/cervas/My Drive/GitHub/createMaps/TN/blockscsv.csv' name=blockscsv string-fields=GEOID20 \
 -i '/Users/cervas/My Drive/GitHub/createMaps/TN/cities.json' name=cities \
+-i '/Users/cervas/My Drive/GitHub/Data Files/GIS/Congress/US_2022_Districts.json' name=cd2022 \
+-i '/Users/cervas/My Drive/GitHub/createMaps/us-cart.json' name=us-cart \
+-filter target=us-cart 'STUSPS == "TN"' \
+-style target=us-cart fill=none stroke=#000 opacity=1 stroke-opacity=1 \
 -simplify target=blocks 0.05 \
 -join target=blocks source=blockscsv keys=GEOID20,GEOID20 \
 -filter target=blocks 'AWATER20>=ALAND20' + name=water \
@@ -27,14 +32,12 @@ mapshaper-xl 20gb \
 -style target=water fill=#fff \
 -dissolve target=blocks field=TRACTCE20 calc=' TOTAL = sum(P1_001N), COUNTYFP20 = max(COUNTYFP20), ALAND20 = sum(ALAND20), STATEFP20 = max(STATEFP20)' + name=tracts \
 -dissolve target=blocks field=blkgrp calc=' TOTAL = sum(P1_001N), COUNTYFP20 = max(COUNTYFP20), ALAND20 = sum(ALAND20), STATEFP20 = max(STATEFP20)' + name=blkgrps \
--dissolve target=tracts + name=ST \
--style target=ST fill=none opacity=1 stroke="#000" \
 -each target=blocks 'density = P1_001N / (ALAND20/2589988)' \
 -each target=blkgrps 'density = TOTAL / (ALAND20/2589988)' \
 -each target=tracts 'density = TOTAL / (ALAND20/2589988)' \
 -dissolve target=tracts COUNTYFP20 + name=county \
 -innerlines \
--style target=county fill=none stroke=#fff stroke-width=1 stroke-dasharray="0 3 0" \
+-style target=county fill=none stroke=#fff stroke-width=1 stroke-dasharray="0 3 0" stroke-opacity=0.5 \
 ```
 
 ```
@@ -50,25 +53,30 @@ mapshaper-xl 20gb \
 -dissolve target=blocks-bw field=fill \
 -dissolve target=blkgrps-styled field=fill \
 -dissolve target=tracts-styled field=fill \
--proj target=tracts-styled,blocks-bw,blkgrps-styled,blocks-styled,water,county,cities '+proj=lcc +lat_1=35.25 +lat_2=36.41666666666666 +lat_0=34.33333333333334 +lon_0=-86 +x_0=600000.0000000001 +y_0=0 +ellps=GRS80 +datum=NAD83 +to_meter=0.3048006096012192 +no_defs ' \
--o target=blocks-styled,water,county,cities '/Users/cervas/My Drive/GitHub/createMaps/TN/images/TN_blocks.svg' format=svg \
--o target=blocks-bw,water '/Users/cervas/My Drive/GitHub/createMaps/TN/images/TN_blocks_bw.svg' format=svg \
--o target=blkgrps-styled,water,county,cities '/Users/cervas/My Drive/GitHub/createMaps/TN/images/TN_blkgrps.svg' format=svg \
--o target=tracts-styled,water,county,cities '/Users/cervas/My Drive/GitHub/createMaps/TN/images/TN_tracts.svg' format=svg \
+-proj target=tracts-styled,blocks-bw,blkgrps-styled,blocks-styled,water,county,cities,cd2022,us-cart EPSG:3662 \
+-o target=blocks-styled,water,county,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/TN/images/TN_blocks.svg' format=svg \
+-o target=blocks-bw,water,us-cart '/Users/cervas/My Drive/GitHub/createMaps/TN/images/TN_blocks_bw.svg' format=svg \
+-o target=blkgrps-styled,water,county,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/TN/images/TN_blkgrps.svg' format=svg \
+-o target=tracts-styled,water,county,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/TN/images/TN_tracts.svg' format=svg \
 ```
 
 ```
--i '/Users/cervas/My Drive/GitHub/Data Files/GIS/Congress/US_2022_Districts.json' name=cd2022 \
--proj target=cd2022 '+proj=lcc +lat_1=35.25 +lat_2=36.41666666666666 +lat_0=34.33333333333334 +lon_0=-86 +x_0=600000.0000000001 +y_0=0 +ellps=GRS80 +datum=NAD83 +to_meter=0.3048006096012192 +no_defs ' \
--filter 'ST=="TN"' \
--info \
+-filter target=cd2022 'ST=="TN"' \
 -style target=cd2022 stroke-width=1 fill=none stroke-opacity=1 stroke=#000 \
 -each target=cd2022 'cx=this.innerX, cy=this.innerY' \
 -points target=cd2022 x=cx y=cy + name=cd2022-labels \
 -style target=cd2022-labels label-text=CODE text-anchor=middle fill=#000 stroke=none opacity=1 font-size=18px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
 -classify target=cd2022 save-as=fill colors=Category20 non-adjacent \
 -style target=cd2022 opacity=0.75 stroke=none \
--o target=tracts-styled,cd2022,county,cities,ST,cd2022-labels '/Users/cervas/My Drive/GitHub/createMaps/TN/images/cd2022.svg'
+-clip source=us-cart target=tracts-styled \
+-clip source=us-cart target=blocks-bw \
+-clip source=us-cart target=blkgrps-styled \
+-clip source=us-cart target=blocks-styled \
+-clip source=us-cart target=water \
+-clip source=us-cart target=county \
+-clip source=us-cart target=cities \
+-clip source=us-cart target=cd2022 \
+-o target=tracts-styled,cd2022,county,cities,ST,cd2022-labels,us-cart '/Users/cervas/My Drive/GitHub/createMaps/TN/images/cd2022.svg'
 ```
 
 

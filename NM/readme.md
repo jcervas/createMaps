@@ -11,6 +11,8 @@ write.csv(data_filtered, "/Users/cervas/Library/Mobile Documents/com~apple~Cloud
 Import Block or Tract file with command `name=tracts`
 ```
 mapshaper \
+-i '/Users/cervas/My Drive/GitHub/Data Files/GIS/Congress/US_2022_Districts.json' name=cd2022 \
+-filter target=cd2022 'ST=="NM"' \
 -i '/Users/cervas/My Drive/GitHub/createMaps/NM/tracts.json' name=tracts \
 -i '/Users/cervas/My Drive/GitHub/createMaps/NM/tractscsv.csv' name=tractscsv string-fields=GEOID20 \
 -i '/Users/cervas/My Drive/GitHub/Data Files/GIS/Tigerline/TIGER2020PL/blocks/NM/blocks.json' name=blocks \
@@ -42,12 +44,11 @@ mapshaper \
 ```
 
 ```
--i '/Users/cervas/My Drive/GitHub/createMaps/NM/plans/cd-2021.geojson' name=cd2021 \
--innerlines target=cd2021 + name=cd-lines \
--innerlines target=cd2021 + name=cd-lines2 \
+-innerlines target=cd2022 + name=cd-lines \
+-innerlines target=cd2022 + name=cd-lines2 \
 -style target=cd-lines stroke-width=5 fill=none stroke-opacity=1 stroke=#000 \
 -style target=cd-lines2 stroke-width=0.5 fill=none stroke-opacity=1 stroke=#fff \
--style target=cd2021 stroke-width=1 fill=none stroke-opacity=1 stroke=#000 \
+-style target=cd2022 stroke-width=1 fill=none stroke-opacity=1 stroke=#000 \
 -i '/Users/cervas/My Drive/GitHub/createMaps/NM/cities.json' name=cities \
 -i '/Users/cervas/My Drive/GitHub/createMaps/NM/place.json' name=place \
 -filter target=place '["Albuquerque","South Valley","Pajarito Mesa"].indexOf(NAME20) > -1' \
@@ -56,14 +57,14 @@ mapshaper \
 -clip target=tracts_b us-cart \
 -clip target=blocks_b us-cart \
 -clip target=county us-cart \
--clip target=cd2021 us-cart \
+-clip target=cd2022 us-cart \
 -clip target=cd-lines us-cart \
 -clip target=cities us-cart \
 -clip target=place us-cart \
 -clip target=water us-cart \
--each target=cd2021 'cx=this.innerX, cy=this.innerY' \
--points target=cd2021 x=cx y=cy + name=cd2021-labels \
--style target=cd2021-labels label-text=NAME text-anchor=middle fill=#000 stroke=none opacity=1 font-size=18px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
+-each target=cd2022 'cx=this.innerX, cy=this.innerY' \
+-points target=cd2022 x=cx y=cy + name=cd2022-labels \
+-style target=cd2022-labels label-text=NAME text-anchor=middle fill=#000 stroke=none opacity=1 font-size=18px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
 ```
 
 ```
@@ -76,25 +77,32 @@ mapshaper \
 -clip target=cities bbox=-106.898,34.926,-106.4525,35.2487 + name=cities-clip \
 -clip target=water bbox=-106.898,34.926,-106.4525,35.2487 + name=water-clip \
 -o target=tracts_b-clip,water-clip,county-clip,place-clip,cd-lines-clip,cd-lines2-clip,cities-clip '/Users/cervas/My Drive/GitHub/createMaps/NM/images/albuq_tracts.svg' format=svg \
--o target=blocks_b-clip,water-clip,county-clip,place-clip,cd-lines-clip,cd-lines2-clip,cities-clip '/Users/cervas/My Drive/GitHub/createMaps/NM/images/albuq_blocks.svg' format=svg
+-o target=blocks_b-clip,water-clip,county-clip,place-clip,cd-lines-clip,cd-lines2-clip,cities-clip '/Users/cervas/My Drive/GitHub/createMaps/NM/images/albuq_blocks.svg' format=svg \
 ```
 
+
 ```
--proj target=tracts,tracts_b,us-cart,cities,county,cd2021,place '+proj=tmerc +lat_0=31 +lon_0=-106.25 +k=0.9999 +x_0=500000.0000000002 +y_0=0 +ellps=GRS80 +datum=NAD83 +to_meter=0.3048006096012192 +no_defs' \
+-proj target=tracts,tracts_b,us-cart,cities,county,cd2022,place '+proj=tmerc +lat_0=31 +lon_0=-106.25 +k=0.9999 +x_0=500000.0000000002 +y_0=0 +ellps=GRS80 +datum=NAD83 +to_meter=0.3048006096012192 +no_defs' \
 ```
 
 Output as .svg files
 ```
--o target=tracts,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/NM/images/cd2021_tracts.svg' format=svg \
--o target=tracts_b,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/NM/images/cd2021-hispanic-tracts.svg' format=svg \
--classify target=cd2021 save-as=fill colors=Category20 non-adjacent \
--style target=cd2021 opacity=0.75 stroke=none \
--o target=tracts,cd2021,county,cities,us-cart,cd2021-labels '/Users/cervas/My Drive/GitHub/createMaps/NM/images/cd2021.svg'
+-o target=tracts,county,cd2022,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/NM/images/cd2022_tracts.svg' format=svg \
+-o target=tracts_b,county,cd2022,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/NM/images/cd2022-hispanic-tracts.svg' format=svg \
+-classify target=cd2022 save-as=fill colors=Category20 non-adjacent \
+-style target=cd2022 opacity=0.75 stroke=none \
+-o target=tracts,cd2022,county,cities,us-cart,cd2022-labels '/Users/cervas/My Drive/GitHub/createMaps/NM/images/cd2022.svg'
 ```
 
 ![](images/legend_hispanic.png)
 ![](images/al.png)
 
+
+-filter target=cd2022 'District=="01"' + name=CD \
+-info \
+-style target=CD fill='#e77500' opacity=0.75 stroke=none \
+-clip target=blocks_b source=CD \
+-o target=blocks_b,CD '/Users/cervas/My Drive/GitHub/createMaps/NM/images/CDs/01.svg'
 
 Load USA_MajorCities.geojson with command `name=cities`
 ```
