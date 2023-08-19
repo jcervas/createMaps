@@ -24,6 +24,7 @@ census <- do.call(rbind,census)
 columns_to_remove <- grep("A$", colnames(census))
 data_filtered <- census[, -columns_to_remove]
 data_filtered$GEOID20 <- gsub("1000000US", "", data_filtered$GEO_ID)
+data_filtered$GEOID20 <- gsub("1400000US", "", data_filtered$GEO_ID)
 # data_filtered$blkgrp <- substr(data_filtered$GEOID20, 1, 12)
 write.csv(data_filtered, "/Users/cervas/My Drive/GitHub/createMaps/tractscsv.csv")
 ```
