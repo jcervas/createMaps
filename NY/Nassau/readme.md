@@ -18,8 +18,8 @@ write.csv(ny, "/Users/cervas/My Drive/GitHub/createMaps/NY/P4-blocks-csv.csv", r
 cd '/Users/cervas/My Drive/GitHub/createMaps/NY/Nassau'
 mapshaper-xl 20gb \
 -i '/Users/cervas/My Drive/GitHub/Data Files/GIS/Tigerline/TIGER2020PL/blocks/NY/tl_2020_36_tabblock20.shp' name=blocks \
--i '/Users/cervas/My Drive/GitHub/createMaps/NY/blocks-csv.csv' name=blocks-csv \
--i '/Users/cervas/My Drive/GitHub/createMaps/NY/P4-blocks-csv.csv' name=blocks-p4-csv \
+-i '/Users/cervas/My Drive/GitHub/createMaps/NY/blocks-csv.csv' name=blocks-csv  string-fields=GEOID20 \
+-i '/Users/cervas/My Drive/GitHub/createMaps/NY/P4-blocks-csv.csv' name=blocks-p4-csv  string-fields=GEOID20 \
 -join target=blocks source=blocks-csv keys=GEOID20,GEOID20 \
 -join target=blocks source=blocks-p4-csv keys=GEOID20,GEOID20 \
 -each target=blocks 'density = P1_001N / (ALAND20/2589988)' \
