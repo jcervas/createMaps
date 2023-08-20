@@ -12,3 +12,11 @@ write.csv(data_filtered, "/Users/cervas/My Drive/GitHub/createMaps/NY/blockscsv.
 
 
 decennialAPI(state="NY", geo="block", table="P1", variables=c("P4_001N","P4_005N"))
+
+```
+cd '/Users/cervas/My Drive/GitHub/createMaps/NY/Nassau' \
+mapshaper-xl 20gb \
+-i '/Users/cervas/My Drive/GitHub/Data Files/GIS/Tigerline/TIGER2020PL/blocks/NY/tl_2020_36_tabblock20.shp' name=blocks \
+-i '/Users/cervas/My Drive/GitHub/createMaps/NY/blocks-csv.csv' name=blocks-csv \
+-join 
+```
