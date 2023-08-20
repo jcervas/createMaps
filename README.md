@@ -36,7 +36,7 @@ mapshaper \
 -simplify 0.05 \
 -i '/Users/cervas/My Drive/GitHub/createMaps/tractscsv.csv' string-fields=GEOID20 name=tracts-csv \
 -join target=us-tracts source=tracts-csv keys=GEOID20,GEOID20 \
--each target=us-tracts 'density = P4_001N / (ALAND20/2589988)' \
+-each target=us-tracts 'density = P1_001N / (ALAND20/2589988)' \
 -classify target=us-tracts field=density save-as=fill nice colors=greys classes=9 key-name="legend_density_tracts" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="" \
 -o '/Users/cervas/My Drive/GitHub/createMaps/us-tracts.geojson'
 ```
