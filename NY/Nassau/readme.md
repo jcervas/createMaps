@@ -22,11 +22,14 @@ mapshaper-xl 20gb \
 -filter 'COUNTYFP20 == "059"' \
 -i '/Users/cervas/My Drive/GitHub/createMaps/NY/blocks-csv.csv' name=blocks-csv  string-fields=GEOID20 \
 -i '/Users/cervas/My Drive/GitHub/createMaps/NY/P4-blocks-csv.csv' name=blocks-p4-csv  string-fields=GEOID20 \
+-i '/Users/cervas/My Drive/GitHub/createMaps/us-cart.json' name=us-cart \
+-filter target=us-cart 'STUSPS == "NY"' \
 -join target=blocks source=blocks-csv keys=GEOID20,GEOID20 \
 -join target=blocks source=blocks-p4-csv keys=GEOID20,GEOID20 \
 -each target=blocks 'density = P1_001N / (ALAND20/2589988)' \
 -each target=blocks 'minority = (P4_001N - P4_005N)/P4_001N * 100' \
--classify target=blocks field=minority save-as=fill nice colors=greys classes=9 key-name="legend-blocks-minority" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" \
+-classify target=blocks field=minority save-as=fill nice colors=greys classes=9 null-value="#fff" key-name="legend-blocks-minority" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" \
 -dissolve target=blocks field=fill \
+-clip source=us-cart target=blocks \
 -o 'images/minority-blocks.svg'
 ```
