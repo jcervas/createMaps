@@ -32,6 +32,7 @@ write.csv(data_filtered, "/Users/cervas/My Drive/GitHub/createMaps/tractscsv.csv
 ```
 mapshaper \
 -i '/Users/cervas/My Drive/GitHub/createMaps/us-tracts-originial.json' name=us-tracts \
+-simplify 0.05 \
 -i '/Users/cervas/My Drive/GitHub/createMaps/tractscsv.csv' string-fields=GEOID20 name=tracts-csv \
 -join target=us-tracts source=tracts-csv keys=GEOID20,GEOID20 \
 -o '/Users/cervas/My Drive/GitHub/createMaps/us-tracts.geojson'
