@@ -15,7 +15,7 @@ ny$GEOID20 <- paste0(ny$state, ny$county, ny$tract, ny$block)
 write.csv(ny, "/Users/cervas/My Drive/GitHub/createMaps/NY/P4-blocks-csv.csv", row.names=F)
 
 ```
-cd '/Users/cervas/My Drive/GitHub/createMaps/NY/Nassau' \
+cd '/Users/cervas/My Drive/GitHub/createMaps/NY/Nassau'
 mapshaper-xl 20gb \
 -i '/Users/cervas/My Drive/GitHub/Data Files/GIS/Tigerline/TIGER2020PL/blocks/NY/tl_2020_36_tabblock20.shp' name=blocks \
 -i '/Users/cervas/My Drive/GitHub/createMaps/NY/blocks-csv.csv' name=blocks-csv \
