@@ -68,9 +68,8 @@ mapshaper-xl 20gb \
 -clip source=us-cart target=blocks-styled \
 -clip source=us-cart target=water \
 -clip source=us-cart target=county \
--clip source=us-cart target=cities \
 -clip source=us-cart target=cd2022 \
--o target=tracts-styled,cd2022,county,cities,ST,cd2022-labels,us-cart '/Users/cervas/My Drive/GitHub/createMaps/FL/images/cd2022.svg'
+-o target=tracts-styled,cd2022,county,cities,ST,us-cart '/Users/cervas/My Drive/GitHub/createMaps/FL/images/cd2022.svg'
 ```
 
 
