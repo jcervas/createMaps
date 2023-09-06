@@ -4,6 +4,27 @@ Set Working Directory
 
 # Base Map
 
+### Cities
+
+```
+-i '/Users/cervas/My Drive/GitHub/Data Files/GIS/USA_Major_Cities.geojson' name=cities \
+  -proj target=cities EPSG:3652 \
+  -filter target=cities '["PA"].indexOf(ST) > -1' \
+  -filter target=cities '["Pittsburgh","Erie", "State College","Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
+  -filter target=cities '["Pittsburgh","Erie", "State College","Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' + name=cities-labels \
+  -style target=cities-labels label-text=NAME text-anchor=start font-size=13px font-weight=800 line-height=16px font-family=arial class="g-text-shadow p" \
+  -style target=cities-labels 'text-anchor=middle' where='["Pittsburgh","Erie", "State College"].indexOf(NAME) > -1' \
+  -style target=cities-labels 'text-anchor=end' where='["Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
+  -style target=cities-labels 'dy=-10' where='["Pittsburgh", "State College"].indexOf(NAME) > -1' \
+  -style target=cities-labels 'dy=15' where='["Allentown", "Erie","State College"].indexOf(NAME) > -1' \
+  -each target=cities-labels 'dx=-5' where='["Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
+  -style target=cities r=4 stroke=#fff \
+  -each target=cities 'type="point"' \
+  -each target=cities-labels 'type="text-label"' \
+  -merge-layers target=cities-labels,cities force \
+  -o target=cities,cities-labels '/Users/cervas/My Drive/GitHub/createMaps/PA/cities.json' format=geojson
+  ```
+
 ### Cartographic Map (for water boundaries)
 ```
    mapshaper -i '/Users/cervas/My Drive/GitHub/Data Files/GIS/Cartographic/2021/cb_2021_us_all_500k/cb_2021_us_state_500k/cb_2021_us_state_500k.shp' name=us-cart \
@@ -19,21 +40,7 @@ Set Working Directory
   -style target=counties-labels label-text=NAME_x text-anchor=middle font-size=10px font-weight=800 line-height=16px font-family=arial class="g-text-shadow p" \
   -innerlines target=counties \
   -style target=counties fill=none stroke=#000 stroke-width=1 stroke-dasharray="0 3 0" \
-  -i '/Users/cervas/My Drive/GitHub/Data Files/GIS/USA_Major_Cities.geojson' name=cities \
-  -proj target=cities EPSG:3652 \
-  -filter target=cities '["PA"].indexOf(ST) > -1' \
-  -filter target=cities '["Pittsburgh","Erie", "State College","Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
-  -filter target=cities '["Pittsburgh","Erie", "State College","Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' + name=cities-labels \
-  -style target=cities-labels label-text=NAME text-anchor=start font-size=13px font-weight=800 line-height=16px font-family=arial class="g-text-shadow p" \
-  -style target=cities-labels 'text-anchor=middle' where='["Pittsburgh","Erie", "State College"].indexOf(NAME) > -1' \
-  -style target=cities-labels 'text-anchor=end' where='["Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
-  -style target=cities-labels 'dy=-10' where='["Pittsburgh", "State College"].indexOf(NAME) > -1' \
-  -style target=cities-labels 'dy=15' where='["Allentown", "Erie","State College"].indexOf(NAME) > -1' \
-  -each target=cities-labels 'dx=-5' where='["Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
-  -style target=cities r=4 stroke=#fff \
-  -each target=cities 'type="point"' \
-  -each target=cities-labels 'type="text-label"' \
-  -merge-layers target=cities-labels,cities force \
+  -i '/Users/cervas/My Drive/GitHub/createMaps/PA/cities.json' name=cities \
   -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/blocks_simplified/water_simplified.json' name=water \
   -style target=water fill=#000 stroke=none \
   -proj EPSG:3652 \

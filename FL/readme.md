@@ -76,20 +76,23 @@ mapshaper-xl 20gb \
 -filter target=ST 'STATEFP == "12"' \
 -style target=ST fill=none stroke=#000 opacity=1 stroke-opacity=1 \
 
-mapshaper -i '/Users/cervas/My Drive/GitHub/createMaps/USA_Major_Cities.geojson' name=cities \
--filter target=cities "ST=='FL'" \
--filter target=cities "POP_CLASS>=8" \
--filter target=cities "POP_CLASS>=8" + name=cities-labels \
--filter-fields target=cities,cities-labels NAME \
--style target=cities-labels label-text=NAME text-anchor=start font-size=13px font-weight=800 line-height=16px font-family=arial class="g-text-shadow p" \
--each target=cities-labels dx=5 \
--each target=cities-labels dy=0 \
--style target=cities r=4 \
--each target=cities "type='point'" \
--each target=cities-labels "type='text-label'" \
--merge-layers target=cities,cities-labels force \
--o target=cities,cities-labels '/Users/cervas/My Drive/GitHub/createMaps/FL/cities.json' format=geojson
 
+mapshaper -i '/Users/cervas/My Drive/GitHub/createMaps/USA_Major_Cities.geojson' name=cities \
+  -filter target=cities '["FL"].indexOf(ST) > -1' \
+  -filter target=cities '["Tallahassee","Jacksonville", "Gainesville","Tampa","St. Petersburg","Miami","Lakeland","Miami","Orlando"].indexOf(NAME) > -1' \
+  -filter target=cities '["Tallahassee","Jacksonville", "Gainesville","Tampa","St. Petersburg","Miami","Lakeland","Miami","Orlando"].indexOf(NAME) > -1' + name=cities-labels \
+  -style target=cities-labels label-text=NAME text-anchor=start font-size=13px font-weight=800 line-height=16px font-family=arial class="g-text-shadow p" \
+  -style target=cities-labels 'text-anchor=middle' where='["Tampa"].indexOf(NAME) > -1' \
+  -style target=cities-labels 'text-anchor=end' where='["Miami","Jacksonville","Orlando"].indexOf(NAME) > -1' \
+  -style target=cities-labels 'dy=-10' where='["Tampa"].indexOf(NAME) > -1' \
+  -style target=cities-labels 'dy=15' where='["Jacksonville"].indexOf(NAME) > -1' \
+  -each target=cities-labels 'dx=-5' where='["Miami","Jacksonville","Orlando"].indexOf(NAME) > -1' \
+  -each target=cities-labels 'dx=5' where='["St. Petersburg","Tallahassee","Gainesville","Lakeland"].indexOf(NAME) > -1' \
+  -style target=cities r=4 stroke=#fff \
+  -each target=cities 'type="point"' \
+  -each target=cities-labels 'type="text-label"' \
+  -merge-layers target=cities-labels,cities force \
+  -o target=cities,cities-labels '/Users/cervas/My Drive/GitHub/createMaps/FL/cities.json' format=geojson
 
 ## Add css to .svg
 ```{css}
