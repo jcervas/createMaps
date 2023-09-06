@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny" width="320" height="29" viewBox="0 0 320 29" stroke-linecap="butt" stroke-linejoin="round">
+<style>
+  path {shape-rendering: crispEdges;}
+</style>
+<g id="layer7">
+<path d="M 1 11 1 1.01 36.33 1.01 36.33 11 1 11 Z" fill="#ffffff"/>
+<path d="M 36.33 11 36.33 1.01 71.67 1.01 71.67 11 36.33 11 Z" fill="#f0f0f0"/>
+<path d="M 71.67 11 71.67 1.01 107 1.01 107 11 71.67 11 Z" fill="#d9d9d9"/>
+<path d="M 107 11 107 1.01 142.33 1.01 142.33 11 107 11 Z" fill="#bdbdbd"/>
+<path d="M 142.33 11 142.33 1.01 177.67 1.01 177.67 11 142.33 11 Z" fill="#969696"/>
+<path d="M 177.67 11 177.67 1.01 213 1.01 213 11 177.67 11 Z" fill="#737373"/>
+<path d="M 213 11 213 1.01 248.33 1.01 248.33 11 213 11 Z" fill="#525252"/>
+<path d="M 248.33 11 248.33 1.01 283.67 1.01 283.67 11 248.33 11 Z" fill="#252525"/>
+<path d="M 283.67 11 283.67 1.01 319 1.01 319 11 283.67 11 Z" fill="#000000"/>
+</g>
+<g id="layer8" fill="none" stroke="black" stroke-width="1">
+<path d="M 36.33 1.01 36.33 17" stroke="rgba(0,0,0,0.3)"/>
+<path d="M 71.67 1.01 71.67 17" stroke="rgba(0,0,0,0.3)"/>
+<path d="M 107 1.01 107 17" stroke="rgba(0,0,0,0.3)"/>
+<path d="M 142.33 1.01 142.33 17" stroke="rgba(0,0,0,0.3)"/>
+<path d="M 177.67 1.01 177.67 17" stroke="rgba(0,0,0,0.3)"/>
+<path d="M 213 1.01 213 17" stroke="rgba(0,0,0,0.3)"/>
+<path d="M 248.33 1.01 248.33 17" stroke="rgba(0,0,0,0.3)"/>
+<path d="M 283.67 1.01 283.67 17" stroke="rgba(0,0,0,0.3)"/>
+</g>
+<g id="layer9" font-family="sans-serif" font-size="12" text-anchor="middle">
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(36.3 28)">312</text>
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(71.7 28)">957</text>
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(107 28)">1675</text>
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(142.3 28)">2469</text>
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(177.7 28)">3272</text>
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(213 28)">4178</text>
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(248.3 28)">5415</text>
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(283.7 28)">8026</text>
+</g>
+</svg>
