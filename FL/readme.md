@@ -43,18 +43,14 @@ mapshaper-xl 20gb \
 -filter target=tracts 'STATEFP20 == "12"' + name=blkgrps-styled \
 -filter target=tracts 'STATEFP20 == "12"' + name=tracts-styled \
 -classify target=blocks-styled field=density save-as=fill colors=OrRd classes=9 key-name="legend_densityFL_blocks" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="" \
--classify target=blocks-bw field=density save-as=fill colors=greys classes=5 key-name="legend_densityFL_blocks" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="" \
--classify target=blkgrps-styled field=density save-as=fill colors=greys classes=9 key-name="legend_densityFL_blkgrps" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="" \
+-classify target=blocks-bw field=density save-as=fill nice colors=#ffffff,#454545 classes=3 key-name="legend_densityFL_blocks_bw" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="" \
+-classify target=blkgrps-styled field=density save-as=fill nice colors=greys classes=3 key-name="legend_densityFL_blkgrps" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="" \
 -classify target=tracts-styled field=density save-as=fill nice colors=greys classes=5 key-name="legend_densityFL_tracts" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="" \
 -dissolve target=blocks-styled field=fill \
 -dissolve target=blocks-bw field=fill \
 -dissolve target=blkgrps-styled field=fill \
 -dissolve target=tracts-styled field=fill \
 -proj target=tracts-styled,blocks-bw,blkgrps-styled,blocks-styled,water,county,cities,cd2022,us-cart EPSG:3662 \
--o target=blocks-styled,water,county,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/FL/images/FL_blocks.svg' format=svg \
--o target=blocks-bw,water,us-cart '/Users/cervas/My Drive/GitHub/createMaps/FL/images/FL_blocks_bw.svg' format=svg \
--o target=blkgrps-styled,water,county,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/FL/images/FL_blkgrps.svg' format=svg \
--o target=tracts-styled,water,county,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/FL/images/FL_tracts.svg' format=svg \
 -filter target=cd2022 'ST=="FL"' \
 -style target=cd2022 stroke-width=1 fill=none stroke-opacity=1 stroke=#000 \
 -each target=cd2022 'cx=this.innerX, cy=this.innerY' \
@@ -62,6 +58,7 @@ mapshaper-xl 20gb \
 -style target=cd2022-labels label-text=CODE text-anchor=middle fill=#000 stroke=none opacity=1 font-size=18px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
 -classify target=cd2022 save-as=fill colors=Category20 non-adjacent \
 -style target=cd2022 opacity=0.75 stroke=none \
+-style target=us-cart class="g-Shadow p" \
 -clip source=us-cart target=tracts-styled \
 -clip source=us-cart target=blocks-bw \
 -clip source=us-cart target=blkgrps-styled \
@@ -69,6 +66,10 @@ mapshaper-xl 20gb \
 -clip source=us-cart target=water \
 -clip source=us-cart target=county \
 -clip source=us-cart target=cd2022 \
+-o target=blocks-styled,water,county,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/FL/images/FL_blocks.svg' format=svg \
+-o target=blocks-bw,water,us-cart '/Users/cervas/My Drive/GitHub/createMaps/FL/images/FL_blocks_bw.svg' format=svg \
+-o target=blkgrps-styled,water,county,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/FL/images/FL_blkgrps.svg' format=svg \
+-o target=tracts-styled,water,county,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/FL/images/FL_tracts.svg' format=svg \
 -o target=tracts-styled,cd2022,county,cities,ST,us-cart '/Users/cervas/My Drive/GitHub/createMaps/FL/images/cd2022.svg'
 ```
 

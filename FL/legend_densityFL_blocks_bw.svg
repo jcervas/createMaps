@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny" width="320" height="29" viewBox="0 0 320 29" stroke-linecap="butt" stroke-linejoin="round">
+<style>
+  path {shape-rendering: crispEdges;}
+</style>
+<g id="layer4">
+<path d="M 1 11 1 1.01 107 1.01 107 11 1 11 Z" fill="#ffffff"/>
+<path d="M 107 11 107 1.01 213 1.01 213 11 107 11 Z" fill="rgb(162, 162, 162)"/>
+<path d="M 213 11 213 1.01 319 1.01 319 11 213 11 Z" fill="#454545"/>
+</g>
+<g id="layer5" fill="none" stroke="black" stroke-width="1">
+<path d="M 107 1.01 107 17" stroke="rgba(0,0,0,0.3)"/>
+<path d="M 213 1.01 213 17" stroke="rgba(0,0,0,0.3)"/>
+</g>
+<g id="layer6" font-family="sans-serif" font-size="12" text-anchor="middle">
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(107 28)">1000</text>
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(213 28)">5000</text>
+</g>
+</svg>
