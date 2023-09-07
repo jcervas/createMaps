@@ -64,48 +64,48 @@ us-cart layers to cartographic layer
 -clip target=tracts_b us-cart \
 -clip target=county us-cart \
 -clip target=cd2021 us-cart \
--clip target=livingston3 us-cart \
+-clip target=cd2023 us-cart \
 ```
 
 Project all layers
 ```
--proj target=blocks,blocks_b,tracts,tracts_b,us-cart,county,cities,cd2021,livingston3 '+proj=tmerc +lat_0=30 +lon_0=-87.5 +k=0.9999333333333333 +x_0=600000.0000000001 +y_0=0 +ellps=GRS80 +datum=NAD83 +to_meter=0.3048006096012192 +no_defs' \
+-proj target=blocks,blocks_b,tracts,tracts_b,us-cart,county,cities,cd2021,cd2023 '+proj=tmerc +lat_0=30 +lon_0=-87.5 +k=0.9999333333333333 +x_0=600000.0000000001 +y_0=0 +ellps=GRS80 +datum=NAD83 +to_meter=0.3048006096012192 +no_defs' \
 ```
 
 Label Districts
 ```
 -each target=cd2021 'cx=this.innerX, cy=this.innerY' \
--each target=livingston3 'cx=this.innerX, cy=this.innerY' \
+-each target=cd2023 'cx=this.innerX, cy=this.innerY' \
 -points target=cd2021 x=cx y=cy + name=cd2021-labels \
--points target=livingston3 x=cx y=cy + name=livingston3-labels \
+-points target=cd2023 x=cx y=cy + name=cd2023-labels \
 -style target=cd2021-labels label-text=NAME text-anchor=middle fill=#000 stroke=none opacity=1 font-size=18px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
--style target=livingston3-labels label-text=NAME text-anchor=middle fill=#000 stroke=none opacity=1 font-size=18px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
+-style target=cd2023-labels label-text=NAME text-anchor=middle fill=#000 stroke=none opacity=1 font-size=18px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
 ```
 
 Output Population Density as .svg files
 ```
 -o target=blocks,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021_blocks.svg' format=svg \
--o target=blocks,county,livingston3,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3_blocks.svg' format=svg \
+-o target=blocks,county,cd2023,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023_blocks.svg' format=svg \
 -o target=tracts,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021_tracts.svg' format=svg \
--o target=tracts,county,livingston3,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3_tracts.svg' format=svg \
+-o target=tracts,county,cd2023,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023_tracts.svg' format=svg \
 ```
 
 Output Racial compostion as .svg files
 ```
 -o target=blocks_b,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021-black-blocks.svg' format=svg \
--o target=blocks_b,county,livingston3,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3-black-blocks.svg' format=svg \
+-o target=blocks_b,county,cd2023,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023-black-blocks.svg' format=svg \
 -o target=tracts_b,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021-black-tracts.svg' format=svg \
--o target=tracts_b,county,livingston3,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3-black-tracts.svg' format=svg \
+-o target=tracts_b,county,cd2023,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023-black-tracts.svg' format=svg \
 ```
 
 Output District Map as .svg files
 ```
  -classify target=cd2021 save-as=fill colors=Category20 non-adjacent \
- -classify target=livingston3 save-as=fill colors=Category20 non-adjacent \
+ -classify target=cd2023 save-as=fill colors=Category20 non-adjacent \
  -style target=cd2021 opacity=0.75 stroke=none \
- -style target=livingston3 opacity=0.75 stroke=none \
+ -style target=cd2023 opacity=0.75 stroke=none \
  -o target=tracts,cd2021,county,cities,us-cart,cd2021-labels '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021.svg' \
- -o target=tracts,livingston3,county,cities,us-cart,livingston3-labels '/Users/cervas/My Drive/GitHub/createMaps/AL/images/livingston3.svg'
+ -o target=tracts,cd2023,county,cities,us-cart,cd2023-labels '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023.svg'
 ```
 
 # 2022 Alabama Congressional Map
