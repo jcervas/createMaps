@@ -34,17 +34,21 @@ This creates the Black percentage in the blocks/tracts layer
 
 Import a cartographic shapefile to us-cart shoreline. Use command `name=us-cart`
 ```
--i '/Users/cervas/My Drive/GitHub/createMaps/AL/us-cart.json' name=us-cart \
+-i '/Users/cervas/My Drive/GitHub/createMaps/us-cart.json' name=us-cart \
 -filter target=us-cart STATEFP==01 \
 -style target=us-cart fill=none stroke=#000 opacity=1 stroke-opacity=1 \
 ```
 
 Add the Congressional District Shapefile with command `name=cd`
 ```
--i '/Users/cervas/My Drive/GitHub/createMaps/AL/plans/AL 2022 Congressional.geojson' name=cd2021 \
--i '/Users/cervas/My Drive/GitHub/createMaps/AL/plans/Livingston_Congressional_Plan_3.geojson' name=livingston3 \
+-i '/Users/cervas/My Drive/GitHub/createMaps/AL/plans/AL 2021 Congressional.geojson' name=cd2021 \
+-i '/Users/cervas/My Drive/GitHub/createMaps/AL/plans/AL 2023 Congressional.geojson' name=cd2023 \
+-i '/Users/cervas/My Drive/GitHub/createMaps/AL/plans/AL 2021 Congressional - Minimum Change.geojson' name=cd2021min \
+-i '/Users/cervas/My Drive/GitHub/createMaps/AL/plans/AL 2023 Congressional - Minimum Change.geojson' name=cd2023min \
 -style target=cd2021 stroke-width=1 fill=none stroke-opacity=1 stroke=#000 \
--style target=livingston3 stroke-width=1 fill=none stroke-opacity=1 stroke=#000 \
+-style target=cd2023 stroke-width=1 fill=none stroke-opacity=1 stroke=#000 \
+-style target=cd2021min stroke-width=1 fill=none stroke-opacity=1 stroke=#000 \
+-style target=cd2023min stroke-width=1 fill=none stroke-opacity=1 stroke=#000 \
 ```
 
 Add `cities` layer, which is preprocessed (see below)
