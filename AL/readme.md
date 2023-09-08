@@ -116,10 +116,10 @@ Output Racial compostion as .svg files
 
 Output District Map as .svg files
 ```
- -classify target=cd2021 save-as=fill colors=color non-adjacent \
- -classify target=cd2023 save-as=fill colors=color non-adjacent \
- -classify target=cd2021min save-as=fill colors=color non-adjacent \
- -classify target=cd2023min save-as=fill colors=color non-adjacent \
+ -style target=cd2021 fill=color non-adjacent \
+ -style target=cd2023 fill=color non-adjacent \
+ -style target=cd2021min fill=color non-adjacent \
+ -style target=cd2023min fill=color non-adjacent \
  -style target=cd2021 opacity=0.75 stroke=none \
  -style target=cd2023 opacity=0.75 stroke=none \
  -style target=cd2021min opacity=0.75 stroke=none \
