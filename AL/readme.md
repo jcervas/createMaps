@@ -78,36 +78,57 @@ Label Districts
 ```
 -each target=cd2021 'cx=this.innerX, cy=this.innerY' \
 -each target=cd2023 'cx=this.innerX, cy=this.innerY' \
+-each target=cd2021min 'cx=this.innerX, cy=this.innerY' \
+-each target=cd2023min 'cx=this.innerX, cy=this.innerY' \
 -points target=cd2021 x=cx y=cy + name=cd2021-labels \
 -points target=cd2023 x=cx y=cy + name=cd2023-labels \
+-points target=cd2021min x=cx y=cy + name=cd2021min-labels \
+-points target=cd2023min x=cx y=cy + name=cd2023min-labels \
 -style target=cd2021-labels label-text=NAME text-anchor=middle fill=#000 stroke=none opacity=1 font-size=18px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
 -style target=cd2023-labels label-text=NAME text-anchor=middle fill=#000 stroke=none opacity=1 font-size=18px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
+-style target=cd2021min-labels label-text=NAME text-anchor=middle fill=#000 stroke=none opacity=1 font-size=18px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
+-style target=cd2023min-labels label-text=NAME text-anchor=middle fill=#000 stroke=none opacity=1 font-size=18px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
 ```
 
 Output Population Density as .svg files
 ```
 -o target=blocks,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021_blocks.svg' format=svg \
 -o target=blocks,county,cd2023,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023_blocks.svg' format=svg \
+-o target=blocks,county,cd2021min,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021min_blocks.svg' format=svg \
+-o target=blocks,county,cd2023min,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023min_blocks.svg' format=svg \
 -o target=tracts,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021_tracts.svg' format=svg \
 -o target=tracts,county,cd2023,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023_tracts.svg' format=svg \
+-o target=tracts,county,cd2021min,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021min_tracts.svg' format=svg \
+-o target=tracts,county,cd2023min,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023min_tracts.svg' format=svg \
 ```
 
 Output Racial compostion as .svg files
 ```
 -o target=blocks_b,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021-black-blocks.svg' format=svg \
 -o target=blocks_b,county,cd2023,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023-black-blocks.svg' format=svg \
+-o target=blocks_b,county,cd2021min,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021min-black-blocks.svg' format=svg \
+-o target=blocks_b,county,cd2023min,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023min-black-blocks.svg' format=svg \
 -o target=tracts_b,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021-black-tracts.svg' format=svg \
 -o target=tracts_b,county,cd2023,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023-black-tracts.svg' format=svg \
+-o target=tracts_b,county,cd2021min,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021min-black-tracts.svg' format=svg \
+-o target=tracts_b,county,cd2023min,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023min-black-tracts.svg' format=svg \
 ```
 
 Output District Map as .svg files
 ```
  -classify target=cd2021 save-as=fill colors=Category20 non-adjacent \
  -classify target=cd2023 save-as=fill colors=Category20 non-adjacent \
+ -classify target=cd2021min save-as=fill colors=Category20 non-adjacent \
+ -classify target=cd2023min save-as=fill colors=Category20 non-adjacent \
  -style target=cd2021 opacity=0.75 stroke=none \
  -style target=cd2023 opacity=0.75 stroke=none \
+ -style target=cd2021min opacity=0.75 stroke=none \
+ -style target=cd2023min opacity=0.75 stroke=none \
  -o target=tracts,cd2021,county,cities,us-cart,cd2021-labels '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021.svg' \
- -o target=tracts,cd2023,county,cities,us-cart,cd2023-labels '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023.svg'
+ -o target=tracts,cd2023,county,cities,us-cart,cd2023-labels '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023.svg' \
+ -o target=tracts,cd2021min,county,cities,us-cart,cd2021min-labels '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021min.svg' \
+ -o target=tracts,cd2023min,county,cities,us-cart,cd2023min-labels '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023min.svg'
+ 
 ```
 
 # 2022 Alabama Congressional Map
