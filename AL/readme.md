@@ -65,6 +65,8 @@ us-cart layers to cartographic layer
 -clip target=county us-cart \
 -clip target=cd2021 us-cart \
 -clip target=cd2023 us-cart \
+-clip target=cd2021min us-cart \
+-clip target=cd2023min us-cart \
 ```
 
 Project all layers
