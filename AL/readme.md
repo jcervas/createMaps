@@ -157,3 +157,17 @@ Arrange labels and merge
 ```
 -merge-layers target=* force
 ```
+
+## Add css to .svg
+```{css}
+<style media="screen,print">
+/* Custom CSS */
+.g-Shadow p {
+    text-shadow: 1px 1px 0px rgba(254, 254, 254, .15);
+}
+
+.g-text-shadow {
+    text-shadow: 1px 1px 1px rgba(254, 254, 254, 1), -1px 1px 1px rgba(254, 254, 254, 1), 1px -1px 1px rgba(254, 254, 254, 1), -1px -1px 1px rgba(254, 254, 254, 1);
+}
+</style>
+```
