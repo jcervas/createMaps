@@ -43,11 +43,11 @@ Add the Congressional District Shapefile with command `name=cd`
 ```
 -i '/Users/cervas/My Drive/GitHub/createMaps/AL/plans/AL 2021 Congressional.geojson' name=cd2021 \
 -i '/Users/cervas/My Drive/GitHub/createMaps/AL/plans/AL 2023 Congressional.geojson' name=cd2023 \
--i '/Users/cervas/My Drive/GitHub/createMaps/AL/plans/AL 2021 Congressional - Minimum Change.geojson' name=cd2021min \
+-i '/Users/cervas/My Drive/GitHub/createMaps/AL/plans/AL 2024 Remedial.geojson' name=cd2024 \
 -i '/Users/cervas/My Drive/GitHub/createMaps/AL/plans/AL 2023 Congressional - Minimum Change.geojson' name=cd2023min \
 -style target=cd2021 stroke-width=1 fill=none stroke-opacity=1 stroke=#000 \
 -style target=cd2023 stroke-width=1 fill=none stroke-opacity=1 stroke=#000 \
--style target=cd2021min stroke-width=1 fill=none stroke-opacity=1 stroke=#000 \
+-style target=cd2024 stroke-width=1 fill=none stroke-opacity=1 stroke=#000 \
 -style target=cd2023min stroke-width=1 fill=none stroke-opacity=1 stroke=#000 \
 ```
 
@@ -65,28 +65,28 @@ us-cart layers to cartographic layer
 -clip target=county us-cart \
 -clip target=cd2021 us-cart \
 -clip target=cd2023 us-cart \
--clip target=cd2021min us-cart \
+-clip target=cd2024 us-cart \
 -clip target=cd2023min us-cart \
 ```
 
 Project all layers
 ```
--proj target=blocks,blocks_b,tracts,tracts_b,us-cart,county,cities,cd2021,cd2023,cd2021min,cd2023min '+proj=tmerc +lat_0=30 +lon_0=-87.5 +k=0.9999333333333333 +x_0=600000.0000000001 +y_0=0 +ellps=GRS80 +datum=NAD83 +to_meter=0.3048006096012192 +no_defs' \
+-proj target=blocks,blocks_b,tracts,tracts_b,us-cart,county,cities,cd2021,cd2023,cd2024,cd2023min '+proj=tmerc +lat_0=30 +lon_0=-87.5 +k=0.9999333333333333 +x_0=600000.0000000001 +y_0=0 +ellps=GRS80 +datum=NAD83 +to_meter=0.3048006096012192 +no_defs' \
 ```
 
 Label Districts
 ```
 -each target=cd2021 'cx=this.innerX, cy=this.innerY' \
 -each target=cd2023 'cx=this.innerX, cy=this.innerY' \
--each target=cd2021min 'cx=this.innerX, cy=this.innerY' \
+-each target=cd2024 'cx=this.innerX, cy=this.innerY' \
 -each target=cd2023min 'cx=this.innerX, cy=this.innerY' \
 -points target=cd2021 x=cx y=cy + name=cd2021-labels \
 -points target=cd2023 x=cx y=cy + name=cd2023-labels \
--points target=cd2021min x=cx y=cy + name=cd2021min-labels \
+-points target=cd2024 x=cx y=cy + name=cd2024-labels \
 -points target=cd2023min x=cx y=cy + name=cd2023min-labels \
 -style target=cd2021-labels label-text=NAME text-anchor=middle fill=#000 stroke=none opacity=1 font-size=18px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
 -style target=cd2023-labels label-text=NAME text-anchor=middle fill=#000 stroke=none opacity=1 font-size=18px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
--style target=cd2021min-labels label-text=NAME text-anchor=middle fill=#000 stroke=none opacity=1 font-size=18px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
+-style target=cd2024-labels label-text=NAME text-anchor=middle fill=#000 stroke=none opacity=1 font-size=18px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
 -style target=cd2023min-labels label-text=NAME text-anchor=middle fill=#000 stroke=none opacity=1 font-size=18px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
 ```
 
@@ -94,7 +94,7 @@ Output Population Density as .svg files
 ```
 -o target=blocks,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021_blocks.svg' format=svg \
 -o target=blocks,county,cd2023,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023_blocks.svg' format=svg \
--o target=blocks,county,cd2021min,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021min_blocks.svg' format=svg \
+-o target=blocks,county,cd2024,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2024_blocks.svg' format=svg \
 -o target=blocks,county,cd2023min,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023min_blocks.svg' format=svg \
 -o target=tracts,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021_tracts.svg' format=svg \
 -o target=tracts,county,cd2023,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023_tracts.svg' format=svg \
@@ -106,7 +106,7 @@ Output Racial compostion as .svg files
 ```
 -o target=blocks_b,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021-black-blocks.svg' format=svg \
 -o target=blocks_b,county,cd2023,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023-black-blocks.svg' format=svg \
--o target=blocks_b,county,cd2021min,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021min-black-blocks.svg' format=svg \
+-o target=blocks_b,county,cd2024,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2024-black-blocks.svg' format=svg \
 -o target=blocks_b,county,cd2023min,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023min-black-blocks.svg' format=svg \
 -o target=tracts_b,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021-black-tracts.svg' format=svg \
 -o target=tracts_b,county,cd2023,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023-black-tracts.svg' format=svg \
@@ -118,7 +118,7 @@ Output District Map as .svg files
 ```
  -style target=cd2021 fill=color non-adjacent \
  -style target=cd2023 fill=color non-adjacent \
- -style target=cd2021min fill=color non-adjacent \
+ -style target=cd2024 fill=color non-adjacent \
  -style target=cd2023min fill=color non-adjacent \
  -style target=cd2021 opacity=0.75 stroke=none \
  -style target=cd2023 opacity=0.75 stroke=none \
@@ -126,7 +126,7 @@ Output District Map as .svg files
  -style target=cd2023min opacity=0.75 stroke=none \
  -o target=tracts,cd2021,county,cities,us-cart,cd2021-labels '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021.svg' \
  -o target=tracts,cd2023,county,cities,us-cart,cd2023-labels '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023.svg' \
- -o target=tracts,cd2021min,county,cities,us-cart,cd2021min-labels '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021min.svg' \
+ -o target=tracts,cd2024,county,cities,us-cart,cd2021min-labels '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2024.svg' \
  -o target=tracts,cd2023min,county,cities,us-cart,cd2023min-labels '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023min.svg'
  
 ```
