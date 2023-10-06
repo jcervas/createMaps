@@ -98,7 +98,7 @@ Output Population Density as .svg files
 -o target=blocks,county,cd2023min,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023min_blocks.svg' format=svg \
 -o target=tracts,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021_tracts.svg' format=svg \
 -o target=tracts,county,cd2023,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023_tracts.svg' format=svg \
--o target=tracts,county,cd2021min,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021min_tracts.svg' format=svg \
+-o target=tracts,county,cd2024,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2024_tracts.svg' format=svg \
 -o target=tracts,county,cd2023min,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023min_tracts.svg' format=svg \
 ```
 
@@ -110,7 +110,7 @@ Output Racial compostion as .svg files
 -o target=blocks_b,county,cd2023min,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023min-black-blocks.svg' format=svg \
 -o target=tracts_b,county,cd2021,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021-black-tracts.svg' format=svg \
 -o target=tracts_b,county,cd2023,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023-black-tracts.svg' format=svg \
--o target=tracts_b,county,cd2021min,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021min-black-tracts.svg' format=svg \
+-o target=tracts_b,county,cd2024,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2024-black-tracts.svg' format=svg \
 -o target=tracts_b,county,cd2023min,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023min-black-tracts.svg' format=svg \
 ```
 
@@ -122,11 +122,11 @@ Output District Map as .svg files
  -style target=cd2023min fill=color non-adjacent \
  -style target=cd2021 opacity=0.75 stroke=none \
  -style target=cd2023 opacity=0.75 stroke=none \
- -style target=cd2021min opacity=0.75 stroke=none \
+ -style target=cd2024 opacity=0.75 stroke=none \
  -style target=cd2023min opacity=0.75 stroke=none \
  -o target=tracts,cd2021,county,cities,us-cart,cd2021-labels '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2021.svg' \
  -o target=tracts,cd2023,county,cities,us-cart,cd2023-labels '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023.svg' \
- -o target=tracts,cd2024,county,cities,us-cart,cd2021min-labels '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2024.svg' \
+ -o target=tracts,cd2024,county,cities,us-cart,cd2024-labels '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2024.svg' \
  -o target=tracts,cd2023min,county,cities,us-cart,cd2023min-labels '/Users/cervas/My Drive/GitHub/createMaps/AL/images/cd2023min.svg'
  
 ```
