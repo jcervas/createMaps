@@ -1,0 +1,6 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-91.184349863,30.4410532740001]},"properties":{"NAME":"Baton Rouge","r":4,"type":"point"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-90.075212418,29.9532029260001]},"properties":{"NAME":"New Orleans","r":4,"type":"point"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-91.184349863,30.4410532740001]},"properties":{"NAME":"Baton Rouge","label-text":"Baton Rouge","text-anchor":"start","font-size":"13px","font-weight":"800","line-height":"16px","font-family":"arial","class":"g-text-shadow p","dx":5,"dy":0,"type":"text-label"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-90.075212418,29.9532029260001]},"properties":{"NAME":"New Orleans","label-text":"New Orleans","text-anchor":"start","font-size":"13px","font-weight":"800","line-height":"16px","font-family":"arial","class":"g-text-shadow p","dx":5,"dy":0,"type":"text-label"}}
+]}
