@@ -27,19 +27,19 @@ Set Working Directory
 
 ### Cartographic Map (for water boundaries)
 ```
-   mapshaper -i '/Users/cervas/My Drive/GitHub/Data Files/GIS/Cartographic/2021/cb_2021_us_all_500k/cb_2021_us_state_500k/cb_2021_us_state_500k.shp' name=us-cart \
+   mapshaper -i '/Users/cervas/My Drive/GitHub/createMaps/us-cart.json' name=us-cart \
   -filter target=us-cart STATEFP==42 \
   -simplify target=us-cart 0.1 \
   -style target=us-cart fill=none stroke=#000 opacity=1 stroke-opacity=1 \
-  -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/counties/pa_counties20.shp' name=counties \
-  -proj target='counties,us-cart' EPSG:3652 \
-  -clip target=counties us-cart \
-  -simplify target=counties 0.01 \
-  -each target=counties 'cx=this.innerX, cy=this.innerY' \
-  -points target=counties x=cx y=cy + name=counties-labels \
-  -style target=counties-labels label-text=NAME_x text-anchor=middle font-size=10px font-weight=800 line-height=16px font-family=arial class="g-text-shadow p" \
-  -innerlines target=counties \
-  -style target=counties fill=none stroke=#000 stroke-width=1 stroke-dasharray="0 3 0" \
+  -i '/Users/cervas/My Drive/GitHub/createMaps/us-counties.json' name=us-counties \
+  -proj target='us-counties,us-cart' EPSG:3652 \
+  -clip target=us-counties us-cart \
+  -simplify target=us-counties 0.01 \
+  -each target=us-counties 'cx=this.innerX, cy=this.innerY' \
+  -points target=us-counties x=cx y=cy + name=us-counties-labels \
+  -style target=us-counties-labels label-text=NAME_x text-anchor=middle font-size=10px font-weight=800 line-height=16px font-family=arial class="g-text-shadow p" \
+  -innerlines target=us-counties \
+  -style target=us-counties fill=none stroke=#000 stroke-width=1 stroke-dasharray="0 3 0" \
   -i '/Users/cervas/My Drive/GitHub/createMaps/PA/cities.json' name=cities \
   -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/blocks_simplified/water_simplified.json' name=water \
   -style target=water fill=#000 stroke=none \
