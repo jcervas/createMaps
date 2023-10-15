@@ -3,16 +3,17 @@ NY
 ```
 cd '/Users/cervas/My Drive/GitHub/createMaps/NY/images/legends'
 mapshaper \
--i '/Users/cervas/My Drive/GitHub/createMaps/NY/us-cartographic.json' name=ST \
+-i '/Users/cervas/My Drive/GitHub/createMaps/us-cart.json' name=ST \
+-filter STATEFP==36 \
 -i '/Users/cervas/My Drive/GitHub/createMaps/NY/ny-cd-2022.geojson' name=ny-cd \
--i '/Users/cervas/My Drive/GitHub/createMaps/NY/tracts20.json' name=pop \
+-i '/Users/cervas/My Drive/GitHub/createMaps/us-tracts.geojson' name=pop \
+-filter STATEFP20==36 \
 -i '/Users/cervas/My Drive/GitHub/createMaps/NY/ny-senate-2022.geojson' name=ny-senate \
 -i '/Users/cervas/My Drive/GitHub/createMaps/us-urban.json' name=urban \
--dissolve target=pop COUNTYF + name=county \
+-dissolve target=pop COUNTYFP20 + name=county \
 -style target=county fill=none stroke-opacity=0.5 stroke=#fff stroke-width=0.5 \
--each target=pop 'density = TOTAL / (ALAND/2589988)' \
 -classify target=pop field=density save-as=fill nice colors=greys classes=5 key-name="legend_densityNY_tracts" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="" \
--dots target=pop fields=TOTAL save-as=fill r=0.1 per-dot=100 copy-fields=TOTAL + name=pop-dots \
+-dots target=pop fields=P1_001N save-as=fill r=0.1 per-dot=100 copy-fields=P1_001N + name=pop-dots \
 -style target=pop-dots fill=#ccc \
 -proj target=urban,pop,pop-dots,county,ST,ny-cd,ny-senate '+proj=tmerc +lat_0=40 +lon_0=-76.58333333333333 +k=0.999938 +x_0=250000 +y_0=0 +ellps=GRS80 +datum=NAD83 +to_meter=0.3048006096012192 +no_defs' \
 -filter target=ST STATEFP==36 \
