@@ -14,7 +14,7 @@ mapshaper -i '/Users/cervas/My Drive/GitHub/createMaps/us-cart.json' name=us-car
   -style target=us-cart fill=none stroke=#000 opacity=1 stroke-opacity=1 \
   -i '/Users/cervas/My Drive/GitHub/createMaps/us-counties.json' name=counties \
   -filter STATEFP==42 \
-  -simplify target=counties 0.01 \
+  -simplify target=counties 0.5 \
   -each target=counties 'cx=this.innerX, cy=this.innerY' \
   -points target=counties x=cx y=cy + name=counties-labels \
   -style target=counties-labels label-text=NAME text-anchor=middle font-size=10px font-weight=800 line-height=16px font-family=arial class="g-text-shadow p" \
@@ -145,11 +145,11 @@ Output "Senate" Election map:
 
 House District Map:
 ```
--filter target=house2021 "TotalPop>='0'" + name=house2021-districts \
--classify save-as=fill colors=Category20 non-adjacent \
--dissolve field=fill copy-fields=fill \
--style opacity=0.75 \
--o target=urban,house2021-districts,house2021-lines,counties,us-cart,house2021-labels,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_house_2021.svg' \
+  -filter target=house2021 "TotalPop>='0'" + name=house2021-districts \
+  -classify save-as=fill colors=Category20 non-adjacent \
+  -dissolve field=fill copy-fields=fill \
+  -style opacity=0.75 \
+  -o target=urban,house2021-districts,house2021-lines,counties,us-cart,house2021-labels,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_house_2021.svg' \
 ```
 
 Senate District Map:
