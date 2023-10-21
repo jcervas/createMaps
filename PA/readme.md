@@ -148,7 +148,7 @@ Output "House" Election map:
 
 Output "Senate" Election map:
 ```
-  -o target=urban,house2022-elections,senate2021-lines,us-cart,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_senate_2022_election.svg' \
+  -o target=urban,senate2022-elections,senate2021-lines,us-cart,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_senate_2022_election.svg' \
 ```
 
 House District Map:
