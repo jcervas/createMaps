@@ -143,12 +143,12 @@ Output "tracts" density map:
 
 Output "House" Election map:
 ```
-  -o target=urban,house2021,house2021-lines,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_house_2022_election.svg' \
+  -o target=urban,house2022-elections,house2021-lines,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_house_2022_election.svg' \
 ```
 
 Output "Senate" Election map:
 ```
-  -o target=urban,senate2021,senate2021-lines,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_senate_2022_election.svg' \
+  -o target=urban,house2022-elections,senate2021-lines,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_senate_2022_election.svg' \
 ```
 
 House District Map:
