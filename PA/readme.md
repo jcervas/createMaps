@@ -103,7 +103,7 @@ mapshaper -i '/Users/cervas/My Drive/GitHub/createMaps/us-cart.json' name=us-car
   -filter target=senate2021 'DemPct < RepPct' + name=GOP \
   -classify target=DEM field=DemPct save-as=fill breaks=0.5,0.6,0.7 colors=#CEEAFD,#92BDE0,#5295CC,#1375B7 null-value=#eee \
   -classify target=GOP field=RepPct save-as=fill breaks=0.5,0.6,0.7 colors=#FCE0E0,#EAA9A9,#DB7171,#C93135 null-value=#eee \
-  -merge-layers target=DEM,GOP name=senate2022-elections \  
+  -merge-layers target=DEM,GOP name=senate2022-elections \
   -style target=senate2022-elections opacity=0.75 stroke=#000 stroke-width=0.5 stroke-opacity=1 \
   -each target=senate2022-elections 'cx=this.innerX, cy=this.innerY' \
   -points target=senate2022-elections x=cx y=cy + name=senate2021-labels \
@@ -143,12 +143,12 @@ Output "tracts" density map:
 
 Output "House" Election map:
 ```
-  -o target=urban,house2022-elections,house2021-lines,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_house_2022_election.svg' \
+  -o target=urban,house2022-elections,house2021-lines,us-cart,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_house_2022_election.svg' \
 ```
 
 Output "Senate" Election map:
 ```
-  -o target=urban,house2022-elections,senate2021-lines,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_senate_2022_election.svg' \
+  -o target=urban,house2022-elections,senate2021-lines,us-cart,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_senate_2022_election.svg' \
 ```
 
 House District Map:
