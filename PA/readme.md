@@ -77,8 +77,8 @@ mapshaper -i '/Users/cervas/My Drive/GitHub/createMaps/us-cart.json' name=us-car
   -i '/Users/cervas/My Drive/GitHub/Data/Elections/State Legislature/PA/data/STH_house_dist.csv' name=house2022 string-fields=district \
   -proj target=house2021 EPSG:3652 \
   -join target=house2021 source=house2022 keys=NAME,district \
-  -filter target=house2021 DemPct>RepPct + name=DEM \
-  -filter target=house2021 DemPct<RepPct + name=GOP \
+  -filter target=house2021 'DemPct > RepPct' + name=DEM \
+  -filter target=house2021 'DemPct < RepPct' + name=GOP \
   -classify target=DEM field=DemPct save-as=fill breaks=0.5,0.6,0.7 colors=#CEEAFD,#92BDE0,#5295CC,#1375B7 null-value=#eee \
   -classify target=GOP field=RepPct save-as=fill breaks=0.5,0.6,0.7 colors=#FCE0E0,#EAA9A9,#DB7171,#C93135 null-value=#eee \
   -merge-layers target=DEM,GOP name=house2022-elections \
@@ -99,8 +99,8 @@ mapshaper -i '/Users/cervas/My Drive/GitHub/createMaps/us-cart.json' name=us-car
   -i '/Users/cervas/My Drive/GitHub/Data/Elections/State Legislature/PA/data/STS_sen_dist.csv' name=senate2022 string-fields=district \
   -proj target=senate2021 EPSG:3652 \
   -join target=senate2021 source=senate2022 keys=NAME,district \
-  -filter target=senate2021 DemPct>RepPct + name=DEM \
-  -filter target=senate2021 DemPct<RepPct + name=GOP \
+  -filter target=senate2021 'DemPct > RepPct' + name=DEM \
+  -filter target=senate2021 'DemPct < RepPct' + name=GOP \
   -classify target=DEM field=DemPct save-as=fill breaks=0.5,0.6,0.7 colors=#CEEAFD,#92BDE0,#5295CC,#1375B7 null-value=#eee \
   -classify target=GOP field=RepPct save-as=fill breaks=0.5,0.6,0.7 colors=#FCE0E0,#EAA9A9,#DB7171,#C93135 null-value=#eee \
   -merge-layers target=DEM,GOP name=senate2022-elections \  
