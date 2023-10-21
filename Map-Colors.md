@@ -1,14 +1,19 @@
 # Map Colors
 
 
-| Swatch           | Information |
-|------------------|-------------|
-| <span style="background-color:#0060A0; color:#0060A0">#0060A0</span> | N/C         |
-| <span style="background-color:#3A88CA; color:#3A88CA">#3A88CA</span> | 40 +        |
-| <span style="background-color:#79AADD; color:#79AADD">#79AADD</span> | 30          |
-| <span style="background-color:#AACBEE; color:#AACBEE">#AACBEE</span> | 20          |
-| <span style="background-color:#D9EEFF; color:#D9EEFF">#D9EEFF</span> | 10          |
-| <span style="background-color:#FFEDEE; color:#FFEDEE">#FFEDEE</span> | -10         |
-| <span style="background-color:#F7BEBB; color:#F7BEBB">#F7BEBB</span> | -20         |
-| <span style="background-color:#E98D8A; color:#E98D8A">#E98D8A</span> | -30         |
-| <span style="background-color:#D75C5C; color:#D75C5C">#D75C5C</span> | -40         |
+Democrat Win
+| Hex Code  | Color Swatch   |
+|-----------|----------------|
+| #CEEAFD   |![Color Swatch](https://via.placeholder.com/50x20/CEEAFD/CEEAFD) |
+| #92BDE0   |![Color Swatch](https://via.placeholder.com/50x20/92BDE0/92BDE0) |
+| #5295CC   |![Color Swatch](https://via.placeholder.com/50x20/5295CC/5295CC) |
+| #1375B7   |![Color Swatch](https://via.placeholder.com/50x20/1375B7/1375B7) |
+
+Republican Win
+| Hex Code  | Color Swatch   |
+|-----------|----------------|
+| #FCE0E0   | ![#FCE0E0](https://place-hold.it/20/FCDDDD/FCDDDD) |
+| #EAA9A9   | ![#EAA9A9](https://place-hold.it/20/EAA9A9/EAA9A9) |
+| #DB7171   | ![#DB7171](https://place-hold.it/20/DB7171/DB7171) |
+| #C93135   | ![#C93135](https://place-hold.it/20/C93135/C93135) |
+
