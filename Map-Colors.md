@@ -4,10 +4,10 @@
 Democrat Win
 | Hex Code  | Color Swatch   |
 |-----------|----------------|
-| #CEEAFD   |![Color Swatch](https://via.placeholder.com/50x20/CEEAFD/CEEAFD) |
-| #92BDE0   |![Color Swatch](https://via.placeholder.com/50x20/92BDE0/92BDE0) |
-| #5295CC   |![Color Swatch](https://via.placeholder.com/50x20/5295CC/5295CC) |
-| #1375B7   |![Color Swatch](https://via.placeholder.com/50x20/1375B7/1375B7) |
+| #CEEAFD   |![Color Swatch](https://via.placeholder.com/20/CEEAFD/CEEAFD) |
+| #92BDE0   |![Color Swatch](https://via.placeholder.com/20/92BDE0/92BDE0) |
+| #5295CC   |![Color Swatch](https://via.placeholder.com/20/5295CC/5295CC) |
+| #1375B7   |![Color Swatch](https://via.placeholder.com/20/1375B7/1375B7) |
 
 Republican Win
 | Hex Code  | Color Swatch   |
