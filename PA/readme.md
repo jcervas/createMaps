@@ -77,16 +77,20 @@ mapshaper -i '/Users/cervas/My Drive/GitHub/createMaps/us-cart.json' name=us-car
   -i '/Users/cervas/My Drive/GitHub/Data/Elections/State Legislature/PA/data/STH_house_dist.csv' name=house2022 string-fields=district \
   -proj target=house2021 EPSG:3652 \
   -join target=house2021 source=house2022 keys=NAME,district \
-  -classify target=house2021 field=DEM save-as=fill breaks=0.5 colors=#C93135,#1375B7 null-value=#eee \
-  -style target=house2021 opacity=0.75 stroke=#000 stroke-width=0.5 stroke-opacity=1 \
-  -each target=house2021 'cx=this.innerX, cy=this.innerY' \
-  -points target=house2021 x=cx y=cy + name=house2021-labels \
+  -filter target=house2021 DemPct>RepPct + name=DEM \
+  -filter target=house2021 DemPct<RepPct + name=GOP \
+  -classify target=DEM field=DemPct save-as=fill breaks=0.5,0.6,0.7 colors=#CEEAFD,#92BDE0,#5295CC,#1375B7 null-value=#eee \
+  -classify target=GOP field=RepPct save-as=fill breaks=0.5,0.6,0.7 colors=#FCE0E0,#EAA9A9,#DB7171,#C93135 null-value=#eee \
+  -merge-layers target=DEM,GOP name=house2022-elections \
+  -style target=house2022-elections opacity=0.75 stroke=#000 stroke-width=0.5 stroke-opacity=1 \
+  -each target=house2022-elections 'cx=this.innerX, cy=this.innerY' \
+  -points target=house2022-elections x=cx y=cy + name=house2021-labels \
   -style target=house2021-labels label-text=id text-anchor=middle font-size=8px font-weight=800 line-height=8px font-family=arial class="g-text-shadow p" \
   -style target=house2021-labels fill=#000 stroke=none \
-  -simplify target=house2021 0.1 \
-  -innerlines target=house2021 + name=house2021-lines \
+  -simplify target=house2022-elections 0.1 \
+  -innerlines target=house2022-elections + name=house2021-lines \
   -style target=house2021-lines stroke=#000 stroke-opacity=0.5 \
-  -clip target=house2021,house2021-lines us-cart \
+  -clip target=house2022-elections,house2021-lines us-cart \
 ```
 
 ### State Senate
@@ -95,16 +99,20 @@ mapshaper -i '/Users/cervas/My Drive/GitHub/createMaps/us-cart.json' name=us-car
   -i '/Users/cervas/My Drive/GitHub/Data/Elections/State Legislature/PA/data/STS_sen_dist.csv' name=senate2022 string-fields=district \
   -proj target=senate2021 EPSG:3652 \
   -join target=senate2021 source=senate2022 keys=NAME,district \
-  -classify target=senate2021 field=DEM save-as=fill breaks=0.5 colors=#C93135,#1375B7 null-value=#eee \
-  -style target=senate2021 opacity=0.75 stroke=#000 stroke-width=0.5 stroke-opacity=1 \
-  -each target=senate2021 'cx=this.innerX, cy=this.innerY' \
-  -points target=senate2021 x=cx y=cy + name=senate2021-labels \
+  -filter target=senate2021 DemPct>RepPct + name=DEM \
+  -filter target=senate2021 DemPct<RepPct + name=GOP \
+  -classify target=DEM field=DemPct save-as=fill breaks=0.5,0.6,0.7 colors=#CEEAFD,#92BDE0,#5295CC,#1375B7 null-value=#eee \
+  -classify target=GOP field=RepPct save-as=fill breaks=0.5,0.6,0.7 colors=#FCE0E0,#EAA9A9,#DB7171,#C93135 null-value=#eee \
+  -merge-layers target=DEM,GOP name=senate2022-elections \  
+  -style target=senate2022-elections opacity=0.75 stroke=#000 stroke-width=0.5 stroke-opacity=1 \
+  -each target=senate2022-elections 'cx=this.innerX, cy=this.innerY' \
+  -points target=senate2022-elections x=cx y=cy + name=senate2021-labels \
   -style target=senate2021-labels label-text=id text-anchor=middle font-size=8px font-weight=800 line-height=8px font-family=arial class="g-text-shadow p" \
   -style target=senate2021-labels fill=#000 stroke=none \
-  -simplify target=senate2021 0.1 \
-  -innerlines target=senate2021 + name=senate2021-lines \
+  -simplify target=senate2022-elections 0.1 \
+  -innerlines target=senate2022-elections + name=senate2021-lines \
   -style target=senate2021-lines stroke=#000 stroke-opacity=0.5 \
-  -clip target=senate2021,senate2021-lines us-cart \
+  -clip target=senate2022-elections,senate2021-lines us-cart \
 ```
 
   -style fill-pattern='hatches 45deg 2px red 2px grey'
