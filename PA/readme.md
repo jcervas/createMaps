@@ -79,8 +79,8 @@ mapshaper -i '/Users/cervas/My Drive/GitHub/createMaps/us-cart.json' name=us-car
   -join target=house2021 source=house2022 keys=NAME,district \
   -filter target=house2021 'dem_vote > gop_vote' + name=DEM \
   -filter target=house2021 'dem_vote < gop_vote' + name=GOP \
-  -classify target=DEM field=dem_vote save-as=fill breaks=0.5,0.6,0.7 colors=#CEEAFD,#92BDE0,#5295CC,#1375B7 null-value=#eee key-name="legend_dem" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" \
-  -classify target=GOP field=gop_vote save-as=fill breaks=0.5,0.6,0.7 colors=#FCE0E0,#EAA9A9,#DB7171,#C93135 null-value=#eee key-name="legend_gop" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" \
+  -classify target=DEM field=dem_vote save-as=fill breaks=50,60,70 colors=#CEEAFD,#92BDE0,#5295CC,#1375B7 null-value=#eee key-name="legend_dem" key-style="simple" key-tile-height=10 key-width=160 key-font-size=10 key-last-suffix="%" \
+  -classify target=GOP field=gop_vote save-as=fill breaks=50,60,70 colors=#FCE0E0,#EAA9A9,#DB7171,#C93135 null-value=#eee key-name="legend_gop" key-style="simple" key-tile-height=10 key-width=160 key-font-size=10 key-last-suffix="%" \
   -merge-layers target=DEM,GOP name=house2022-elections \
   -style target=house2022-elections opacity=0.75 stroke=#000 stroke-width=0.5 stroke-opacity=1 \
   -each target=house2022-elections 'cx=this.innerX, cy=this.innerY' \
