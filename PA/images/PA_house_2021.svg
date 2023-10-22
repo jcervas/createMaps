@@ -131,11 +131,6 @@
 <path d="M 48.47 344.18 47.7 345.23 46.9 345.25 45.64 346.6 38.5 353.09" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 38.5 353.09 32.98 341.44 33.6 340.91 32.84 339.55 31.27 337.9 30.44 338.99 29.79 338.88 30.46 336.16 31.29 335.5 30.75 334.23 32.67 333.84 34.09 332.89 32.64 331.02 33.4 328.27 34.84 327.27 34.54 326.47 37.22 325.39" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 37.22 325.39 38.01 324.69 35.65 320.28 36.27 319.39 39.76 319.35 40.72 319.98 43.53 319.75 43.55 324.13 42.15 325.3 43.48 326.89 43.97 328.33 45.17 328.29 46.38 330.56 43.8 332.03 44.28 333.01 46.09 332.41 47.31 332.44 48.62 335.02 48.47 344.18" stroke="#000" stroke-opacity="0.5"/>
-<path d="M 775 424.02 774.19 426.65 774.6 429.06 773.24 430.38 773.01 431.79 773.75 432.93 773.89 435.1" stroke="#000" stroke-opacity="0.5"/>
-<path d="M 765.1 439.3 763.56 437.79 764.04 436.41" stroke="#000" stroke-opacity="0.5"/>
-<path d="M 764.04 436.41 765.36 434.75" stroke="#000" stroke-opacity="0.5"/>
-<path d="M 765.36 434.75 766.43 434.12 767.08 432.86 767.35 430.93 766.52 430.45 765.96 428.63 766.22 427.39 764.81 426.55 763.61 426.53 761.94 424.43" stroke="#000" stroke-opacity="0.5"/>
-<path d="M 761.94 424.43 764.92 420.13 767.72 421.83 769.96 420.41 770.89 420.51 772.23 421.7 772.89 421.1 774.69 422.53 775 424.02" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 75.23 374.53 75.7 372.28 73.78 370.78 72.24 370.16 71.5 369.39 70.46 370.55 69.85 369.38 66.91 368.31 65.96 367.01" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 65.96 367.01 66.72 367.45 69.12 366.65 69.7 365.58 68.92 363.68" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 68.92 363.68 70.3 364.16 71.26 363.9 71.61 364.82 72.69 364.97 74.52 364.54 73.9 362.52 74.54 361.23 75.71 361.33" stroke="#000" stroke-opacity="0.5"/>
@@ -232,6 +227,11 @@
 <path d="M 694.68 405.36 695.92 403.57 697.42 402.53 702.57 406.09 702.85 405.71 707.66 409.17" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 713.55 429.63 713.02 429.94 709.27 428.53 707.88 428.57" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 707.88 428.57 709.37 426.53 709.13 425.89 707.51 424.22 709.33 421.74 704.49 418.25 693.37 409.87" stroke="#000" stroke-opacity="0.5"/>
+<path d="M 222.22 402 214.76 401.77 204.58 401.73" stroke="#000" stroke-opacity="0.5"/>
+<path d="M 204.58 401.73 206.13 399.11 207.17 397.82 207.23 396.67 208.01 395.92 209.63 392.77 210.99 391.93 211.6 389.97 212.69 389.1 215.91 382.77 216.12 382.13" stroke="#000" stroke-opacity="0.5"/>
+<path d="M 216.12 382.13 220.03 373.9 223.43 366.47 230 350.15" stroke="#000" stroke-opacity="0.5"/>
+<path d="M 230 350.15 233.68 350.27 232.99 352.1 240.24 355.75 240.61 349.85 243.92 351.41 245.27 351.02 246.07 352.32 246.79 354.31 251.63 356.91 255.49 357.76 256.83 357.39" stroke="#000" stroke-opacity="0.5"/>
+<path d="M 256.83 357.39 256.75 359.34 255.8 360.63 255.94 361.82 257.42 363 257.14 364.37 257.1 366.89 255.87 368.71 254 375.8 253.19 375.94 252.2 377.3 250.46 376.67 246.54 377.61 246.54 378.7 247.49 381.7 251.4 393.07 251.94 395.32 249.72 396.29 248.99 395.4 246.85 393.83 244.76 393.59 243.29 391.91 243.19 390.88 241.77 390.78 242.17 389.76 241.54 387.48 240 387.55 239.7 388.42 236.63 391.86 231.64 397.19 229.24 395.98 226.59 395.62 226.58 396.98 228.44 397.01 226.07 399.44 227.39 399.46 227.15 400.81 225.3 400.48 224.54 401.12 223.6 400.69 222.66 400.99 222.22 402" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 639.49 458.68 637.35 459.56 634.46 460.46 626.54 462.66" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 626.54 462.66 625.18 460.13 626.32 457.89 626.21 457.41 628.76 452.5 632.84 444.91" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 632.84 444.91 633.12 442.91 632.8 439.73 632.76 437.37 631.7 431.91 635.82 429.8 641.16 426.73" stroke="#000" stroke-opacity="0.5"/>
@@ -316,14 +316,10 @@
 <path d="M 731.59 340.15 726.1 343.57 723.58 345.01 717.9 349.48" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 717.9 349.48 716.4 347.75 714.8 343.82 713.02 344.29 713.82 345.18 713.98 346.97 712.13 348.14 711.54 346.01" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 711.55 336.13 713.76 336.18 715.94 336.69 717.83 335.06 721.41 333.72 721.07 331.05 722.2 331.68 723.15 330.75 722.4 330.03 722.19 328.53 723.2 327.54 724.23 327.26 724.09 326.2 724.47 324.21 725.44 324.06 726.13 323.51" stroke="#000" stroke-opacity="0.5"/>
-<path d="M 702.49 327.78 706.68 325.61 705.53 317.74" stroke="#000" stroke-opacity="0.5"/>
-<path d="M 705.53 317.74 710.6 316.85 711.57 315.61 711.49 314.91 720.03 313.67 720.37 315.19 721.67 315.29 723.68 315.91 724.6 318.87 724.23 322.53 725.14 324.01 726.13 323.51" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 776.87 423.6 774.91 418.38 774.94 417.77 776.53 416.09 778.65 415.26 778.41 413.04" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 786.39 424.46 784.5 421.39 785.24 420.88 783.84 418.57 784.67 417.62 782.16 416.33 780.26 417.7 778.74 417.91 779.85 419.47 780.78 419.9 776.87 423.6" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 775 424.02 776.87 423.6" stroke="#000" stroke-opacity="0.5"/>
-<path d="M 761.94 424.43 761.38 425.24 758.96 423.5" stroke="#000" stroke-opacity="0.5"/>
-<path d="M 758.96 423.5 756.96 422.04" stroke="#000" stroke-opacity="0.5"/>
-<path d="M 756.96 422.04 759.66 418.32 761.01 417.45 763.11 418.86 765.21 416.9 764.62 414.32 765.08 412.46 764.39 410.9 767.24 410.66 767.78 410.04" stroke="#000" stroke-opacity="0.5"/>
+<path d="M 773.89 435.1 773.75 432.93 773.01 431.79 773.24 430.38 774.6 429.06 774.19 426.65 775 424.02" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 751.08 417.83 746.07 414.18" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 746.07 414.18 737.61 407.93 733.05 404.44 729.03 401.53" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 729.03 401.53 730.9 399.02" stroke="#000" stroke-opacity="0.5"/>
@@ -349,6 +345,7 @@
 <path d="M 755.08 427.6 753.2 429.42" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 753.2 429.42 745.55 423.76 745.8 425.73 743.87 425.86 741.77 424.98 741.39 426.01 740.25 425.15 740.9 424.15" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 751.08 417.83 756.96 422.04" stroke="#000" stroke-opacity="0.5"/>
+<path d="M 756.96 422.04 758.96 423.5" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 753.2 429.42 750.64 433.09 748.13 436.17" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 748.13 436.17 743.21 432.68 744.61 431.3 743.34 430.34 742.1 431.5 740.53 430.76 737.95 428.97 734.14 426.06" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 741.27 436.63 737.09 433.7 735.4 435.8" stroke="#000" stroke-opacity="0.5"/>
@@ -371,8 +368,7 @@
 <path d="M 699.79 473.82 703.48 476.35 704.95 475.45 706.42 477.64 707.99 477.44 708.63 478.24 709.62 477.64 710.78 475.35 711.63 475.96 712.2 475.12 710.25 474.28 709.97 472.68 710.85 471.78 714.12 473.07 714.53 473.97 715.6 473.25 717.05 473.51" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 717.05 473.51 717.89 473.81 718.73 476.19" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 697.62 480.88 697.71 479.35 698.81 477.94 699.01 476.55 697.98 474.97 699.79 473.82" stroke="#000" stroke-opacity="0.5"/>
-<path d="M 692.95 458.2 692.17 458.7 694.31 461.99 695.68 461.12 697.11 463.5 695.43 464.6 696.64 466.4 699.34 467.83 700.37 468.82" stroke="#000" stroke-opacity="0.5"/>
-<path d="M 700.37 468.82 699.15 470.05 699.2 470.86 698.03 472.54 699.79 473.82" stroke="#000" stroke-opacity="0.5"/>
+<path d="M 699.79 473.82 698.03 472.54 699.2 470.86 699.15 470.05 700.37 468.82" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 700.37 468.82 703.77 469.42 704.31 468.75 703.98 467.15 705.27 466.56 706.87 464.92" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 706.87 464.92 707.53 466.37 708.36 467.06 709.78 464.09 711.57 462.35 712.5 463.04 712.71 465.21 713.43 467.69 713.33 469.24 714.4 469.25 715.81 467.92" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 715.81 467.92 716.23 469.85 715.71 470.69 716.07 471.95 717.05 473.51" stroke="#000" stroke-opacity="0.5"/>
@@ -391,15 +387,18 @@
 <path d="M 709.9 452.44 713.65 455.51 713.56 456.19 715 456.59 715.25 457.43 716.41 457.96" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 723.89 453.33 723.38 453.7" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 709.9 452.44 710.65 451.73 710.93 450.55 713.41 448.97 714.85 448.66 716.71 447.57 717.62 446.49" stroke="#000" stroke-opacity="0.5"/>
-<path d="M 758.9 431.61 757.53 431.95 757.26 429.89 758.01 428 757.3 427.54 756.56 428.43 755.08 427.6" stroke="#000" stroke-opacity="0.5"/>
-<path d="M 765.36 434.75 764.48 433.61 763.55 433.31 763.08 434.49 761.73 433.78 759.16 431.23 758.9 431.61" stroke="#000" stroke-opacity="0.5"/>
+<path d="M 700.37 468.82 699.34 467.83 696.64 466.4 695.43 464.6 697.11 463.5 695.68 461.12 694.31 461.99 692.17 458.7 692.95 458.2" stroke="#000" stroke-opacity="0.5"/>
+<path d="M 755.08 427.6 756.56 428.43 757.3 427.54 758.01 428 757.26 429.89 757.53 431.95 758.9 431.61" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 758.9 431.61 757.4 433.76 755.62 432.66 753.08 435.32 752.1 436.06 752.58 436.82 754.93 438.4" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 754.93 438.4 754.09 440.38" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 754.09 440.38 752.44 439.22" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 752.44 439.22 749.43 437.09" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 754.93 438.4 755.77 436.5 756.65 438.26 759.72 438.07 762.1 436.93 762.78 437.26 764.04 436.41" stroke="#000" stroke-opacity="0.5"/>
+<path d="M 764.04 436.41 763.56 437.79 765.1 439.3" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 756.88 445.58 755.51 443.78" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 755.51 443.78 756.03 442.85 755.98 441.7 754.09 440.38" stroke="#000" stroke-opacity="0.5"/>
+<path d="M 758.9 431.61 759.16 431.23 761.73 433.78 763.08 434.49 763.55 433.31 764.48 433.61 765.36 434.75" stroke="#000" stroke-opacity="0.5"/>
+<path d="M 765.36 434.75 764.04 436.41" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 741.13 460.84 741.29 459.71 740.5 459 740.5 457.4 739.61 456.92" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 739.61 456.92 739.8 455.47 741.63 455.6 741.8 453.99 743.8 452.79" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 743.8 452.79 744.21 451.76" stroke="#000" stroke-opacity="0.5"/>
@@ -483,6 +482,8 @@
 <path d="M 38.49 413.01 37.94 415.96 39.37 417.66 38.16 418.25 37.85 419.28 35.57 420.1 34.87 420.8 32.16 421.61 31.93 425.81 32.16 426.64 31.13 427.79 30.3 427.55 28.83 428.47 27.31 428.53 26.89 429.31 20.97 427.02 17.78 431.25 14.53 431.99 14.57 432.44 8.68 433.87 5.68 434.22 3.03 434.8" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 80.81 183.72 79.36 240.6 84.83 240.78 104.43 240.99 117.34 241.37 120.56 241.4" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 120.56 241.4 121.31 242.02 121.24 248.47 120.92 253.86 120.4 279.88" stroke="#000" stroke-opacity="0.5"/>
+<path d="M 765.36 434.75 766.43 434.12 767.08 432.86 767.35 430.93 766.52 430.45 765.96 428.63 766.22 427.39 764.81 426.55 763.61 426.53 761.94 424.43" stroke="#000" stroke-opacity="0.5"/>
+<path d="M 761.94 424.43 764.92 420.13 767.72 421.83 769.96 420.41 770.89 420.51 772.23 421.7 772.89 421.1 774.69 422.53 775 424.02" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 573.46 430.26 571.32 430.03 570.62 430.55 568.22 430.73 565.41 431.65 563.32 433.41 562.74 434.33 561.56 434.69 560.31 437.47 560.06 439.2 558.59 439.6 558.17 441 556.94 441.16 555.87 440.44 553.88 440.36 553.25 441.39" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 553.25 441.39 552.73 439.91 553.47 439.03 554.86 438.41 555.01 436.93 556.38 434.5 556.57 433.42 560.88 433.38 560.49 432.84 558.55 432.38 557.4 433.17 554.94 430.56 554.48 428.89 555.5 426.68 555.02 424.32 553.06 424.64 552.14 422.47 552.3 420.47 553.89 416.29 554.41 415.67 556.52 414.87 559.04 414.92 559.86 413.86 559.52 411.87" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 559.52 411.87 563.73 410.05 572.92 408.27 577.26 407.51" stroke="#000" stroke-opacity="0.5"/>
@@ -529,12 +530,10 @@
 <path d="M 147.71 387.08 148.25 389.29 149.03 390.89 147.56 392.35 147.36 394.33 145.31 399.06 143.68 401.69 143.39 402.6 142.2 403.99 141.94 405.73 139.92 405.98 138.2 407.47 137.58 410.62 136.7 411.57" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 136.7 411.57 138.54 412.12 138.83 412.96 141.33 413.05 142.11 414.25 142.37 415.46 143.36 415.63 144.89 417.63 144.11 419.7 142.37 420.6 141.12 422.39 140.72 424.48 142.58 425.73 142.85 426.36" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 175.65 377.57 176.6 377.7 177.87 376.74 178.79 375 180.75 375.27 183.25 376.44 184.36 378.14 185.34 378.92 186.45 378.14 188.83 379 191.02 378.83 191.78 379.38 191.5 380.64 192.2 381.38 193.84 381.24 196.54 382.05 194.91 383.67 195.1 385.46 195.84 386.27 197.53 385.81 198.5 386.62 201.18 382.96 202.33 383.65 202.94 384.62 204.5 384.57 205.43 383.07 206.73 382.72 207.57 381.91 208.72 379.95 207.93 379.55 208.08 378.2 208.8 377.71 210.33 377.6 213.05 378.9 214.1 379.14 216.12 382.13" stroke="#000" stroke-opacity="0.5"/>
-<path d="M 216.12 382.13 215.91 382.77 212.69 389.1 211.6 389.97 210.99 391.93 209.63 392.77 208.01 395.92 207.23 396.67 207.17 397.82 206.13 399.11 204.58 401.73" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 204.58 401.73 204.1 403.35 202.92 403.92 201.29 406.5 200.34 409.21 199.62 409.59 197.97 413.54 196.4 414.95 196.34 415.88 194.81 416.63 195.05 417.84 194.21 420.16 192.33 420.31 192.68 423.25 191.19 423.8 189.86 423.62 189.65 426.81 189.13 427.63 188.8 429.5 186.7 432.46 185.71 432.79 184.85 431.18 183.66 431.49 182.48 431.22 181.49 432.14 180.65 434.72 177.93 435.48 176.57 436.42 176.13 437.99 174.94 438.91 174.96 440.44 173.36 442.23 171.97 444.67 171.24 444.89" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 119.47 306.91 131.83 307.31 130.7 298.16 131.08 293.42 130.38 291.47 148.16 292.01 147.83 293.41 148.46 295.24 148.29 296.76 147.77 297.5 142.23 300.46 141.53 302.11 141.7 305.04 143.45 307.3 143.46 305.9 150.5 307.26 147.05 317.56 145.98 320.3 145.07 323.65 145.57 324.73 155.86 326.47 155.44 329.45 158.18 329.31 160.18 331.51 161.5 332.02 165 334.91 166.21 335.04 167.18 336.43" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 167.18 336.43 161.28 344.33 151.44 356.97" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 234.05 339.42 232.2 344.52 230 350.15" stroke="#000" stroke-opacity="0.5"/>
-<path d="M 230 350.15 223.43 366.47 220.03 373.9 216.12 382.13" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 167.18 336.43 184.23 313.6" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 184.23 313.6 195.72 315.73 188.42 332.2 191.68 332.6 201.02 332.8 201.03 336.96 203.62 336.27 204.26 336.68 205.83 336.39 210.78 325.9 215.68 329.94 225.74 338.41 228.75 337.24 229.71 337.3 234.05 339.42" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 120.56 241.4 119.81 240.99 120.3 239.29 121.27 239.88 122.11 239.38 123.95 239.39 124.62 238.58 123.93 237.84 124.19 236.79 126.86 233.48 126.9 227.08 129.26 227.15 129.34 224.77 130.01 224.79 130.07 222.95 133.17 223.03 133.39 215.1 141.85 215.36 141.91 212.68 150.44 212.9 150.66 203.82" stroke="#000" stroke-opacity="0.5"/>
@@ -553,15 +552,12 @@
 <path d="M 402.2 96.47 402.51 109.9 402.77 123.72 403.01 139.29 403.1 142.04 403.78 178.22" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 531.99 95.31 532.78 112.07 543.31 111.55 543.2 114.74 543.35 115.89 544.05 127.09 544.42 132.03 548.16 131.79 551.68 129.25 552.99 130.02 554.66 130.25 555.46 130.89 556.53 130.76 558.24 131.83 558.91 133.03 556.89 134.63 557.2 135.64 557.32 138.63 558.93 138.39 561.3 140.04 564.19 152.08 552.28 165.93 555.62 173.55" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 555.62 173.55 550.27 173.05 512.14 169.39 501.11 167.92 500.63 169.03 499.42 169.7 496.6 170.69 494.75 170.78 494.18 172.57 491.96 172.9 490.72 173.68 489.27 175.53 489.65 176.14 483.16 176.46 468.58 177.06 446.03 177.74 430.56 177.83 403.78 178.22" stroke="#000" stroke-opacity="0.5"/>
-<path d="M 204.58 401.73 214.76 401.77 222.22 402" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 222.22 402 222.55 403.12 225.68 403.85 226.69 404.97 226.3 405.81 226.92 406.88 227.09 408.24 228.26 409.58 226.86 410.77 225.3 413.39 225.99 414.42 224.17 415.69 222.81 415.38 221.89 417.75 224.05 418.61 224.86 421.51 224.61 422.26 225.88 422.76 228.54 422.14 230.73 422.5 231.91 421.37 232.76 422.36 232.94 423.45 233.94 423.81 234.99 423.4 235.59 424.82 235.25 425.53 236.83 426.38 238.79 426.59 240.15 427.44 241.19 427.3 242.65 425.16 243.21 425.42 244.28 423.12 246.46 423.01 252.22 427.38" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 252.22 427.38 247.47 440.78 245.81 439.8 244.24 442.97 244.17 450.55 244.36 450.59 244.56 477.04 244.54 484.86 243.17 489.75 242.53 490.85 238.94 499.39 237.31 502.63" stroke="#000" stroke-opacity="0.5"/>
-<path d="M 222.22 402 222.66 400.99 223.6 400.69 224.54 401.12 225.3 400.48 227.15 400.81 227.39 399.46 226.07 399.44 228.44 397.01 226.58 396.98 226.59 395.62 229.24 395.98 231.64 397.19 236.63 391.86 239.7 388.42 240 387.55 241.54 387.48 242.17 389.76 241.77 390.78 243.19 390.88 243.29 391.91 244.76 393.59 246.85 393.83 248.99 395.4 249.72 396.29 251.94 395.32 251.4 393.07 247.49 381.7 246.54 378.7 246.54 377.61 250.46 376.67 252.2 377.3 253.19 375.94 254 375.8 255.87 368.71 257.1 366.89 257.14 364.37 257.42 363 255.94 361.82 255.8 360.63 256.75 359.34 256.83 357.39" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 256.83 357.39 257.54 355.12 258.18 354.76 258.37 353.43 259.88 353.01 260.7 352.02 260.96 349.31 261.43 348.17 260.42 346.38 261.9 345.78 260.78 344.65 260.34 343.58 261.23 342.62 261.67 340.23 262.18 339.29 260.73 338.92 260.41 338.08 259.42 338.12 258.98 335.7 259.07 334.13 258.13 331.07 258.07 329.19 256.73 327.58 256.75 325.73 255.39 324.92 255.39 323.81 263.01 324.11 272.04 323.74 277.37 323.74 294.64 324 302.02 324.37" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 302.02 324.37 293.76 338.45 291.64 337.87 289.89 337.99 289.24 340.96 288.4 341.99 289.25 346.84 288.35 347.83 M 274.03 371.85 273.11 374.54 273.76 375.75 272.48 387.38 266.87 390.2 264.66 394.03 264.34 394.93" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 288.35 347.83 287.5 349.68 284.02 355.73 283.04 356.87 281.48 357.16 278.64 358.99 276.97 360.7 275.66 362.99 274.96 366.52 275.52 368.57 275.02 370.19 274.03 371.85" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 264.34 394.93 262.26 398.04 261.2 402.76 259.96 403.02 261.01 407.03 258.99 409.86 258.49 412.11 256.38 415.55 252.22 427.38" stroke="#000" stroke-opacity="0.5"/>
-<path d="M 230 350.15 233.68 350.27 232.99 352.1 240.24 355.75 240.61 349.85 243.92 351.41 245.27 351.02 246.07 352.32 246.79 354.31 251.63 356.91 255.49 357.76 256.83 357.39" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 300.5 322.73 302.02 324.37" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 239.99 302.05 243.68 303.15 242.94 301.94 248.85 301.96 250.24 302.37 255.03 302.31 255.02 303.28 253.67 303.27 253.64 304.25 252.25 304.24 252.23 307.2 253.58 307.88 253.59 308.88 255.93 308.89 255.8 306.61 254.98 306.6 255.16 305.08 257.76 305.34 259.15 306.25 259.74 305.71 261.68 307.66 264.99 304.86 263.3 302.74 264.79 301.41 265.65 302.35 266.74 301.44 265.9 300.44 269.12 297.78 269.89 298.65 271.67 297.4 273.54 297.83 274.69 296.88 272.96 294.64 274 293.68 277.33 293.66 278.62 293.1 281.55 289.52 283.91 289.68 284.01 288.43 281.33 284.14 282.91 283.43 283.32 280.06 282.42 278 283.22 277.53 283.26 270.9 281.9 270.17 282.24 268.8 282.47 265.34 270.62 265.24 270.68 262.82 271.18 255.39 271.34 250.17 272.67 250.15 272.67 248.13 284.07 248.33 284.28 231.17 306.17 232.92 317.75 233.81" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 337.11 236.33 341.43 243.87 344.53 247.67" stroke="#000" stroke-opacity="0.5"/>
@@ -664,8 +660,12 @@
 <path d="M 717.9 349.48 713.37 353.51 712.57 354.06 708.72 357.6 703.14 362.51 693.31 375.2 701.49 381.11 701.94 381.56 711.57 388.72" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 711.01 389.2 709.19 389.64 707.5 391.76 705.95 391.8 705.05 392.56 705.13 393.4 702.89 394.31 701.28 393.57 700.34 391.85 699.3 390.62 696.43 393.07 695.04 393.72 693.97 390.21 695 389.29 691.9 388.49 685.07 383.94 686.38 381.94 681.75 379.17" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 680.03 364.88 684.83 358.99 688.58 354.52 688.8 354.04 M 689.78 352.92 690.35 352.32" stroke="#000" stroke-opacity="0.5"/>
+<path d="M 702.49 327.78 706.68 325.61 705.53 317.74" stroke="#000" stroke-opacity="0.5"/>
+<path d="M 705.53 317.74 710.6 316.85 711.57 315.61 711.49 314.91 720.03 313.67 720.37 315.19 721.67 315.29 723.68 315.91 724.6 318.87 724.23 322.53 725.14 324.01 726.13 323.51" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 705.53 317.74 702.95 318.06 701.07 309.04 699.21 308.76 698.2 308.13 697.02 303.6" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 697.02 303.6 700.09 302.6 700.58 302.11 705.11 301.11 710.68 298.4 713.45 296.48 716.2 295.7 718.41 294.48 719.8 293.17 720.61 291.48 725.24 288.26 724.02 286.56 726.59 284.67 727.19 283.08" stroke="#000" stroke-opacity="0.5"/>
+<path d="M 761.94 424.43 761.38 425.24 758.96 423.5" stroke="#000" stroke-opacity="0.5"/>
+<path d="M 756.96 422.04 759.66 418.32 761.01 417.45 763.11 418.86 765.21 416.9 764.62 414.32 765.08 412.46 764.39 410.9 767.24 410.66 767.78 410.04" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 716.61 392.46 715.81 391.42 719.16 386.54 717.95 386.83 715.69 384.51 717.67 381.82 720.93 379.74 722.1 380.63 721.11 381.39 721.05 382.62 722.09 383.41 726.13 377.99 725.34 376.36 724.48 372.45 724.66 371.4 726.44 370.15 726.77 368.68 728.27 366.04 729.34 365.98 730.17 364.93 731.67 365.1 733.29 364.17 733.7 364.98 734.89 365.45 737.61 361.55 738.55 360.71 740.05 358.68 747.27 349.56" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 487.15 483.68 488.24 483.13 489.88 480.74 491.77 480.17 492.82 479.27" stroke="#000" stroke-opacity="0.5"/>
 <path d="M 492.82 479.27 493.09 484.11 494.57 487.25 498.75 491.15 500.07 490.21 501.76 488.13 503.08 488.02 503.72 486.74 504.59 487.21 508.53 485.28 513.01 483.3 518.35 481.54" stroke="#000" stroke-opacity="0.5"/>
@@ -852,7 +852,6 @@
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(59.9 80.4)">3</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(733.9 455.3)">10</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(41 339.7)">16</text>
-<text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(770.2 427.5)">18</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(73.7 368.2)">19</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(72.6 356.2)">20</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(81.5 359.5)">21</text>
@@ -878,6 +877,7 @@
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(719.4 429.5)">54</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(725.3 416.3)">61</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(712.2 416.2)">70</text>
+<text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(233.7 376.1)">72</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(638.5 450.6)">74</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(339.1 303.4)">77</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(367.2 268.9)">82</text>
@@ -900,10 +900,8 @@
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(692.5 347.2)">134</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(707.5 333.7)">135</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(724.4 338.2)">136</text>
-<text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(715.3 323.3)">137</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(790.3 417.7)">140</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(779.7 426.6)">141</text>
-<text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(770.5 415.1)">142</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(740.1 405.4)">144</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(687.3 408.6)">146</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(727.1 446.6)">148</text>
@@ -918,7 +916,6 @@
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(698.1 440.8)">157</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(660.2 465.8)">158</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(706 480.9)">159</text>
-<text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(686.4 469.2)">160</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(706.9 471.3)">161</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(721.1 468.8)">162</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(721.3 461.9)">163</text>
@@ -927,7 +924,6 @@
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(717.2 452.1)">166</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(683 439.5)">167</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(705.9 450.6)">168</text>
-<text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(761.9 429.3)">170</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(753.1 432.6)">172</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(759.2 440.9)">173</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(759.3 435.3)">174</text>
@@ -965,6 +961,7 @@
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(39 307.9)">14</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(19.4 377)">15</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(58.3 226.1)">17</text>
+<text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(770.2 427.5)">18</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(86.4 336.5)">28</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(574.6 418.9)">37</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(82.7 405.7)">39</text>
@@ -993,7 +990,6 @@
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(474.3 136.4)">68</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(206.2 463.2)">69</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(243.4 408.3)">71</text>
-<text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(233.7 376.1)">72</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(309.2 260.8)">73</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(261.1 195.4)">75</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(399.4 231.6)">76</text>
@@ -1036,12 +1032,16 @@
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(645.9 408.9)">128</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(659.6 380.1)">130</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(692.3 364.9)">131</text>
+<text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(715.3 323.3)">137</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(728.3 300.3)">138</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(721.4 201.1)">139</text>
+<text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(770.5 415.1)">142</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(737.3 376.2)">143</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(717 364.2)">145</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(682.4 393.5)">147</text>
+<text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(686.4 469.2)">160</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(513.5 493.2)">169</text>
+<text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(761.9 429.3)">170</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(410.5 305.7)">171</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(703.6 282.6)">176</text>
 <text y="0" x="0" opacity="0.75" fill="#000" stroke="none" stroke-width="0.5" stroke-opacity="1" text-anchor="middle" font-size="8px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(757.1 407.5)">178</text>
