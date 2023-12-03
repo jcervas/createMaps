@@ -31,15 +31,14 @@ mapshaper \
 -style target=WI-assembly fill=color stroke=none \
 -o target=pop-dots,roads,county,assembly-lines,ST '/Users/cervas/My Drive/GitHub/createMaps/WI/images/WI-pop-dots.svg' \
 -o target=urban,WI-assembly,county,district-labels,ST '/Users/cervas/My Drive/GitHub/createMaps/WI/images/WI-assembly.svg' \
+-filter target=tracts STATEFP20==55 + name=tracts \
 -each target=tracts 'density = P1_001N / (ALAND20/2589988)' target=tracts \
 -classify target=tracts field=density save-as=fill nice colors=OrRd classes=5 null-value="#fff" key-name="legend_popdensity" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 \
 -each target=tracts 'type="tracts"' \
 -clip target=tracts source=ST \
--filter target=tracts STATEFP20==55 + name=tracts-grey \
--classify target=tracts-grey field=density save-as=fill nice colors=greys classes=5 \
--dissolve target=tracts,tracts-grey fields=fill \
--simplify target=tracts,tracts-grey 0.01 \
--o target=tracts,counties,ST,cities '/Users/cervas/My Drive/GitHub/createMaps/WI/images/WI_tracts_pop.svg'
+-dissolve target=tracts fields=fill \
+-simplify target=tracts 0.01 \
+-o target=tracts,county,ST,cities '/Users/cervas/My Drive/GitHub/createMaps/WI/images/WI_tracts_pop.svg'
 ```
 
 ![](WI-assembly.png)
