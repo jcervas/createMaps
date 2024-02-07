@@ -44,4 +44,4 @@ mapshaper-xl 2gb \
 -o target=nassau-2023-enacted,district-labels  'images/nassau-2023-enacted.svg'
 ```
 
-Download CVAP from Redistricting Data Hub: https://redistrictingdatahub.org/download/?datasetid=41365&document=%2Fweb_ready_stage%2FACS2021%2FCITIZEN%2Ft_cit_2021_shp%2Fny_cit_2021_t.zip
+Download CVAP from Redistricting Data Hub: [https://redistrictingdatahub.org/download/?datasetid=41365&document=%2Fweb_ready_stage%2FACS2021%2FCITIZEN%2Ft_cit_2021_shp%2Fny_cit_2021_t.zip](https://redistrictingdatahub.org/dataset/new-york-cvap-data-disaggregated-to-the-2020-block-level-2021/)https://redistrictingdatahub.org/dataset/new-york-cvap-data-disaggregated-to-the-2020-block-level-2021/
