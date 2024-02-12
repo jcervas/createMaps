@@ -45,7 +45,9 @@ mapshaper-xl 2gb \
 ```
 
 ## CVAP Maps
+[Download CVAP from Census](https://www.census.gov/programs-surveys/decennial-census/about/voting-rights/cvap.html)
 
+### Asian CVAP Map
 ```
 cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
 mapshaper-xl 2gb \
@@ -61,6 +63,30 @@ mapshaper-xl 2gb \
 -proj target=blk-grps,current2023,us-cart '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
 -o target=blk-grps,current2023 'images/asian-bg.svg'
 ```
-Using Illstrator, delete districts in transparency layer you want to feature. For Asians, districts 9,10,18
+Using Illstrator, delete districts in transparency layer you want to feature. For Asians, districts 9,10,18. Also adjust the stroke-width for non-highlighted districts.
 
-[Download CVAP from Census](https://www.census.gov/programs-surveys/decennial-census/about/voting-rights/cvap.html)
+### Valley Stream
+```
+cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
+mapshaper-xl 2gb \
+-i '/Users/cervas/My Drive/GitHub/createMaps/us-cart.json' name=us-cart \
+-i 'data/GIS/political-subdivisions(ny.gov)/Nassau_Villages.json' name=villages \
+-filter target=villages 'NAME=="Valley Stream"' + name=valley-stream \
+-style target=valley-stream fill=#ccc stroke=none opacity=1 \
+-style target=villages fill=none opacity=1 stroke-width=1 stroke-opacity=1 stroke=#ccc stroke-dasharray="0 3 0" \
+-i 'data-locked/Plans/nassau-county-adopted-2023.geojson' name=current2023 \
+-dissolve target=current2023 + name=nassau \
+-style target=nassau fill=none opacity=1 stroke=#000 stroke-width=1 \
+-filter target=current2023 '["3","7","14"].indexOf(NAME) > -1' invert + name=currentlines \
+-filter target=current2023 '["3","7","14"].indexOf(NAME) > -1' \
+-innerlines target=currentlines \
+-style target=currentlines stroke-dasharray="0 3 0" opacity=1 stroke-width=1 stroke-opacity=1 stroke=#333 \
+-style target=current2023 fill=none opacity=1 stroke-width=2 stroke-opacity=1 stroke=#000 \
+-proj target=villages,valley-stream,current2023,us-cart '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
+-each target=current2023 'cx=this.innerX, cy=this.innerY' \
+-points target=current2023 x=cx y=cy + name=current2023-labels \
+-style target=current2023-labels label-text=NAME text-anchor=middle fill=#000 stroke=none opacity=1 font-size=18px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
+-o target=valley-stream,villages,currentlines,current2023,current2023-labels,nassau 'images/valley-stream.svg'
+```
+districts 3, 7, 14
+
