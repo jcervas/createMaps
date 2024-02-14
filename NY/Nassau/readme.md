@@ -59,7 +59,7 @@ mapshaper-xl 2gb \
 -style target=current2023 fill=#ffffff opacity=0.85 stroke-width=2 stroke-opacity=1 stroke=#000 \
 -filter target=blk-grps COUNTYFP20=='059' \
 -join target=blk-grps source=agg_data_ASIAN keys=GEOID20,GEOID20 \
--classify target=blk-grps field=cvap_est_per save-as=fill nice colors=Greys breaks=.25,.35,.4,.45,.50,.75 null-value="#fff" key-name="legend-bg-asian" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" \
+-classify target=blk-grps field=cvap_est_per save-as=fill nice colors=Greys breaks=.25,.35,.4,.45,.50 null-value="#fff" key-name="legend-bg-asian" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" \
 -proj target=blk-grps,current2023,us-cart '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
 -o target=blk-grps,current2023 'images/asian-bg.svg'
 ```
@@ -81,7 +81,7 @@ mapshaper-xl 2gb \
 -filter target=blk-grps COUNTYFP20=='059' \
 -clip target=blk-grps bbox=-73.780193,40.712852,-73.429249,40.989009 \
 -join target=blk-grps source=agg_data_ASIAN keys=GEOID20,GEOID20 \
--classify target=blk-grps field=cvap_est_per save-as=fill nice colors=Greys breaks=.25,.35,.4,.45,.50,.75 null-value="#fff" key-name="legend-bg-asian" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" \
+-classify target=blk-grps field=cvap_est_per save-as=fill nice colors=Greys breaks=.25,.35,.4,.45,.50 null-value="#fff" key-name="legend-bg-asian" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" \
 -proj target=blk-grps,current2023,us-cart '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
 -each target=current2023 'cx=this.innerX, cy=this.innerY' \
 -points target=current2023 x=cx y=cy + name=current2023-labels \
