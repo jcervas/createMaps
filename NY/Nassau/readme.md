@@ -44,6 +44,31 @@ mapshaper-xl 2gb \
 -o target=nassau-2023-enacted,district-labels  'images/nassau-2023-enacted.svg'
 ```
 
+## Villages and Cities/Towns
+
+```
+cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
+mapshaper-xl 2gb \
+-i 'data/GIS/tl_2020_36_all/tl_2020_36_county20.shp' name=counties \
+-filter target=counties 'NAME20=="Nassau"' \
+-style target=counties fill=none stroke=#000 \
+-i 'data/GIS/political-subdivisions(census)/cdp.json' \
+-i 'data/GIS/political-subdivisions(census)/cities-towns.json' \
+-i 'data/GIS/political-subdivisions(census)/villages.json' \
+-style target=villages fill=none opacity=1 stroke-width=1 stroke-opacity=1 stroke=#ccc stroke-dasharray="0 3 0" \
+-each target=cities-towns 'cx=this.innerX, cy=this.innerY' \
+-points target=cities-towns x=cx y=cy + name=Cities_Towns-labels \
+-style target=Cities_Towns-labels label-text=NAME20 text-anchor=middle fill=#000 stroke=none opacity=1 font-size=12px font-weight=500 line-height=20px font-family=arial class="g-text-shadow p" \
+-innerlines target=cities-towns \
+-style target=cities-towns opacity=1 stroke-width=1 stroke-opacity=1 stroke=#ccc stroke-dasharray="0 3 0" \
+-each target=villages 'cx=this.innerX, cy=this.innerY' \
+-points target=villages x=cx y=cy + name=Villages-labels \
+-style target=Villages-labels label-text=NAME20 text-anchor=middle fill=#000 stroke=none opacity=1 font-size=7px font-weight=300 line-height=20px font-family=arial class="g-text-shadow p" \
+-proj target=counties,cities-towns,Cities_Towns-labels,villages,Villages-labels '+proj=utm +zone=18 +datum=NAD83' \
+-o target=counties,villages,Villages-labels 'images/villages.svg' \
+-o target=counties,cities-towns,Cities_Towns-labels 'images/cities-towns.svg'
+```
+
 ## CVAP Maps
 [Download CVAP from Census](https://www.census.gov/programs-surveys/decennial-census/about/voting-rights/cvap.html)
 
