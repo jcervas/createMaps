@@ -80,13 +80,20 @@ mapshaper-xl 2gb \
 -i 'data/GIS/tl_2020_36_all/tl_2020_36_bg20.shp' name=blk-grps \
 -i 'data/agg_data_ASIAN.csv' string-fields=GEOID20 \
 -i 'data-locked/Plans/nassau-county-adopted-2023.geojson' name=current2023 \
+-filter target=current2023 '["9","10","18"].indexOf(NAME) > -1' + name=influence \
 -innerlines target=current2023 + name=currentlines \
+-style target=currentlines fill=none opacity=1 stroke-width=1 stroke-opacity=1 stroke=#ccc stroke-dasharray="0 3 0" \
+-style target=influence fill=none opacity=1 stroke-width=2 stroke=#000 \
+-innerlines target=influence + name=inf-lines \
+-style target=inf-lines fill=none opacity=1 stroke-width=1 stroke-opacity=1 stroke=#ccc stroke-dasharray="0 3 0" \
+-dissolve target=current2023 + name=nassau \
+-style target=nassau fill=none stroke=#000 \
 -style target=current2023 fill=#ffffff opacity=0.85 stroke-width=2 stroke-opacity=1 stroke=#000 \
 -filter target=blk-grps COUNTYFP20=='059' \
 -join target=blk-grps source=agg_data_ASIAN keys=GEOID20,GEOID20 \
--classify target=blk-grps field=cvap_est_per save-as=fill nice colors=Greys breaks=.25,.35,.4,.45,.50 null-value="#fff" key-name="legend-bg-asian" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" \
+-classify target=blk-grps field=cvap_est_per save-as=fill nice colors=Greys breaks=.25,.3,.35,.4,.45,.50 null-value="#fff" key-name="legend-bg-asian" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" \
 -proj target=blk-grps,current2023,us-cart '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
--o target=blk-grps,current2023 'images/asian-bg.svg'
+-o target=blk-grps,currentlines,influence,inf-lines,nassau 'images/asian-bg.svg'
 ```
 Using Illstrator, delete districts in transparency layer you want to feature. For Asians, districts 9,10,18. Also adjust the stroke-width for non-highlighted districts.
 
