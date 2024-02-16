@@ -44,6 +44,31 @@ mapshaper-xl 2gb \
 -o target=nassau-2023-enacted,district-labels  'images/nassau-2023-enacted.svg'
 ```
 
+## Villages and Cities/Towns
+
+```
+cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
+mapshaper-xl 2gb \
+-i 'data/GIS/tl_2020_36_all/tl_2020_36_county20.shp' name=counties \
+-filter target=counties 'NAME20=="Nassau"' \
+-style target=counties fill=none stroke=#000 \
+-i 'data/GIS/political-subdivisions(census)/cdp.json' \
+-i 'data/GIS/political-subdivisions(census)/cities-towns.json' \
+-i 'data/GIS/political-subdivisions(census)/villages.json' \
+-style target=villages fill=none opacity=1 stroke-width=1 stroke-opacity=1 stroke=#ccc stroke-dasharray="0 3 0" \
+-each target=cities-towns 'cx=this.innerX, cy=this.innerY' \
+-points target=cities-towns x=cx y=cy + name=Cities_Towns-labels \
+-style target=Cities_Towns-labels label-text=NAME20 text-anchor=middle fill=#000 stroke=none opacity=1 font-size=12px font-weight=500 line-height=20px font-family=arial class="g-text-shadow p" \
+-innerlines target=cities-towns \
+-style target=cities-towns opacity=1 stroke-width=1 stroke-opacity=1 stroke=#ccc stroke-dasharray="0 3 0" \
+-each target=villages 'cx=this.innerX, cy=this.innerY' \
+-points target=villages x=cx y=cy + name=Villages-labels \
+-style target=Villages-labels label-text=NAME20 text-anchor=middle fill=#000 stroke=none opacity=1 font-size=7px font-weight=300 line-height=20px font-family=arial class="g-text-shadow p" \
+-proj target=counties,cities-towns,Cities_Towns-labels,villages,Villages-labels '+proj=utm +zone=18 +datum=NAD83' \
+-o target=counties,villages,Villages-labels 'images/villages.svg' \
+-o target=counties,cities-towns,Cities_Towns-labels 'images/cities-towns.svg'
+```
+
 ## CVAP Maps
 [Download CVAP from Census](https://www.census.gov/programs-surveys/decennial-census/about/voting-rights/cvap.html)
 
@@ -55,15 +80,48 @@ mapshaper-xl 2gb \
 -i 'data/GIS/tl_2020_36_all/tl_2020_36_bg20.shp' name=blk-grps \
 -i 'data/agg_data_ASIAN.csv' string-fields=GEOID20 \
 -i 'data-locked/Plans/nassau-county-adopted-2023.geojson' name=current2023 \
+-filter target=current2023 '["9","10","18"].indexOf(NAME) > -1' + name=influence \
 -innerlines target=current2023 + name=currentlines \
+-style target=currentlines fill=none opacity=1 stroke-width=1 stroke-opacity=1 stroke=#ccc stroke-dasharray="0 3 0" \
+-style target=influence fill=none opacity=1 stroke-width=2 stroke=#000 \
+-innerlines target=influence + name=inf-lines \
+-style target=inf-lines fill=none opacity=1 stroke-width=1 stroke-opacity=1 stroke=#ccc stroke-dasharray="0 3 0" \
+-dissolve target=current2023 + name=nassau \
+-style target=nassau fill=none stroke=#000 \
 -style target=current2023 fill=#ffffff opacity=0.85 stroke-width=2 stroke-opacity=1 stroke=#000 \
 -filter target=blk-grps COUNTYFP20=='059' \
 -join target=blk-grps source=agg_data_ASIAN keys=GEOID20,GEOID20 \
--classify target=blk-grps field=cvap_est_per save-as=fill nice colors=Greys breaks=.25,.35,.4,.45,.50,.75 null-value="#fff" key-name="legend-bg-asian" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" \
+-classify target=blk-grps field=cvap_est_per save-as=fill nice colors=Greys breaks=.25,.3,.35,.4,.45,.50 null-value="#fff" key-name="legend-bg-asian" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" \
 -proj target=blk-grps,current2023,us-cart '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
--o target=blk-grps,current2023 'images/asian-bg.svg'
+-o target=blk-grps,currentlines,influence,inf-lines,nassau 'images/asian-bg.svg'
 ```
 Using Illstrator, delete districts in transparency layer you want to feature. For Asians, districts 9,10,18. Also adjust the stroke-width for non-highlighted districts.
+
+
+### Alt Asian CVAP Map
+```
+cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
+mapshaper-xl 2gb \
+-i '/Users/cervas/My Drive/GitHub/createMaps/us-cart.json' name=us-cart \
+-i 'data/GIS/tl_2020_36_all/tl_2020_36_bg20.shp' name=blk-grps \
+-i 'data/agg_data_ASIAN.csv' string-fields=GEOID20 \
+-i 'data-locked/Plans/nassau-county-adopted-2023.geojson' name=current2023 \
+-style target=current2023 fill=none opacity=1 stroke-width=3 stroke-opacity=1 stroke=#000 \
+-filter target=current2023 '["9","10","18"].indexOf(NAME) > -1' \
+-innerlines target=current2023 + name=currentlines \
+-style target=currentlines stroke-dasharray="0 3 0" opacity=1 stroke-width=2 stroke-opacity=1 stroke=#fff \
+-filter target=blk-grps COUNTYFP20=='059' \
+-clip target=blk-grps bbox=-73.780193,40.712852,-73.429249,40.989009 \
+-join target=blk-grps source=agg_data_ASIAN keys=GEOID20,GEOID20 \
+-classify target=blk-grps field=cvap_est_per save-as=fill nice colors=Greys breaks=.25,.35,.4,.45,.50 null-value="#fff" key-name="legend-bg-asian" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" \
+-proj target=blk-grps,current2023,us-cart '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
+-each target=current2023 'cx=this.innerX, cy=this.innerY' \
+-points target=current2023 x=cx y=cy + name=current2023-labels \
+-style target=current2023-labels label-text=NAME text-anchor=middle fill=#000 stroke=#fff stroke-width=1 opacity=1 font-size=28px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
+-o target=blk-grps,current2023,currentlines,current2023-labels 'images/asian-alt-bg.svg'
+```
+
+
 
 ### Valley Stream
 ```
