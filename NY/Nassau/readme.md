@@ -82,10 +82,10 @@ mapshaper-xl 2gb \
 -i 'data-locked/Plans/nassau-county-adopted-2023.geojson' name=current2023 \
 -filter target=current2023 '["9","10","18"].indexOf(NAME) > -1' + name=influence \
 -innerlines target=current2023 + name=currentlines \
--style target=currentlines fill=none opacity=1 stroke-width=1 stroke-opacity=1 stroke=#ccc stroke-dasharray="0 3 0" \
+-style target=currentlines fill=none opacity=1 stroke-width=1 stroke-opacity=1 stroke=#999 stroke-dasharray="0 3 0" \
 -style target=influence fill=none opacity=1 stroke-width=2 stroke=#000 \
 -innerlines target=influence + name=inf-lines \
--style target=inf-lines fill=none opacity=1 stroke-width=2 stroke-opacity=1 stroke=#ccc stroke-dasharray="0 3 0" \
+-style target=inf-lines fill=none opacity=1 stroke-width=2 stroke-opacity=1 stroke=#999 stroke-dasharray="0 3 0" \
 -dissolve target=current2023 + name=nassau \
 -style target=nassau fill=none stroke=#000 \
 -style target=current2023 fill=#ffffff opacity=0.85 stroke-width=2 stroke-opacity=1 stroke=#000 \
