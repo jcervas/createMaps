@@ -83,9 +83,7 @@ mapshaper-xl 2gb \
 -filter target=current2023 '["9","10","18"].indexOf(NAME) > -1' + name=influence \
 -innerlines target=current2023 + name=currentlines \
 -style target=currentlines fill=none opacity=1 stroke-width=1 stroke-opacity=1 stroke=#999 stroke-dasharray="0 3 0" \
--style target=influence fill=none opacity=1 stroke-width=2 stroke=#000 \
--innerlines target=influence + name=inf-lines \
--style target=inf-lines fill=none opacity=1 stroke-width=2 stroke-opacity=1 stroke=#999 stroke-dasharray="0 3 0" \
+-style target=influence fill=none opacity=1 stroke-width=4 stroke=#000 \
 -dissolve target=current2023 + name=nassau \
 -style target=nassau fill=none stroke=#000 \
 -style target=current2023 fill=#ffffff opacity=0.85 stroke-width=2 stroke-opacity=1 stroke=#000 \
@@ -93,13 +91,13 @@ mapshaper-xl 2gb \
 -join target=blk-grps source=agg_data_ASIAN keys=GEOID20,GEOID20 \
 -classify target=blk-grps field=cvap_est_per save-as=fill nice colors=Reds breaks=.25,.3,.35,.4,.45,.50 null-value="#fff" key-name="legend-bg-asian" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" \
 -proj target=blk-grps,current2023,us-cart '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
--each target=current2023 'cx=this.innerX, cy=this.innerY' \
--points target=current2023 x=cx y=cy + name=current2023-labels \
+-o target=blk-grps,currentlines,influence,nassau, max-height=600 'images/asian-bg.svg' \
+-clip target=blk-grps bbox=20865,61667,31564,70730 \
+-clip target=influence bbox=20865,61667,31564,70730 \
+-each target=influence 'cx=this.innerX, cy=this.innerY' \
+-points target=influence x=cx y=cy + name=current2023-labels \
 -style target=current2023-labels label-text=NAME text-anchor=middle fill=#000 stroke=#fff stroke-width=1 opacity=1 font-size=28px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
--o target=blk-grps,currentlines,influence,nassau,current2023-labels 'images/asian-bg.svg' \
--clip target=blk-grps bbox=21953.9952415311,60675.11868583574,35892.574618539016,71155.74686557 \
--clip target=current2023 bbox=21953.9952415311,60675.11868583574,35892.574618539016,71155.74686557 \
--o target=blk-grps,current2023 'images/asian-alt-zoom-bg.svg'
+-o target=blk-grps,influence,current2023-labels 'images/asian-alt-zoom-bg.svg'
 ```
 Using Illstrator, delete districts in transparency layer you want to feature. For Asians, districts 9,10,18. Also adjust the stroke-width for non-highlighted districts.
 
