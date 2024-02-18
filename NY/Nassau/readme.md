@@ -93,7 +93,7 @@ mapshaper-xl 2gb \
 -proj target=blk-grps,current2023,us-cart '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
 -clip target=blk-grps bbox=20865,61667,31564,70730 + name=blk-grps-zoom \
 -clip target=influence bbox=20865,61667,31564,70730 + name=influcence-zoom \
--each target=influence 'cx=this.innerX, cy=this.innerY' \
+-each target=influcence-zoom 'cx=this.innerX, cy=this.innerY' \
 -points target=influcence-zoom x=cx y=cy + name=current2023-labels \
 -style target=current2023-labels label-text=NAME text-anchor=middle fill=#000 stroke=#fff stroke-width=1 opacity=1 font-size=28px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
 -rectangle target=influcence-zoom + name=rect \
