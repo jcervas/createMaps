@@ -91,13 +91,14 @@ mapshaper-xl 2gb \
 -join target=blk-grps source=agg_data_ASIAN keys=GEOID20,GEOID20 \
 -classify target=blk-grps field=cvap_est_per save-as=fill nice colors=Reds breaks=.25,.3,.35,.4,.45,.50 null-value="#fff" key-name="legend-bg-asian" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" \
 -proj target=blk-grps,current2023,us-cart '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
--o target=blk-grps,currentlines,influence,nassau, max-height=600 'images/asian-bg.svg' \
--clip target=blk-grps bbox=20865,61667,31564,70730 \
--clip target=influence bbox=20865,61667,31564,70730 \
+-clip target=blk-grps bbox=20865,61667,31564,70730 + name=blk-grps-zoom \
+-clip target=influence bbox=20865,61667,31564,70730 + name=influcence-zoom \
 -each target=influence 'cx=this.innerX, cy=this.innerY' \
--points target=influence x=cx y=cy + name=current2023-labels \
+-points target=influcence-zoom x=cx y=cy + name=current2023-labels \
 -style target=current2023-labels label-text=NAME text-anchor=middle fill=#000 stroke=#fff stroke-width=1 opacity=1 font-size=28px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
--o target=blk-grps,influence,current2023-labels 'images/asian-alt-zoom-bg.svg'
+-rectangle target=influcence-zoom + name=rect \
+-o target=blk-grps,currentlines,influence,nassau,rect, max-height=600 'images/asian-bg.svg' \
+-o target=blk-grps-zoom,influcence-zoom,current2023-labels 'images/asian-alt-zoom-bg.svg'
 ```
 Using Illstrator, delete districts in transparency layer you want to feature. For Asians, districts 9,10,18. Also adjust the stroke-width for non-highlighted districts.
 
