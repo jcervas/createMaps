@@ -224,9 +224,9 @@ mapshaper-xl 2gb \
 -i 'data/GIS/tl_2020_36_all/tl_2020_36_bg20.shp' name=blk-grps \
 -filter target=blk-grps COUNTYFP20=='059' \
 -join target=blk-grps source=agg_data_MINORITY keys=GEOID20,GEOID20 \
--classify target=blk-grps field=cvap_est_per save-as=fill nice colors=Greys breaks=.25,.3,.35,.4,.45,.50 null-value="#fff" key-name="legend-bg-freeport" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" \
+-classify target=blk-grps field=cvap_est_per save-as=fill nice colors='#ede7f1,#632781' breaks=.25,.3,.35,.4,.45,.50 null-value="#fff" key-name="legend-bg-freeport" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" \
 -filter target=villages 'NAME20=="Valley Stream"' \
--style target=villages fill=none stroke="red" stroke-width=5 opacity=1 \
+-style target=villages fill=none stroke="red" stroke-width=7 opacity=1 \
 -i 'data-locked/Plans/nassau-county-adopted-2023.geojson' name=current2023 \
 -filter target=current2023 '["3","7","14"].indexOf(NAME) > -1' + name=currentlines \
 -filter target=current2023 '["3","7","14"].indexOf(NAME) > -1' \
@@ -238,6 +238,6 @@ mapshaper-xl 2gb \
 -points target=current2023 x=cx y=cy + name=current2023-labels \
 -style target=current2023-labels label-text=NAME text-anchor=middle fill=#000 stroke=#fff stroke-width=1 opacity=1 font-size=28px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
 -clip target=blk-grps source=current2023 \
--o target=blk-grps,current2023,villages,currentlines,current2023-labels 'images/valley-stream_minority.svg'
+-o target=blk-grps,villages,current2023,current2023-labels max-height=600 'images/valley-stream_minority.svg'
 ```
 districts 3,7,14
