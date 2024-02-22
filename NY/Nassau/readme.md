@@ -159,7 +159,7 @@ districts 5,6
 
 
 
-### Hempstead 
+### Hempstead
 ```
 cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
 mapshaper-xl 2gb \
@@ -231,13 +231,13 @@ mapshaper-xl 2gb \
 -filter target=current2023 '["3","7","14"].indexOf(NAME) > -1' + name=currentlines \
 -filter target=current2023 '["3","7","14"].indexOf(NAME) > -1' \
 -innerlines target=currentlines \
--style target=currentlines stroke-dasharray="0 3 0" opacity=1 stroke-width=2 stroke-opacity=1 stroke=#fff \
+-style target=currentlines stroke-dasharray="0 3 0" opacity=1 stroke-width=3 stroke-opacity=1 stroke=#000 \
 -style target=current2023 fill=none opacity=1 stroke-width=3 stroke-opacity=1 stroke=#000 \
 -proj target=blk-grps,villages,current2023,us-cart '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
 -each target=current2023 'cx=this.innerX, cy=this.innerY' \
 -points target=current2023 x=cx y=cy + name=current2023-labels \
 -style target=current2023-labels label-text=NAME text-anchor=middle fill=#000 stroke=#fff stroke-width=1 opacity=1 font-size=28px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
 -clip target=blk-grps source=current2023 \
--o target=blk-grps,villages,current2023,current2023-labels max-height=600 'images/valley-stream_minority.svg'
+-o target=blk-grps,current2023,villages,currentlines,current2023-labels max-height=600 'images/valley-stream_minority.svg'
 ```
 districts 3,7,14
