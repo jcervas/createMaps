@@ -49,9 +49,7 @@ mapshaper-xl 2gb \
 ```
 cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
 mapshaper-xl 2gb \
--i 'data/GIS/tl_2020_36_all/tl_2020_36_county20.shp' name=counties \
--filter target=counties 'NAME20=="Nassau"' \
--style target=counties fill=none stroke=#000 \
+-i gis/nassau.json \
 -i 'data/GIS/political-subdivisions(census)/cdp.json' \
 -i 'data/GIS/political-subdivisions(census)/cities-towns.json' \
 -i 'data/GIS/political-subdivisions(census)/villages.json' \
@@ -64,9 +62,9 @@ mapshaper-xl 2gb \
 -each target=villages 'cx=this.innerX, cy=this.innerY' \
 -points target=villages x=cx y=cy + name=Villages-labels \
 -style target=Villages-labels label-text=NAME20 text-anchor=middle fill=#000 stroke=none opacity=1 font-size=7px font-weight=300 line-height=20px font-family=arial class="g-text-shadow p" \
--proj target=counties,cities-towns,Cities_Towns-labels,villages,Villages-labels '+proj=utm +zone=18 +datum=NAD83' \
--o target=counties,villages,Villages-labels max-height=800 'images/villages.svg' \
--o target=counties,cities-towns,Cities_Towns-labels max-height=800 'images/cities-towns.svg'
+-proj target=nassau,cities-towns,Cities_Towns-labels,villages,Villages-labels '+proj=utm +zone=18 +datum=NAD83' \
+-o target=nassau,villages,Villages-labels max-height=800 'images/villages.svg' \
+-o target=nassau,cities-towns,Cities_Towns-labels max-height=800 'images/cities-towns.svg'
 ```
 
 ## CVAP Maps
@@ -76,19 +74,14 @@ mapshaper-xl 2gb \
 ```
 cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
 mapshaper-xl 2gb \
--i '/Users/cervas/My Drive/GitHub/createMaps/us-cart.json' name=us-cart \
--i 'data/GIS/tl_2020_36_all/tl_2020_36_bg20.shp' name=blk-grps \
--i 'data/agg_data_ASIAN.csv' string-fields=GEOID20 \
--i 'data-locked/Plans/nassau-county-adopted-2023.geojson' name=current2023 \
+-i gis/asian.json \
+-i gis/nassau.json \
+-i gis/current2023.json name=current2023 \
+-proj target=asian,current2023,nassau '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
 -innerlines target=current2023 + name=currentlines \
 -style target=currentlines fill=none opacity=1 stroke-width=1 stroke-opacity=1 stroke=#999 stroke-dasharray="0 3 0" \
--dissolve target=current2023 + name=nassau \
--filter target=blk-grps COUNTYFP20=='059' \
--join target=blk-grps source=agg_data_ASIAN keys=GEOID20,GEOID20 \
--classify target=blk-grps field=cvap_est_per save-as=fill nice colors=Reds breaks=.25,.3,.35,.4,.45,.50 null-value="#fff" key-name="legend-bg-asian" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" \
--proj target=blk-grps,current2023,us-cart '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
 -filter target=current2023 '["9","10","18"].indexOf(NAME) > -1' + name=influence \
--clip target=blk-grps bbox=20865,61667,31564,70730 + name=blk-grps-zoom \
+-clip target=asian bbox=20865,61667,31564,70730 + name=blk-grps-zoom \
 -clip target=influence bbox=20865,61667,31564,70730 + name=influence-zoom \
 -each target=influence-zoom 'cx=this.innerX, cy=this.innerY' \
 -points target=influence-zoom x=cx y=cy + name=current2023-labels \
@@ -99,36 +92,28 @@ mapshaper-xl 2gb \
 -style target=influence fill=none opacity=1 stroke-width=1 stroke=#000 \
 -style target=current2023 fill=#ffffff opacity=0.85 stroke-width=2 stroke-opacity=1 stroke=#000 \
 -style target=nassau fill=none stroke=#000 \
--o target=blk-grps,nassau,currentlines,influence,rect, max-height=300 'images/asian-bg.svg' \
--o target=blk-grps-zoom,influence-zoom,current2023-labels,rect max-height=500 'images/asian-alt-zoom-bg.svg'
+-o target=asian,nassau,currentlines,influence,rect, width=100 'images/asian-bg.svg' \
+-o target=blk-grps-zoom,influence-zoom,current2023-labels,rect width=500 'images/asian-alt-zoom-bg.svg'
 ```
-Using Illstrator, delete districts in transparency layer you want to feature. For Asians, districts 9,10,18. Also adjust the stroke-width for non-highlighted districts.
-
 
 ### Valley Stream
 ```
 cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
 mapshaper-xl 2gb \
--i '/Users/cervas/My Drive/GitHub/createMaps/us-cart.json' name=us-cart \
--i 'data/GIS/political-subdivisions(ny.gov)/Nassau_Villages.json' name=villages \
--filter target=villages 'NAME=="Valley Stream"' + name=valley-stream \
+-i gis/current2023.json \
+-i gis/nassau.json \
+-i gis/villages-dotted.json \
+-proj target=villages-dotted,current2023,nassau '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
+-filter target=villages-dotted 'NAME20=="Valley Stream"' + name=valley-stream \
 -style target=valley-stream fill=#ccc stroke=none opacity=1 \
--style target=villages fill=none opacity=1 stroke-width=1 stroke-opacity=1 stroke=#ccc stroke-dasharray="0 3 0" \
--i 'data-locked/Plans/nassau-county-adopted-2023.geojson' name=current2023 \
--dissolve target=current2023 + name=nassau \
--style target=nassau fill=none opacity=1 stroke=#000 stroke-width=1 \
 -filter target=current2023 '["3","7","14"].indexOf(NAME) > -1' invert + name=currentlines \
 -filter target=current2023 '["3","7","14"].indexOf(NAME) > -1' \
 -innerlines target=currentlines \
 -style target=currentlines stroke-dasharray="0 3 0" opacity=1 stroke-width=1 stroke-opacity=1 stroke=#333 \
 -style target=current2023 fill=none opacity=1 stroke-width=2 stroke-opacity=1 stroke=#000 \
--proj target=villages,valley-stream,current2023,us-cart '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
--each target=current2023 'cx=this.innerX, cy=this.innerY' \
--points target=current2023 x=cx y=cy + name=current2023-labels \
--style target=current2023-labels label-text=NAME text-anchor=middle fill=#000 stroke=none opacity=1 font-size=18px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
--o target=valley-stream,villages,currentlines,current2023,current2023-labels,nassau 'images/valley-stream.svg'
+
+-o target=valley-stream,villages-dotted,currentlines,current2023,current2023-labels,nassau 'images/valley-stream.svg'
 ```
-districts 3, 7, 14
 
 
 
@@ -175,6 +160,43 @@ districts 5,6
 ```
 districts 5,6
 
+
+
+### Valley Stream
+```
+cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
+mapshaper-xl 2gb \
+-i gis/villages.json \
+-i gis/minority.json name=blk-grps \
+-filter target=villages 'NAME20=="Valley Stream"' \
+-i 'data-locked/Plans/nassau-county-adopted-2023.geojson' name=current2023 \
+-proj target=blk-grps,villages,current2023 '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
+-filter target=current2023 '["3","7","14"].indexOf(NAME) > -1' + name=currentlines \
+-filter target=current2023 '["3","7","14"].indexOf(NAME) > -1' \
+-innerlines target=current2023 target=currentlines \
+-style target=currentlines stroke-dasharray="0" opacity=1 stroke-width=3 stroke-opacity=1 stroke=#000 \
+-style target=current2023 fill=none opacity=1 stroke-width=3 stroke-opacity=1 stroke=#000 \
+-each target=current2023 'cx=this.innerX, cy=this.innerY' \
+-points target=current2023 x=cx y=cy + name=current2023-labels \
+-style target=current2023-labels label-text=NAME text-anchor=middle fill=#000 stroke=#fff stroke-width=1 opacity=1 font-size=28px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
+-clip target=blk-grps source=current2023 \
+-o target=blk-grps,current2023,villages,currentlines,current2023-labels max-height=600 'images/valley-stream_minority.svg'
+```
+
+
+
+## Map Setup
+
+### County
+```
+cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
+mapshaper-xl 2gb \
+-i 'data/GIS/tl_2020_36_all/tl_2020_36_county20.shp' name=counties \
+-filter target=counties 'NAME20=="Nassau"' \
+-style target=counties fill=none stroke=#000 \
+-o gis/nassau.json
+```
+
 ### Villages
 ```
 cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
@@ -183,6 +205,29 @@ mapshaper-xl 2gb \
 -style target=villages fill=none stroke="#FFB612" stroke-width=7 opacity=1 \
 -o gis/villages.json
 ```
+
+### Villages-dotted
+```
+cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
+mapshaper-xl 2gb \
+-i 'data/GIS/political-subdivisions(census)/villages.json' name=villages \
+-style fill=none opacity=1 stroke-width=1 stroke-opacity=1 stroke=#ccc stroke-dasharray="0 3 0" \
+-o gis/villages-dotted.json
+```
+
+### Current 2023 Map
+```
+cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
+mapshaper-xl 2gb \
+-i 'data-locked/Plans/nassau-county-adopted-2023.geojson' name=current2023 \
+-style target=current2023 fill=none opacity=1 stroke-width=2 stroke-opacity=1 stroke=#000 \
+-each target=current2023 'cx=this.innerX, cy=this.innerY' \
+-points target=current2023 x=cx y=cy + name=current2023-labels \
+-style target=current2023-labels label-text=NAME text-anchor=middle fill=#000 stroke=none opacity=1 font-size=18px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
+-o target=current2023-labels gis/current2023-labels.json \
+-o target=current2023 gis/current2023.json
+```
+
 
 ### Minority Cholopleth
 ```
@@ -206,25 +251,4 @@ mapshaper-xl 2gb \
 -join target=blk-grps source=minority keys=GEOID20,GEOID20 \
 -classify target=blk-grps field=cvap_est_per save-as=fill nice colors='#ede7f1,#632781' breaks=.25,.3,.35,.4,.45,.50 null-value="#fff" key-name="legend-bg-asian" key-style="simple" key-tile-height=10 key-width=200 key-font-size=10 key-last-suffix="%" \
 -o gis/asian.json
-```
-
-### Valley Stream
-```
-cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
-mapshaper-xl 2gb \
--i gis/villages.json \
--i gis/minority.json name=blk-grps \
--filter target=villages 'NAME20=="Valley Stream"' \
--i 'data-locked/Plans/nassau-county-adopted-2023.geojson' name=current2023 \
--proj target=blk-grps,villages,current2023 '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
--filter target=current2023 '["3","7","14"].indexOf(NAME) > -1' + name=currentlines \
--filter target=current2023 '["3","7","14"].indexOf(NAME) > -1' \
--innerlines target=current2023 target=currentlines \
--style target=currentlines stroke-dasharray="0" opacity=1 stroke-width=3 stroke-opacity=1 stroke=#000 \
--style target=current2023 fill=none opacity=1 stroke-width=3 stroke-opacity=1 stroke=#000 \
--each target=current2023 'cx=this.innerX, cy=this.innerY' \
--points target=current2023 x=cx y=cy + name=current2023-labels \
--style target=current2023-labels label-text=NAME text-anchor=middle fill=#000 stroke=#fff stroke-width=1 opacity=1 font-size=28px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
--clip target=blk-grps source=current2023 \
--o target=blk-grps,current2023,villages,currentlines,current2023-labels max-height=600 'images/valley-stream_minority.svg'
 ```
