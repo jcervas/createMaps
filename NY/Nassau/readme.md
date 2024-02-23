@@ -101,55 +101,57 @@ mapshaper-xl 2gb \
 cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
 mapshaper-xl 2gb \
 -i gis/current2023.json \
+-i gis/current2023-labels.json \
 -i gis/nassau.json \
 -i gis/villages-dotted.json \
--proj target=villages-dotted,current2023,nassau '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
+-proj target=villages-dotted,current2023,current2023-labels,nassau '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
 -filter target=villages-dotted 'NAME20=="Valley Stream"' + name=valley-stream \
 -style target=valley-stream fill=#ccc stroke=none opacity=1 \
 -filter target=current2023 '["3","7","14"].indexOf(NAME) > -1' invert + name=currentlines \
 -filter target=current2023 '["3","7","14"].indexOf(NAME) > -1' \
+-filter target=current2023-labels '["3","7","14"].indexOf(NAME) > -1' \
 -innerlines target=currentlines \
 -style target=currentlines stroke-dasharray="0 3 0" opacity=1 stroke-width=1 stroke-opacity=1 stroke=#333 \
--style target=current2023 fill=none opacity=1 stroke-width=2 stroke-opacity=1 stroke=#000 \
-
--o target=valley-stream,villages-dotted,currentlines,current2023,current2023-labels,nassau 'images/valley-stream.svg'
+-o target=valley-stream,villages-dotted,currentlines,current2023,current2023-labels,nassau width=300 'images/valley-stream.svg'
 ```
-
-
 
 ### Freeport
 ```
 cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
 mapshaper-xl 2gb \
--i '/Users/cervas/My Drive/GitHub/createMaps/us-cart.json' name=us-cart \
--i 'data/GIS/political-subdivisions(ny.gov)/Nassau_Villages.json' name=villages \
--filter target=villages 'NAME=="Freeport"' + name=freeport \
+-i gis/current2023.json \
+-i gis/current2023-labels.json \
+-i gis/nassau.json \
+-i gis/villages-dotted.json \
+-proj target=villages-dotted,current2023,current2023-labels,nassau '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
+-filter target=villages-dotted 'NAME20=="Freeport"' + name=freeport \
 -style target=freeport fill=#ccc stroke=none opacity=1 \
--style target=villages fill=none opacity=1 stroke-width=1 stroke-opacity=1 stroke=#ccc stroke-dasharray="0 3 0" \
--i 'data-locked/Plans/nassau-county-adopted-2023.geojson' name=current2023 \
--dissolve target=current2023 + name=nassau \
--style target=nassau fill=none opacity=1 stroke=#000 stroke-width=1 \
 -filter target=current2023 '["5","6"].indexOf(NAME) > -1' invert + name=currentlines \
 -filter target=current2023 '["5","6"].indexOf(NAME) > -1' \
+-filter target=current2023-labels '["5","6"].indexOf(NAME) > -1' \
 -innerlines target=currentlines \
 -style target=currentlines stroke-dasharray="0 3 0" opacity=1 stroke-width=1 stroke-opacity=1 stroke=#333 \
--style target=current2023 fill=none opacity=1 stroke-width=2 stroke-opacity=1 stroke=#000 \
--proj target=villages,freeport,current2023,us-cart '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
--each target=current2023 'cx=this.innerX, cy=this.innerY' \
--points target=current2023 x=cx y=cy + name=current2023-labels \
--style target=current2023-labels label-text=NAME text-anchor=middle fill=#000 stroke=none opacity=1 font-size=18px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
--o target=freeport,villages,currentlines,current2023,current2023-labels,nassau 'images/freeport.svg'
+-o target=freeport,villages-dotted,currentlines,current2023,current2023-labels,nassau width=300 'images/freeport.svg'
 ```
-districts 5,6
-
-
 
 ### Hempstead
 ```
-
--o target=hempstead,villages,currentlines,current2023,current2023-labels,nassau 'images/hempstead.svg'
+cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
+mapshaper-xl 2gb \
+-i gis/current2023.json \
+-i gis/current2023-labels.json \
+-i gis/nassau.json \
+-i gis/villages-dotted.json \
+-proj target=villages-dotted,current2023,current2023-labels,nassau '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
+-filter target=villages-dotted 'NAME20=="Hempstead"' + name=hempstead \
+-style target=hempstead fill=#ccc stroke=none opacity=1 \
+-filter target=current2023 '["1","2"].indexOf(NAME) > -1' invert + name=currentlines \
+-filter target=current2023 '["1","2"].indexOf(NAME) > -1' \
+-filter target=current2023-labels '["1","2"].indexOf(NAME) > -1' \
+-innerlines target=currentlines \
+-style target=currentlines stroke-dasharray="0 3 0" opacity=1 stroke-width=1 stroke-opacity=1 stroke=#333 \
+-o target=hempstead,villages-dotted,currentlines,current2023,current2023-labels,nassau width=300 'images/hempstead.svg'
 ```
-districts 5,6
 
 ## Minority Blocks Choropleth
 
@@ -220,10 +222,10 @@ mapshaper-xl 2gb \
 cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
 mapshaper-xl 2gb \
 -i 'data-locked/Plans/nassau-county-adopted-2023.geojson' name=current2023 \
--style target=current2023 fill=none opacity=1 stroke-width=2 stroke-opacity=1 stroke=#000 \
+-style target=current2023 fill=none opacity=1 stroke-width=1 stroke-opacity=1 stroke=#000 \
 -each target=current2023 'cx=this.innerX, cy=this.innerY' \
 -points target=current2023 x=cx y=cy + name=current2023-labels \
--style target=current2023-labels label-text=NAME text-anchor=middle fill=#000 stroke=none opacity=1 font-size=18px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
+-style target=current2023-labels label-text=NAME text-anchor=middle fill=#000 stroke=none opacity=1 font-size=16px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
 -o target=current2023-labels gis/current2023-labels.json \
 -o target=current2023 gis/current2023.json
 ```
