@@ -19,7 +19,7 @@ cd '/Users/cervas/My Drive/GitHub/createMaps/NY/Nassau'
 mapshaper-xl 2gb \
 -i '/Users/cervas/My Drive/GitHub/createMaps/us-cart.json' name=us-cart \
 -filter target=us-cart 'STUSPS == "NY"' \
--i '/Users/cervas/My Drive/Projects/Redistricting/2023/Nassau/data/Plans/nassau-county-adopted-2023.geojson' name=nassau-2023-enacted \
+-i '/Users/cervas/My Drive/Projects/Redistricting/2024/Nassau/data/Plans/nassau-county-adopted-2023.geojson' name=nassau-2023-enacted \
 -clip source=us-cart target=nassau-2023-enacted \
 -style opacity=1 fill=color \
 -innerlines + name=nassau-2023-enacted-lines \
@@ -47,7 +47,7 @@ mapshaper-xl 2gb \
 ## Villages and Cities/Towns
 
 ```
-cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
+cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
 -i gis/nassau.json \
 -i 'data/GIS/political-subdivisions(census)/cdp.json' \
@@ -72,7 +72,7 @@ mapshaper-xl 2gb \
 
 ### Asian CVAP Map
 ```
-cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
+cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
 -i gis/asian.json \
 -i gis/nassau.json \
@@ -98,7 +98,7 @@ mapshaper-xl 2gb \
 
 ### Valley Stream
 ```
-cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
+cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
 -i gis/current2023.json \
 -i gis/current2023-labels.json \
@@ -117,7 +117,7 @@ mapshaper-xl 2gb \
 
 ### Freeport
 ```
-cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
+cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
 -i gis/current2023.json \
 -i gis/current2023-labels.json \
@@ -136,7 +136,7 @@ mapshaper-xl 2gb \
 
 ### Hempstead
 ```
-cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
+cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
 -i gis/current2023.json \
 -i gis/current2023-labels.json \
@@ -166,7 +166,7 @@ districts 5,6
 
 ### Valley Stream
 ```
-cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
+cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
 -i gis/villages.json \
 -i gis/minority.json name=blk-grps \
@@ -191,7 +191,7 @@ mapshaper-xl 2gb \
 
 ### County
 ```
-cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
+cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
 -i 'data/GIS/tl_2020_36_all/tl_2020_36_county20.shp' name=counties \
 -filter target=counties 'NAME20=="Nassau"' \
@@ -201,7 +201,7 @@ mapshaper-xl 2gb \
 
 ### Villages
 ```
-cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
+cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
 -i 'data/GIS/political-subdivisions(census)/villages.json' name=villages \
 -style target=villages fill=none stroke="#FFB612" stroke-width=7 opacity=1 \
@@ -210,7 +210,7 @@ mapshaper-xl 2gb \
 
 ### Villages-dotted
 ```
-cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
+cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
 -i 'data/GIS/political-subdivisions(census)/villages.json' name=villages \
 -style fill=none opacity=1 stroke-width=1 stroke-opacity=1 stroke=#ccc stroke-dasharray="0 3 0" \
@@ -219,7 +219,7 @@ mapshaper-xl 2gb \
 
 ### Current 2023 Map
 ```
-cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
+cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
 -i 'data-locked/Plans/nassau-county-adopted-2023.geojson' name=current2023 \
 -style target=current2023 fill=none opacity=1 stroke-width=1 stroke-opacity=1 stroke=#000 \
@@ -233,7 +233,7 @@ mapshaper-xl 2gb \
 
 ### Minority Cholopleth
 ```
-cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
+cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
 -i 'data/agg_data_MINORITY.csv' string-fields=GEOID20 name=minority \
 -i 'data/GIS/tl_2020_36_all/tl_2020_36_bg20.shp' name=blk-grps \
@@ -245,7 +245,7 @@ mapshaper-xl 2gb \
 
 ### Asian Cholopleth
 ```
-cd '/Users/cervas/My Drive/Redistricting/2023/Nassau/'
+cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
 -i 'data/agg_data_ASIAN.csv' string-fields=GEOID20 name=minority \
 -i 'data/GIS/tl_2020_36_all/tl_2020_36_bg20.shp' name=blk-grps \
@@ -253,4 +253,15 @@ mapshaper-xl 2gb \
 -join target=blk-grps source=minority keys=GEOID20,GEOID20 \
 -classify target=blk-grps field=cvap_est_per save-as=fill nice colors='#ede7f1,#632781' breaks=.25,.3,.35,.4,.45,.50 null-value="#fff" key-name="legend-bg-asian" key-style="simple" key-tile-height=10 key-width=200 key-font-size=10 key-last-suffix="%" \
 -o gis/asian.json
+```
+### Biden/Trump Cholopleth
+```
+cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
+mapshaper-xl 2gb \
+-i data/GIS/nassau-blocks.json \
+-i data/dra-Election_Data_Block_NY/election_data_block_NY.v01.csv string-fields=GEOID name=data \
+-join target=nassau-blocks source=data keys=GEOID20,GEOID \
+-each 'DemVoteShare = E_16_PRES_Dem /E_16_PRES_Total * 100' \
+-classify target=nassau-blocks field=DemVoteShare save-as=fill nice colors='#C93135,#FCE0E0,#CEEAFD,#1375B7,#632781' breaks=20,30,40,45,50,55,60,70,80 null-value="#fff" key-name="legend-partisanship" key-style="simple" key-tile-height=10 key-width=200 key-font-size=10 key-last-suffix="%" \
+-o gis/biden-trump.json
 ```
