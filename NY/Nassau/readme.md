@@ -263,7 +263,7 @@ mapshaper-xl 2gb \
 -i data/GIS/nassau-blocks.json \
 -i data/dra-Election_Data_Block_NY/election_data_block_NY.v01.csv string-fields=GEOID name=data \
 -join target=nassau-blocks source=data keys=GEOID20,GEOID \
--each 'DemVoteShare = E_16_PRES_Dem /E_16_PRES_Total * 100' \
+-each 'DemVoteShare = E_20_PRES_Dem /E_20_PRES_Total * 100' \
 -classify target=nassau-blocks field=DemVoteShare save-as=fill nice colors='#C93135,#FCE0E0,#CEEAFD,#1375B7' breaks=30,40,50,60,70 null-value="#fff" key-name="legend-partisanship" key-style="simple" key-tile-height=10 key-tic-length=0 key-width=200 key-font-size=10 key-last-suffix="%" \
 -o gis/biden-trump.json
 ```
@@ -276,7 +276,7 @@ mapshaper-xl 2gb \
 -i 'data/GIS/tl_2020_36_all/tl_2020_36_bg20.shp' name=blk-grps \
 -filter target=blk-grps COUNTYFP20=='059' \
 -join target=blk-grps source=data keys=GEOID20,BlockGroupID \
--each 'DemVoteShare = E_16_PRES_Dem /E_16_PRES_Total * 100' \
+-each 'DemVoteShare = E_20_PRES_Dem /E_20_PRES_Total * 100' \
 -classify target=blk-grps field=DemVoteShare save-as=fill nice colors='#C93135,#FCE0E0,#CEEAFD,#1375B7' breaks=30,40,50,60,70 null-value="#fff" key-name="legend-partisanship" key-style="simple" key-tile-height=10 key-tic-length=0 key-width=200 key-font-size=10 key-last-suffix="%" \
 -o gis/biden-trump-block-groups.json
 ```
