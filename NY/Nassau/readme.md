@@ -195,7 +195,7 @@ cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
 -i 'data/GIS/tl_2020_36_all/tl_2020_36_county20.shp' name=counties \
 -filter target=counties 'NAME20=="Nassau"' \
--style target=counties fill=none stroke=#000 \
+-style target=counties fill=none stroke=#ccc stroke-dasharray="10 5" \
 -o gis/nassau.json
 ```
 
@@ -256,7 +256,7 @@ mapshaper-xl 2gb \
 -classify target=blk-grps field=cvap_est_per save-as=fill nice colors='#ede7f1,#632781' breaks=25,30,35,40,45,50 null-value="#fff" key-name="legend-bg-asian" key-style="simple" key-tile-height=10 key-tic-length=0 key-width=200 key-font-size=10 key-last-suffix="%" \
 -o gis/asian.json
 ```
-### Biden/Trump Cholopleth
+### Biden/Trump Cholopleth (blocks)
 ```
 cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
@@ -266,4 +266,17 @@ mapshaper-xl 2gb \
 -each 'DemVoteShare = E_16_PRES_Dem /E_16_PRES_Total * 100' \
 -classify target=nassau-blocks field=DemVoteShare save-as=fill nice colors='#C93135,#FCE0E0,#CEEAFD,#1375B7' breaks=30,40,50,60,70 null-value="#fff" key-name="legend-partisanship" key-style="simple" key-tile-height=10 key-tic-length=0 key-width=200 key-font-size=10 key-last-suffix="%" \
 -o gis/biden-trump.json
+```
+
+### Biden/Trump Cholopleth (block groups)
+```
+cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
+mapshaper-xl 2gb \
+-i 'data/dra-Election_Data_Block_NY/blk-grp-2020.csv' string-fields=BlockGroupID name=data \
+-i 'data/GIS/tl_2020_36_all/tl_2020_36_bg20.shp' name=blk-grps \
+-filter target=blk-grps COUNTYFP20=='059' \
+-join target=blk-grps source=data keys=GEOID20,BlockGroupID \
+-each 'DemVoteShare = E_16_PRES_Dem /E_16_PRES_Total * 100' \
+-classify target=blk-grps field=DemVoteShare save-as=fill nice colors='#C93135,#FCE0E0,#CEEAFD,#1375B7' breaks=30,40,50,60,70 null-value="#fff" key-name="legend-partisanship" key-style="simple" key-tile-height=10 key-tic-length=0 key-width=200 key-font-size=10 key-last-suffix="%" \
+-o gis/biden-trump-block-groups.json
 ```
