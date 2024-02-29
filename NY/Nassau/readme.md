@@ -239,7 +239,8 @@ mapshaper-xl 2gb \
 -i 'data/GIS/tl_2020_36_all/tl_2020_36_bg20.shp' name=blk-grps \
 -filter target=blk-grps COUNTYFP20=='059' \
 -join target=blk-grps source=minority keys=GEOID20,GEOID20 \
--classify target=blk-grps field=cvap_est_per save-as=fill nice colors='#f9eaea,#cb3233' breaks=.25,.3,.35,.4,.45,.50 null-value="#fff" key-name="legend-bg-minority" key-style="simple" key-tile-height=10 key-width=200 key-font-size=10 key-last-suffix="%" \
+-each 'cvap_est_per = cvap_est_per * 100' \
+-classify target=blk-grps field=cvap_est_per save-as=fill nice colors='#f9eaea,#cb3233' breaks=25,30,35,40,45,50 null-value="#fff" key-name="legend-bg-minority" key-style="simple" key-tile-height=10 key-tic-length=0 key-width=200 key-font-size=10 key-last-suffix="%" \
 -o gis/minority.json
 ```
 
@@ -251,7 +252,8 @@ mapshaper-xl 2gb \
 -i 'data/GIS/tl_2020_36_all/tl_2020_36_bg20.shp' name=blk-grps \
 -filter target=blk-grps COUNTYFP20=='059' \
 -join target=blk-grps source=minority keys=GEOID20,GEOID20 \
--classify target=blk-grps field=cvap_est_per save-as=fill nice colors='#ede7f1,#632781' breaks=.25,.3,.35,.4,.45,.50 null-value="#fff" key-name="legend-bg-asian" key-style="simple" key-tile-height=10 key-width=200 key-font-size=10 key-last-suffix="%" \
+-each 'cvap_est_per = cvap_est_per * 100' \
+-classify target=blk-grps field=cvap_est_per save-as=fill nice colors='#ede7f1,#632781' breaks=25,30,35,40,45,50 null-value="#fff" key-name="legend-bg-asian" key-style="simple" key-tile-height=10 key-tic-length=0 key-width=200 key-font-size=10 key-last-suffix="%" \
 -o gis/asian.json
 ```
 ### Biden/Trump Cholopleth
@@ -262,6 +264,6 @@ mapshaper-xl 2gb \
 -i data/dra-Election_Data_Block_NY/election_data_block_NY.v01.csv string-fields=GEOID name=data \
 -join target=nassau-blocks source=data keys=GEOID20,GEOID \
 -each 'DemVoteShare = E_16_PRES_Dem /E_16_PRES_Total * 100' \
--classify target=nassau-blocks field=DemVoteShare save-as=fill nice colors='#C93135,#FCE0E0,#CEEAFD,#1375B7' breaks=30,40,50,60,70 null-value="#fff" key-name="legend-partisanship" key-style="simple" key-tile-height=10 key-width=200 key-font-size=10 key-last-suffix="%" \
+-classify target=nassau-blocks field=DemVoteShare save-as=fill nice colors='#C93135,#FCE0E0,#CEEAFD,#1375B7' breaks=30,40,50,60,70 null-value="#fff" key-name="legend-partisanship" key-style="simple" key-tile-height=10 key-tic-length=0 key-width=200 key-font-size=10 key-last-suffix="%" \
 -o gis/biden-trump.json
 ```
