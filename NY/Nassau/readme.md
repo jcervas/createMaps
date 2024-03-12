@@ -240,7 +240,7 @@ mapshaper-xl 2gb \
 -filter target=blk-grps COUNTYFP20=='059' \
 -join target=blk-grps source=minority keys=GEOID20,GEOID20 \
 -each 'cvap_est_per = cvap_est_per * 100' \
--classify target=blk-grps field=cvap_est_per save-as=fill nice colors='#f9eaea,#cb3233' breaks=25,30,35,40,45,50 null-value="#fff" key-name="legend-bg-minority" key-style="simple" key-tile-height=10 key-tic-length=0 key-width=200 key-font-size=10 key-last-suffix="%" \
+-classify target=blk-grps field=cvap_est_per save-as=fill nice colors=YlOrRd breaks=25,30,35,40,45,50,55,60,65,70,75 null-value="#fff" key-name="legend-bg-minority" key-style="simple" key-tile-height=10 key-tic-length=0 key-width=200 key-font-size=10 key-last-suffix="%" \
 -o gis/minority.json
 ```
 
@@ -253,7 +253,7 @@ mapshaper-xl 2gb \
 -filter target=blk-grps COUNTYFP20=='059' \
 -join target=blk-grps source=minority keys=GEOID20,GEOID20 \
 -each 'cvap_est_per = cvap_est_per * 100' \
--classify target=blk-grps field=cvap_est_per save-as=fill nice colors='#ede7f1,#632781' breaks=25,30,35,40,45,50 null-value="#fff" key-name="legend-bg-asian" key-style="simple" key-tile-height=10 key-tic-length=0 key-width=200 key-font-size=10 key-last-suffix="%" \
+-classify target=blk-grps field=cvap_est_per save-as=fill nice colors=OrRd breaks=25,30,35,40,45,50 null-value="#fff" key-name="legend-bg-asian" key-style="simple" key-tile-height=10 key-tic-length=0 key-width=200 key-font-size=10 key-last-suffix="%" \
 -o gis/asian.json
 ```
 ### Biden/Trump Cholopleth (blocks)
