@@ -204,7 +204,7 @@ mapshaper-xl 2gb \
 cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
 -i 'data/GIS/political-subdivisions(census)/villages.json' name=villages \
--style target=villages fill=none stroke="#FFB612" stroke-width=7 opacity=1 \
+-style target=villages fill=none stroke="#9e9ac8" stroke-width=7 opacity=1 \
 -o gis/villages.json
 ```
 
