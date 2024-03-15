@@ -91,9 +91,7 @@ mapshaper-xl 2gb \
 -style target=rect fill=none stroke=#000 stroke-width=3 \
 -style target=influence-zoom fill=none opacity=1 stroke-width=3 stroke=#000 \
 -style target=influence fill=none opacity=1 stroke-width=1 stroke=#000 \
--style target=current2023 fill=#ffffff opacity=0.85 stroke-width=2 stroke-opacity=1 stroke=#000 \
--style target=nassau fill=none stroke=#000 \
--o target=asian,nassau,currentlines,influence,rect, width=100 'images/asian-bg.svg' \
+-o target=nassau,asian,currentlines,influence width=500 'images/asian-bg.svg' \
 -o target=nassau-small,rect, width=100 'images/asian-nassau-small.svg' \
 -o target=blk-grps-zoom,influence-zoom,current2023-labels,rect width=500 'images/asian-alt-zoom-bg.svg'
 ```
