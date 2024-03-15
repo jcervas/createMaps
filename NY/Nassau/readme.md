@@ -76,8 +76,9 @@ cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
 -i gis/asian.json \
 -i gis/nassau.json \
+-i gis/nassau.json name=nassau-small \
 -i gis/current2023.json name=current2023 \
--proj target=asian,current2023,nassau '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
+-proj target=asian,current2023,nassau,nassau-small '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
 -innerlines target=current2023 + name=currentlines \
 -style target=currentlines fill=none opacity=1 stroke-width=1 stroke-opacity=1 stroke=#999 stroke-dasharray="0 3 0" \
 -filter target=current2023 '["9","10","18"].indexOf(NAME) > -1' + name=influence \
@@ -93,6 +94,7 @@ mapshaper-xl 2gb \
 -style target=current2023 fill=#ffffff opacity=0.85 stroke-width=2 stroke-opacity=1 stroke=#000 \
 -style target=nassau fill=none stroke=#000 \
 -o target=asian,nassau,currentlines,influence,rect, width=100 'images/asian-bg.svg' \
+-o target=nassau-small,rect, width=100 'images/asian-nassau-small.svg' \
 -o target=blk-grps-zoom,influence-zoom,current2023-labels,rect width=500 'images/asian-alt-zoom-bg.svg'
 ```
 
@@ -109,9 +111,12 @@ mapshaper-xl 2gb \
 -style target=valley-stream fill=#ccc stroke=none opacity=1 \
 -filter target=current2023 '["3","7","14"].indexOf(NAME) > -1' invert + name=currentlines \
 -filter target=current2023 '["3","7","14"].indexOf(NAME) > -1' \
+-rectangle bbox=19559.0036845778,47130.54615853556,31121.474689535808,61579.124356780754 + name=rect \
+-style target=rect fill=none stroke=#000 stroke-width=3 \
 -filter target=current2023-labels '["3","7","14"].indexOf(NAME) > -1' \
 -innerlines target=currentlines \
 -style target=currentlines stroke-dasharray="0 3 0" opacity=1 stroke-width=1 stroke-opacity=1 stroke=#333 \
+-o target=nassau,rect, width=100 'images/valley-stream-nassau-small.svg' \
 -o target=valley-stream,villages-dotted,currentlines,current2023,current2023-labels,nassau width=300 'images/valley-stream.svg'
 ```
 
@@ -195,7 +200,7 @@ cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
 -i 'data/GIS/tl_2020_36_all/tl_2020_36_county20.shp' name=counties \
 -filter target=counties 'NAME20=="Nassau"' \
--style target=counties fill=none stroke=#ccc stroke-dasharray="10 5" \
+-style target=counties fill=#f9f9f9 stroke=#ccc stroke-dasharray="10 5" \
 -o gis/nassau.json
 ```
 
