@@ -106,16 +106,17 @@ mapshaper-xl 2gb \
 -i gis/villages-dotted.json \
 -proj target=villages-dotted,current2023,current2023-labels,nassau '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
 -filter target=villages-dotted 'NAME20=="Valley Stream"' + name=valley-stream \
--style target=valley-stream fill=#ccc stroke=none opacity=1 \
+-style target=valley-stream fill=#666 stroke=none opacity=0.5 \
 -filter target=current2023 '["3","7","14"].indexOf(NAME) > -1' invert + name=currentlines \
 -filter target=current2023 '["3","7","14"].indexOf(NAME) > -1' \
 -rectangle bbox=19559.0036845778,47130.54615853556,31121.474689535808,61579.124356780754 + name=rect \
 -style target=rect fill=none stroke=#000 stroke-width=3 \
 -filter target=current2023-labels '["3","7","14"].indexOf(NAME) > -1' \
 -innerlines target=currentlines \
--style target=currentlines stroke-dasharray="0 3 0" opacity=1 stroke-width=1 stroke-opacity=1 stroke=#333 \
+-style target=currentlines stroke-dasharray="0 3 0" opacity=1 stroke-width=1 stroke-opacity=1 stroke=#ccc \
+-style target=current2023 fill=#fff \
 -o target=nassau,rect, width=100 'images/valley-stream-nassau-small.svg' \
--o target=valley-stream,villages-dotted,currentlines,current2023,current2023-labels,nassau width=300 'images/valley-stream.svg'
+-o target=nassau,currentlines,current2023,valley-stream,current2023-labels width=500 'images/valley-stream.svg'
 ```
 
 ### Freeport
