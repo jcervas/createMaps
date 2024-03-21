@@ -183,10 +183,11 @@ districts 5,6
 cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
 -i gis/villages.json \
--i gis/minority.json name=blk-grps \
+-i gis/minority.json \
+-i gis/nassau.json \
 -filter target=villages 'NAME20=="Valley Stream"' \
 -i 'data-locked/Plans/nassau-county-adopted-2023.geojson' name=current2023 \
--proj target=blk-grps,villages,current2023 '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
+-proj target=nassau,minority,villages,current2023 '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
 -filter target=current2023 '["3","7","14"].indexOf(NAME) > -1' + name=currentlines \
 -filter target=current2023 '["3","7","14"].indexOf(NAME) > -1' \
 -innerlines target=current2023 target=currentlines \
@@ -195,11 +196,11 @@ mapshaper-xl 2gb \
 -each target=current2023 'cx=this.innerX, cy=this.innerY' \
 -points target=current2023 x=cx y=cy + name=current2023-labels \
 -style target=current2023-labels label-text=NAME text-anchor=middle fill=#000 stroke=#fff stroke-width=1 opacity=1 font-size=28px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
--clip target=blk-grps source=current2023 \
--o target=blk-grps,current2023,villages,currentlines,current2023-labels max-height=600 'images/valley-stream_minority.svg'
+-clip target=minority bbox=19559.003684577747,47130.5461585568,31121.474689535728,61579.12435680058 \
+-o target=minority,current2023,villages,currentlines,current2023-labels width=500 max-height=600 'images/valley-stream_minority.svg'
 ```
 
-
+-----------------------------------------------
 
 ## Map Setup
 
@@ -218,7 +219,7 @@ mapshaper-xl 2gb \
 cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
 -i 'data/GIS/political-subdivisions(census)/villages.json' name=villages \
--style target=villages fill=none stroke="#9e9ac8" stroke-width=7 opacity=1 \
+-style target=villages fill=none stroke="#FFB612" stroke-width=7 opacity=1 \
 -o gis/villages.json
 ```
 
@@ -244,7 +245,6 @@ mapshaper-xl 2gb \
 -o target=current2023 gis/current2023.json
 ```
 
-
 ### Minority Cholopleth
 ```
 cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
@@ -254,7 +254,7 @@ mapshaper-xl 2gb \
 -filter target=blk-grps COUNTYFP20=='059' \
 -join target=blk-grps source=minority keys=GEOID20,GEOID20 \
 -each 'cvap_est_per = cvap_est_per * 100' \
--classify target=blk-grps field=cvap_est_per save-as=fill nice colors=YlOrRd breaks=25,30,35,40,45,50,55,60,65,70,75 null-value="#fff" key-name="legend-bg-minority" key-style="simple" key-tile-height=10 key-tic-length=0 key-width=200 key-font-size=10 key-last-suffix="%" \
+-classify target=blk-grps field=cvap_est_per save-as=fill method=equal-interval colors=BuGn null-value="#fff" key-name="legend-bg-minority" key-style="simple" key-tile-height=10 key-tic-length=0 key-width=300 key-font-size=10 key-last-suffix="%" \
 -o gis/minority.json
 ```
 
