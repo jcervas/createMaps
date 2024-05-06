@@ -14,4 +14,4 @@ mapshaper \
 -o target=urban,rural '/Users/cervas/My Drive/GitHub/createMaps/PA/seth/classification-map.svg'
 `
 
-<img src="class.png">
+![Seth's Thesis Classification Scheme](class.png)
