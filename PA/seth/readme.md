@@ -13,3 +13,5 @@ mapshaper \
 -classify target=rural field=municipalclass colors=Greens key-name="legend_ruralcounty" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 \
 -o target=urban,rural '/Users/cervas/My Drive/GitHub/createMaps/PA/seth/classification-map.svg'
 `
+
+<img src="class.png">
