@@ -15,3 +15,13 @@ mapshaper \
 `
 
 ![Seth's Thesis Classification Scheme](class.png)
+
+
+# Election Swing, 2012-2020
+
+`
+-each 'change_vote=(DEM20-DEM12)'
+-classify field=change_vote classes=7 breaks=-.15,-.1,-.05,.0,.05,.1,.15 colors='#ca0020,#fce0e0,#ceeafd,#0571b0' save-as=fill key-name="legend_change_vote" key-style="simple" key-tile-height=10 key-tic-length=0 key-width=200 key-font-size=10 key-last-suffix="%"
+`
+
+![Vote Swing, 2012-2020](vote-swing.png)
