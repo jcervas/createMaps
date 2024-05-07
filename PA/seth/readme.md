@@ -25,3 +25,10 @@ mapshaper \
 `
 
 ![Vote Swing, 2012-2020](vote-swing.png)
+
+
+# Munis-focus
+
+`
+-filter target=muni '["4200327552","4200307992","4202715136","4201302184","4203977232","4204321208"].indexOf(GEOID20) > -1' invert + name=muni-focus
+`
