@@ -1,5 +1,7 @@
 # Seth's Classification Scheme
 
+![Seth's Thesis Classification Scheme](class.png)
+
 `
 cd "/Users/cervas/My Drive/GitHub/createMaps/PA/seth"
 mapshaper \
@@ -14,21 +16,21 @@ mapshaper \
 -o target=urban,rural '/Users/cervas/My Drive/GitHub/createMaps/PA/seth/classification-map.svg'
 `
 
-![Seth's Thesis Classification Scheme](class.png)
-
 
 # Election Swing, 2012-2020
+
+![Vote Swing, 2012-2020](vote-swing.png)
 
 `
 -each 'change_vote=(DEM20-DEM12)'
 -classify field=change_vote classes=7 breaks=-.15,-.1,-.05,.0,.05,.1,.15 colors='#ca0020,#fce0e0,#ceeafd,#0571b0' save-as=fill key-name="legend_change_vote" key-style="simple" key-tile-height=10 key-tic-length=0 key-width=200 key-font-size=10 key-last-suffix="%"
 `
 
-![Vote Swing, 2012-2020](vote-swing.png)
+
 
 
 # Munis-focus
-
+![Case Studies Map](case-study-map.png)
 `
 -filter target=muni '["4200327552","4200307992","4202715136","4201302184","4203977232","4204321208"].indexOf(GEOID20) > -1' + name=muni-focus
 -rectangles + name=rect
