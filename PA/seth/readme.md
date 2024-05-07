@@ -33,4 +33,8 @@ mapshaper \
 -filter target=muni '["4200327552","4200307992","4202715136","4201302184","4203977232","4204321208"].indexOf(GEOID20) > -1' + name=muni-focus
 -rectangles + name=rect
 -style fill=none stroke=#000 stroke-width=1
+-each target=rect 'cx=this.innerX, cy=this.innerY' \
+-points target=rect x=cx y=cy + name=rect-labels \
+-style target=rect-labels label-text=NAMELSAD20 text-anchor=middle font-size=8px font-weight=800 line-height=8px font-family=arial class="g-text-shadow p" \
+-style target=rect-labels fill=#000 stroke=none \
 `
