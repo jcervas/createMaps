@@ -75,6 +75,7 @@ mapshaper-xl 2gb \
 -points target=villages x=cx y=cy + name=Villages-labels \
 -style target=Villages-labels label-text=NAME20 text-anchor=middle fill=#000 stroke=none opacity=1 font-size=7px font-weight=300 line-height=20px font-family=arial class="g-text-shadow p" \
 -proj target=nassau,cities-towns,Cities_Towns-labels,villages,Villages-labels '+proj=utm +zone=18 +datum=NAD83' \
+-classify target=villages field=NAME20 colors=Category20 save-as=fill \
 -o target=nassau,villages,Villages-labels max-height=800 'images/villages.svg' \
 -o target=nassau,cities-towns,Cities_Towns-labels max-height=800 'images/cities-towns.svg'
 ```
