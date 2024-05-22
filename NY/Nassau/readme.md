@@ -65,6 +65,9 @@ mapshaper-xl 2gb \
 -i 'data/GIS/political-subdivisions(census)/cdp.json' \
 -i 'data/GIS/political-subdivisions(census)/cities-towns.json' \
 -i 'data/GIS/political-subdivisions(census)/villages.json' \
+-i 'data-locked/Plans/nassau-2023.geojson' \
+-filter target=nassau-2023 'id=="11"' \
+-style target=nassau-2023 fill=color opacity=0.5 stroke=none \
 -style target=villages fill=none opacity=1 stroke-width=1 stroke-opacity=1 stroke=#777 stroke-dasharray="0 3 0" \
 -each target=cities-towns 'cx=this.innerX, cy=this.innerY' \
 -points target=cities-towns x=cx y=cy + name=Cities_Towns-labels \
@@ -74,10 +77,11 @@ mapshaper-xl 2gb \
 -each target=villages 'cx=this.innerX, cy=this.innerY' \
 -points target=villages x=cx y=cy + name=Villages-labels \
 -style target=Villages-labels label-text=NAME20 text-anchor=middle fill=#000 stroke=none opacity=1 font-size=7px font-weight=300 line-height=20px font-family=arial class="g-text-shadow p" \
--proj target=nassau,cities-towns,Cities_Towns-labels,villages,Villages-labels '+proj=utm +zone=18 +datum=NAD83' \
+-proj target=nassau,nassau-2023,cities-towns,Cities_Towns-labels,villages,Villages-labels '+proj=utm +zone=18 +datum=NAD83' \
 -classify target=villages field=NAME20 colors=Category20 save-as=fill \
 -o target=nassau,villages,Villages-labels max-height=800 'images/villages.svg' \
--o target=nassau,cities-towns,Cities_Towns-labels max-height=800 'images/cities-towns.svg'
+-o target=nassau,cities-towns,Cities_Towns-labels max-height=800 'images/cities-towns.svg' \
+-o target=nassau,cities-towns,Cities_Towns-labels,nassau-2023 max-height=800 'images/cities-towns-D9.svg'
 ```
 
 ## CVAP Maps
