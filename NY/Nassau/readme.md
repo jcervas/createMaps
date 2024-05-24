@@ -71,7 +71,8 @@ mapshaper-xl 2gb \
 -style target=villages fill=none opacity=1 stroke-width=1 stroke-opacity=1 stroke=#777 stroke-dasharray="0 3 0" \
 -each target=cities-towns 'cx=this.innerX, cy=this.innerY' \
 -points target=cities-towns x=cx y=cy + name=Cities_Towns-labels \
--style target=Cities_Towns-labels label-text=NAME20 text-anchor=middle fill=#000 stroke=none opacity=1 font-size=12px font-weight=500 line-height=20px font-family=arial class="g-text-shadow p" \
+-each target=Cities_Towns-labels 'NAME20 = NAME20.toUpperCase()' \
+-style target=Cities_Towns-labels label-text=NAME20 text-anchor=middle fill=#000 stroke=none opacity=1 font-size=18px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
 -innerlines target=cities-towns \
 -style target=cities-towns opacity=1 stroke-width=1 stroke-opacity=1 stroke=#777 stroke-dasharray="0 3 0" \
 -each target=villages 'cx=this.innerX, cy=this.innerY' \
