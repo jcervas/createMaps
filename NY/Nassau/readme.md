@@ -19,7 +19,7 @@ cd '/Users/cervas/My Drive/GitHub/createMaps/NY/Nassau'
 mapshaper-xl 2gb \
 -i '/Users/cervas/My Drive/GitHub/createMaps/us-cart.json' name=us-cart \
 -filter target=us-cart 'STUSPS == "NY"' \
--i '/Users/cervas/My Drive/Projects/Redistricting/2024/Nassau/data/Plans/nassau-county-adopted-2023.geojson' name=nassau-2023-enacted \
+-i '/Users/cervas/My Drive/Projects/Redistricting/2024/Nassau/data/Plans/nassau-2023.geojson' name=nassau-2023-enacted \
 -clip source=us-cart target=nassau-2023-enacted \
 -style opacity=1 fill=color \
 -innerlines + name=nassau-2023-enacted-lines \
@@ -47,7 +47,7 @@ Nassau 2013 Population Deviations
 ```
   cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
   mapshaper-xl 2gb \
-  -i '/Users/cervas/My Drive/Redistricting/2024/Nassau/data-locked/Plans/nassau-county-adopted-2013-2020data.geojson' name=nassau13 \
+  -i '/Users/cervas/My Drive/Redistricting/2024/Nassau/data-locked/Plans/nassau-2013-2020data.geojson' name=nassau13 \
   -proj target=nassau13,cities-towns '+proj=utm +zone=18 +datum=NAD83' \
   -classify target=nassau13 field=PopDevPct save-as=fill breaks=-0.05,-0.025,0,0.025,0.05 colors=PuOr null-value="#fff" key-name="legend-deviations" key-style="simple" key-tile-height=10 key-tic-length=0 key-width=200 key-font-size=10 key-last-suffix="%" \
   -dissolve target=nassau13 field=fill + name=deviations \
@@ -95,94 +95,131 @@ mapshaper-xl 2gb \
 -i gis/asian.json \
 -i gis/nassau.json \
 -i gis/nassau.json name=nassau-small \
--i gis/current2023.json name=current2023 \
--proj target=asian,current2023,nassau,nassau-small '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
--filter target=current2023 '["9","10","18"].indexOf(NAME) > -1' invert + name=current \
--filter target=current2023 '["9","10","18"].indexOf(NAME) > -1' + name=influence \
--innerlines target=current + name=currentlines \
--style target=current fill=#fff opacity=0.25 stroke-width=0 stroke-opacity=0 \
--style target=currentlines fill=none opacity=1 stroke-width=1 stroke-opacity=1 stroke=#ccc stroke-dasharray="0 3 0" \
+-i gis/nassau23.json name=nassau23 \
+-proj target=asian,nassau23,nassau,nassau-small '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
+-filter target=nassau23 '["9","10","18"].indexOf(NAME) > -1' invert + name=nassau \
+-filter target=nassau23 '["9","10","18"].indexOf(NAME) > -1' + name=influence \
+-innerlines target=nassau + name=nassaulines \
+-style target=nassau fill=#fff opacity=0.25 stroke-width=0 stroke-opacity=0 \
+-style target=nassaulines fill=none opacity=1 stroke-width=1 stroke-opacity=1 stroke=#ccc stroke-dasharray="0 3 0" \
 -clip target=asian bbox=20865,61667,31564,70730 + name=blk-grps-zoom \
 -clip target=influence bbox=20865,61667,31564,70730 + name=influence-zoom \
 -each target=influence-zoom 'cx=this.innerX, cy=this.innerY' \
--points target=influence-zoom x=cx y=cy + name=current2023-labels \
--style target=current2023-labels label-text=NAME text-anchor=middle fill=#000 stroke=#fff stroke-width=1 opacity=1 font-size=28px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
+-points target=influence-zoom x=cx y=cy + name=nassau23-labels \
+-style target=nassau23-labels label-text=NAME text-anchor=middle fill=#000 stroke=#fff stroke-width=1 opacity=1 font-size=28px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
 -rectangle target=influence-zoom + name=rect \
 -style target=rect fill=none stroke=#000 stroke-width=3 \
 -style target=influence-zoom fill=none opacity=1 stroke-width=3 stroke=#000 \
 -style target=influence fill=none opacity=1 stroke-width=1 stroke=#000 \
--o target=nassau,asian,currentlines,current,influence width=500 'images/asian-bg.svg' \
+-o target=nassau,asian,nassaulines,nassau,influence width=500 'images/asian-bg.svg' \
 -o target=nassau-small,rect, width=100 'images/asian-nassau-small.svg' \
--o target=blk-grps-zoom,influence-zoom,current2023-labels,rect width=500 'images/asian-alt-zoom-bg.svg'
+-o target=blk-grps-zoom,influence-zoom,nassau23-labels,rect width=500 'images/asian-alt-zoom-bg.svg'
 ```
 
 ### Valley Stream
 ```
 cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
--i gis/current2023.json \
--i gis/current2023-labels.json \
+-i gis/nassau23.json \
+-i gis/nassau23-labels.json \
+-i gis/cervas.json \
+-i gis/cervas-labels.json \
 -i gis/nassau.json \
 -i gis/villages-dotted.json \
--proj target=villages-dotted,current2023,current2023-labels,nassau '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
+-proj target=villages-dotted,nassau23,nassau23-labels,cervas,cervas-labels,nassau '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
 -filter target=villages-dotted 'NAME20=="Valley Stream"' + name=villages \
 -style target=villages fill=#666 stroke=none opacity=0.5 \
--filter target=current2023 '["3","7","14"].indexOf(NAME) > -1' invert + name=currentlines \
--filter target=current2023 '["3","7","14"].indexOf(NAME) > -1' \
--rectangle bbox=19559.0036845778,47130.54615853556,31121.474689535808,61579.124356780754 + name=rect \
+-filter target=nassau23 '["3","7","14"].indexOf(NAME) > -1' invert + name=nassaulines \
+-filter target=nassau23 '["3","7","14"].indexOf(NAME) > -1' \
+-rectangle source=nassau23 + name=rect \
 -style target=rect fill=none stroke=#000 stroke-width=3 \
--filter target=current2023-labels '["3","7","14"].indexOf(NAME) > -1' \
--innerlines target=currentlines \
--style target=currentlines stroke-dasharray="0 3 0" opacity=1 stroke-width=1 stroke-opacity=1 stroke=#ccc \
--style target=current2023 fill=#fff \
--o target=nassau,rect, width=100 'images/valley-stream-nassau-small.svg' \
--o target=nassau,currentlines,current2023,villages,current2023-labels width=500 'images/valley-stream.svg'
+-filter target=nassau23-labels '["5","6"].indexOf(NAME) > -1' \
+-innerlines target=nassaulines \
+-style target=nassaulines stroke-dasharray="0 3 0" opacity=1 stroke-width=1 stroke-opacity=1 stroke=#ccc \
+-style target=nassau23 fill=#fff \
+-filter target=cervas '["7"].indexOf(NAME) > -1' invert + name=cervaslines \
+-filter target=cervas '["7"].indexOf(NAME) > -1' \
+-rectangle source=cervas + name=rect-cervas \
+-style target=rect-cervas fill=none stroke=#000 stroke-width=3 \
+-filter target=cervas-labels '["7"].indexOf(NAME) > -1' \
+-innerlines target=cervaslines \
+-style target=cervaslines stroke-dasharray="0 3 0" opacity=1 stroke-width=1 stroke-opacity=1 stroke=#ccc \
+-style target=cervas fill=#fff \
+-o target=nassau,rect, width=100 'images/Valley-Stream-nassau-small.svg' \
+-o target=nassau,nassaulines,nassau23,villages,nassau23-labels width=500 'images/Valley-Stream.svg' \
+-o target=nassau,rect-cervas, width=100 'images/Valley-Stream-nassau-small-cervas.svg' \
+-o target=nassau,cervaslines,cervas,villages,cervas-labels width=500 'images/Valley-Stream-cervas.svg'
 ```
 
 ### Freeport
 ```
 cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
--i gis/current2023.json \
--i gis/current2023-labels.json \
+-i gis/nassau23.json \
+-i gis/nassau23-labels.json \
+-i gis/cervas.json \
+-i gis/cervas-labels.json \
 -i gis/nassau.json \
 -i gis/villages-dotted.json \
--proj target=villages-dotted,current2023,current2023-labels,nassau '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
+-proj target=villages-dotted,nassau23,nassau23-labels,cervas,cervas-labels,nassau '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
 -filter target=villages-dotted 'NAME20=="Freeport"' + name=villages \
 -style target=villages fill=#666 stroke=none opacity=0.5 \
--filter target=current2023 '["5","6"].indexOf(NAME) > -1' invert + name=currentlines \
--filter target=current2023 '["5","6"].indexOf(NAME) > -1' \
--rectangle source=current2023 + name=rect \
+-filter target=nassau23 '["5","6"].indexOf(NAME) > -1' invert + name=nassaulines \
+-filter target=nassau23 '["5","6"].indexOf(NAME) > -1' \
+-rectangle source=nassau23 + name=rect \
 -style target=rect fill=none stroke=#000 stroke-width=3 \
--filter target=current2023-labels '["5","6"].indexOf(NAME) > -1' \
--innerlines target=currentlines \
--style target=currentlines stroke-dasharray="0 3 0" opacity=1 stroke-width=1 stroke-opacity=1 stroke=#ccc \
--style target=current2023 fill=#fff \
+-filter target=nassau23-labels '["5","6"].indexOf(NAME) > -1' \
+-innerlines target=nassaulines \
+-style target=nassaulines stroke-dasharray="0 3 0" opacity=1 stroke-width=1 stroke-opacity=1 stroke=#ccc \
+-style target=nassau23 fill=#fff \
+-filter target=cervas '["5"].indexOf(NAME) > -1' invert + name=cervaslines \
+-filter target=cervas '["5"].indexOf(NAME) > -1' \
+-rectangle source=cervas + name=rect-cervas \
+-style target=rect-cervas fill=none stroke=#000 stroke-width=3 \
+-filter target=cervas-labels '["5"].indexOf(NAME) > -1' \
+-innerlines target=cervaslines \
+-style target=cervaslines stroke-dasharray="0 3 0" opacity=1 stroke-width=1 stroke-opacity=1 stroke=#ccc \
+-style target=cervas fill=#fff \
 -o target=nassau,rect, width=100 'images/Freeport-nassau-small.svg' \
--o target=nassau,currentlines,current2023,villages,current2023-labels width=500 'images/Freeport.svg'
+-o target=nassau,nassaulines,nassau23,villages,nassau23-labels width=500 'images/Freeport.svg' \
+-o target=nassau,rect-cervas, width=100 'images/Freeport-nassau-small-cervas.svg' \
+-o target=nassau,cervaslines,cervas,villages,cervas-labels width=500 'images/Freeport-cervas.svg'
 ```
 
 ### Hempstead
+
 ```
 cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
--i gis/current2023.json \
--i gis/current2023-labels.json \
+-i gis/nassau23.json \
+-i gis/nassau23-labels.json \
+-i gis/cervas.json \
+-i gis/cervas-labels.json \
 -i gis/nassau.json \
 -i gis/villages-dotted.json \
--proj target=villages-dotted,current2023,current2023-labels,nassau '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
+-proj target=villages-dotted,nassau23,nassau23-labels,cervas,cervas-labels,nassau '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
 -filter target=villages-dotted 'NAME20=="Hempstead"' + name=villages \
 -style target=villages fill=#666 stroke=none opacity=0.5 \
--filter target=current2023 '["1","2"].indexOf(NAME) > -1' invert + name=currentlines \
--filter target=current2023 '["1","2"].indexOf(NAME) > -1' \
--rectangle source=current2023 + name=rect \
+-filter target=nassau23 '["1","2"].indexOf(NAME) > -1' invert + name=nassaulines \
+-filter target=nassau23 '["1","2"].indexOf(NAME) > -1' \
+-rectangle source=nassau23 + name=rect \
 -style target=rect fill=none stroke=#000 stroke-width=3 \
--filter target=current2023-labels '["1","2"].indexOf(NAME) > -1' \
--innerlines target=currentlines \
--style target=currentlines stroke-dasharray="0 3 0" opacity=1 stroke-width=1 stroke-opacity=1 stroke=#ccc \
--style target=current2023 fill=#fff \
+-filter target=nassau23-labels '["1","2"].indexOf(NAME) > -1' \
+-innerlines target=nassaulines \
+-style target=nassaulines stroke-dasharray="0 3 0" opacity=1 stroke-width=1 stroke-opacity=1 stroke=#ccc \
+-style target=nassau23 fill=#fff \
+-filter target=cervas '["1"].indexOf(NAME) > -1' invert + name=cervaslines \
+-filter target=cervas '["1"].indexOf(NAME) > -1' \
+-rectangle source=cervas + name=rect-cervas \
+-style target=rect-cervas fill=none stroke=#000 stroke-width=3 \
+-filter target=cervas-labels '["1"].indexOf(NAME) > -1' \
+-innerlines target=cervaslines \
+-style target=cervaslines stroke-dasharray="0 3 0" opacity=1 stroke-width=1 stroke-opacity=1 stroke=#ccc \
+-style target=cervas fill=#fff \
 -o target=nassau,rect, width=100 'images/Hempstead-nassau-small.svg' \
--o target=nassau,currentlines,current2023,villages,current2023-labels width=500 'images/Hempstead.svg'
+-o target=nassau,nassaulines,nassau23,villages,nassau23-labels width=500 'images/Hempstead.svg' \
+-o target=nassau,rect-cervas, width=100 'images/Hempstead-nassau-small-cervas.svg' \
+-o target=nassau,cervaslines,cervas,villages,cervas-labels width=500 'images/Hempstead-cervas.svg'
 ```
 
 ## Minority Blocks Choropleth
@@ -190,7 +227,7 @@ mapshaper-xl 2gb \
 ### Freeport
 ```
 
--o target=blk-grps,current2023,villages,currentlines,current2023-labels 'images/freeport_minority.svg'
+-o target=blk-grps,nassau23,villages,nassaulines,nassau23-labels 'images/freeport_minority.svg'
 ```
 districts 5,6
 
@@ -204,18 +241,18 @@ mapshaper-xl 2gb \
 -i gis/minority.json \
 -i gis/nassau.json \
 -filter target=villages 'NAME20=="Valley Stream"' \
--i 'data-locked/Plans/nassau-county-adopted-2023.geojson' name=current2023 \
--proj target=nassau,minority,villages,current2023 '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
--filter target=current2023 '["3","7","14"].indexOf(NAME) > -1' + name=currentlines \
--filter target=current2023 '["3","7","14"].indexOf(NAME) > -1' \
--innerlines target=current2023 target=currentlines \
--style target=currentlines stroke-dasharray="0" opacity=1 stroke-width=3 stroke-opacity=1 stroke=#000 \
--style target=current2023 fill=none opacity=1 stroke-width=3 stroke-opacity=1 stroke=#000 \
--each target=current2023 'cx=this.innerX, cy=this.innerY' \
--points target=current2023 x=cx y=cy + name=current2023-labels \
--style target=current2023-labels label-text=NAME text-anchor=middle fill=#000 stroke=#fff stroke-width=1 opacity=1 font-size=28px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
+-i 'data-locked/Plans/nassau-2023.geojson' name=nassau23 \
+-proj target=nassau,minority,villages,nassau23 '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
+-filter target=nassau23 '["3","7","14"].indexOf(NAME) > -1' + name=nassaulines \
+-filter target=nassau23 '["3","7","14"].indexOf(NAME) > -1' \
+-innerlines target=nassau23 target=nassaulines \
+-style target=nassaulines stroke-dasharray="0" opacity=1 stroke-width=3 stroke-opacity=1 stroke=#000 \
+-style target=nassau23 fill=none opacity=1 stroke-width=3 stroke-opacity=1 stroke=#000 \
+-each target=nassau23 'cx=this.innerX, cy=this.innerY' \
+-points target=nassau23 x=cx y=cy + name=nassau23-labels \
+-style target=nassau23-labels label-text=NAME text-anchor=middle fill=#000 stroke=#fff stroke-width=1 opacity=1 font-size=28px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
 -clip target=minority bbox=19559.003684577747,47130.5461585568,31121.474689535728,61579.12435680058 \
--o target=minority,current2023,villages,currentlines,current2023-labels width=500 max-height=600 'images/valley-stream_minority.svg'
+-o target=minority,nassau23,villages,nassaulines,nassau23-labels width=500 max-height=600 'images/valley-stream_minority.svg'
 ```
 
 -----------------------------------------------
@@ -250,17 +287,30 @@ mapshaper-xl 2gb \
 -o gis/villages-dotted.json
 ```
 
-### Current 2023 Map
+### Nassau 2023 Map
 ```
 cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
--i 'data-locked/Plans/nassau-county-adopted-2023.geojson' name=current2023 \
--style target=current2023 fill=none opacity=1 stroke-width=1 stroke-opacity=1 stroke=#000 \
--each target=current2023 'cx=this.innerX, cy=this.innerY' \
--points target=current2023 x=cx y=cy + name=current2023-labels \
--style target=current2023-labels label-text=NAME text-anchor=middle fill=#000 stroke=none opacity=1 font-size=16px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
--o target=current2023-labels gis/current2023-labels.json \
--o target=current2023 gis/current2023.json
+-i 'data-locked/Plans/nassau-2023.geojson' name=nassau23 \
+-style target=nassau23 fill=none opacity=1 stroke-width=1 stroke-opacity=1 stroke=#000 \
+-each target=nassau23 'cx=this.innerX, cy=this.innerY' \
+-points target=nassau23 x=cx y=cy + name=nassau23-labels \
+-style target=nassau23-labels label-text=NAME text-anchor=middle fill=#000 stroke=none opacity=1 font-size=16px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
+-o target=nassau23-labels gis/nassau23-labels.json \
+-o target=nassau23 gis/nassau23.json
+```
+
+### Cervas Illustrive Plan
+```
+cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
+mapshaper-xl 2gb \
+-i 'data-locked/Plans/Illustrative-Plans/cervas-illustrative.geojson' name=cervas \
+-style target=cervas fill=none opacity=1 stroke-width=1 stroke-opacity=1 stroke=#000 \
+-each target=cervas 'cx=this.innerX, cy=this.innerY' \
+-points target=cervas x=cx y=cy + name=cervas-labels \
+-style target=cervas-labels label-text=NAME text-anchor=middle fill=#000 stroke=none opacity=1 font-size=16px font-weight=800 line-height=20px font-family=arial class="g-text-shadow p" \
+-o target=cervas-labels gis/cervas-labels.json \
+-o target=cervas gis/cervas.json
 ```
 
 ### Minority Cholopleth
