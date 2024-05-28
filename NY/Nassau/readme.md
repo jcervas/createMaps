@@ -56,7 +56,7 @@ Nassau 2013 Population Deviations
   -innerlines target=nassau13 \
   -style target=nassau13 opacity=1 stroke-width=1 stroke-opacity=1 stroke=#777 stroke-dasharray="0 3 0" \
   -each target=nassau13 'type="nassau13"' \
-  -o target=nassau,deviations,nassau-water,nassau13 max-height=800 'images/nassau13-deviations.svg'
+  -o target=nassau,deviations,nassau13 max-height=800 'images/nassau13-deviations.svg'
 ```
 
 ## Villages and Cities/Towns
