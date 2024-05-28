@@ -50,7 +50,7 @@ Nassau 2013 Population Deviations
   -i gis/nassau.json \
   -i gis/nassau-water.json \
   -i '/Users/cervas/My Drive/Redistricting/2024/Nassau/data-locked/Plans/nassau-2013-2020data.geojson' name=nassau13 \
-  -proj target=nassau,nassau13,cities-towns '+proj=utm +zone=18 +datum=NAD83' \
+  -proj target=nassau,nassau13 '+proj=utm +zone=18 +datum=NAD83' \
   -classify target=nassau13 field=PopDevPct save-as=fill breaks=-0.05,-0.025,0,0.025,0.05 colors=PuOr null-value="#fff" key-name="legend-deviations" key-style="simple" key-tile-height=10 key-tic-length=0 key-width=200 key-font-size=10 key-last-suffix="%" \
   -dissolve target=nassau13 field=fill + name=deviations \
   -innerlines target=nassau13 \
