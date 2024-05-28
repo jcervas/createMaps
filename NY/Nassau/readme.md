@@ -100,10 +100,10 @@ mapshaper-xl 2gb \
 -i gis/nassau.json name=nassau-small \
 -i gis/nassau23.json name=nassau23 \
 -proj target=asian,nassau23,nassau,nassau-small '+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74' \
--filter target=nassau23 '["9","10","18"].indexOf(NAME) > -1' invert + name=nassau \
+-filter target=nassau23 '["9","10","18"].indexOf(NAME) > -1' invert + name=nassau23-other \
 -filter target=nassau23 '["9","10","18"].indexOf(NAME) > -1' + name=influence \
--innerlines target=nassau + name=nassaulines \
--style target=nassau fill=#fff opacity=0.25 stroke-width=0 stroke-opacity=0 \
+-innerlines target=nassau23 + name=nassaulines \
+-style target=nassau23-other fill=#fff opacity=0.25 stroke-width=0 stroke-opacity=0 \
 -style target=nassaulines fill=none opacity=1 stroke-width=1 stroke-opacity=1 stroke=#ccc stroke-dasharray="0 3 0" \
 -clip target=asian bbox=20865,61667,31564,70730 + name=blk-grps-zoom \
 -clip target=influence bbox=20865,61667,31564,70730 + name=influence-zoom \
@@ -114,7 +114,7 @@ mapshaper-xl 2gb \
 -style target=rect fill=none stroke=#000 stroke-width=3 \
 -style target=influence-zoom fill=none opacity=1 stroke-width=3 stroke=#000 \
 -style target=influence fill=none opacity=1 stroke-width=1 stroke=#000 \
--o target=nassau,asian,nassaulines,nassau,influence width=500 'images/asian-bg.svg' \
+-o target=nassau,asian width=500 'images/asian-bg.svg' \
 -o target=nassau-small,rect, width=100 'images/asian-nassau-small.svg' \
 -o target=blk-grps-zoom,influence-zoom,nassau23-labels,rect width=500 'images/asian-alt-zoom-bg.svg'
 ```
