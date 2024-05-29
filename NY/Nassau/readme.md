@@ -128,9 +128,9 @@ mapshaper-xl 2gb \
 -style target=cervas-influence fill=none opacity=1 stroke-width=1 stroke=#000 \
 -o target=nassau,asian width=500 'images/asian-bg.svg' \
 -o target=nassau-small,rect, width=100 'images/asian-nassau-small.svg' \
--o target=blk-grps-zoom,influence-zoom,nassau23-labels,rect width=500 'images/asian-alt-zoom-bg.svg' \
--o target=nassau-small, width=100 'images/asian-nassau-small.svg' \
--o target=blk-grps-zoom,cervas-influence-zoom,cervas-labels,rect width=500 'images/asian-alt-zoom-bg-cervas.svg'
+-o target=blk-grps-zoom,influence-zoom,nassau23-labels width=500 'images/asian-alt-zoom-bg.svg' \
+-o target=nassau,asian,rect, width=100 'images/asian-nassau-small.svg' \
+-o target=blk-grps-zoom,cervas-influence-zoom,cervas-labels width=500 'images/asian-alt-zoom-bg-cervas.svg'
 ```
 
 ### Valley Stream
