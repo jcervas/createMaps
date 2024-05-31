@@ -334,11 +334,8 @@ mapshaper-xl 2gb \
 ```
 cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
--i 'data/agg_data_MINORITY.csv' string-fields=GEOID20 name=minority \
--i 'data/GIS/tl_2020_36_all/tl_2020_36_bg20.shp' name=blk-grps \
--filter target=blk-grps COUNTYFP20=='059' \
--join target=blk-grps source=minority keys=GEOID20,GEOID20 \
--each 'cvap_est_per = cvap_est_per * 100' \
+-i 'data/GIS/nassau-2022-bg.json' name=blk-grps \
+-each 'cvap_est_per = MINORITY_CVAP22/TOTAL_CVAP22 * 100' \
 -classify target=blk-grps field=cvap_est_per save-as=fill method=equal-interval colors=BuGn null-value="#fff" key-name="legend-bg-minority" key-style="simple" key-tile-height=10 key-tic-length=0 key-width=300 key-font-size=10 key-last-suffix="%" \
 -o gis/minority.json
 ```
