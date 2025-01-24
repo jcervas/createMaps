@@ -43,7 +43,8 @@ mapshaper-xl 2gb \
 -o target=blocks,border 'images/minority-blocks.svg' \
 -o target=nassau-2023-enacted,district-labels  'images/nassau-2023-enacted.svg'
 ```
-Nassau 2013 Population Deviations
+
+## Nassau 2013 Population Deviations
 ```
   cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
   mapshaper-xl 2gb \
@@ -317,7 +318,7 @@ mapshaper-xl 2gb \
 -o target=nassau23 gis/nassau23.json
 ```
 
-### Cervas Illustrive Plan
+### Cervas Illustrative Plan
 ```
 cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
@@ -330,7 +331,7 @@ mapshaper-xl 2gb \
 -o target=cervas gis/cervas.json
 ```
 
-### Minority Cholopleth
+### Minority Choropleth
 ```
 cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
@@ -340,7 +341,7 @@ mapshaper-xl 2gb \
 -o gis/minority.json
 ```
 
-### Asian Cholopleth
+### Asian Choropleth
 ```
 cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
@@ -352,7 +353,7 @@ mapshaper-xl 2gb \
 -classify target=blk-grps field=cvap_est_per save-as=fill nice colors=OrRd breaks=25,30,35,40,45,50 null-value="#fff" key-name="legend-bg-asian" key-style="simple" key-tile-height=10 key-tic-length=0 key-width=200 key-font-size=10 key-last-suffix="%" \
 -o gis/asian.json
 ```
-### Biden/Trump Cholopleth (blocks)
+### Biden/Trump Choropleth (blocks)
 ```
 cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
@@ -364,7 +365,7 @@ mapshaper-xl 2gb \
 -o gis/biden-trump.json
 ```
 
-### Biden/Trump Cholopleth (block groups)
+### Biden/Trump Choropleth (block groups)
 ```
 cd '/Users/cervas/My Drive/Redistricting/2024/Nassau/'
 mapshaper-xl 2gb \
