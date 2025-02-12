@@ -40,3 +40,10 @@ mapshaper \
 -classify target=us-tracts field=density save-as=fill nice colors=greys classes=9 key-name="legend_density_tracts" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="" \
 -o '/Users/cervas/My Drive/GitHub/createMaps/us-tracts.geojson'
 ```
+
+To color polygons with non-ajacent colors, use the following commands in the console after importing a file:
+```
+-style stroke-width=0.5 fill=none
+-classify save-as=fill colors=Spectral non-adjacent
+-style opacity=0.5
+```
