@@ -26,19 +26,19 @@ data_filtered <- census[, -columns_to_remove]
 data_filtered$GEOID20 <- gsub("1000000US", "", data_filtered$GEO_ID)
 data_filtered$GEOID20 <- gsub("1400000US", "", data_filtered$GEO_ID)
 # data_filtered$blkgrp <- substr(data_filtered$GEOID20, 1, 12)
-write.csv(data_filtered, "/Users/cervas/My Drive/GitHub/createMaps/tractscsv.csv")
+write.csv(data_filtered, "/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/tractscsv.csv")
 ```
 
 ```
-cd '/Users/cervas/My Drive/GitHub/createMaps'
+cd '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps'
 mapshaper \
--i '/Users/cervas/My Drive/GitHub/createMaps/us-tracts-originial.json' name=us-tracts \
+-i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/us-tracts-originial.json' name=us-tracts \
 -simplify 0.05 \
--i '/Users/cervas/My Drive/GitHub/createMaps/tractscsv.csv' string-fields=GEOID20 name=tracts-csv \
+-i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/tractscsv.csv' string-fields=GEOID20 name=tracts-csv \
 -join target=us-tracts source=tracts-csv keys=GEOID20,GEOID20 \
 -each target=us-tracts 'density = P1_001N / (ALAND20/2589988)' \
 -classify target=us-tracts field=density save-as=fill nice colors=greys classes=9 key-name="legend_density_tracts" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="" \
--o '/Users/cervas/My Drive/GitHub/createMaps/us-tracts.geojson'
+-o '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/us-tracts.geojson'
 ```
 
 To color polygons with non-ajacent colors, use the following commands in the console after importing a file:
