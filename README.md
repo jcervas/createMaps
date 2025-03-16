@@ -10,7 +10,7 @@ Download GIS files: https://www.census.gov/geographies/mapping-files/time-series
 ### Code to gather census data
 
 ```{r}
-source("https://raw.githubusercontent.com/jcervas/R-Functions/main/censusAPI/censusAPI.R")
+source('https://raw.githubusercontent.com/jcervas/R-Functions/refs/heads/main/decennialAPI/decennialAPI.R')
 state_fips <- c("AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL",
               "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME",
               "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH",
