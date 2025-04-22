@@ -8,7 +8,7 @@ Set Working Directory
 
 ### Cartographic Map (for water boundaries)
 ```
-mapshaper -i '/Users/cervas/My Drive/GitHub/createMaps/us-cart.json' name=us-cart \
+mapshaper -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/us-cart.json' name=us-cart \
   -filter target=us-cart STATEFP==42 \
   -simplify target=us-cart 0.1 \
   -style target=us-cart fill=none stroke=#000 opacity=1 stroke-opacity=1 \
