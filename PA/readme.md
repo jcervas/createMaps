@@ -26,7 +26,7 @@ mapshaper -i '/Users/cervas/My Drive/GitHub/createMaps/us-cart.json' name=us-car
 
 ### Tract density map
 ```
-  -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/tracts/tracts.json' name=tracts \
+  -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/tracts/tracts.json' name=tracts \
   -proj target=tracts EPSG:3652 \
   -each target=tracts 'density = TOTAL / (ALAND20/2589988)' target=tracts \
   -classify target=tracts field=density save-as=fill nice colors=OrRd classes=5 null-value="#fff" key-name="legend_popdensity" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 \
@@ -196,7 +196,7 @@ To find the density in square miles, divide area by `2589988`.
 
 ## Blocks
 ```
-mapshaper -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/blocks/pa_blocks20.shp' -simplify 0.1% -clean -o '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/blocks_simplified' format=geojson
+mapshaper -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/blocks/pa_blocks20.shp' -simplify 0.1% -clean -o '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/blocks_simplified' format=geojson
 ```
 
 ```
@@ -213,12 +213,12 @@ mapshaper -i ./tracts/pa_tracts20.shp -simplify 1% -clean -o blocks_simplified/P
 
 ## Water
 ```
-mapshaper -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/blocks_simplified/pa_blocks20.json' name=water \
+mapshaper -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/blocks_simplified/pa_blocks20.json' name=water \
   -filter 'ALAND<1' \
   -simplify 0.1% \
   -clean \
   -dissolve
-  -o '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/blocks_simplified/water_simplified.json' format=geojson force
+  -o '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/blocks_simplified/water_simplified.json' format=geojson force
 ```
 
 To change the color of water areas: 
@@ -265,8 +265,8 @@ mapshaper -i 'Census/PA2020.pl/GIS/tracts/tracts.json' name=tracts \
 
 ```
 mapshaper -i '/Users/cervas/My Drive/Projects/Redistricting/2022/PA/GIS/precincts.json' name='precincts' \
-  -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/cb_2021_us_state_500k.json' name=PA \
-  -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/LDPC_gis/WP_Counties.json' name=counties \
+  -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/cb_2021_us_state_500k.json' name=PA \
+  -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/LDPC_gis/WP_Counties.json' name=counties \
   -filter target="PA" 'GEOID=="42"' \
   -proj EPSG:3652 target='counties,precincts,PA' \
   -clip target="precincts" source=PA \
@@ -319,8 +319,8 @@ mapshaper blocks/*.shp \
 `-merge-layers force target=water, {NAME OF LAYER 2}``
 
 ```
-mapshaper -i "/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/2021-10-14 LRC Data Release No. 2 (with prisoner reallocations)/Geography/WP_Tracts_reallocated.shp" name=map \
-  -join "/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/PL_diff.P1.csv" keys=GEOID20,GEO_ID string-fields=GEO_ID \
+mapshaper -i "/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/2021-10-14 LRC Data Release No. 2 (with prisoner reallocations)/Geography/WP_Tracts_reallocated.shp" name=map \
+  -join "/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/Data Files/Census/PA2020.pl/PL_diff.P1.csv" keys=GEOID20,GEO_ID string-fields=GEO_ID \
   -proj EPSG:3652 \
   -each 'diff=P0010001-P001001' \
   -classify field=diff save-as=fill breaks=0,500,1000 colors=#ca0020,#f4a582,#bababa,#404040 null-value="#fff" \
@@ -331,7 +331,7 @@ mapshaper -i "/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/2021
 # Nordenbergmander
 ```
 mapshaper -i "/Users/cervas/My Drive/Projects/Redistricting/2022/PA/data/Plans/PA-LRC-House-Preliminary.geojson" name=LRCpre \
-  -i "/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/Certified-Geography/WP_Municipalities.shp" name=muni \
+  -i "/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/Certified-Geography/WP_Municipalities.shp" name=muni \
   -proj target="muni,LRCpre" EPSG:3652 \
   -style target=muni fill=none stroke=#000 stroke-width=0.5 stroke-opacity=0.25 \
   -style target=LRCpre fill=none stroke=#000 stroke-width=1 \
@@ -343,7 +343,7 @@ mapshaper -i "/Users/cervas/My Drive/Projects/Redistricting/2022/PA/data/Plans/P
 ### Water
 
 ```
-mapshaper  -i '/Users/cervas/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/blocks_simplified/water_simplified.json' name=water \
+mapshaper  -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/blocks_simplified/water_simplified.json' name=water \
   -style target=water fill=#000 stroke=none \
   -each 'type="water"' \
 ```
