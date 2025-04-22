@@ -1,6 +1,6 @@
 
 Set Working Directory
-`cd "/Users/cervas/My Drive/GitHub/createMaps/PA/images"`
+`cd "/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/PA/images"`
 
 # Base Map
 
@@ -12,7 +12,7 @@ mapshaper -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.
   -filter target=us-cart STATEFP==42 \
   -simplify target=us-cart 0.1 \
   -style target=us-cart fill=none stroke=#000 opacity=1 stroke-opacity=1 \
-  -i '/Users/cervas/My Drive/GitHub/createMaps/us-counties.json' name=counties \
+  -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/us-counties.json' name=counties \
   -filter STATEFP==42 \
   -simplify target=counties 0.5 \
   -each target=counties 'cx=this.innerX, cy=this.innerY' \
@@ -20,7 +20,7 @@ mapshaper -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.
   -style target=counties-labels label-text=NAME text-anchor=middle font-size=10px font-weight=800 line-height=16px font-family=arial class="g-text-shadow p" \
   -innerlines target=counties \
   -style target=counties fill=none stroke=#000 stroke-width=1 stroke-dasharray="0 3 0" \
-  -i '/Users/cervas/My Drive/GitHub/createMaps/PA/cities.json' name=cities \
+  -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/PA/cities.json' name=cities \
   -proj target='counties,us-cart' EPSG:3652 \
 ```
 
@@ -40,7 +40,7 @@ mapshaper -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.
 
 ### Urban Areas
 ```
-  -i '/Users/cervas/My Drive/GitHub/createMaps/us-urban.json' name=urban \
+  -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/us-urban.json' name=urban \
   -proj EPSG:3652 \
   -clip target=urban us-cart \
 ```
@@ -74,7 +74,7 @@ mapshaper -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.
 ### State House
 ```
   -i '/Users/cervas/My Drive/Projects/Redistricting/2022/PA/data/Plans/PA-2022-State-House.geojson' name=house2021 \
-  -i '/Users/cervas/My Drive/GitHub/Data/Elections/State Legislature/PA/data/STH_house_dist.csv' name=house2022 string-fields=district \
+  -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/Data/Elections/State Legislature/PA/data/STH_house_dist.csv' name=house2022 string-fields=district \
   -proj target=house2021 EPSG:3652 \
   -join target=house2021 source=house2022 keys=NAME,district \
   -filter target=house2021 'dem_vote > gop_vote' + name=DEM \
@@ -96,7 +96,7 @@ mapshaper -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.
 ### State Senate
 ```
   -i '/Users/cervas/My Drive/Projects/Redistricting/2022/PA/data/Plans/PA-2022-State-Senate.geojson' name=senate2021 \
-  -i '/Users/cervas/My Drive/GitHub/Data/Elections/State Legislature/PA/data/STS_sen_dist.csv' name=senate2022 string-fields=district \
+  -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/Data/Elections/State Legislature/PA/data/STS_sen_dist.csv' name=senate2022 string-fields=district \
   -proj target=senate2021 EPSG:3652 \
   -join target=senate2021 source=senate2022 keys=NAME,district \
   -filter target=senate2021 'dem_vote > gop_vote' + name=DEM \
@@ -121,34 +121,34 @@ mapshaper -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.
 
 Output "Counties" map:
 ```
-  -o target=urban,counties,counties-labels,us-cart '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_counties.svg' \
+  -o target=urban,counties,counties-labels,us-cart '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/PA/images/PA_counties.svg' \
 ```
 
 Output "House" Deviation map:
 ```
-  -o target=house,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_house_2020.svg' \
+  -o target=house,counties,us-cart,cities '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/PA/images/PA_house_2020.svg' \
 ```
 
 
 Output "Senate" Deviation map:
 ```
-  -o target=senate,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_senate_2020.svg' \
+  -o target=senate,counties,us-cart,cities '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/PA/images/PA_senate_2020.svg' \
 ```
 
 
 Output "tracts" density map:
 ```
-  -o target=tracts,water,counties,us-cart,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_tracts_pop.svg' \
+  -o target=tracts,water,counties,us-cart,cities '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/PA/images/PA_tracts_pop.svg' \
 ```
 
 Output "House" Election map:
 ```
-  -o target=urban,house2022-elections,house2021-lines,us-cart,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_house_2022_election.svg' \
+  -o target=urban,house2022-elections,house2021-lines,us-cart,cities '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/PA/images/PA_house_2022_election.svg' \
 ```
 
 Output "Senate" Election map:
 ```
-  -o target=urban,senate2022-elections,senate2021-lines,us-cart,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_senate_2022_election.svg' \
+  -o target=urban,senate2022-elections,senate2021-lines,us-cart,cities '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/PA/images/PA_senate_2022_election.svg' \
 ```
 
 House District Map:
@@ -157,7 +157,7 @@ House District Map:
   -classify save-as=fill colors=Category20 non-adjacent \
   -dissolve field=fill copy-fields=fill \
   -style opacity=0.75 \
-  -o target=urban,house2021-districts,house2021-lines,counties,us-cart,house2021-labels,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_house_2021.svg' \
+  -o target=urban,house2021-districts,house2021-lines,counties,us-cart,house2021-labels,cities '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/PA/images/PA_house_2021.svg' \
 ```
 
 Senate District Map:
@@ -166,7 +166,7 @@ Senate District Map:
 -classify save-as=fill colors=Category20 non-adjacent \
 -dissolve field=fill copy-fields=fill \
 -style opacity=0.75 \
--o target=urban,senate2021-districts,senate2021-lines,counties,us-cart,senate2021-labels,cities '/Users/cervas/My Drive/GitHub/createMaps/PA/images/PA_senate_2021.svg' \
+-o target=urban,senate2021-districts,senate2021-lines,counties,us-cart,senate2021-labels,cities '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/PA/images/PA_senate_2021.svg' \
 ```
 
 # ai2html
@@ -227,7 +227,7 @@ To change the color of water areas:
 
 
 ```
-cd '/Users/cervas/My Drive/GitHub/Data Files'
+cd '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/Data Files'
 mapshaper -i 'Census/PA2020.pl/GIS/tracts/tracts.json' name=tracts \
   -i 'Census/PA2020.pl/GIS/tracts/tracts.json' name=Blacks \
   -i 'Census/PA2020.pl/GIS/tracts/tracts.json' name=Asians \
@@ -295,7 +295,7 @@ mapshaper -i "GIS/2021-10-14 LRC Data Release No. 2 (with prisoner reallocations
   -each 'type="counties"' \
   -proj EPSG:3652 \
   -style fill=none stroke=#000 stroke-width=0.5 opacity=0.25 \
-  -i '/Users/cervas/My Drive/GitHub/Data Files/GIS/Cartographic/2021/cb_2021_us_all_500k/cb_2021_us_state_500k/cb_2021_us_state_500k.shp' \
+  -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/Data Files/GIS/Cartographic/2021/cb_2021_us_all_500k/cb_2021_us_state_500k/cb_2021_us_state_500k.shp' \
   -filter 'GEOID=="42"' \
   -proj EPSG:3652 \
   -style fill=none stroke=#000 stroke-width=1 \
@@ -351,7 +351,7 @@ mapshaper  -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu
 ### Cities
 
 ```
-mapshaper -i '/Users/cervas/My Drive/GitHub/Data Files/GIS/USA_Major_Cities.geojson' name=cities \
+mapshaper -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/Data Files/GIS/USA_Major_Cities.geojson' name=cities \
   -proj target=cities EPSG:3652 \
   -filter target=cities '["PA"].indexOf(ST) > -1' \
   -filter target=cities '["Pittsburgh","Erie", "State College","Allentown","Philadelphia","Harrisburg"].indexOf(NAME) > -1' \
@@ -366,5 +366,5 @@ mapshaper -i '/Users/cervas/My Drive/GitHub/Data Files/GIS/USA_Major_Cities.geoj
   -each target=cities 'type="point"' \
   -each target=cities-labels 'type="text-label"' \
   -merge-layers target=cities-labels,cities force \
-  -o target=cities,cities-labels '/Users/cervas/My Drive/GitHub/createMaps/PA/cities.json' format=geojson
+  -o target=cities,cities-labels '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/PA/cities.json' format=geojson
   ```
