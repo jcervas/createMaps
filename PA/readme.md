@@ -22,7 +22,7 @@ mapshaper -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.
   -innerlines target=counties \
   -style target=counties fill=none stroke=#000 stroke-width=1 stroke-dasharray="0 3 0" \
   -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/PA/cities.json' name=cities \
-  -proj target='counties,us-cart' EPSG:3652 \
+  -proj target='counties,counties-styled,us-cart' EPSG:3652 \
 ```
 
 ### Tract density map
