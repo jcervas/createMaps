@@ -52,7 +52,7 @@ mapshaper -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.
   -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/Redistricting/2022/PA/data/Plans/PA-2020-State-House.geojson' name=house \
   -proj target=house EPSG:3652 \
   -clip target=house us-cart \
-  -classify target=house field=PopDevPct save-as=fill breaks=-0.05,0,0.05 colors=colors=#e66101,#fdb863,#b2abd2,#5e3c99 null-value="#fff" key-name="legend_popdev" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" \
+  -classify target=house field=PopDevPct save-as=fill breaks=-0.05,0,0.05 colors=#e66101,#fdb863,#b2abd2,#5e3c99 null-value="#fff" key-name="legend_popdev" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" \
   -style target=house opacity=0.75 stroke=fill stroke-width=0.0 stroke-opacity=0 \
   -dissolve target=house field=fill \
   -each target=house 'type="house"' \
@@ -63,7 +63,7 @@ mapshaper -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.
   -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/Redistricting/2022/PA/data/Plans/PA-2020-State-Senate.geojson' name=senate \
   -proj target=senate EPSG:3652 \
   -clip target=senate us-cart \
-  -classify target=senate field=PopDevPct save-as=fill breaks=-0.05,0,0.05 colors=colors=#e66101,#fdb863,#b2abd2,#5e3c99 null-value="#fff" \
+  -classify target=senate field=PopDevPct save-as=fill breaks=-0.05,0,0.05 colors=#e66101,#fdb863,#b2abd2,#5e3c99 null-value="#fff" \
   -style target=senate opacity=0.75 stroke=fill stroke-width=0.0 stroke-opacity=0 \
   -dissolve target=senate field=fill \
   -each target=senate 'type="senate"' \
