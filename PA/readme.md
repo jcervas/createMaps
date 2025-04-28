@@ -18,6 +18,7 @@ mapshaper -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.
   -each target=counties 'cx=this.innerX, cy=this.innerY' \
   -points target=counties x=cx y=cy + name=counties-labels \
   -style target=counties-labels label-text=NAME text-anchor=middle font-size=10px font-weight=800 line-height=16px font-family=arial class="g-text-shadow p" \
+  -filter target=counties STATEFP==42 + name=counties-styled \
   -innerlines target=counties \
   -style target=counties fill=none stroke=#000 stroke-width=1 stroke-dasharray="0 3 0" \
   -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/PA/cities.json' name=cities \
@@ -46,6 +47,14 @@ mapshaper -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.
 ```
 
 ## Specialized maps
+
+### County Population Chanage 
+```
+- '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/PA/pa_county.csv' name=pa_county
+-join target=counties-styled pa_county keys=AFFGEOID,name
+-classify target=counties-styled field=pop_change_per save-as=fill breaks=-5,0,5 colors='#e66101','#fdb863','#b2abd2','#5e3c99' null-value="#fff" key-name="legend_popdev" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%"
+-o target=urban,counties-styled,counties-labels,us-cart '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/PA/images/PA_counties-styled.svg' \
+```
 
 ### PA House 2013 Population Deviations
 ```
