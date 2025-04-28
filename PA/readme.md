@@ -49,7 +49,7 @@ mapshaper -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.
 
 ### PA House 2013 Population Deviations
 ```
-  -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/Redistricting/2022/PAA/data/Plans/PA-2020-State-House.geojson' name=house \
+  -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/Redistricting/2022/PA/data/Plans/PA-2020-State-House.geojson' name=house \
   -proj target=house EPSG:3652 \
   -clip target=house us-cart \
   -classify target=house field=PopDevPct save-as=fill breaks=-0.05,0,0.05 colors=PuOr null-value="#fff" key-name="legend_popdev" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" \
@@ -262,9 +262,8 @@ mapshaper -i 'Census/PA2020.pl/GIS/tracts/tracts.json' name=tracts \
   -o target="dot_Blacks,PA" maps/dots_Black_PA_2020.svg format=svg combine-layers
 ```
 
-
 ```
-mapshaper -i '/Users/cervas/My Drive/Projects/Redistricting/2022/PA/GIS/precincts.json' name='precincts' \
+mapshaper -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/Projects/Redistricting/2022/PA/GIS/precincts.json' name='precincts' \
   -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/cb_2021_us_state_500k.json' name=PA \
   -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/LDPC_gis/WP_Counties.json' name=counties \
   -filter target="PA" 'GEOID=="42"' \
@@ -279,8 +278,8 @@ mapshaper -i '/Users/cervas/My Drive/Projects/Redistricting/2022/PA/GIS/precinct
   -style target="precincts" opacity=density/330 \
   -dots target=precincts fields='Y20PRESD,Y20PRESR' per-dot=10 colors="#445e96,#ba3a33" r=0.2 evenness=0 + name=dot_DEM \
   -style target="PA" fill=none stroke=#000 stroke-width=1 \
-  -o target="precincts,counties,PA" "/Users/cervas/My Drive/Projects/Redistricting/2022/PA/GIS/PA_2020_precinct.svg" format=svg combine-layers \
-  -o target="dot_DEM,counties,PA" "/Users/cervas/My Drive/Projects/Redistricting/2022/PA/GIS/PA_2020_precinct_dots.svg" format=svg combine-layers  
+  -o target="precincts,counties,PA" "/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/Projects/Redistricting/2022/PA/GIS/PA_2020_precinct.svg" format=svg combine-layers \
+  -o target="dot_DEM,counties,PA" "/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/Projects/Redistricting/2022/PA/GIS/PA_2020_precinct_dots.svg" format=svg combine-layers  
 ```
 
 
@@ -330,7 +329,7 @@ mapshaper -i "/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.
 
 # Nordenbergmander
 ```
-mapshaper -i "/Users/cervas/My Drive/Projects/Redistricting/2022/PA/data/Plans/PA-LRC-House-Preliminary.geojson" name=LRCpre \
+mapshaper -i "/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/Projects/Redistricting/2022/PA/data/Plans/PA-LRC-House-Preliminary.geojson" name=LRCpre \
   -i "/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/Data Files/Census/PA2020.pl/GIS/Certified-Geography/WP_Municipalities.shp" name=muni \
   -proj target="muni,LRCpre" EPSG:3652 \
   -style target=muni fill=none stroke=#000 stroke-width=0.5 stroke-opacity=0.25 \
