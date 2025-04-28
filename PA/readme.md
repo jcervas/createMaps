@@ -49,7 +49,7 @@ mapshaper -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.
 
 ### PA House 2013 Population Deviations
 ```
-  -i '/Users/cervas/My Drive/Projects/Redistricting/2022/PA/data/Plans/PA-2020-State-House.geojson' name=house \
+  -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/Redistricting/2022/PAA/data/Plans/PA-2020-State-House.geojson' name=house \
   -proj target=house EPSG:3652 \
   -clip target=house us-cart \
   -classify target=house field=PopDevPct save-as=fill breaks=-0.05,0,0.05 colors=PuOr null-value="#fff" key-name="legend_popdev" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" \
@@ -60,7 +60,7 @@ mapshaper -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.
 
 ### PA Senate 2013 Population Deviations
 ```
-  -i '/Users/cervas/My Drive/Projects/Redistricting/2022/PA/data/Plans/PA-2020-State-Senate.geojson' name=senate \
+  -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/Redistricting/2022/PA/data/Plans/PA-2020-State-Senate.geojson' name=senate \
   -proj target=senate EPSG:3652 \
   -clip target=senate us-cart \
   -classify target=senate field=PopDevPct save-as=fill breaks=-0.05,0,0.05 colors=PuOr null-value="#fff" \
@@ -73,7 +73,7 @@ mapshaper -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.
 
 ### State House
 ```
-  -i '/Users/cervas/My Drive/Projects/Redistricting/2022/PA/data/Plans/PA-2022-State-House.geojson' name=house2021 \
+  -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/Redistricting/2022/PA/data/Plans/PA-2022-State-House.geojson' name=house2021 \
   -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/Data/Elections/State Legislature/PA/data/STH_house_dist.csv' name=house2022 string-fields=district \
   -proj target=house2021 EPSG:3652 \
   -join target=house2021 source=house2022 keys=NAME,district \
@@ -95,7 +95,7 @@ mapshaper -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.
 
 ### State Senate
 ```
-  -i '/Users/cervas/My Drive/Projects/Redistricting/2022/PA/data/Plans/PA-2022-State-Senate.geojson' name=senate2021 \
+  -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/Redistricting/2022/PA/data/Plans/PA-2022-State-Senate.geojson' name=senate2021 \
   -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/Data/Elections/State Legislature/PA/data/STS_sen_dist.csv' name=senate2022 string-fields=district \
   -proj target=senate2021 EPSG:3652 \
   -join target=senate2021 source=senate2022 keys=NAME,district \
