@@ -50,8 +50,8 @@ mapshaper -i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.
 
 ### County Population Chanage 
 ```
-- '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/PA/pa_county.csv' name=pa_county \
--join target=counties-styled pa_county keys=AFFGEOID,name \
+-i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/PA/pa_county.csv' name=pa_county \
+-join target=counties-styled source=pa_county keys=AFFGEOID,name \
 -classify target=counties-styled field=pop_change_per save-as=fill breaks=-5,0,5 colors='#e66101','#fdb863','#b2abd2','#5e3c99' null-value="#fff" key-name="legend_popdev" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="%" \
 -o target=urban,counties-styled,counties-labels,us-cart '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/PA/images/PA_counties-styled.svg' \
 ```
