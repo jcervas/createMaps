@@ -33,5 +33,5 @@ fips <- data.frame(
 
 fips$color <- ifelse(fips$abv %in% state, color, "#fff")  # Default color for other states
 
-write.csv(fips, '/Users/cervas/Library/Mobile Documents/com~apple~CloudDocs/Downloads/gerrymanders.csv', row.names=FALSE)
+write.csv(fips, 'gerrymanders.csv', row.names=FALSE)
 
