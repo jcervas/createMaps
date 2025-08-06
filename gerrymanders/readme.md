@@ -27,14 +27,14 @@ Load county boundaries ; Load CSV with gerrymander data (sourced from gerrymande
 ```sh
 mapshaper \
     -i 'counties-albers-med.json' \
-    -i 'gerrymanders.csv' \                        
-    -join target=states source=gerrymanders.csv keys='ST,abv' \  
+    -i 'gerrymanders.csv' \         
+    -join target=states source=gerrymanders.csv keys='ST,abv' \
 ```
 
 ## Style the map layers # Style state lines # Style state fills 
 ```sh
--style target=statelines fill=none stroke='#b0c4b1' stroke-width=1 stroke-dasharray="0 3 0" \  
--style target=states fill=color stroke=#b0c4b1 stroke-width=1 \                                 
+-style target=statelines fill=none stroke='#b0c4b1' stroke-width=1 stroke-dasharray="0 3 0" \
+-style target=states fill=color stroke=#b0c4b1 stroke-width=1 \                   
 ```
 
 ## Export the styled map as an SVG file
