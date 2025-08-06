@@ -25,7 +25,7 @@ Run Mapshaper to generate the map:
 # Load county boundaries and gerrymander data
 mapshaper \
     -i 'counties-albers-med.json' \                # Load county boundaries
-    -i 'gerrymanders.csv' \                        # Load CSV with gerrymander data
+    -i 'gerrymanders.csv' \                        # Load CSV with gerrymander data (sourced from gerrymander.princeton.edu)
     -join target=states source=gerrymanders.csv \  # Join gerrymander data to state geometries
         keys='ST,abv'                                # Match on state abbreviation
 ```
@@ -41,6 +41,6 @@ mapshaper \
 -o target=statelines,states 'images/gerrymanders.svg'
 ```
 
-## 2025 Worst Gerrymandered states
+## 2025 Worst Gerrymandered States
 
 ![](images/gerrymanders.svg)
