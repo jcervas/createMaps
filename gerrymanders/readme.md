@@ -32,8 +32,8 @@ mapshaper \
 
 ```sh
 # Style the map layers
--style target=statelines fill=none stroke='#fff' stroke-width=1 stroke-dasharray="0 3 0" \  # Style state lines
--style target=states fill=color stroke=#000 stroke-width=1                                 # Style state fills
+-style target=statelines fill=none stroke='#b0c4b1' stroke-width=1 stroke-dasharray="0 3 0" \  # Style state lines
+-style target=states fill=color stroke=#b0c4b1 stroke-width=1                                 # Style state fills
 ```
 
 ```sh
