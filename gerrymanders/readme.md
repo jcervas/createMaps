@@ -21,7 +21,7 @@ cd '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Dri
 
 Run R Script to create data with gerrymandered states
 ```r
-r source("/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/gerrymanders/gerrymander_map.r", encoding = "UTF-8")
+r source("https://raw.githubusercontent.com/jcervas/createMaps/refs/heads/main/gerrymanders/gerrymander_map.r", encoding = "UTF-8")
 ```
 
 Run Mapshaper to generate the map:
