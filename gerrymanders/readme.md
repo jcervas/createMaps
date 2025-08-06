@@ -21,23 +21,24 @@ cd '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Dri
 
 Run Mapshaper to generate the map:
 
+## Load county boundaries and gerrymander data
+
+Load county boundaries ; Load CSV with gerrymander data (sourced from gerrymander.princeton.edu) ; Join gerrymander data to state geometries # Match on state abbreviation
 ```sh
-# Load county boundaries and gerrymander data
 mapshaper \
-    -i 'counties-albers-med.json' \                # Load county boundaries
-    -i 'gerrymanders.csv' \                        # Load CSV with gerrymander data (sourced from gerrymander.princeton.edu)
-    -join target=states source=gerrymanders.csv keys='ST,abv' \  # Join gerrymander data to state geometries
-                                        # Match on state abbreviation
+    -i 'counties-albers-med.json' \
+    -i 'gerrymanders.csv' \                        
+    -join target=states source=gerrymanders.csv keys='ST,abv' \  
 ```
 
+## Style the map layers # Style state lines # Style state fills 
 ```sh
-# Style the map layers
--style target=statelines fill=none stroke='#b0c4b1' stroke-width=1 stroke-dasharray="0 3 0" \  # Style state lines
--style target=states fill=color stroke=#b0c4b1 stroke-width=1 \                                 # Style state fills
+-style target=statelines fill=none stroke='#b0c4b1' stroke-width=1 stroke-dasharray="0 3 0" \  
+-style target=states fill=color stroke=#b0c4b1 stroke-width=1 \                                 
 ```
 
+## Export the styled map as an SVG file
 ```sh
-# Export the styled map as an SVG file
 -o target=statelines,states 'images/gerrymanders.svg'
 ```
 
