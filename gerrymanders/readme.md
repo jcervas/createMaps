@@ -44,3 +44,4 @@ mapshaper \
 ## 2025 Worst Gerrymandered States
 
 ![](images/gerrymanders.svg)
+**Sources:** Map adapted from The New York Times; data from Princeton Gerrymandering Project Report Cards.
