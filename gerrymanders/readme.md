@@ -26,14 +26,14 @@ Run Mapshaper to generate the map:
 mapshaper \
     -i 'counties-albers-med.json' \                # Load county boundaries
     -i 'gerrymanders.csv' \                        # Load CSV with gerrymander data (sourced from gerrymander.princeton.edu)
-    -join target=states source=gerrymanders.csv \  # Join gerrymander data to state geometries
-        keys='ST,abv'                                # Match on state abbreviation
+    -join target=states source=gerrymanders.csv keys='ST,abv' \  # Join gerrymander data to state geometries
+                                        # Match on state abbreviation
 ```
 
 ```sh
 # Style the map layers
 -style target=statelines fill=none stroke='#b0c4b1' stroke-width=1 stroke-dasharray="0 3 0" \  # Style state lines
--style target=states fill=color stroke=#b0c4b1 stroke-width=1                                 # Style state fills
+-style target=states fill=color stroke=#b0c4b1 stroke-width=1 \                                 # Style state fills
 ```
 
 ```sh
