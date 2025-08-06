@@ -19,6 +19,11 @@ Change to the project directory:
 cd '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/gerrymanders'
 ```
 
+Run R Script to create data with gerrymandered states
+```r
+Rscript gerrymander_map.r
+```
+
 Run Mapshaper to generate the map:
 
 ## Load county boundaries and gerrymander data
