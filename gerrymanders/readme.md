@@ -30,7 +30,8 @@ Run Mapshaper to generate the map:
 
 - Load county boundaries
 - Load CSV with gerrymander data (sourced from gerrymander.princeton.edu)
-- Join gerrymander data to state geometries # Match on state abbreviation
+- Join gerrymander data to state geometries
+- Match on state abbreviation
 ```sh
 mapshaper \
     -i 'counties-albers-med.json' \
