@@ -36,8 +36,11 @@ Run Mapshaper to generate the map:
 mapshaper \
     -i 'counties-albers-med.json' \
     -i 'gerrymanders.csv' \
-    -join target=states source=gerrymanders.csv keys='ST,abv' \
+    -join target=states,state_labels source=gerrymanders.csv keys='ST,abv' \
 ```
+
+```sh
+    -filter target=state_labels 
 
 ## Style the map layers # Style state lines # Style state fills 
 ```sh
