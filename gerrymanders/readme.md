@@ -47,7 +47,7 @@ mapshaper \
 
 ## Style the map layers # Style state lines # Style state fills 
 ```sh
-    -style target=statelines fill=none stroke='#b0c4b1' stroke-width=1" \
+    -style target=statelines fill=none stroke='#b0c4b1' stroke-width=1 \
     -style target=states fill=color stroke=none stroke-width=1 \
     -dissolve target=states + name=US \
     -style target=US fill=none stroke=#000 \
