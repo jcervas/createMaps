@@ -47,7 +47,7 @@ mapshaper \
 
 ## Style the map layers # Style state lines # Style state fills 
 ```sh
-    -style target=statelines fill=none stroke='#b0c4b1' stroke-width=1 stroke-dasharray="0 3 0" \
+    -style target=statelines fill=none stroke='#b0c4b1' stroke-width=1" \
     -style target=states fill=color stroke=none stroke-width=1 \
     -dissolve target=states + name=US \
     -style target=US fill=none stroke=#000 \
@@ -55,7 +55,7 @@ mapshaper \
 
 ## Export the styled map as an SVG file
 ```sh
-    -o target=state_labels,statelines,states 'images/gerrymanders.svg'
+    -o target=states,statelines,state_labels,US 'images/gerrymanders.svg'
 ```
 
 ## 2025 Worst Gerrymandered States
