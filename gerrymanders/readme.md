@@ -32,6 +32,7 @@ Run Mapshaper to generate the map:
 - Load CSV with gerrymander data (sourced from gerrymander.princeton.edu)
 - Join gerrymander data to state geometries
 - Match on state abbreviation
+
 ```sh
 mapshaper \
     -i 'counties-albers-med.json' \
@@ -40,17 +41,18 @@ mapshaper \
 ```
 
 ```sh
-    -filter target=state_labels 
+    -filter target=state_labels 'color=="#EA655D"' \
+```
 
 ## Style the map layers # Style state lines # Style state fills 
 ```sh
--style target=statelines fill=none stroke='#b0c4b1' stroke-width=1 stroke-dasharray="0 3 0" \
--style target=states fill=color stroke='#b0c4b1' stroke-width=1 \
+    -style target=statelines fill=none stroke='#b0c4b1' stroke-width=1 stroke-dasharray="0 3 0" \
+    -style target=states fill=color stroke='#b0c4b1' stroke-width=1 \
 ```
 
 ## Export the styled map as an SVG file
 ```sh
--o target=statelines,states 'images/gerrymanders.svg'
+    -o target=statelines,states 'images/gerrymanders.svg'
 ```
 
 ## 2025 Worst Gerrymandered States
