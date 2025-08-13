@@ -58,7 +58,7 @@ mapshaper \
     -o target=states,statelines,state_labels,US 'images/gerrymanders.svg'
 ```
 
-## 2025 Worst Gerrymandered States
+## 2025 Worst Gerrymandered States (Congress)
 
 ![](images/gerrymanders.svg)    
 **Sources:** Map adapted from The New York Times; data from Princeton Gerrymandering Project Report Cards.
