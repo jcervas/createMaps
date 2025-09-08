@@ -3,7 +3,7 @@
 Democrat Win
 | Hex Code  | Color Swatch   |
 |-----------|----------------|
-| #CEEAFD   |<svg width="10" height="10"><rect width="10" height="10" style="fill:#CEEAFD;" /></svg> |
+| #CEEAFD   |<img src="colors/CEEAFD.svg" width="15" height="15"> |
 | #92BDE0   |![Color Swatch](https://place-hold.it/20/92BDE0/92BDE0) |
 | #5295CC   |![Color Swatch](https://place-hold.it/20/5295CC/5295CC) |
 | #1375B7   |![Color Swatch](https://place-hold.it/20/1375B7/1375B7) |
