@@ -1,10 +1,32 @@
 # Map Colors
 
+<style>
+  .box {
+  float: left;
+  height: 20px;
+  width: 20px;
+  margin-bottom: 15px;
+  border: 1px solid black;
+  clear: both;
+}
+
+.CEEAFD {
+  background-color: #CEEAFD;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+</style>
 
 Democrat Win
 | Hex Code  | Color Swatch   |
 |-----------|----------------|
-| #CEEAFD   |![Color Swatch](https://place-hold.it/20/CEEAFD/CEEAFD) |
+| #CEEAFD   |<div class="box CEEAFD"</div> |
 | #92BDE0   |![Color Swatch](https://place-hold.it/20/92BDE0/92BDE0) |
 | #5295CC   |![Color Swatch](https://place-hold.it/20/5295CC/5295CC) |
 | #1375B7   |![Color Swatch](https://place-hold.it/20/1375B7/1375B7) |
