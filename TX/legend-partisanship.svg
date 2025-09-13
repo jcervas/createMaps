@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny" width="200" height="29" viewBox="0 0 200 29" stroke-linecap="butt" stroke-linejoin="round">
+<style>
+  path {shape-rendering: crispEdges;}
+</style>
+<g id="layer18">
+<path d="M 1 11 1 1.01 34 1.01 34 11 1 11 Z" fill="#C93135"/>
+<path d="M 34 11 34 1.01 67 1.01 67 11 34 11 Z" fill="#DB7171"/>
+<path d="M 67 11 67 1.01 100 1.01 100 11 67 11 Z" fill="#EAA9A9"/>
+<path d="M 100 11 100 1.01 133 1.01 133 11 100 11 Z" fill="#CEEAFD"/>
+<path d="M 133 11 133 1.01 166 1.01 166 11 133 11 Z" fill="#5295CC"/>
+<path d="M 166 11 166 1.01 199 1.01 199 11 166 11 Z" fill="#08306B"/>
+</g>
+<g id="layer19" fill="none" stroke="black" stroke-width="1">
+<path d="M 34 1.01 34 17" stroke="rgba(0,0,0,0.3)"/>
+<path d="M 67 1.01 67 17" stroke="rgba(0,0,0,0.3)"/>
+<path d="M 100 1.01 100 17" stroke="rgba(0,0,0,0.3)"/>
+<path d="M 133 1.01 133 17" stroke="rgba(0,0,0,0.3)"/>
+<path d="M 166 1.01 166 17" stroke="rgba(0,0,0,0.3)"/>
+</g>
+<g id="layer20" font-family="sans-serif" font-size="12" text-anchor="middle">
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(34 28)">20</text>
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(67 28)">35</text>
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(100 28)">50</text>
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(133 28)">65</text>
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(166 28)">80%</text>
+</g>
+</svg>
