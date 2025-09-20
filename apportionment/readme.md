@@ -12,6 +12,9 @@ This repository contains a Mapshaper workflow to generate SVG maps of U.S. congr
 ### Citizen Voting-Age Population
 ![Citizen Apportionment](citizens.svg)
 
+### Effect of Citizen-Only Apportionment
+![Citizen Apportionment Effect](effect.svg)
+
 ## Workflow
 
 ```shell
@@ -27,26 +30,35 @@ mapshaper \
 -join target=states source=apportionment keys=NAME,State \
 -filter target=states diff!=0 + name=total \
 -filter target=states citizen_diff!=0 + name=citizen \
+-filter target=states diff!=0 + name=effect \
 -classify target=total field=diff breaks=-4,-3,-2,-1,0,1,2,3,4 \
   colors="#850C20,#C41230,#FF086C,#FF7015,#FDB515,#E0E0E0,#00EB8B,#688758,#3A6BB5,#182C4B" \
--each target=total 'cx=this.innerX, cy=this.innerY' \
--points target=total x=cx y=cy + name=total_labels \
--style target=total_labels label-text='NAME + "\n" + diff' \
-  text-anchor=middle fill=#000 stroke=none opacity=1 \
-  font-size=14px font-weight=600 line-height=20px font-family=arial class="g-text-shadow p" \
 -classify target=citizen field=citizen_diff breaks=-4,-3,-2,-1,0,1,2,3,4 \
+  colors="#850C20,#C41230,#FF086C,#FF7015,#FDB515,#E0E0E0,#00EB8B,#688758,#3A6BB5,#182C4B" \
+-classify target=effect field=effect breaks=-4,-3,-2,-1,0,1,2,3,4 \
   colors="#850C20,#C41230,#FF086C,#FF7015,#FDB515,#E0E0E0,#00EB8B,#688758,#3A6BB5,#182C4B" \
   key-name="legend" key-style="simple" key-tile-height=10 key-width=320 \
   key-font-size=10 key-last-suffix='+' \
+-each target=total 'cx=this.innerX, cy=this.innerY' \
 -each target=citizen 'cx=this.innerX, cy=this.innerY' \
+-each target=effect 'cx=this.innerX, cy=this.innerY' \
+-points target=total x=cx y=cy + name=total_labels \
 -points target=citizen x=cx y=cy + name=citizen_labels \
+-points target=effect x=cx y=cy + name=effect_labels \
+-style target=total_labels label-text='NAME + "\n" + diff' \
+  text-anchor=middle fill=#000 stroke=none opacity=1 \
+  font-size=14px font-weight=600 line-height=20px font-family=arial class="g-text-shadow p" \
 -style target=citizen_labels label-text='NAME + "\n" + citizen_diff' \
   text-anchor=middle fill=#000 stroke=none opacity=1 \
   font-size=14px font-weight=600 line-height=20px font-family=arial class="g-text-shadow p" \
--style target=citizen,total stroke=#ddd \
+-style target=effect_labels label-text='NAME + "\n" + citizen_diff' \
+  text-anchor=middle fill=#000 stroke=none opacity=1 \
+  font-size=14px font-weight=600 line-height=20px font-family=arial class="g-text-shadow p" \
+-style target=effect,citizen,total stroke=#ddd \
 -style target=states stroke=#ddd fill=#fff \
 -o target=states,total,US,total_labels 'total.svg' \
--o target=states,citizen,US,citizen_labels 'citizens.svg'
+-o target=states,citizen,US,citizen_labels 'citizens.svg' \
+-o target=states,effect,US,effect_labels 'effect.svg' 
 ```
 
 ```shell
