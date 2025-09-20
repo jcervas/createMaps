@@ -37,4 +37,8 @@
 <text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(255.4 28)">3</text>
 <text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(287.2 28)">4+</text>
 </g>
+<style media="screen,print">
+.g-Shadow p { text-shadow: 1px 1px 0px rgba(254, 254, 254, .15); }
+.g-text-shadow { text-shadow: 1px 1px 1px rgba(254,254,254,1), -1px 1px 1px rgba(254,254,254,1), 1px -1px 1px rgba(254,254,254,1), -1px -1px 1px rgba(254,254,254,1); }
+</style>
 </svg>
