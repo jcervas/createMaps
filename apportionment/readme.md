@@ -30,7 +30,7 @@ mapshaper \
 -join target=states source=apportionment keys=NAME,State \
 -filter target=states diff!=0 + name=total \
 -filter target=states citizen_diff!=0 + name=citizen \
--filter target=states diff!=0 + name=effect \
+-filter target=states effect!=0 + name=effect \
 -classify target=total field=diff breaks=-4,-3,-2,-1,0,1,2,3,4 \
   colors="#850C20,#C41230,#FF086C,#FF7015,#FDB515,#E0E0E0,#00EB8B,#688758,#3A6BB5,#182C4B" \
 -classify target=citizen field=citizen_diff breaks=-4,-3,-2,-1,0,1,2,3,4 \
