@@ -8,7 +8,7 @@ This repository contains a Mapshaper workflow to generate SVG maps of U.S. congr
 cd '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/apportionment'
 
 mapshaper \
--i 'cb_2024_us_state_500k/cb_2024_us_state_500k.shp' name=states \
+-i 'states.json' name=states \
 -i 'apportionment-projections-sept-19-2025.csv' name=apportionment \
 -dissolve target=states + name=US \
 -style target=US fill=none stroke=#000 \
