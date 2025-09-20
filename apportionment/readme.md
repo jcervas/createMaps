@@ -11,7 +11,7 @@ mapshaper \
 -i 'states.json' name=states \
 -i 'apportionment-projections-sept-19-2025.csv' name=apportionment \
 -dissolve target=states + name=US \
--style target=US fill=none stroke=#000 \
+-style target=US fill=#fff stroke=#000 \
 -filter target=states 'NAME != "District of Columbia"' \
 -proj target=states albersusa \
 -join target=states source=apportionment keys=NAME,State \
