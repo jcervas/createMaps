@@ -11,7 +11,7 @@ mapshaper \
 -i 'states.json' name=states \
 -i 'apportionment-projections-sept-19-2025.csv' name=apportionment \
 -dissolve target=states + name=US \
--style target=US fill=#fff stroke=#000 \
+-style target=US fill=none stroke=#000 \
 -filter target=states 'NAME != "District of Columbia"' \
 -proj target=states albersusa \
 -join target=states source=apportionment keys=NAME,State \
@@ -34,9 +34,9 @@ mapshaper \
   text-anchor=middle fill=#000 stroke=none opacity=1 \
   font-size=14px font-weight=600 line-height=20px font-family=arial \
 -style target=citizen,total stroke=#ddd \
--style target=states stroke=#ddd fill=none \
--o target=total,states,US,total_labels 'total.svg' \
--o target=citizen,states,US,citizen_labels 'citizens.svg'
+-style target=states stroke=#ddd fill=#fff \
+-o target=states,total,US,total_labels 'total.svg' \
+-o target=states,citizen,US,citizen_labels 'citizens.svg'
 ```
 
 ## Description
