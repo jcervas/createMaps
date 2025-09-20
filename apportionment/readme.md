@@ -26,7 +26,7 @@ mapshaper \
   font-size=14px font-weight=600 line-height=20px font-family=arial \
 -classify target=citizen field=citizen_diff breaks=-4,-3,-2,-1,0,1,2,3,4 \
   colors="#850C20,#C41230,#FF086C,#FF7015,#FDB515,#E0E0E0,#00EB8B,#688758,#3A6BB5,#182C4B" \
-  key-name="legend" key-style="dataviz" key-tile-height=10 key-width=320 \
+  key-name="legend" key-style="simple" key-tile-height=10 key-width=320 \
   key-font-size=10 key-last-suffix='+' \
 -each target=citizen 'cx=this.innerX, cy=this.innerY' \
 -points target=citizen x=cx y=cy + name=citizen_labels \
