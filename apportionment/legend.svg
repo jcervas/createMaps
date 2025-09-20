@@ -1,52 +1,40 @@
 <?xml version="1.0"?>
-<svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny" width="320" height="92" viewBox="0 0 320 92" stroke-linecap="butt" stroke-linejoin="round">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny" width="320" height="29" viewBox="0 0 320 29" stroke-linecap="butt" stroke-linejoin="round">
 <style>
   path {shape-rendering: crispEdges;}
 </style>
 <g id="layer1">
-<path d="M 1 70.23 1 58.69 4.86 58.69 4.86 70.23 1 70.23 Z" fill="#ddd"/>
-<path d="M 105.34 70.23 105.34 47.15 109.21 47.15 109.21 70.23 105.34 70.23 Z" fill="#ddd"/>
-<path d="M 140.13 70.23 140.13 58.69 143.99 58.69 143.99 70.23 140.13 70.23 Z" fill="#ddd"/>
-<path d="M 209.69 70.23 209.69 1 213.55 1 213.55 70.23 209.69 70.23 Z" fill="#ddd"/>
-<path d="M 244.47 70.23 244.47 47.15 248.33 47.15 248.33 70.23 244.47 70.23 Z" fill="#ddd"/>
+<path d="M 1 11 1 1.01 32.8 1.01 32.8 11 1 11 Z" fill="#850C20"/>
+<path d="M 32.8 11 32.8 1.01 64.6 1.01 64.6 11 32.8 11 Z" fill="#C41230"/>
+<path d="M 64.6 11 64.6 1.01 96.4 1.01 96.4 11 64.6 11 Z" fill="#FF086C"/>
+<path d="M 96.4 11 96.4 1.01 128.2 1.01 128.2 11 96.4 11 Z" fill="#FF7015"/>
+<path d="M 128.2 11 128.2 1.01 160 1.01 160 11 128.2 11 Z" fill="#FDB515"/>
+<path d="M 160 11 160 1.01 191.8 1.01 191.8 11 160 11 Z" fill="#E0E0E0"/>
+<path d="M 191.8 11 191.8 1.01 223.6 1.01 223.6 11 191.8 11 Z" fill="#00EB8B"/>
+<path d="M 223.6 11 223.6 1.01 255.4 1.01 255.4 11 223.6 11 Z" fill="#688758"/>
+<path d="M 255.4 11 255.4 1.01 287.2 1.01 287.2 11 255.4 11 Z" fill="#3A6BB5"/>
+<path d="M 287.2 11 287.2 1.01 319 1.01 319 11 287.2 11 Z" fill="#182C4B"/>
 </g>
-<g id="layer2">
-<path d="M 1 77.93 1 70.23 36.33 70.23 36.33 77.93 1 77.93 Z" fill="#850C20"/>
-<path d="M 36.33 77.93 36.33 70.23 71.67 70.23 71.67 77.93 36.33 77.93 Z" fill="#C41230"/>
-<path d="M 71.67 77.93 71.67 70.23 107 70.23 107 77.93 71.67 77.93 Z" fill="#FF086C"/>
-<path d="M 107 77.93 107 70.23 142.33 70.23 142.33 77.93 107 77.93 Z" fill="#FF7015"/>
-<path d="M 142.33 77.93 142.33 70.23 177.67 70.23 177.67 77.93 142.33 77.93 Z" fill="#FDB515"/>
-<path d="M 177.67 77.93 177.67 70.23 213 70.23 213 77.93 177.67 77.93 Z" fill="#E0E0E0"/>
-<path d="M 213 77.93 213 70.23 248.33 70.23 248.33 77.93 213 77.93 Z" fill="#00EB8B"/>
-<path d="M 248.33 77.93 248.33 70.23 283.67 70.23 283.67 77.93 248.33 77.93 Z" fill="#688758"/>
-<path d="M 283.67 77.93 283.67 70.23 319 70.23 319 77.93 283.67 77.93 Z" fill="#3A6BB5"/>
-<path d="M 319 77.93 248.33 77.93 248.33 70.23 319 70.23 319 77.93 Z" fill="#182C4B"/>
-<g/>
+<g id="layer2" fill="none" stroke="black" stroke-width="1">
+<path d="M 32.8 1.01 32.8 17" stroke="rgba(0,0,0,0.3)"/>
+<path d="M 64.6 1.01 64.6 17" stroke="rgba(0,0,0,0.3)"/>
+<path d="M 96.4 1.01 96.4 17" stroke="rgba(0,0,0,0.3)"/>
+<path d="M 128.2 1.01 128.2 17" stroke="rgba(0,0,0,0.3)"/>
+<path d="M 160 1.01 160 17" stroke="rgba(0,0,0,0.3)"/>
+<path d="M 191.8 1.01 191.8 17" stroke="rgba(0,0,0,0.3)"/>
+<path d="M 223.6 1.01 223.6 17" stroke="rgba(0,0,0,0.3)"/>
+<path d="M 255.4 1.01 255.4 17" stroke="rgba(0,0,0,0.3)"/>
+<path d="M 287.2 1.01 287.2 17" stroke="rgba(0,0,0,0.3)"/>
 </g>
-<g id="layer3" fill="none" stroke="black" stroke-width="1">
-<path d="M 1 70.23 1 82.54" stroke="rgba(0,0,0,0.3)"/>
-<path d="M 36.33 70.23 36.33 82.54" stroke="rgba(0,0,0,0.3)"/>
-<path d="M 71.67 70.23 71.67 82.54" stroke="rgba(0,0,0,0.3)"/>
-<path d="M 107 70.23 107 82.54" stroke="rgba(0,0,0,0.3)"/>
-<path d="M 142.33 70.23 142.33 82.54" stroke="rgba(0,0,0,0.3)"/>
-<path d="M 177.67 70.23 177.67 82.54" stroke="rgba(0,0,0,0.3)"/>
-<path d="M 213 70.23 213 82.54" stroke="rgba(0,0,0,0.3)"/>
-<path d="M 248.33 70.23 248.33 82.54" stroke="rgba(0,0,0,0.3)"/>
-<path d="M 283.67 70.23 283.67 82.54" stroke="rgba(0,0,0,0.3)"/>
-<path d="M 319 70.23 319 82.54" stroke="rgba(0,0,0,0.3)"/>
-<path d="M 248.33 70.23 248.33 82.54" stroke="rgba(0,0,0,0.3)"/>
-</g>
-<g id="layer4" font-family="sans-serif" font-size="12" text-anchor="middle">
-<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="start" fill="#555" transform="translate(1 91)">-5</text>
-<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(36.3 91)">-4</text>
-<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(71.7 91)">-3</text>
-<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(107 91)">-2</text>
-<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(142.3 91)">-1</text>
-<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(177.7 91)">0</text>
-<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(213 91)">1</text>
-<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="end" fill="#555" transform="translate(248.3 91)">2</text>
-<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="end" fill="#555" transform="translate(283.7 91)">3</text>
-<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="end" fill="#555" transform="translate(319 91)">4</text>
-<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="end" fill="#555" transform="translate(248.3 91)">2+</text>
+<g id="layer3" font-family="sans-serif" font-size="12" text-anchor="middle">
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(32.8 28)">-4</text>
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(64.6 28)">-3</text>
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(96.4 28)">-2</text>
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(128.2 28)">-1</text>
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(160 28)">0</text>
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(191.8 28)">1</text>
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(223.6 28)">2</text>
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(255.4 28)">3</text>
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(287.2 28)">4+</text>
 </g>
 </svg>
