@@ -51,7 +51,7 @@ mapshaper \
 -style target=citizen_labels label-text='NAME + "\n" + citizen_diff' \
   text-anchor=middle fill=#000 stroke=none opacity=1 \
   font-size=14px font-weight=600 line-height=20px font-family=arial class="g-text-shadow p" \
--style target=effect_labels label-text='NAME + "\n" + citizen_diff' \
+-style target=effect_labels label-text='NAME + "\n" + effect_diff' \
   text-anchor=middle fill=#000 stroke=none opacity=1 \
   font-size=14px font-weight=600 line-height=20px font-family=arial class="g-text-shadow p" \
 -style target=effect,citizen,total stroke=#ddd \
