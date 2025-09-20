@@ -94,8 +94,4 @@
 <g/>
 <g/>
 </g>
-<style media="screen,print">
-.g-Shadow p { text-shadow: 1px 1px 0px rgba(254, 254, 254, .15); }
-.g-text-shadow { text-shadow: 1px 1px 1px rgba(254,254,254,1), -1px 1px 1px rgba(254,254,254,1), 1px -1px 1px rgba(254,254,254,1), -1px -1px 1px rgba(254,254,254,1); }
-</style>
 </svg>
