@@ -76,7 +76,7 @@ mapshaper \
 | +3    | `#3A6BB5` | Medium blue |
 | ≥ +4  | `#182C4B` | Dark navy blue |
 
-![Legend](color_breaks_legend.svg)
+![Legend](legend.svg)
 
 ## Maps
 
