@@ -4,41 +4,31 @@
   path {shape-rendering: crispEdges;}
 </style>
 <g id="layer1">
-<path d="M 1 11 1 1.01 32.8 1.01 32.8 11 1 11 Z" fill="#850C20"/>
-<path d="M 32.8 11 32.8 1.01 64.6 1.01 64.6 11 32.8 11 Z" fill="rgb(180, 32, 49)"/>
-<path d="M 64.6 11 64.6 1.01 96.4 1.01 96.4 11 64.6 11 Z" fill="rgb(227, 53, 67)"/>
-<path d="M 96.4 11 96.4 1.01 128.2 1.01 128.2 11 96.4 11 Z" fill="rgb(244, 99, 54)"/>
-<path d="M 128.2 11 128.2 1.01 160 1.01 160 11 128.2 11 Z" fill="rgb(250, 154, 32)"/>
-<path d="M 160 11 160 1.01 191.8 1.01 191.8 11 160 11 Z" fill="rgb(197, 168, 59)"/>
-<path d="M 191.8 11 191.8 1.01 223.6 1.01 223.6 11 191.8 11 Z" fill="rgb(84, 142, 135)"/>
-<path d="M 223.6 11 223.6 1.01 255.4 1.01 255.4 11 223.6 11 Z" fill="rgb(0, 115, 183)"/>
-<path d="M 255.4 11 255.4 1.01 287.2 1.01 287.2 11 255.4 11 Z" fill="rgb(2, 85, 149)"/>
-<path d="M 287.2 11 287.2 1.01 319 1.01 319 11 287.2 11 Z" fill="#043673"/>
+<path d="M 1 11 1 1.01 40.75 1.01 40.75 11 1 11 Z" fill="#8c510a"/>
+<path d="M 40.75 11 40.75 1.01 80.5 1.01 80.5 11 40.75 11 Z" fill="#bf812d"/>
+<path d="M 80.5 11 80.5 1.01 120.25 1.01 120.25 11 80.5 11 Z" fill="#dfc27d"/>
+<path d="M 120.25 11 120.25 1.01 160 1.01 160 11 120.25 11 Z" fill="#f6e8c3"/>
+<path d="M 160 11 160 1.01 199.75 1.01 199.75 11 160 11 Z" fill="#c7eae5"/>
+<path d="M 199.75 11 199.75 1.01 239.5 1.01 239.5 11 199.75 11 Z" fill="#80cdc1"/>
+<path d="M 239.5 11 239.5 1.01 279.25 1.01 279.25 11 239.5 11 Z" fill="#35978f"/>
+<path d="M 279.25 11 279.25 1.01 319 1.01 319 11 279.25 11 Z" fill="#01665e"/>
 </g>
 <g id="layer2" fill="none" stroke="black" stroke-width="1">
-<path d="M 32.8 1.01 32.8 17" stroke="rgba(0,0,0,0.3)"/>
-<path d="M 64.6 1.01 64.6 17" stroke="rgba(0,0,0,0.3)"/>
-<path d="M 96.4 1.01 96.4 17" stroke="rgba(0,0,0,0.3)"/>
-<path d="M 128.2 1.01 128.2 17" stroke="rgba(0,0,0,0.3)"/>
+<path d="M 40.75 1.01 40.75 17" stroke="rgba(0,0,0,0.3)"/>
+<path d="M 80.5 1.01 80.5 17" stroke="rgba(0,0,0,0.3)"/>
+<path d="M 120.25 1.01 120.25 17" stroke="rgba(0,0,0,0.3)"/>
 <path d="M 160 1.01 160 17" stroke="rgba(0,0,0,0.3)"/>
-<path d="M 191.8 1.01 191.8 17" stroke="rgba(0,0,0,0.3)"/>
-<path d="M 223.6 1.01 223.6 17" stroke="rgba(0,0,0,0.3)"/>
-<path d="M 255.4 1.01 255.4 17" stroke="rgba(0,0,0,0.3)"/>
-<path d="M 287.2 1.01 287.2 17" stroke="rgba(0,0,0,0.3)"/>
+<path d="M 199.75 1.01 199.75 17" stroke="rgba(0,0,0,0.3)"/>
+<path d="M 239.5 1.01 239.5 17" stroke="rgba(0,0,0,0.3)"/>
+<path d="M 279.25 1.01 279.25 17" stroke="rgba(0,0,0,0.3)"/>
 </g>
 <g id="layer3" font-family="sans-serif" font-size="12" text-anchor="middle">
-<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(32.8 28)">-4</text>
-<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(64.6 28)">-3</text>
-<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(96.4 28)">-2</text>
-<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(128.2 28)">-1</text>
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(40.8 28)">-5</text>
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(80.5 28)">-2</text>
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(120.3 28)">-1</text>
 <text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(160 28)">0</text>
-<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(191.8 28)">1</text>
-<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(223.6 28)">2</text>
-<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(255.4 28)">3</text>
-<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(287.2 28)">4+</text>
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(199.8 28)">1</text>
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(239.5 28)">2</text>
+<text y="0" x="0" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#555" transform="translate(279.3 28)">5+</text>
 </g>
-<style media="screen,print">
-.g-Shadow p { text-shadow: 1px 1px 0px rgba(254, 254, 254, .15); }
-.g-text-shadow { text-shadow: 1px 1px 1px rgba(254,254,254,1), -1px 1px 1px rgba(254,254,254,1), 1px -1px 1px rgba(254,254,254,1), -1px -1px 1px rgba(254,254,254,1); }
-</style>
 </svg>
