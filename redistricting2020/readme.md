@@ -6,7 +6,7 @@
 
 ## Who Drew the Maps for use in 2020?
 
-![](legend.svg width="48")  
+<img src="legend.svg" width="200">  
 ![](drew-lines.svg)  
 
 
