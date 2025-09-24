@@ -14,6 +14,7 @@
 cd '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/Academic/Published-Papers/ALR-Partisan-Gerrymandering-Cases/maps'
 mapshaper \
 -i 'us-cart.json' \
+-simplify us-cart 2% \
 -i 'map-data.csv' \
 -join target=us-cart source=map-data keys=STUSPS,State \
 -proj target=us-cart albersusa \
