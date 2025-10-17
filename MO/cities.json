@@ -1,0 +1,6 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-94.588092697,39.1025398190001]},"properties":{"NAME":"Kansas City","r":4,"type":"point"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-90.2451761089999,38.635771074]},"properties":{"NAME":"St. Louis","r":4,"type":"point"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-94.588092697,39.1025398190001]},"properties":{"NAME":"Kansas City","label-text":"Kansas City","text-anchor":"start","font-size":"13px","font-weight":"800","line-height":"16px","font-family":"arial","class":"g-text-shadow p","dx":5,"dy":0,"type":"text-label"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-90.2451761089999,38.635771074]},"properties":{"NAME":"St. Louis","label-text":"St. Louis","text-anchor":"start","font-size":"13px","font-weight":"800","line-height":"16px","font-family":"arial","class":"g-text-shadow p","dx":5,"dy":0,"type":"text-label"}}
+]}

@@ -60,7 +60,7 @@ mapshaper \
 ```
 
 ```shell
-for f in *.svg; do
+find . -type f -name "*.svg" | while read -r f; do
   sed -i '' '/<\/svg>/i\
 <style media="screen,print">\
 .g-Shadow p { text-shadow: 1px 1px 0px rgba(254, 254, 254, .15); }\
