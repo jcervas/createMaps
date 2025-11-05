@@ -287,4 +287,8 @@
 <text y="0" x="0" opacity="1" stroke-width="1" fill="#000" stroke-opacity="1" stroke="none" text-anchor="middle" font-size="18px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(535.5 122.7)">13</text>
 <text y="0" x="0" opacity="1" stroke-width="1" fill="#000" stroke-opacity="1" stroke="none" text-anchor="middle" font-size="18px" font-weight="800" font-family="arial" class="g-text-shadow p" transform="translate(241.5 134.2)">14</text>
 </g>
+<style media="screen,print">
+.g-Shadow p { text-shadow: 1px 1px 0px rgba(254, 254, 254, .15); }
+.g-text-shadow { text-shadow: 1px 1px 1px rgba(254,254,254,1), -1px 1px 1px rgba(254,254,254,1), 1px -1px 1px rgba(254,254,254,1), -1px -1px 1px rgba(254,254,254,1); }
+</style>
 </svg>
