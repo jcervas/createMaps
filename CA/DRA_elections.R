@@ -66,6 +66,10 @@ write.csv(twoparty_wide, '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas
 ca2022 <- read.csv('/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/CA/CA-2022.csv')
 ca2026 <- read.csv('/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/CA/CA-2026.csv')
 
+colSums(1 * (ca2022[,-1] >.5))
+colSums(1 * (ca2026[,-1] >.5))
+
+
 
 # assume ca2022 and ca2026 are already loaded
 
@@ -76,18 +80,63 @@ cols <- setdiff(names(ca2022), "ID")
 compare_mat <- (ca2022[, cols] < 0.5) & (ca2026[, cols] > 0.5)
 
 # replace TRUE/FALSE with color codes
-comparison_df <- as.data.frame(ifelse(compare_mat, "#CEEAFD", "#EEEEEE"))
+comparison_df <- as.data.frame(ifelse(compare_mat, "#1375B7", "#EEEEEE"))
+comparison_df_stroke <- as.data.frame(ifelse(compare_mat, "#000000", "none"))
 
 # reattach the ID column
 comparison_df <- cbind(ID = ca2022$ID, comparison_df)
+comparison_df_stroke <- cbind(ID = ca2022$ID, comparison_df_stroke)
 
 # remove dots from column names
 names(comparison_df) <- gsub("\\.", "", names(comparison_df))
+names(comparison_df_stroke) <- gsub("\\.", "", names(comparison_df_stroke))
+names(comparison_df_stroke)[-1] <- paste0(names(comparison_df_stroke)[-1], "stroke")
 
 # view result
 comparison_df
 
-
 write.csv(comparison_df, '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/CA/data/district_changes.csv', row.names=F)
+write.csv(comparison_df_stroke, '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/CA/data/district_changes_stroke.csv', row.names=F)
 
 
+
+
+
+# Create a comparison data frame
+res <- data.frame(
+  Election = names(colSums(1 * (ca2022[,-1] > .5))),
+  OldPlan = colSums(1 * (ca2022[,-1] > .5)),
+  NewPlan = colSums(1 * (ca2026[,-1] > .5))
+)
+
+res$NewPlan - res$OldPlan
+
+barplot(res$Change,
+        names.arg = res$Election,
+        col = ifelse(res$Change > 0, "blue", "red"),
+        las = 2,
+        ylim = c(0, 10),
+        ylab = "Change in Democratic-majority districts",
+        axes = FALSE)     # suppress built-in axes
+
+axis(2, at = 0:10)        # custom ticks
+abline(h = 0, lty = 2)
+box()                     # redraw box outline
+
+
+
+source('https://raw.githubusercontent.com/jcervas/R-Functions/refs/heads/main/sv-hyp.R')
+
+# Fit seat–vote relationship to empirical statewide data
+sv_plot_base(theme="dark")
+points(x=colMeans(ca2022)[-1], y=colMeans(1 * (ca2022>.5))[-1], col="darkred")
+sv_curve(v=colMeans(ca2022)[-1], s=colMeans(1 * (ca2022>.5))[-1], col="darkred")
+points(x=colMeans(ca2026)[-1], y=colMeans(1 * (ca2026>.5))[-1], col="white")
+sv_curve(v=colMeans(ca2026)[-1], s=colMeans(1 * (ca2026>.5))[-1], col="white")
+
+
+
+
+sv_plot(
+  sv_curve(v=colMeans(ca2026)[-1], s=colMeans(1 * (ca2026>.5))[-1], col="black")
+  )
