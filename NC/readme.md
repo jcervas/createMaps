@@ -82,6 +82,12 @@ Clip Districts to Coastline
 -clip target=cd2026 tracts \
 ```
 
+Colorizer
+```
+-colorizer name=fillColor breaks='1,2,3,4,5,6,7,8,9,10,11,12,13,14' colors='white,#e10000,#0000f8,#88ff6e,#00c3ff,#ffb800,#DC143C,#ff5700,#38ffbf,#dcff1b,#002eff,#ff2700,#62ff95,#ff8400,#11fae6' \
+
+```
+
 
 Output Population Density as .svg files
 ```
@@ -90,13 +96,13 @@ Output Population Density as .svg files
 
 
 ```
--style target=cd2024 fill=color \
+-svg-style target=cd2024 fill='fillColor(id)' \
 -style target=cd2024 opacity=0.75 stroke=none \
 -o target=tracts,cd2024,counties,cities,cd2024-labels 'images/cd2024.svg' \
 ```
 
 ```
--style target=cd2026 fill=color \
+-svg-style target=cd2026 fill='fillColor(id)' \
 -style target=cd2026 opacity=0.75 stroke=none \
 -o target=tracts,cd2026,counties,cities,cd2026-labels 'images/cd2026.svg'
 ```

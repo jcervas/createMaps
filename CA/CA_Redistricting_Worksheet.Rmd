@@ -1,0 +1,167 @@
+---
+title: "Exploring Redistricting Changes: California 2022–2026"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+# suppress warnings and messages for cleaner output
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+## 1. Load and Inspect Data
+
+Load the datasets representing two redistricting plans.
+
+```{r load-data}
+# Replace these paths with your local copies
+ca2022 <- read.csv('/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/CA/CA-2022.csv')
+ca2026 <- read.csv('/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/CA/CA-2026.csv')
+
+# Quick overview of structure
+head(ca2022)
+head(ca2026)
+```
+
+---
+
+## 2. Compare Democratic-Majority Districts
+
+Count the number of districts where the Democratic share exceeds 50%.
+
+```{r majority-counts}
+old_counts <- colSums(1 * (ca2022[,-1] > .5))
+new_counts <- colSums(1 * (ca2026[,-1] > .5))
+
+old_counts
+new_counts
+```
+
+---
+
+## 3. Identify District-Level Changes
+
+Highlight districts that shifted from below 50% to above 50%.
+
+```{r comparison-map}
+# exclude ID column
+cols <- setdiff(names(ca2022), "ID")
+
+# identify where vote share crossed threshold
+compare_mat <- (ca2022[, cols] < 0.5) & (ca2026[, cols] > 0.5)
+
+# create color-coded matrices
+comparison_df <- as.data.frame(ifelse(compare_mat, "#1375B7", "#EEEEEE"))
+comparison_df_stroke <- as.data.frame(ifelse(compare_mat, "#000000", "none"))
+
+# add back ID column
+comparison_df <- cbind(ID = ca2022$ID, comparison_df)
+comparison_df_stroke <- cbind(ID = ca2022$ID, comparison_df_stroke)
+
+# clean column names
+names(comparison_df) <- gsub(".", "", names(comparison_df), fixed = TRUE)
+names(comparison_df_stroke) <- gsub(".", "", names(comparison_df_stroke), fixed = TRUE)
+names(comparison_df_stroke)[-1] <- paste0(names(comparison_df_stroke)[-1], "stroke")
+
+# preview
+head(comparison_df)
+```
+
+You can export the results if you want to link them to map visualizations.
+
+```{r export-csv, eval=FALSE}
+write.csv(comparison_df, '/path/to/district_changes.csv', row.names = FALSE)
+write.csv(comparison_df_stroke, '/path/to/district_changes_stroke.csv', row.names = FALSE)
+```
+
+---
+
+## 4. Visualize Changes by Election
+
+Compare the number of Democratic-majority districts under the two plans.
+
+```{r barplot}
+res <- data.frame(
+  Election = names(old_counts),
+  OldPlan = old_counts,
+  NewPlan = new_counts
+)
+
+# Compute net change
+res$Change <- res$NewPlan - res$OldPlan
+
+barplot(res$Change,
+        names.arg = res$Election,
+        col = ifelse(res$Change > 0, "blue", "red"),
+        las = 2,
+        ylim = c(min(res$Change)-1, max(res$Change)+1),
+        ylab = "Change in Democratic-majority districts",
+        axes = FALSE)
+axis(2, at = seq(min(res$Change)-1, max(res$Change)+1, 1))
+abline(h = 0, lty = 2)
+box()
+```
+
+### Summary Table of District Flips
+
+```{r summary-table}
+# Create summary table of district flips
+flip_summary <- data.frame(
+  Election = c(
+    "2018 Attorneys General", "2022 Attorneys General",
+    "2018 Governor", "2022 Governor",
+    "2022 Lt. Governor", "2016 President",
+    "2020 President", "2024 President",
+    "2022 US Senator", "2024 US Senator",
+    "2022 Sec. Of State", "2022 Treasurer", "Average"
+  ),
+  Commission = c(44, 38, 44, 38, 39, 44, 45, 41, 42, 39, 39, 37, 40.83),
+  Proposition50Plan = c(48, 46, 47, 46, 47, 47, 48, 47, 48, 47, 48, 46, 47.08),
+  DistrictsFlipped = c(4, 8, 3, 8, 8, 3, 3, 6, 6, 8, 9, 9, 6.25)
+)
+
+# Add blue dot visual column
+flip_summary$Visual <- sapply(
+  flip_summary$DistrictsFlipped,
+  function(n) paste(rep("🔵", round(n)), collapse = "")
+)
+
+# Display as a formatted table
+knitr::kable(
+  flip_summary,
+  align = "lccc",
+  col.names = c("Election", "Commission Plan", "Proposition 50 Plan", "Districts Flipped", ""),
+  caption = "Comparison of Democratic-Majority Districts by Election"
+)
+```
+
+---
+
+## 5. Seat–Vote Relationship
+
+Load the custom function and plot empirical seat–vote relationships.
+
+```{r sv-relationship-function, include=FALSE}
+source('https://raw.githubusercontent.com/jcervas/R-Functions/refs/heads/main/sv-hyp.R')
+```
+
+```{r sv-relationship}
+# visualize baseline
+sv_plot_base(theme = "dark")
+
+# plot actual outcomes
+points(x = colMeans(ca2022)[-1], y = colMeans(1 * (ca2022 > .5))[-1], col = "darkred")
+points(x = colMeans(ca2026)[-1], y = colMeans(1 * (ca2026 > .5))[-1], col = "white")
+
+# add fitted curves
+sv_curve(v = colMeans(ca2022)[-1], s = colMeans(1 * (ca2022 > .5))[-1], col = "darkred")
+sv_curve(v = colMeans(ca2026)[-1], s = colMeans(1 * (ca2026 > .5))[-1], col = "white")
+```
+
+---
+
+## 6. Questions for Exploration
+
+1. Which elections gained or lost Democratic-majority districts?
+2. How does the seat–vote curve change between 2022 and 2026?
+3. What does a blue cell in the comparison table represent?
+4. What can we conclude about the 2026 map by comparing it to 2022?

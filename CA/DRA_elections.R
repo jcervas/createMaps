@@ -130,8 +130,8 @@ source('https://raw.githubusercontent.com/jcervas/R-Functions/refs/heads/main/sv
 # Fit seat–vote relationship to empirical statewide data
 sv_plot_base(theme="dark")
 points(x=colMeans(ca2022)[-1], y=colMeans(1 * (ca2022>.5))[-1], col="darkred")
-sv_curve(v=colMeans(ca2022)[-1], s=colMeans(1 * (ca2022>.5))[-1], col="darkred")
 points(x=colMeans(ca2026)[-1], y=colMeans(1 * (ca2026>.5))[-1], col="white")
+sv_curve(v=colMeans(ca2022)[-1], s=colMeans(1 * (ca2022>.5))[-1], col="darkred")
 sv_curve(v=colMeans(ca2026)[-1], s=colMeans(1 * (ca2026>.5))[-1], col="white")
 
 
