@@ -85,7 +85,6 @@ Clip Districts to Coastline
 Colorizer
 ```
 -colorizer name=fillColor breaks='1,2,3,4,5,6,7,8,9,10,11,12,13,14' colors='white,#e10000,#0000f8,#88ff6e,#00c3ff,#ffb800,#DC143C,#ff5700,#38ffbf,#dcff1b,#002eff,#ff2700,#62ff95,#ff8400,#11fae6' \
-
 ```
 
 
@@ -94,18 +93,16 @@ Output Population Density as .svg files
 -o target=cities,counties,tracts 'images/tracts.svg' format=svg \
 ```
 
-
+Style Maps and Write to *.svg
 ```
 -svg-style target=cd2024 fill='fillColor(id)' \
 -style target=cd2024 opacity=0.75 stroke=none \
 -o target=tracts,cd2024,counties,cities,cd2024-labels 'images/cd2024.svg' \
-```
-
-```
 -svg-style target=cd2026 fill='fillColor(id)' \
 -style target=cd2026 opacity=0.75 stroke=none \
 -o target=tracts,cd2026,counties,cities,cd2026-labels 'images/cd2026.svg'
 ```
+
 
 ```shell
 find . -type f -name "*.svg" | while read -r f; do
