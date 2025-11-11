@@ -27,8 +27,8 @@ indianred.75 <- rgb(205, 92, 92, 191, max =255)
 ```
 
 
--colorizer name=fillDEMColor breaks='50,60,70' colors='#CEEAFD,#92BDE0,#5295CC,#1375B7'
+-colorizer name=fillDEMColor breaks='60,70,80' colors='#CEEAFD,#92BDE0,#5295CC,#1375B7'
 -svg-style target=DEM fill='fillDEMColor(winning_pct_display)' \
 
--colorizer name=fillGOPColor breaks='50,60,70' colors='#FCE0E0,#EAA9A9,#DB7171,#C93135'
+-colorizer name=fillGOPColor breaks='60,70,80' colors='#FCE0E0,#EAA9A9,#DB7171,#C93135'
 -svg-style target=GOP fill='fillGOPColor(winning_pct_display)' \
