@@ -146,15 +146,24 @@ source('https://raw.githubusercontent.com/jcervas/R-Functions/refs/heads/main/sv
 
 ```{r sv-relationship}
 # visualize baseline
-sv_plot_base(theme = "dark")
+# sv_plot_base(theme = "dark")
+
+sv_plot_base(theme = "light",
+              xlab = "% of Two-Party Vote",
+              ylab = "% of Two-Party Seats",
+              prop.line = TRUE,
+              box = TRUE,
+              xlim = c(0.45, 1),
+              ylim = c(0.45, 1),
+              main = "California")
 
 # plot actual outcomes
-points(x = colMeans(ca2022)[-1], y = colMeans(1 * (ca2022 > .5))[-1], col = "darkred")
-points(x = colMeans(ca2026)[-1], y = colMeans(1 * (ca2026 > .5))[-1], col = "white")
+points(x = colMeans(ca2022)[-1], y = colMeans(1 * (ca2022 > .5))[-1], col = "darkred", pch=19)
+points(x = colMeans(ca2026)[-1], y = colMeans(1 * (ca2026 > .5))[-1], col = "black", pch=19)
 
 # add fitted curves
 sv_curve(v = colMeans(ca2022)[-1], s = colMeans(1 * (ca2022 > .5))[-1], col = "darkred")
-sv_curve(v = colMeans(ca2026)[-1], s = colMeans(1 * (ca2026 > .5))[-1], col = "white")
+sv_curve(v = colMeans(ca2026)[-1], s = colMeans(1 * (ca2026 > .5))[-1], col = "black")
 ```
 
 ---

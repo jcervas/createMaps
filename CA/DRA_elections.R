@@ -1,5 +1,5 @@
 # Folder with your CSVs
-folder <- '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/CA/CA-2026/cleaned_csvs'
+folder <- '/Users/cervas/Library/Mobile Documents/com~apple~CloudDocs/Downloads/TX/2026/cleaned_csvs'
 files  <- list.files(folder, pattern = "\\.csv$", full.names = TRUE)
 
 # Read a CSV *reliably*: remove BOM, strip trailing commas, and provide explicit headers
@@ -61,7 +61,7 @@ twoparty_wide <- twoparty_wide[, c("ID", sort(names(twoparty_wide)[-1]))]
 head(twoparty_wide)
 
 
-write.csv(twoparty_wide, '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/CA/CA-2026.csv', row.names = FALSE)
+write.csv(twoparty_wide, '/Users/cervas/Library/Mobile Documents/com~apple~CloudDocs/Downloads/TX/TX-2026.csv', row.names = FALSE)
 
 ca2022 <- read.csv('/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/CA/CA-2022.csv')
 ca2026 <- read.csv('/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/CA/CA-2026.csv')
@@ -129,9 +129,9 @@ source('https://raw.githubusercontent.com/jcervas/R-Functions/refs/heads/main/sv
 
 # Fit seat–vote relationship to empirical statewide data
 sv_plot_base(theme="dark")
-points(x=colMeans(ca2022)[-1], y=colMeans(1 * (ca2022>.5))[-1], col="darkred")
+points(x=colMeans(ca2022)[-1], y=colMeans(1 * (ca2022>.5))[-1], col="#C41230")
 points(x=colMeans(ca2026)[-1], y=colMeans(1 * (ca2026>.5))[-1], col="white")
-sv_curve(v=colMeans(ca2022)[-1], s=colMeans(1 * (ca2022>.5))[-1], col="darkred")
+sv_curve(v=colMeans(ca2022)[-1], s=colMeans(1 * (ca2022>.5))[-1], col="#C41230")
 sv_curve(v=colMeans(ca2026)[-1], s=colMeans(1 * (ca2026>.5))[-1], col="white")
 
 
