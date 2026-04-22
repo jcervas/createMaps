@@ -1,0 +1,59 @@
+<!-- Vote-share key (DEM/GOP) using your ramps -->
+<style>
+  .vote-share-key {
+    --spacing: 5px;
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    color: #666;
+  }
+  .party {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .party-text {
+    text-size-adjust: 100%;
+  }
+  .swatches {
+    display: flex;
+    gap: 1px;
+    align-items: flex-start;
+  }
+  .swatch {
+    width: calc(var(--spacing) * 4);  /* 20px */
+    height: 10px;
+    position: relative;
+  }
+  .swatch-label {
+    position: absolute;
+    top: calc(var(--spacing) * 2.5);
+    font-size: 10px;
+    right: 0;
+    transform: translate(50%);
+  }
+  .with-pct::after { content: "%"; }
+</style>
+
+<div class="vote-share-key">
+  <div class="party">
+    <div class="label"><span class="party-text">Dem.</span></div>
+    <div class="swatches">
+      <div class="swatch" style="background:#CEEAFD;"><span class="swatch-label">50</span></div>
+      <div class="swatch" style="background:#92BDE0;"><span class="swatch-label">60</span></div>
+      <div class="swatch" style="background:#5295CC;"><span class="swatch-label with-pct">70</span></div>
+      <div class="swatch" style="background:#1375B7;"></div>
+    </div>
+  </div>
+
+  <div class="party">
+    <div class="label"><span class="party-text">Rep.</span></div>
+    <div class="swatches">
+      <div class="swatch" style="background:#FCE0E0;"><span class="swatch-label">50</span></div>
+      <div class="swatch" style="background:#EAA9A9;"><span class="swatch-label">60</span></div>
+      <div class="swatch" style="background:#DB7171;"><span class="swatch-label with-pct">70</span></div>
+      <div class="swatch" style="background:#C93135;"></div>
+    </div>
+  </div>
+</div>
