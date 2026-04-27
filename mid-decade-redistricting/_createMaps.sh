@@ -1,4 +1,4 @@
-cd '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/Academic/Presentations/mid-decade-redistricting/mid-decade'
+cd '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/mid-decade-redistricting/mid-decade'
 
 mkdir -p clipped
 mkdir -p svg
@@ -37,9 +37,9 @@ mapshaper \
 -filter target=states '[4].includes(mid_decade)' + name=active \
 -filter target=states '[999,null].includes(mid_decade)' + name=not \
 -style target=rejected fill="#aaa" stroke=#fff fill-pattern='hatches 45deg 2px #aaa 2px #eee' \
--style target=partisan where='party==1' fill='rgba(115,181,234,.8)' stroke='rgba(115,181,234,1)' \
--style target=partisan where='party==2' fill='rgba(238,141,140,1)' stroke=#000 \
--style target=court fill="#FDB515" stroke=#000 \
+-style target=partisan where='party=="dem"' fill='rgba(115,181,234,0.8)' stroke='rgba(115,181,234,1)' \
+-style target=partisan where='party=="gop"' fill='rgba(238,141,140,0.8)' stroke='rgba(238,141,140,1)' \
+-style target=court fill='rgba(253,181,21,0.8)' stroke='rgba(253,181,21,1)' \
 -style target=active fill="#009647" stroke=#000 \
 -style target=not fill="#ddd" stroke=#fff \
 -style target=court where='status==1' stroke=none fill-pattern='hatches 45deg 1px #FDB515 1.5px #ddd' \
