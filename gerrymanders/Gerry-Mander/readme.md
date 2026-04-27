@@ -2,4 +2,4 @@
 # The Original Gerrymander
 
 
-![](gerry-mander.svg)
+![](gerry-mander.png)
