@@ -1,3 +1,5 @@
+"MO", "OH", "NC", "CA", "TX", "FL", "VA", "UT"
+
 cd '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/OH/data/elections'
 
 mkdir -p old_cleaned_dra
