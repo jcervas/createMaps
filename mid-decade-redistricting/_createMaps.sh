@@ -32,27 +32,26 @@ mapshaper \
 -proj target=states albersusa \
 -style fill=#F2F0EF stroke=#fff \
 -filter target=states '[0].includes(mid_decade)' + name=rejected \
--filter target=states '[1].includes(mid_decade)' + name=partisan \
--filter target=states '[2].includes(mid_decade)' + name=court \
--filter target=states '[4].includes(mid_decade)' + name=active \
+-filter target=states '["partisan"].includes(mid_decade)' + name=partisan \
+-filter target=states '["court"].includes(mid_decade)' + name=court \
 -filter target=states '[999,null].includes(mid_decade)' + name=not \
 -style target=rejected fill="#aaa" stroke=#fff fill-pattern='hatches 45deg 2px #aaa 2px #eee' \
 -style target=partisan where='party=="dem"' fill='rgba(115,181,234,0.8)' stroke='rgba(115,181,234,1)' \
 -style target=partisan where='party=="gop"' fill='rgba(238,141,140,0.8)' stroke='rgba(238,141,140,1)' \
 -style target=court fill='rgba(253,181,21,0.8)' stroke='rgba(253,181,21,1)' \
--style target=active fill="#009647" stroke=#000 \
--style target=not fill="#ddd" stroke=#fff \
--style target=court where='status==1' stroke=none fill-pattern='hatches 45deg 1px #FDB515 1.5px #ddd' \
--style target=partisan where='status==1' stroke=none fill-pattern='hatches 45deg 1px #EF3A47 1.5px #ddd' \
+-style target=court where='party=="dem"' fill='rgba(115,181,234,0.8)' stroke='rgba(0,0,0,1)' \
+-style target=court where='party=="gop"' fill='rgba(238,141,140,0.8)' stroke='rgba(0,0,0,1)' \
+-style target=not fill="#eee" stroke=#fff \
+-style target=court where='status=="pending"' stroke=none fill-pattern='hatches 45deg 1px #FDB515 1.5px #ddd' \
+-style target=partisan where='status=="pending"' stroke=none fill-pattern='hatches 45deg 1px #EF3A47 1.5px #ddd' \
 -dissolve target=states + name=US \
 -style target=US fill=none stroke=#000 \
--o format=topojson target=not,rejected,partisan,court,active,US redistricting2026.json \
+-o format=topojson target=not,rejected,partisan,court,US redistricting2026.json \
 -o target=not,US map_not.svg \
 -o target=rejected,US map_rejected.svg \
 -o target=partisan,US map_partisan.svg \
 -o target=court,US map_court.svg \
--o target=active,US map_active.svg \
--o target=US,states,not,rejected,partisan,court,active redistricting2026.svg
+-o target=US,states,not,rejected,partisan,court redistricting2026.svg
 
 
 -style target=redistricted fill='[1,2,3,4].includes(mid_decade) ? (mid_decade === 1 ? "#EF3A47" : mid_decade === 2 ? "#FDB515" : mid_decade === 3 ? "#003594" : mid_decade === 4 ? "#009647" : "none") : "#F2F0EF"' stroke=#000 \

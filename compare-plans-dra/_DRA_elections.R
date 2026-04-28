@@ -1,4 +1,4 @@
-cd '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/UT/data/elections'
+cd '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/OH/data/elections'
 
 mkdir -p old_cleaned_dra
 mkdir -p new_cleaned_dra
@@ -30,7 +30,7 @@ done
 
 R
 # Folder with your CSVs
-folder <- '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/UT/data/elections'
+folder <- '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/OH/data/elections'
 subfolder <- c('old_cleaned_dra','new_cleaned_dra')
 
 for (i in seq_along(subfolder)) {
@@ -133,6 +133,9 @@ cat(
          paste0("GOP +", round(net, 2)),
          paste0("DEM +", round(abs(net), 2)))
 )
+
+
+
 
 # assume map_old and map_new are already loaded
 
