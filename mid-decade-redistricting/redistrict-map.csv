@@ -17,7 +17,7 @@ Indiana,"6,786,587",999,NA,
 Iowa,"3,190,546",999,NA,
 Kansas,"2,937,745",999,NA,
 Kentucky,"4,506,302",999,NA,
-Louisiana,"4,657,874",2,1,gop
+Louisiana,"4,657,874",999,1,
 Maine,"1,363,196",999,NA,
 Maryland,"6,181,629",999,NA,
 Massachusetts,"7,033,132",999,NA,
@@ -48,5 +48,5 @@ Vermont,"643,082",NA,NA,
 Virginia,"8,631,388",1,NA,dem
 Washington,"7,707,586",999,NA,
 West Virginia,"1,793,736",999,NA,
-Wisconsin,"5,894,170",2,1,dem
+Wisconsin,"5,894,170",999,1,
 Wyoming,"576,844",NA,NA,
