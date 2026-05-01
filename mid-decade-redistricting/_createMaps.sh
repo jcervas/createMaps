@@ -34,6 +34,7 @@ mapshaper \
 -filter target=states '[0].includes(mid_decade)' + name=rejected \
 -filter target=states '["partisan"].includes(mid_decade)' + name=partisan \
 -filter target=states '["court"].includes(mid_decade)' + name=court \
+-filter target=states '["possible"].includes(mid_decade)' + name=possible \
 -filter target=states '[999,null].includes(mid_decade)' + name=not \
 -style target=rejected fill="#aaa" stroke=#fff fill-pattern='hatches 45deg 2px #aaa 2px #eee' \
 -style target=partisan where='party=="dem"' fill='rgba(115,181,234,0.8)' stroke='rgba(115,181,234,1)' \
@@ -42,16 +43,16 @@ mapshaper \
 -style target=court where='party=="dem"' fill='rgba(115,181,234,0.8)' stroke='rgba(0,0,0,1)' \
 -style target=court where='party=="gop"' fill='rgba(238,141,140,0.8)' stroke='rgba(0,0,0,1)' \
 -style target=not fill="#eee" stroke=#fff \
--style target=court where='status=="pending"' stroke=none fill-pattern='hatches 45deg 1px #FDB515 1.5px #ddd' \
--style target=partisan where='status=="pending"' stroke=none fill-pattern='hatches 45deg 1px #EF3A47 1.5px #ddd' \
+-style target=court,possible where='status=="pending"' stroke='rgba(0,0,0,1)' fill-pattern='hatches 45deg 1px rgba(238,141,140,0.8) 1.5px #ddd' \
+-style target=partisan where='status=="pending"' stroke='rgba(238,141,140,1)' fill='rgba(238,141,140,0.1)' \
 -dissolve target=states + name=US \
 -style target=US fill=none stroke=#000 \
--o format=topojson target=not,rejected,partisan,court,US redistricting2026.json \
--o target=not,US map_not.svg \
--o target=rejected,US map_rejected.svg \
--o target=partisan,US map_partisan.svg \
--o target=court,US map_court.svg \
--o target=US,states,not,rejected,partisan,court redistricting2026.svg
+-o format=topojson target=not,rejected,partisan,court,US ../redistricting2026.json \
+-o target=not,US ../svg/map_not.svg \
+-o target=rejected,US ../svg/map_rejected.svg \
+-o target=partisan,US ../svg/map_partisan.svg \
+-o target=court,US ../svg/map_court.svg \
+-o target=US,states,not,possible,rejected,partisan,court ../svg/redistricting2026.svg
 
 
 -style target=redistricted fill='[1,2,3,4].includes(mid_decade) ? (mid_decade === 1 ? "#EF3A47" : mid_decade === 2 ? "#FDB515" : mid_decade === 3 ? "#003594" : mid_decade === 4 ? "#009647" : "none") : "#F2F0EF"' stroke=#000 \

@@ -1,4 +1,4 @@
-"MO", "OH", "NC", "CA", "TX", "FL", "VA", "UT"
+
 
 cd '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/OH/data/elections'
 
@@ -31,86 +31,150 @@ done
 
 
 R
-# Folder with your CSVs
-folder <- '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/OH/data/elections'
-subfolder <- c('old_cleaned_dra','new_cleaned_dra')
 
-for (i in seq_along(subfolder)) {
-  files  <- list.files(file.path(folder, subfolder[i]), pattern = "\\.csv$", full.names = TRUE)
+results <- data.frame(
+  State = character(),
+  GOP_Old = numeric(),
+  DEM_Old = numeric(),
+  GOP_New = numeric(),
+  DEM_New = numeric(),
+  Net_GOP_Change = numeric(),
+  Min = numeric(),
+  Max = numeric(),
+  stringsAsFactors = FALSE
+)
 
-  # Read a CSV *reliably*: remove BOM, strip trailing commas, and provide explicit headers
-  safe_read <- function(path) {
-    lines <- readLines(path, warn = FALSE)
+states <- c("MO", "OH", "NC", "CA", "TX", "FL", "VA", "UT")
 
-    # 1) strip UTF-8 BOM if present
-    if (length(lines) && grepl("^\ufeff", lines[1])) {
-      lines[1] <- sub("^\ufeff", "", lines[1])
+for (j in seq_along(states)) {
+  # Folder with your CSVs
+folder <- file.path(
+  "/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps",
+  states[j],
+  "data/elections"
+  )
+  subfolder <- c('old_cleaned_dra','new_cleaned_dra')
+  
+  for (i in seq_along(subfolder)) {
+    files  <- list.files(file.path(folder, subfolder[i]), pattern = "\\.csv$", full.names = TRUE)
+  
+    # Read a CSV *reliably*: remove BOM, strip trailing commas, and provide explicit headers
+    safe_read <- function(path) {
+      lines <- readLines(path, warn = FALSE)
+  
+      # 1) strip UTF-8 BOM if present
+      if (length(lines) && grepl("^\ufeff", lines[1])) {
+        lines[1] <- sub("^\ufeff", "", lines[1])
+      }
+  
+      # 2) strip trailing commas on every line (incl. header-safe)
+      lines <- sub(",\\s*$", "", lines)
+  
+      # 3) parse header explicitly, then read the rest with header = FALSE
+      hdr <- strsplit(lines[1], ",", fixed = TRUE)[[1]]
+      hdr <- trimws(hdr)
+  
+      # Recompose cleaned CSV text
+      body <- paste(lines[-1], collapse = "\n")
+      txt  <- paste(paste(hdr, collapse = ","), body, sep = "\n")
+  
+      # 4) read with explicit col.names to prevent row name shenanigans
+      read.csv(text = txt,
+               header = TRUE,            # header now matches exactly
+               stringsAsFactors = FALSE,
+               quote = "\"",
+               comment.char = "",
+               check.names = TRUE,       # "Total Pop" -> "Total.Pop" (safe)
+               row.names = NULL)
     }
-
-    # 2) strip trailing commas on every line (incl. header-safe)
-    lines <- sub(",\\s*$", "", lines)
-
-    # 3) parse header explicitly, then read the rest with header = FALSE
-    hdr <- strsplit(lines[1], ",", fixed = TRUE)[[1]]
-    hdr <- trimws(hdr)
-
-    # Recompose cleaned CSV text
-    body <- paste(lines[-1], collapse = "\n")
-    txt  <- paste(paste(hdr, collapse = ","), body, sep = "\n")
-
-    # 4) read with explicit col.names to prevent row name shenanigans
-    read.csv(text = txt,
-             header = TRUE,            # header now matches exactly
-             stringsAsFactors = FALSE,
-             quote = "\"",
-             comment.char = "",
-             check.names = TRUE,       # "Total Pop" -> "Total.Pop" (safe)
-             row.names = NULL)
+  
+    # Build a named list of Dem vectors from all files
+    elect_list <- setNames(lapply(files, safe_read), basename(files))
+  
+  
+    # Compute two-party share (Dem / (Dem + Rep)) for each dataset
+    twoparty_wide <- Reduce(function(x, y) merge(x, y, by = "ID", all = TRUE),
+                            lapply(names(elect_list), function(nm) {
+                              df <- elect_list[[nm]]
+                              
+                              # Compute two-party vote share safely
+                              df$TwoParty <- with(df, ifelse((Dem + Rep) > 0, Dem / (Dem + Rep), NA))
+                              
+                              # Keep ID + computed share
+                              out <- df[, c("ID", "TwoParty")]
+                              names(out)[2] <- nm  # rename to filename
+                              out
+                            }))
+  
+    # Optionally simplify column names
+    names(twoparty_wide)[-1] <- sub("\\.csv$", "", names(twoparty_wide)[-1])
+  
+    # Reorder columns alphabetically (excluding ID)
+    twoparty_wide <- twoparty_wide[, c("ID", sort(names(twoparty_wide)[-1]))]
+  
+    # Inspect the wide two-party data frame
+    head(twoparty_wide)
+  
+  
+    filename <- if (i == 1) "map_old.csv" else "map_new.csv"
+  
+    write.csv(
+      twoparty_wide,
+      file.path(folder, filename),
+      row.names = FALSE
+    )
   }
 
-  # Build a named list of Dem vectors from all files
-  elect_list <- setNames(lapply(files, function(f) {
-    dat <- safe_read(f)}), basename(files))
+  map_old <- read.csv(file.path(folder, 'map_old.csv'))
+  map_new <- read.csv(file.path(folder, 'map_new.csv'))
 
+  # --- column check ---
+  cols <- setdiff(names(map_old), "ID")
+  cols_new <- setdiff(names(map_new), "ID")
 
-  # Compute two-party share (Dem / (Dem + Rep)) for each dataset
-  twoparty_wide <- Reduce(function(x, y) merge(x, y, by = "ID", all = TRUE),
-                          lapply(names(elect_list), function(nm) {
-                            df <- elect_list[[nm]]
-                            
-                            # Compute two-party vote share safely
-                            df$TwoParty <- with(df, ifelse((Dem + Rep) > 0, Dem / (Dem + Rep), NA))
-                            
-                            # Keep ID + computed share
-                            out <- df[, c("ID", "TwoParty")]
-                            names(out)[2] <- nm  # rename to filename
-                            out
-                          }))
+  if (!setequal(cols, cols_new)) {
+    stop(paste("Not the same elections in", states[j]))
+  }
 
-  # Optionally simplify column names
-  names(twoparty_wide)[-1] <- sub("\\.csv$", "", names(twoparty_wide)[-1])
+  # enforce same order
+  cols <- sort(cols)
+  map_old <- map_old[, c("ID", cols)]
+  map_new <- map_new[, c("ID", cols)]
 
-  # Reorder columns alphabetically (excluding ID)
-  twoparty_wide <- twoparty_wide[, c("ID", sort(names(twoparty_wide)[-1]))]
+  # --- compute seat counts ---
+  old_dem <- colSums(map_old[,-1] > 0.5)
+  new_dem <- colSums(map_new[,-1] > 0.5)
 
-  # Inspect the wide two-party data frame
-  head(twoparty_wide)
+  n_districts <- nrow(map_old)
 
+  dem_old_mean <- mean(old_dem)
+  dem_new_mean <- mean(new_dem)
 
-  filename <- if (i == 1) "map_old.csv" else "map_new.csv"
+  dem_old_range <- range(old_dem)
+  dem_new_range <- range(new_dem)
 
-  write.csv(
-    twoparty_wide,
-    file.path(folder, filename),
-    row.names = FALSE
-  )
+  gop_old <- n_districts - dem_old_mean
+  gop_new <- n_districts - dem_new_mean
+
+  net <- gop_new - gop_old  # GOP seat change
+
+  # --- store result ---
+  results <- rbind(results, data.frame(
+    State = states[j],
+    GOP_Old = gop_old,
+    DEM_Old = dem_old_mean,
+    GOP_New = gop_new,
+    DEM_New = dem_new_mean,
+    Net_GOP_Change = net,
+    Min = min(old_dem - new_dem),
+    Max = max(old_dem - new_dem)
+  ))
+
 }
 
-map_old <- read.csv(file.path(folder, 'map_old.csv'))
-map_new <- read.csv(file.path(folder, 'map_new.csv'))
 
-colSums(1 * (map_old[,-1] > 0.5))
-colSums(1 * (map_new[,-1] > 0.5))
+results
+
 
 cat(
   "OLD MAP:\n",
@@ -138,14 +202,8 @@ cat(
 
 
 
-
-# assume map_old and map_new are already loaded
-
-  # exclude the ID column for comparison
-  cols <- setdiff(names(map_old), "ID")
-
   # create logical comparison matrix
-  compare_mat <- (map_old[, cols] < 0.5) & (map_new[, cols] > 0.5)
+compare_mat <- (map_old[, cols] < 0.5) & (map_new[, cols] > 0.5)
 
 # replace TRUE/FALSE with color codes
 comparison_df <- as.data.frame(ifelse(compare_mat, "#1375B7", "#EEEEEE"))
@@ -165,8 +223,6 @@ comparison_df
 
 write.csv(comparison_df, file.path(folder,'district_changes.csv'), row.names=F)
 write.csv(comparison_df_stroke, file.path(folder,'district_changes_stroke.csv'), row.names=F)
-
-
 
 
 
@@ -193,7 +249,7 @@ ord <- order(as.numeric(sub(".*\\.", "", res$Election)), decreasing = TRUE)
 barplot(res$Change[ord],
         names.arg = short[ord],
         horiz = TRUE,
-        col = ifelse(res$Change[ord] < 0, "blue", "red"),
+        col = ifelse(res$Change[ord] < 0, "#F0A1A0", "#8CC1EB"),
         xlab = "Change in Majority Party Districts",
         las = 1)
 abline(v = 0, lty = 2)
