@@ -44,12 +44,16 @@ results <- data.frame(
   stringsAsFactors = FALSE
 )
 
+res_all <- vector("list", length(states))
+
 states <- c("MO", "OH", "NC", "CA", "TX", "FL", "VA", "UT")
 
 for (j in seq_along(states)) {
+  # Main Folder
+main_folder <- '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps'
   # Folder with your CSVs
 folder <- file.path(
-  "/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps",
+  main_folder,
   states[j],
   "data/elections"
   )
@@ -117,16 +121,20 @@ folder <- file.path(
   
   
     filename <- if (i == 1) "map_old.csv" else "map_new.csv"
+
+    filename_main <- if (i == 1) paste0(states[j],"map_old.csv") else paste0(states[j],"map_new.csv")
   
     write.csv(
       twoparty_wide,
       file.path(folder, filename),
       row.names = FALSE
     )
-  }
+    write.csv(
+      twoparty_wide,
+      file.path(main_folder, filename_main),
+      row.names = FALSE
+    )
 
-  map_old <- read.csv(file.path(folder, 'map_old.csv'))
-  map_new <- read.csv(file.path(folder, 'map_new.csv'))
 
   # --- column check ---
   cols <- setdiff(names(map_old), "ID")
@@ -169,6 +177,24 @@ folder <- file.path(
     Min = min(old_dem - new_dem),
     Max = max(old_dem - new_dem)
   ))
+
+
+    map_old <- read.csv(file.path(folder, 'map_old.csv'))
+  map_new <- read.csv(file.path(folder, 'map_new.csv'))
+
+  # Create a comparison data frame
+    res <- data.frame(
+      State = states[j],  # add state label
+      Election = names(colSums(map_old[,-1] < 0.5)),
+      OldPlan = colSums(map_old[,-1] < 0.5),
+      NewPlan = colSums(map_new[,-1] < 0.5)
+    )
+
+    res$Change <- res$NewPlan - res$OldPlan
+
+    # store it
+    res_all[[j]] <- res
+      }
 
 }
 
@@ -226,14 +252,11 @@ write.csv(comparison_df_stroke, file.path(folder,'district_changes_stroke.csv'),
 
 
 
-# Create a comparison data frame
-res <- data.frame(
-  Election = names(colSums(1 * (map_old[,-1] < .5))),
-  OldPlan = colSums(1 * (map_old[,-1] < .5)),
-  NewPlan = colSums(1 * (map_new[,-1] < .5))
-)
 
-res$NewPlan - res$OldPlan
+
+
+
+res_all <- do.call(rbind, res_all)
 
 res$Change <- res$NewPlan - res$OldPlan
 
