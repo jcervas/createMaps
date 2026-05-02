@@ -43,7 +43,8 @@ mapshaper \
 -style target=court where='party=="dem"' fill='rgba(115,181,234,0.8)' stroke='rgba(0,0,0,1)' \
 -style target=court where='party=="gop"' fill='rgba(238,141,140,0.8)' stroke='rgba(0,0,0,1)' \
 -style target=not fill="#eee" stroke=#fff \
--style target=court,possible where='status=="pending"' stroke='rgba(0,0,0,1)' fill-pattern='hatches 45deg 1px rgba(238,141,140,0.8) 1.5px #ddd' \
+-style target=court where='status=="pending"' stroke='rgba(0,0,0,1)' fill-pattern='hatches 45deg 1px rgba(238,141,140,0.8) 1.5px #ddd' \
+-style target=possible where='status=="pending"' stroke='rgba(255,255,255,1)' fill-pattern='hatches 45deg 1px rgba(238,141,140,0.8) 1.5px #ddd' \
 -style target=partisan where='status=="pending"' stroke='rgba(238,141,140,1)' fill='rgba(238,141,140,0.1)' \
 -dissolve target=states + name=US \
 -style target=US fill=none stroke=#000 \

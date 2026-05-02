@@ -1,5 +1,5 @@
 ﻿state,pop,mid_decade,status,party
-Alabama,"5,025,369",possible,pending,gop
+Alabama,"5,025,369",999,pending,gop
 Alaska,"733,395",NA,NA,
 Arizona,"7,158,110",999,NA,
 Arkansas,"3,011,553",999,NA,
@@ -23,7 +23,7 @@ Maryland,"6,181,629",999,NA,
 Massachusetts,"7,033,132",999,NA,
 Michigan,"10,079,338",999,NA,
 Minnesota,"5,706,692",999,NA,
-Mississippi,"2,961,278",possible,pending,gop
+Mississippi,"2,961,278",999,pending,gop
 Missouri,"6,154,854",partisan,NA,gop
 Montana,"1,084,216",999,NA,
 Nebraska,"1,961,996",999,NA,
@@ -39,9 +39,9 @@ Oklahoma,"3,959,405",999,NA,
 Oregon,"4,237,224",999,NA,
 Pennsylvania,"13,002,909",999,NA,
 Rhode Island,"1,097,354",999,NA,
-South Carolina,"5,118,252",possible,pending,gop
+South Carolina,"5,118,252",999,pending,gop
 South Dakota,"886,729",NA,NA,
-Tennessee,"6,912,347",possible,pending,gop
+Tennessee,"6,912,347",999,pending,gop
 Texas,"29,149,458",partisan,NA,gop
 Utah,"3,271,608",court,NA,dem
 Vermont,"643,082",NA,NA,

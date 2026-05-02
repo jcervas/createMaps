@@ -122,7 +122,7 @@ folder <- file.path(
   
     filename <- if (i == 1) "map_old.csv" else "map_new.csv"
 
-    filename_main <- if (i == 1) paste0(states[j],"map_old.csv") else paste0(states[j],"map_new.csv")
+    filename_main <- if (i == 1) paste0(states[j],"_map_old.csv") else paste0(states[j],"_map_new.csv")
   
     write.csv(
       twoparty_wide,
@@ -131,7 +131,7 @@ folder <- file.path(
     )
     write.csv(
       twoparty_wide,
-      file.path(main_folder, filename_main),
+      file.path(main_folder, "mid-decade-redistricting/data", filename_main),
       row.names = FALSE
     )
 
@@ -166,20 +166,9 @@ folder <- file.path(
 
   net <- gop_new - gop_old  # GOP seat change
 
-  # --- store result ---
-  results <- rbind(results, data.frame(
-    State = states[j],
-    GOP_Old = gop_old,
-    DEM_Old = dem_old_mean,
-    GOP_New = gop_new,
-    DEM_New = dem_new_mean,
-    Net_GOP_Change = net,
-    Min = min(old_dem - new_dem),
-    Max = max(old_dem - new_dem)
-  ))
 
 
-    map_old <- read.csv(file.path(folder, 'map_old.csv'))
+  map_old <- read.csv(file.path(folder, 'map_old.csv'))
   map_new <- read.csv(file.path(folder, 'map_new.csv'))
 
   # Create a comparison data frame
@@ -195,6 +184,19 @@ folder <- file.path(
     # store it
     res_all[[j]] <- res
       }
+
+        # --- store result ---
+  results <- rbind(results, data.frame(
+    State = states[j],
+    GOP_Old = gop_old,
+    DEM_Old = dem_old_mean,
+    GOP_New = gop_new,
+    DEM_New = dem_new_mean,
+    Net_GOP_Change = net,
+    Min = min(old_dem - new_dem),
+    Max = max(old_dem - new_dem)
+  ))
+
 
 }
 
