@@ -1,6 +1,6 @@
 
 
-cd '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/OH/data/elections'
+cd '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/TN/data/elections'
 
 mkdir -p old_cleaned_dra
 mkdir -p new_cleaned_dra
@@ -46,7 +46,7 @@ results <- data.frame(
 
 res_all <- vector("list", length(states))
 
-states <- c("MO", "OH", "NC", "CA", "TX", "FL", "VA", "UT")
+states <- c("TN","MO", "OH", "NC", "CA", "TX", "FL", "VA", "UT")
 
 for (j in seq_along(states)) {
   # Main Folder
@@ -134,7 +134,10 @@ folder <- file.path(
       file.path(main_folder, "mid-decade-redistricting/data", filename_main),
       row.names = FALSE
     )
+  }
 
+  map_old <- read.csv(file.path(folder, 'map_old.csv'))
+  map_new <- read.csv(file.path(folder, 'map_new.csv'))
 
   # --- column check ---
   cols <- setdiff(names(map_old), "ID")
@@ -166,10 +169,6 @@ folder <- file.path(
 
   net <- gop_new - gop_old  # GOP seat change
 
-
-
-  map_old <- read.csv(file.path(folder, 'map_old.csv'))
-  map_new <- read.csv(file.path(folder, 'map_new.csv'))
 
   # Create a comparison data frame
     res <- data.frame(
