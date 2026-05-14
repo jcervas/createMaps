@@ -23,6 +23,47 @@ done
 
 
 
+# ----------------------------
+# Reusable styles (IMPORTANT: arrays)
+# ----------------------------
+
+DEM_STYLE=(
+  "fill=rgba(115,181,234,0.6)"
+)
+
+DEM_BORDER=(
+  "stroke=rgba(115,181,234,1)"
+)
+
+GOP_STYLE=(
+  "fill=rgba(238,141,140,0.6)"
+)
+
+GOP_BORDER=(
+  "stroke=rgba(238,141,140,1)"
+  )
+
+COURT_BASE=(
+  "fill=rgba(253,181,21,0.6)"
+  "stroke=rgba(253,181,21,1)"
+)
+
+OUTLINE_BLACK=(
+  "stroke=rgba(0,0,0,1)"
+)
+
+REJECTED_STYLE=(
+  "fill-pattern=hatches 45deg 2px #ddd 2px #eee"
+)
+
+PROPOSED=(
+  "fill-pattern=hatches 45deg 2px none 2px #eee"
+  "stroke-width=2"
+)
+
+PENDING_PATTERN=(
+  "opacity=0.5"
+)
 
 
 mapshaper \
@@ -30,37 +71,22 @@ mapshaper \
 -i '../redistrict-map.csv' \
 -join target=states source=redistrict-map keys=NAME,state \
 -proj target=states albersusa \
--style fill=#F2F0EF stroke=#fff \
--filter target=states '[0].includes(mid_decade)' + name=rejected \
--filter target=states '["partisan"].includes(mid_decade)' + name=partisan \
--filter target=states '["court"].includes(mid_decade)' + name=court \
--filter target=states '["possible"].includes(mid_decade)' + name=possible \
--filter target=states '[999,null].includes(mid_decade)' + name=not \
--style target=rejected fill="#aaa" stroke=#fff fill-pattern='hatches 45deg 2px #aaa 2px #eee' \
--style target=partisan where='party=="dem"' fill='rgba(115,181,234,0.8)' stroke='rgba(115,181,234,1)' \
--style target=partisan where='party=="gop"' fill='rgba(238,141,140,0.8)' stroke='rgba(238,141,140,1)' \
--style target=court fill='rgba(253,181,21,0.8)' stroke='rgba(253,181,21,1)' \
--style target=court where='party=="dem"' fill='rgba(115,181,234,0.8)' stroke='rgba(0,0,0,1)' \
--style target=court where='party=="gop"' fill='rgba(238,141,140,0.8)' stroke='rgba(0,0,0,1)' \
--style target=not fill="#eee" stroke=#fff \
--style target=court where='status=="pending"' stroke='rgba(0,0,0,1)' fill-pattern='hatches 45deg 1px rgba(238,141,140,0.8) 1.5px #ddd' \
--style target=possible where='status=="pending"' stroke='rgba(255,255,255,1)' fill-pattern='hatches 45deg 1px rgba(238,141,140,0.8) 1.5px #ddd' \
--style target=partisan where='status=="pending"' stroke='rgba(238,141,140,1)' fill='rgba(238,141,140,0.1)' \
--dissolve target=states + name=US \
--style target=US fill=none stroke=#000 \
--o format=topojson target=not,rejected,partisan,court,US ../redistricting2026.json \
--o target=not,US ../svg/map_not.svg \
--o target=rejected,US ../svg/map_rejected.svg \
--o target=partisan,US ../svg/map_partisan.svg \
--o target=court,US ../svg/map_court.svg \
--o target=US,states,not,possible,rejected,partisan,court ../svg/redistricting2026.svg
+-lines + name=borders \
+-style target=borders stroke='#c5c5c5' stroke-width='TYPE=="inner" ? 1 : 0.7' \
+-target states \
+-style fill=none \
+-style where='party=="dem"' "${DEM_STYLE[@]}" "${DEM_BORDER[@]}" \
+-style where='party=="gop"' "${GOP_STYLE[@]}" "${GOP_BORDER[@]}" \
+-style where='status=="blocked"' "${REJECTED_STYLE[@]}" \
+-style where='party=="dem" && mid_decade=="court"' "${DEM_STYLE[@]}" "${DEM_BORDER[@]}" \
+-style where='party=="gop" && mid_decade=="court"' "${GOP_STYLE[@]}" "${GOP_BORDER[@]}" \
+-style where='status=="pending"' "${PENDING_PATTERN[@]}" \
+-style where='status=="proposed"' "${PROPOSED[@]}" \
+-dissolve + name=US \
+-style fill='#fafafa' \
+-o format=topojson target=states ../redistricting2026.json \
+-o target=US,borders,states ../svg/redistricting2026.svg
 
-
--style target=redistricted fill='[1,2,3,4].includes(mid_decade) ? (mid_decade === 1 ? "#EF3A47" : mid_decade === 2 ? "#FDB515" : mid_decade === 3 ? "#003594" : mid_decade === 4 ? "#009647" : "none") : "#F2F0EF"' stroke=#000 \
--style target=states fill='[0,999].includes(mid_decade) ? (mid_decade === 0 ? "#008F91" : mid_decade === 999 ? "#ddd" : "none") : "#F2F0EF"' \
--dissolve target=states + name=US \
--style target=US fill=none stroke=#000 \
--o target=states,redistricted,US redistricting2026.svg
 
 
 

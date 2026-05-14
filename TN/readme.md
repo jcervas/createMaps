@@ -4,25 +4,26 @@
 
 
 ```{r}
-source("https://raw.githubusercontent.com/jcervas/R-Functions/main/censusAPI/censusAPI.R")
-blocks <- censusAPI(state="TN", geo="block", table="P1")
-columns_to_remove <- grep("A$", colnames(blocks))
-data_filtered <- blocks[, -columns_to_remove]
-data_filtered$GEOID20 <- gsub("1000000US", "", data_filtered$GEO_ID)
-data_filtered$blkgrp <- substr(data_filtered$GEOID20, 1, 12)
-write.csv(data_filtered, "/Users/cervas/My Drive/GitHub/createMaps/TN/blockscsv.csv")
+source("https://raw.githubusercontent.com/jcervas/R-Functions/refs/heads/main/census-scripts/decennialAPI/decennialAPI.R")
+blocks <- decennialAPI(state="TN", geo="block", table="P1")
+blocks$GEOID20 <- gsub("1000000US", "", blocks$GEO_ID)
+blocks$blkgrp <- substr(blocks$GEOID20, 1, 12)
+
+blocks$Blacks <- rowSums(blocks[, any_part_black_p1, drop = FALSE])
+
+write.csv(blocks, '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/TN/blockscsv.csv')
 ```
 
 
 
 ```
-cd '/Users/cervas/My Drive/GitHub/createMaps/TN'
+cd '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/TN'
 mapshaper-xl 20gb \
--i '/Users/cervas/My Drive/GitHub/Data Files/GIS/Tigerline/TIGER2020PL/blocks/TN/tl_2020_47_tabblock20.shp' name=blocks \
--i '/Users/cervas/My Drive/GitHub/createMaps/TN/blockscsv.csv' name=blockscsv string-fields=GEOID20 \
--i '/Users/cervas/My Drive/GitHub/createMaps/TN/cities.json' name=cities \
--i '/Users/cervas/My Drive/GitHub/Data Files/GIS/Congress/US_2022_Districts.json' name=cd2022 \
--i '/Users/cervas/My Drive/GitHub/createMaps/us-cart.json' name=us-cart \
+-i '47_TN_tabblock20.json' name=blocks \
+-i 'blockscsv.csv' name=blockscsv string-fields=GEOID20 \
+-i 'cities.json' name=cities \
+-i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/mid-decade-redistricting/mid-decade/TN-2022.geojson' name=cd2022 \
+-i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/us-cart.json' name=us-cart \
 -filter target=us-cart 'STUSPS == "TN"' \
 -style target=us-cart fill=none stroke=#000 opacity=1 stroke-opacity=1 \
 -simplify target=blocks 0.05 \
@@ -30,9 +31,11 @@ mapshaper-xl 20gb \
 -filter target=blocks 'AWATER20>=ALAND20' + name=water \
 -dissolve \
 -style target=water fill=#fff \
+-filter target=blocks `ALAND20>0` \
 -dissolve target=blocks field=TRACTCE20 calc=' TOTAL = sum(P1_001N), COUNTYFP20 = max(COUNTYFP20), ALAND20 = sum(ALAND20), STATEFP20 = max(STATEFP20)' + name=tracts \
 -dissolve target=blocks field=blkgrp calc=' TOTAL = sum(P1_001N), COUNTYFP20 = max(COUNTYFP20), ALAND20 = sum(ALAND20), STATEFP20 = max(STATEFP20)' + name=blkgrps \
 -each target=blocks 'density = P1_001N / (ALAND20/2589988)' \
+-each target=blocks 'black_density = Blacks / (ALAND20/2589988)' \
 -each target=blkgrps 'density = TOTAL / (ALAND20/2589988)' \
 -each target=tracts 'density = TOTAL / (ALAND20/2589988)' \
 -dissolve target=tracts COUNTYFP20 + name=county \
@@ -42,22 +45,26 @@ mapshaper-xl 20gb \
 
 ```
 -filter target=blocks 'STATEFP20 == "47"' + name=blocks-styled \
+-filter target=blocks 'STATEFP20 == "47"' + name=blocks-blacks_styled \
 -filter target=blocks 'STATEFP20 == "47"' + name=blocks-bw \
 -filter target=tracts 'STATEFP20 == "47"' + name=blkgrps-styled \
 -filter target=tracts 'STATEFP20 == "47"' + name=tracts-styled \
 -classify target=blocks-styled field=density save-as=fill colors=OrRd classes=9 key-name="legend_densityTN_blocks" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="" \
+-classify target=blocks-blacks_styled field=black_density save-as=fill colors=OrRd breaks=100,1000,10000 key-name="legend_densityTN_blocks" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="" \
 -classify target=blocks-bw field=density save-as=fill colors=greys classes=5 key-name="legend_densityTN_blocks" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="" \
 -classify target=blkgrps-styled field=density save-as=fill colors=greys classes=9 key-name="legend_densityTN_blkgrps" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="" \
 -classify target=tracts-styled field=density save-as=fill nice colors=greys classes=5 key-name="legend_densityTN_tracts" key-style="simple" key-tile-height=10 key-width=320 key-font-size=10 key-last-suffix="" \
 -dissolve target=blocks-styled field=fill \
+-dissolve target=blocks-blacks_styled field=fill \
 -dissolve target=blocks-bw field=fill \
 -dissolve target=blkgrps-styled field=fill \
 -dissolve target=tracts-styled field=fill \
--proj target=tracts-styled,blocks-bw,blkgrps-styled,blocks-styled,water,county,cities,cd2022,us-cart EPSG:3662 \
--o target=blocks-styled,water,county,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/TN/images/TN_blocks.svg' format=svg \
--o target=blocks-bw,water,us-cart '/Users/cervas/My Drive/GitHub/createMaps/TN/images/TN_blocks_bw.svg' format=svg \
--o target=blkgrps-styled,water,county,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/TN/images/TN_blkgrps.svg' format=svg \
--o target=tracts-styled,water,county,cities,us-cart '/Users/cervas/My Drive/GitHub/createMaps/TN/images/TN_tracts.svg' format=svg \
+-proj target=tracts-styled,blocks-bw,blkgrps-styled,blocks-styled,blocks-blacks_styled,water,county,cities,cd2022,us-cart EPSG:3662 \
+-o target=blocks-styled,water,county,cities,us-cart 'images/TN_blocks.svg' format=svg \
+-o target=blocks-blacks_styled,water,county,cities,us-cart 'images/TN_blacks_blocks.svg' format=svg \
+-o target=blocks-bw,water,us-cart 'images/TN_blocks_bw.svg' format=svg \
+-o target=blkgrps-styled,water,county,cities,us-cart 'images/TN_blkgrps.svg' format=svg \
+-o target=tracts-styled,water,county,cities,us-cart 'images/TN_tracts.svg' format=svg \
 ```
 
 ```
@@ -76,7 +83,7 @@ mapshaper-xl 20gb \
 -clip source=us-cart target=county \
 -clip source=us-cart target=cities \
 -clip source=us-cart target=cd2022 \
--o target=tracts-styled,cd2022,county,cities,ST,cd2022-labels,us-cart '/Users/cervas/My Drive/GitHub/createMaps/TN/images/cd2022.svg'
+-o target=tracts-styled,cd2022,county,cities,ST,cd2022-labels,us-cart 'images/cd2022.svg'
 ```
 
 

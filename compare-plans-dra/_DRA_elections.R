@@ -1,6 +1,6 @@
 
 
-cd '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/TN/data/elections'
+cd '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/SC/data/elections'
 
 mkdir -p old_cleaned_dra
 mkdir -p new_cleaned_dra
@@ -102,7 +102,7 @@ folder <- file.path(
                               df <- elect_list[[nm]]
                               
                               # Compute two-party vote share safely
-                              df$TwoParty <- with(df, ifelse((Dem + Rep) > 0, Dem / (Dem + Rep), NA))
+                              df$TwoParty <- with(df, ifelse((Dem > 0 & Rep > 0), Dem / (Dem + Rep), NA))
                               
                               # Keep ID + computed share
                               out <- df[, c("ID", "TwoParty")]
@@ -182,9 +182,9 @@ folder <- file.path(
 
     # store it
     res_all[[j]] <- res
-      }
 
-        # --- store result ---
+
+            # --- store result ---
   results <- rbind(results, data.frame(
     State = states[j],
     GOP_Old = gop_old,
@@ -195,13 +195,10 @@ folder <- file.path(
     Min = min(old_dem - new_dem),
     Max = max(old_dem - new_dem)
   ))
-
-
-}
-
+      }
 
 results
-
+res_all
 
 cat(
   "OLD MAP:\n",
