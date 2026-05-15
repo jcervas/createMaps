@@ -57,7 +57,7 @@ REJECTED_STYLE=(
 )
 
 PROPOSED=(
-  "fill-pattern=hatches 45deg 2px none 2px #eee"
+  "fill-pattern=hatches 135deg 2px none 2px #eee"
   "stroke-width=2"
 )
 

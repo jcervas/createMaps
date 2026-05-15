@@ -1,6 +1,6 @@
 
 
-cd '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/SC/data/elections'
+cd '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/PA/data/elections'
 
 mkdir -p old_cleaned_dra
 mkdir -p new_cleaned_dra
@@ -150,7 +150,7 @@ folder <- file.path(
   # enforce same order
   cols <- sort(cols)
   map_old <- map_old[, c("ID", cols)]
-  map_new <- map_new[, c("ID", cols)]
+  map_new <- map_new[, c("ID", cols_new)]
 
   # --- compute seat counts ---
   old_dem <- colSums(map_old[,-1] > 0.5)
