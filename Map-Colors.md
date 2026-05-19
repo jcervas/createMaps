@@ -59,7 +59,7 @@ indianred.75 <- rgb(205, 92, 92, 191, max =255)
 
 <table cellspacing="0" cellpadding="0" border="0">
 <tr>
-<td bgcolor="#fcf3e5" width="40" height="14">![#fcf3e5](https://readme-swatches.vercel.app/fcf3e5) `#fcf3e5`</td>
+<td bgcolor="#fcf3e5" width="40" height="14">![#008AEF](https://readme-swatches.vercel.app/008AEF) `#008AEF`</td>
 <td bgcolor="#ffeab0" width="40" height="14"></td>
 <td bgcolor="#ffd391" width="40" height="14"></td>
 <td bgcolor="#b89ab9" width="40" height="14"></td>
