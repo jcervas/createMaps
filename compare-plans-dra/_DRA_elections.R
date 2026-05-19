@@ -252,8 +252,25 @@ write.csv(comparison_df, file.path(folder,'district_changes.csv'), row.names=F)
 write.csv(comparison_df_stroke, file.path(folder,'district_changes_stroke.csv'), row.names=F)
 
 
+## Compare Districts
+
+out <- district_partisanship(
+  state_abr = "PA",
+  path = file.path(main_folder, "mid-decade-redistricting/data"),
+  save = FALSE
+)
 
 
+
+avg_vals <- aggregate(
+  cbind(old, new) ~ state + district,
+  data = out,
+  FUN = mean,
+  na.rm = TRUE
+)
+
+print(avg_vals)
+write.csv(avg_vals, '/Users/cervas/Downloads/pa-district.csv')
 
 
 
