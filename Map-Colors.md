@@ -28,10 +28,10 @@ indianred.75 <- rgb(205, 92, 92, 191, max =255)
 
 
 -colorizer name=fillDEMColor breaks='55,60,65' colors='#CEEAFD,#92BDE0,#5295CC,#1375B7'
--svg-style target=DEM fill='fillDEMColor(winning_pct_display)' \
+-style target=DEM fill='fillDEMColor(winning_pct_display)' \
 
 -colorizer name=fillGOPColor breaks='55,60,65' colors='#FCE0E0,#EAA9A9,#DB7171,#C93135'
--svg-style target=GOP fill='fillGOPColor(winning_pct_display)' \
+-style target=GOP fill='fillGOPColor(winning_pct_display)' \
 
 
 ## CNN Colors
@@ -56,6 +56,11 @@ indianred.75 <- rgb(205, 92, 92, 191, max =255)
 ## New York Times Maps
 
 [Why Neutral Maps Could Empower Black Voters as Much as the Voting Rights Act](https://www.nytimes.com/2026/05/17/upshot/redistricting-race-court-gerrymanders-elections.html)
+
+```
+-colorizer name=BlackPer breaks='35,40,45,,50,55,60' colors='#fcf3e5,#ffeab0,#ffd391,#b89ab9,#866f87' 
+-style fill='BlackPer(blackper)' \
+```
 
 <div align="left">
 
