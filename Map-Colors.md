@@ -53,9 +53,9 @@ indianred.75 <- rgb(205, 92, 92, 191, max =255)
 
 
 
-<div align="left">
+## New York Times Maps
 
-**Black voting-age population**
+[Why Neutral Maps Could Empower Black Voters as Much as the Voting Rights Act](https://www.nytimes.com/2026/05/17/upshot/redistricting-race-court-gerrymanders-elections.html)
 
 <div align="left">
 
