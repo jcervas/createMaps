@@ -57,13 +57,17 @@ indianred.75 <- rgb(205, 92, 92, 191, max =255)
 
 **Black voting-age population**
 
-<table cellspacing="0" cellpadding="0" border="0">
+<div align="left">
+
+**Black voting-age population**
+
+<table>
 <tr>
-<td bgcolor="#fcf3e5" width="40" height="14">![#008AEF](https://readme-swatches.vercel.app/008AEF) `#008AEF`</td>
-<td bgcolor="#ffeab0" width="40" height="14"></td>
-<td bgcolor="#ffd391" width="40" height="14"></td>
-<td bgcolor="#b89ab9" width="40" height="14"></td>
-<td bgcolor="#866f87" width="40" height="14"></td>
+<td><img src="https://singlecolorimage.com/get/fcf3e5/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/ffeab0/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/ffd391/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/b89ab9/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/866f87/40x14" /></td>
 </tr>
 <tr>
 <td align="left"><sub>35%</sub></td>
