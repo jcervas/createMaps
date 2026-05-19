@@ -193,7 +193,7 @@ indianred.75 <- rgb(205, 92, 92, 191, max =255)
 [Why Neutral Maps Could Empower Black Voters as Much as the Voting Rights Act](https://www.nytimes.com/2026/05/17/upshot/redistricting-race-court-gerrymanders-elections.html)
 
 ```
--colorizer name=BlackPer breaks='40,45,50,55,60,100' colors='#fcf3e5,#ffeab0,#ffd391,#b89ab9,#866f87' 
+-colorizer name=BlackPer breaks='40,45,50,55' colors='#fcf3e5,#ffeab0,#ffd391,#b89ab9,#866f87' 
 -style fill='BlackPer(blackper)' \
 
 -each 'fill =  blackper < 40 ? "#fcf3e5" : blackper < 45 ? "#ffeab0" : blackper < 50 ? "#ffd391" : blackper < 55 ? "#b89ab9" : "#866f87"'
@@ -215,7 +215,7 @@ indianred.75 <- rgb(205, 92, 92, 191, max =255)
 <td><img src="https://singlecolorimage.com/get/866f87/40x14" /></td>
 </tr>
 <tr>
-<td align="left"><sub>35%</sub></td>
+<td align="left"><sub>40%</sub></td>
 <td align="center"><sub>45%</sub></td>
 <td align="center"><sub>50%</sub></td>
 <td align="center"><sub>55%</sub></td>
