@@ -5,7 +5,7 @@ cd '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Dri
 mkdir -p old_cleaned_dra
 mkdir -p new_cleaned_dra
 
-for f in 2022-map-dra/*.csv; do
+for f in Benninghoff-map-dra/*.csv; do
   out="./old_cleaned_dra/$(basename "$f")"
   awk -F',' '
     NR==1 { print; next }
@@ -17,7 +17,7 @@ for f in 2022-map-dra/*.csv; do
   ' "$f" > "$out"
 done
 
-for f in 2026-map-dra/*.csv; do
+for f in 2022-map-dra/*.csv; do
   out="./new_cleaned_dra/$(basename "$f")"
   awk -F',' '
     NR==1 { print; next }
@@ -173,9 +173,11 @@ folder <- file.path(
   # Create a comparison data frame
     res <- data.frame(
       State = states[j],  # add state label
-      Election = names(colSums(map_old[,-1] < 0.5)),
-      OldPlan = colSums(map_old[,-1] < 0.5),
-      NewPlan = colSums(map_new[,-1] < 0.5)
+      n = dim(map_old[,-1])[1],
+      Election = names(map_old[,-1]),
+      TwoPartyVote = round(colMeans(map_new[,-1]),d=3),
+      OldPlan = colSums(map_old[,-1] > 0.5),
+      NewPlan = colSums(map_new[,-1] > 0.5)
     )
 
     res$Change <- res$NewPlan - res$OldPlan
@@ -200,15 +202,17 @@ folder <- file.path(
 results
 res_all
 
+
+
 cat(
-  "OLD MAP:\n",
-  "GOP Seats:", dim(map_old)[1] - mean(colSums(1 * (map_old[,-1] > 0.5))),
+  "OLD MAP:",
+  "\nGOP Seats:", dim(map_old)[1] - mean(colSums(1 * (map_old[,-1] > 0.5))),
   "\nDEM Seats:", mean(colSums(1 * (map_old[,-1] > 0.5))), "\n"
 )
 
 cat(
-  "NEW MAP:\n",
-  "GOP Seats:", dim(map_new)[1] - mean(colSums(1 * (map_new[,-1] > 0.5))),
+  "NEW MAP:",
+  "\nGOP Seats:", dim(map_new)[1] - mean(colSums(1 * (map_new[,-1] > 0.5))),
   "\nDEM Seats:", mean(colSums(1 * (map_new[,-1] > 0.5))), "\n"
 )
 
@@ -223,7 +227,6 @@ cat(
          paste0("GOP +", round(net, 2)),
          paste0("DEM +", round(abs(net), 2)))
 )
-
 
 
   # create logical comparison matrix
@@ -291,3 +294,35 @@ sv_curve(v=colMeans(map_new)[-1], s=colMeans(1 * (map_new>.5))[-1], col="white")
 sv_plot(
   sv_curve(v=colMeans(map_new)[-1], s=colMeans(1 * (map_new>.5))[-1], col="black")
   )
+
+
+
+library(ggplot2)
+library(grid)
+
+df <- data.frame(
+  election = res$Election,
+  old = res$OldPlan,
+  new = res$NewPlan
+)
+
+ggplot(df) +
+  geom_segment(
+    aes(y = election, yend = election,
+        x = old, xend = new,
+        color = new > old),
+    arrow = arrow(type = "closed",
+                  length = unit(0.12, "inches")),
+    linewidth = 0.7
+  ) +
+  geom_point(aes(old, election), shape = 1, size = 2) +
+  scale_color_manual(
+    values = c("TRUE" = "#2C7BB6",
+               "FALSE" = "#D7191C"),
+    guide = "none"
+  ) +
+  labs(
+    x = "1 - Plan / n",
+    y = NULL
+  ) +
+  theme_minimal(base_size = 13)

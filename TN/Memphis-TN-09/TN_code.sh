@@ -1,25 +1,30 @@
 TN Code § 2-16-102 (2024): https://law.justia.com/codes/tennessee/title-2/chapter-16/section-2-16-102/
 
+     rm(list=ls(all=TRUE)) # Remove all objects from R history
+     options(scipen=999) # Turn off Scientific Notation
+     
+df <- read.csv('/Users/cervas/Downloads/fifty-states-main/data-out/TN_2020/TN_stats.csv')
+head(df)
+pop_result <- df[ave(df$pop_black, df$draw, FUN = max) == df$pop_black, ]
+pop_result$per_black <- pop_result$pop_black/pop_result$total_pop
 
-df <- read.csv('/Users/cervas/Downloads/TN-redist-ALARM/TN_cd_2020_stats.csv')
+summary(pop_result$per_black)
+sort(pop_result$per_black)[1:3]
+sum(1 * pop_result$per_black > 0.5)
 
-result <- df[ave(df$pop_black, df$draw, FUN = max) == df$pop_black, ]
-result$per_black <- result$pop_black/result$total_pop
+pop_result$black_plurality <- with(pop_result,
+  pop_black > pop_white &
+  pop_black > pop_hisp &
+  pop_black > pop_asian &
+  pop_black > pop_aian &
+  pop_black > pop_other &
+  pop_black > pop_two &
+  pop_black > pop_nhpi
+)
 
-summary(result$per_black)
-sum(1 * result$per_black > 0.5)
+sum(pop_result$black_plurality)
 
-
-result <- df[ave(df$vap_black, df$draw, FUN = max) == df$vap_black, ]
-result$per_bvap <- result$vap_black/result$total_vap
-
-summary(result$per_bvap)
-sum(1 * result$per_bvap > 0.5)
-
-table(result$pr_dem)
-
-
-hist(result$per_black,
+hist(pop_result$per_black,
      main = "", 
      xlab = "Percent Black", 
      col = "lightblue", 
@@ -28,14 +33,54 @@ hist(result$per_black,
      xaxt = "n")
 
 # Add a rug plot to indicate individual data points (optional)
-rug(result$per_black, col = "black")
+rug(pop_result$per_black, col = "black")
 
 # Add the custom y-axis
-axis(side = 1, las = 1, at = seq(0.4,0.6,0.05), labels = c("40","45", "50", "55", "60%"), cex.axis = 0.65)
-axis(side = 2, las = 2, at = seq(0,2500,500), labels = c("0","500", "1,000", "1,500", "2,000", "2,500"), cex.axis = 0.65)
+axis(side = 1, las = 1, at = seq(0.3,0.6,0.05), labels = c("30","35","40","45","50","55","60%"), cex.axis = 0.65)
+axis(side = 2, las = 2, at = seq(0,2500,500), labels = c("0","500","1,000","1,500","2,000","2,500"), cex.axis = 0.65)
 
-df$pres20_dem <- df$pre_20_dem_bid/(df$pre_20_dem_bid+df$pre_20_rep_tru)
-result_partisan <- df[ave(df$pres20_dem, df$draw, FUN = max) == df$pres20_dem, ]
+abline(v=pop_result$per_black[1], col="red")
+text(
+  x = pop_result$per_black[1],
+  y = 750,
+  labels = "2026 Plan",
+  col = "red",
+  cex = 0.65,
+  srt = 90,
+  pos = 4,
+  xpd = TRUE
+)
+
+table(pop_result$pr_dem)
+pop_result[pop_result$pr_dem < 1,]
+
+###     
+
+vap_result <- df[ave(df$vap_black, df$draw, FUN = max) == df$vap_black, ]
+vap_result$per_bvap <- vap_result$vap_black/vap_result$total_vap
+
+summary(vap_result$per_bvap)
+sort(vap_result$per_bvap)[1:3]
+sum(1 * vap_result$per_bvap > 0.5)
+
+vap_result$black_plurality <- with(vap_result,
+  vap_black > vap_white &
+  vap_black > vap_hisp &
+  vap_black > vap_asian &
+  vap_black > vap_aian &
+  vap_black > vap_other &
+  vap_black > vap_two &
+  vap_black > vap_nhpi
+)
+
+sum(vap_result$black_plurality)
+
+
+
+
+
+
+
 
 
 
