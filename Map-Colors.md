@@ -49,3 +49,75 @@ indianred.75 <- rgb(205, 92, 92, 191, max =255)
 | **Approve / Disapprove** | ![#077A63](https://readme-swatches.vercel.app/077A63) `#077A63` / ![#522349](https://readme-swatches.vercel.app/522349) `#522349` | —                                                               | —                                                                                                                                                                                                 |
 | **Not Yet Called**       | ![#D3D3D3](https://readme-swatches.vercel.app/D3D3D3) `#D3D3D3`                                                                   | —                                                               | —                                                                                                                                                                                                 |
 | **Undecided**            | ![#B1B1B1](https://readme-swatches.vercel.app/B1B1B1) `#B1B1B1`                                                                   | —                                                               | —                                                                                                                                                                                                 |
+
+<div class="legend">
+  <p class="legend-title">Black voting-age population</p>
+
+  <div class="legend-bar">
+    <div class="segment" style="background:#fcf3e5;">
+      <span class="label left">35%</span>
+      <span class="label right">40%</span>
+    </div>
+
+    <div class="segment" style="background:#ffeab0;">
+      <span class="label right">45%</span>
+    </div>
+
+    <div class="segment" style="background:#ffd391;">
+      <span class="label right">50%</span>
+    </div>
+
+    <div class="segment" style="background:#b89ab9;">
+      <span class="label right">55%</span>
+    </div>
+
+    <div class="segment" style="background:#866f87;">
+      <span class="label right">60%</span>
+    </div>
+  </div>
+</div>
+
+<style>
+.legend {
+  font-family: Arial, sans-serif;
+  max-width: 260px;
+}
+
+.legend-title {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.legend-bar {
+  display: flex;
+  align-items: flex-start;
+}
+
+.segment {
+  position: relative;
+  width: 40px;
+  height: 16px;
+}
+
+.label {
+  position: absolute;
+  top: 22px;
+  font-size: 11px;
+  color: #333;
+  white-space: nowrap;
+}
+
+.label.left {
+  left: 0;
+  transform: translateX(-50%);
+}
+
+.label.right {
+  right: 0;
+  transform: translateX(50%);
+}
+</style>
+
+
+
