@@ -33,22 +33,157 @@ indianred.75 <- rgb(205, 92, 92, 191, max =255)
 -colorizer name=fillGOPColor breaks='55,60,65' colors='#FCE0E0,#EAA9A9,#DB7171,#C93135'
 -style target=GOP fill='fillGOPColor(winning_pct_display)' \
 
+<div align="left">
 
-## CNN Colors
+**CNN Colors**
 
-| Party / Category         | Win Color                                                                                                                         | Flip Color                                                      | Lead Gradient (0–5%, 5–10%, 10%+)                                                                                                                                                                 |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Democratic (DEM)**     | ![#008AEF](https://readme-swatches.vercel.app/008AEF) `#008AEF`                                                                   | ![#66B9F5](https://readme-swatches.vercel.app/66B9F5) `#66B9F5` | ![#A6D6F9](https://readme-swatches.vercel.app/A6D6F9) `#A6D6F9`, ![#73BFF6](https://readme-swatches.vercel.app/73BFF6) `#73BFF6`, ![#40A7F3](https://readme-swatches.vercel.app/40A7F3) `#40A7F3` |
-| **Republican (REP)**     | ![#CC0000](https://readme-swatches.vercel.app/CC0000) `#CC0000`                                                                   | ![#CD5D5D](https://readme-swatches.vercel.app/CD5D5D) `#CD5D5D` | ![#ED9A9A](https://readme-swatches.vercel.app/ED9A9A) `#ED9A9A`, ![#E37373](https://readme-swatches.vercel.app/E37373) `#E37373`, ![#D94040](https://readme-swatches.vercel.app/D94040) `#D94040` |
-| **Green (GRN)**          | ![#6BBD11](https://readme-swatches.vercel.app/6BBD11) `#6BBD11`                                                                   | ![#A6D770](https://readme-swatches.vercel.app/A6D770) `#A6D770` | ![#CBE8AC](https://readme-swatches.vercel.app/CBE8AC) `#CBE8AC`, ![#AEDB7C](https://readme-swatches.vercel.app/AEDB7C) `#AEDB7C`, ![#90CD4D](https://readme-swatches.vercel.app/90CD4D) `#90CD4D` |
-| **Libertarian (LIB)**    | ![#FF8E02](https://readme-swatches.vercel.app/FF8E02) `#FF8E02`                                                                   | ![#FFBB67](https://readme-swatches.vercel.app/FFBB67) `#FFBB67` | ![#FFD7A6](https://readme-swatches.vercel.app/FFD7A6) `#FFD7A6`, ![#FFC174](https://readme-swatches.vercel.app/FFC174) `#FFC174`, ![#FFAA41](https://readme-swatches.vercel.app/FFAA41) `#FFAA41` |
-| **Independent (IND)**    | ![#7A20A1](https://readme-swatches.vercel.app/7A20A1) `#7A20A1`                                                                   | ![#AF79C7](https://readme-swatches.vercel.app/AF79C7) `#AF79C7` | ![#D0B1DE](https://readme-swatches.vercel.app/D0B1DE) `#D0B1DE`, ![#B684CB](https://readme-swatches.vercel.app/B684CB) `#B684CB`, ![#9B58B9](https://readme-swatches.vercel.app/9B58B9) `#9B58B9` |
-| **Traditional (TRD)**    | ![#7A20A1](https://readme-swatches.vercel.app/7A20A1) `#7A20A1`                                                                   | ![#AF79C7](https://readme-swatches.vercel.app/AF79C7) `#AF79C7` | ![#D0B1DE](https://readme-swatches.vercel.app/D0B1DE) `#D0B1DE`, ![#B684CB](https://readme-swatches.vercel.app/B684CB) `#B684CB`, ![#9B58B9](https://readme-swatches.vercel.app/9B58B9) `#9B58B9` |
-| **Ballot – YES**         | ![#077A63](https://readme-swatches.vercel.app/077A63) `#077A63`                                                                   | —                                                               | ![#DAEBE8](https://readme-swatches.vercel.app/DAEBE8) `#DAEBE8`, ![#B5D7D0](https://readme-swatches.vercel.app/B5D7D0) `#B5D7D0`, ![#83BCB1](https://readme-swatches.vercel.app/83BCB1) `#83BCB1` |
-| **Ballot – NO**          | ![#522349](https://readme-swatches.vercel.app/522349) `#522349`                                                                   | —                                                               | ![#E5DEE4](https://readme-swatches.vercel.app/E5DEE4) `#E5DEE4`, ![#CBBDC8](https://readme-swatches.vercel.app/CBBDC8) `#CBBDC8`, ![#A891A4](https://readme-swatches.vercel.app/A891A4) `#A891A4` |
-| **Approve / Disapprove** | ![#077A63](https://readme-swatches.vercel.app/077A63) `#077A63` / ![#522349](https://readme-swatches.vercel.app/522349) `#522349` | —                                                               | —                                                                                                                                                                                                 |
-| **Not Yet Called**       | ![#D3D3D3](https://readme-swatches.vercel.app/D3D3D3) `#D3D3D3`                                                                   | —                                                               | —                                                                                                                                                                                                 |
-| **Undecided**            | ![#B1B1B1](https://readme-swatches.vercel.app/B1B1B1) `#B1B1B1`                                                                   | —                                                               | —                                                                                                                                                                                                 |
+### Democratic (DEM)
+
+<table>
+<tr>
+<td><img src="https://singlecolorimage.com/get/A6D6F9/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/73BFF6/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/40A7F3/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/66B9F5/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/008AEF/40x14" /></td>
+</tr>
+<tr>
+<td align="left"><sub>0–5%</sub></td>
+<td align="center"><sub>5–10%</sub></td>
+<td align="center"><sub>10%+</sub></td>
+<td align="center"><sub>Flip</sub></td>
+<td align="right"><sub>Win</sub></td>
+</tr>
+</table>
+
+### Republican (REP)
+
+<table>
+<tr>
+<td><img src="https://singlecolorimage.com/get/ED9A9A/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/E37373/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/D94040/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/CD5D5D/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/CC0000/40x14" /></td>
+</tr>
+<tr>
+<td align="left"><sub>0–5%</sub></td>
+<td align="center"><sub>5–10%</sub></td>
+<td align="center"><sub>10%+</sub></td>
+<td align="center"><sub>Flip</sub></td>
+<td align="right"><sub>Win</sub></td>
+</tr>
+</table>
+
+### Green (GRN)
+
+<table>
+<tr>
+<td><img src="https://singlecolorimage.com/get/CBE8AC/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/AEDB7C/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/90CD4D/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/A6D770/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/6BBD11/40x14" /></td>
+</tr>
+<tr>
+<td align="left"><sub>0–5%</sub></td>
+<td align="center"><sub>5–10%</sub></td>
+<td align="center"><sub>10%+</sub></td>
+<td align="center"><sub>Flip</sub></td>
+<td align="right"><sub>Win</sub></td>
+</tr>
+</table>
+
+### Libertarian (LIB)
+
+<table>
+<tr>
+<td><img src="https://singlecolorimage.com/get/FFD7A6/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/FFC174/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/FFAA41/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/FFBB67/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/FF8E02/40x14" /></td>
+</tr>
+<tr>
+<td align="left"><sub>0–5%</sub></td>
+<td align="center"><sub>5–10%</sub></td>
+<td align="center"><sub>10%+</sub></td>
+<td align="center"><sub>Flip</sub></td>
+<td align="right"><sub>Win</sub></td>
+</tr>
+</table>
+
+### Independent / Traditional (IND / TRD)
+
+<table>
+<tr>
+<td><img src="https://singlecolorimage.com/get/D0B1DE/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/B684CB/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/9B58B9/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/AF79C7/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/7A20A1/40x14" /></td>
+</tr>
+<tr>
+<td align="left"><sub>0–5%</sub></td>
+<td align="center"><sub>5–10%</sub></td>
+<td align="center"><sub>10%+</sub></td>
+<td align="center"><sub>Flip</sub></td>
+<td align="right"><sub>Win</sub></td>
+</tr>
+</table>
+
+### Ballot – YES
+
+<table>
+<tr>
+<td><img src="https://singlecolorimage.com/get/DAEBE8/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/B5D7D0/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/83BCB1/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/077A63/40x14" /></td>
+</tr>
+<tr>
+<td align="left"><sub>0–5%</sub></td>
+<td align="center"><sub>5–10%</sub></td>
+<td align="center"><sub>10%+</sub></td>
+<td align="right"><sub>Win</sub></td>
+</tr>
+</table>
+
+### Ballot – NO
+
+<table>
+<tr>
+<td><img src="https://singlecolorimage.com/get/E5DEE4/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/CBBDC8/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/A891A4/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/522349/40x14" /></td>
+</tr>
+<tr>
+<td align="left"><sub>0–5%</sub></td>
+<td align="center"><sub>5–10%</sub></td>
+<td align="center"><sub>10%+</sub></td>
+<td align="right"><sub>Win</sub></td>
+</tr>
+</table>
+
+### Miscellaneous
+
+<table>
+<tr>
+<td><img src="https://singlecolorimage.com/get/077A63/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/522349/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/D3D3D3/40x14" /></td>
+<td><img src="https://singlecolorimage.com/get/B1B1B1/40x14" /></td>
+</tr>
+<tr>
+<td align="left"><sub>Approve</sub></td>
+<td align="center"><sub>Disapprove</sub></td>
+<td align="center"><sub>Not Called</sub></td>
+<td align="right"><sub>Undecided</sub></td>
+</tr>
+</table>
+
+</div>                                                          |
 
 
 
