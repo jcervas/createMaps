@@ -259,8 +259,9 @@ out <- district_partisanship(
   path = file.path(main_folder, "mid-decade-redistricting/data"),
   save = FALSE
 )
+unique(out$election)
 
-
+out <- out[out$election %in% c("president-2016", "president-2020"),]
 
 avg_vals <- aggregate(
   cbind(old, new) ~ state + district,
@@ -270,7 +271,43 @@ avg_vals <- aggregate(
 )
 
 print(avg_vals)
-write.csv(avg_vals, '/Users/cervas/Downloads/pa-district.csv')
+# write.csv(avg_vals, '/Users/cervas/Downloads/pa-district.csv')
+
+# convert to margin around 50%
+margin_old <- 2 * (avg_vals$old - 0.5)
+margin_new <- 2 * (avg_vals$new - 0.5)
+
+# define breaks + labels
+breaks <- c(-Inf, -0.20, -0.10, 0, 0.10, 0.20, Inf)
+
+labels <- c(
+  "R+20",
+  "R+10 to R+20",
+  "Competitive R",
+  "Competitive D",
+  "D+10 to D+20",
+  "D+20"
+)
+
+# bin values
+avg_vals$bin_old <- cut(
+  margin_old,
+  breaks = breaks,
+  labels = labels,
+  right = FALSE
+)
+
+avg_vals$bin_new <- cut(
+  margin_new,
+  breaks = breaks,
+  labels = labels,
+  right = FALSE
+)
+
+# inspect
+table(avg_vals$bin_old)
+table(avg_vals$bin_new)
+
 
 
 
