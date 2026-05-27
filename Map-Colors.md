@@ -1,5 +1,48 @@
 # Map Colors
 
+## Carnegie Mellon University Colors
+
+### Core Colors
+
+| Color | Hex Code | Color Swatch |
+|-------|-----------|----------------|
+| Carnegie Red | #C41230 | <img src="https://readme-swatches.vercel.app/C41230"> |
+| Black | #000000 | <img src="https://readme-swatches.vercel.app/000000"> |
+| Iron Gray | #6D6E71 | <img src="https://readme-swatches.vercel.app/6D6E71"> |
+| Steel Gray | #E0E0E0 | <img src="https://readme-swatches.vercel.app/E0E0E0"> |
+| White | #FFFFFF | <img src="https://readme-swatches.vercel.app/FFFFFF"> |
+
+### Tartan Palette
+
+| Color | Hex Code | Color Swatch |
+|-------|-----------|----------------|
+| Scots Rose | #EF3A47 | <img src="https://readme-swatches.vercel.app/EF3A47"> |
+| Gold Thread | #FDB515 | <img src="https://readme-swatches.vercel.app/FDB515"> |
+| Green Thread | #009647 | <img src="https://readme-swatches.vercel.app/009647"> |
+| Teal Thread | #008F91 | <img src="https://readme-swatches.vercel.app/008F91"> |
+| Blue Thread | #043673 | <img src="https://readme-swatches.vercel.app/043673"> |
+| Highlands Sky Blue | #007BC0 | <img src="https://readme-swatches.vercel.app/007BC0"> |
+
+### Campus Palette
+
+| Color | Hex Code | Color Swatch |
+|-------|-----------|----------------|
+| Machinery Hall Tan | #BCB49E | <img src="https://readme-swatches.vercel.app/BCB49E"> |
+| Kittanning Brick Beige | #E4DAC4 | <img src="https://readme-swatches.vercel.app/E4DAC4"> |
+| Hornbostel Teal | #1F4C4C | <img src="https://readme-swatches.vercel.app/1F4C4C"> |
+| Palladian Green | #719F94 | <img src="https://readme-swatches.vercel.app/719F94"> |
+| Weaver Blue | #182C4B | <img src="https://readme-swatches.vercel.app/182C4B"> |
+| Skibo Red | #941120 | <img src="https://readme-swatches.vercel.app/941120"> |
+
+### Example CMU Mapshaper Palette
+
+```bash
+-colorizer name=fillCMU breaks='20,40,60,80' \
+colors='#E0E0E0,#BCB49E,#C41230,#941120,#182C4B'
+
+-style fill='fillCMU(score)' stroke='#FFFFFF' stroke-width=0.5
+
+
 **Democrat Win**    
 | Hex Code  | Color Swatch   |
 |-----------|----------------|
