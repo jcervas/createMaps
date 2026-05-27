@@ -41,7 +41,7 @@
 colors='#E0E0E0,#BCB49E,#C41230,#941120,#182C4B'
 
 -style fill='fillCMU(score)' stroke='#FFFFFF' stroke-width=0.5
-
+```
 
 **Democrat Win**    
 | Hex Code  | Color Swatch   |
