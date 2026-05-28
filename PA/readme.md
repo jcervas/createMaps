@@ -1,6 +1,82 @@
-
 Set Working Directory
 `cd "/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/PA/images"`
+
+# Demographic Choropleths
+
+## R Commands to get Census Data 
+```
+R \
+
+source(https://raw.githubusercontent.com/jcervas/R-Functions/refs/heads/main/census-scripts/decennialAPI/decennialAPI.R)
+Sys.setenv("CENSUS_API_KEY" = "95fe940d2fe95c12900a6f024c35f29fac6f28ee")
+pa_blocks_vap <- censusAPI(state="PA", geo="block", table="P4")
+pa_vap <- data.frame(
+  GEOID20 = sub("^1000000US", "", pa_blocks_vap$GEO_ID),
+  totalvap = pa_blocks_vap$P4_001N,
+  minority = pa_blocks_vap$P4_001N - pa_blocks_vap$P4_005N
+  )
+
+  write.csv(pa_vap, '/Users/cervas/Downloads/pa_vap.csv', row.names=F)
+```
+
+## Mapshaper Commands 
+```
+mapshaper \
+-i '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/us-state.json' \
+-i '/Users/cervas/Downloads/pa_vap.csv' string-fields=GEOID20 \
+-i '/Users/cervas/Downloads/tl_2020_42_tabblock20.zip' name=blocks \
+-join target=blocks source=pa_vap keys=GEOID20,GEOID20 \
+-target blocks \
+-each 'tract = STATEFP20 + COUNTYFP20 + TRACTCE20' \
+-simplify 10% \
+-clip source=us-state \
+-proj EPSG:3652 \
+-info \
+-colorizer name=BlackPer breaks='0.30,0.40,0.45,0.50' colors='#fcf3e5,#ffeab0,#ffd391,#b89ab9,#866f87' \
+-target blocks \
+-dissolve tract copy-fields=COUNTYFP20 sum-fields=minority,totalvap + name=tracts \
+-dissolve COUNTYFP20 sum-fields=minority,totalvap + name=counties \
+-dissolve + name=state \
+-lines \
+-style stroke=#000 \
+-target counties \
+-each 'minorityper = (+minority / +totalvap)' \
+-style fill='BlackPer(minorityper)' stroke='rgba(0,0,0,0.5)' stroke-width=1 stroke-dasharray="0 3 0"  \
+-target counties,state \
+-o '/Users/cervas/Downloads/pa_counties.svg' \
+-target counties \
+-innerlines \
+-style stroke='rgba(0,0,0,0.5)' stroke-width=1 stroke-dasharray="0 3 0" \
+-target tracts \
+-each 'minorityper = (+minority / +totalvap)' \
+-style fill='BlackPer(minorityper)' \
+-target tracts,counties,state \
+-o '/Users/cervas/Downloads/pa_tracts.svg' \
+-target tracts \
+-innerlines \
+-style stroke='rgba(0,0,0,0.25)' stroke-width=0.25 \
+-target blocks \
+-each 'minorityper = (+minority / +totalvap)' \
+-style fill='BlackPer(minorityper)' \
+-dissolve fill + name=blocks_styled \
+-target blocks_styled,counties,state \
+-o '/Users/cervas/Downloads/pa_blocks_minority.svg' \
+-target blocks \
+-simplify 1% \
+-innerlines \
+-style stroke='rgba(0,0,0,0.1)' stroke-width=0.2 \
+-target blocks,tracts,counties,state \
+-merge-layers force \
+-o '/Users/cervas/Downloads/pa_blocks.svg'
+```
+
+SVG to PNG
+```
+/usr/bin/sips -s format png -o /Users/cervas/Downloads/pa_blocks_minority.png /Users/cervas/Downloads/pa_blocks_minority.svg
+/usr/bin/sips -s format png -o /Users/cervas/Downloads/pa_blocks.png /Users/cervas/Downloads/pa_blocks.svg
+/usr/bin/sips -s format png -o /Users/cervas/Downloads/pa_tracts.png /Users/cervas/Downloads/pa_tracts.svg
+/usr/bin/sips -s format png -o /Users/cervas/Downloads/pa_counties.png /Users/cervas/Downloads/pa_counties.svg
+```
 
 # Base Map
 
