@@ -258,11 +258,11 @@ indianred.75 <- rgb(205, 92, 92, 191, max =255)
 <td><img src="https://singlecolorimage.com/get/866f87/40x14" /></td>
 </tr>
 <tr>
-<td align="left"><sub>40%</sub></td>
+<td align="left"><sub>40% or less</sub></td>
 <td align="center"><sub>45%</sub></td>
 <td align="center"><sub>50%</sub></td>
 <td align="center"><sub>55%</sub></td>
-<td align="right"><sub>60%</sub></td>
+<td align="right"><sub>60% or more</sub></td>
 </tr>
 </table>
 
