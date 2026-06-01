@@ -59,7 +59,7 @@ mapshaper \
 -style target=borders stroke='#c5c5c5' stroke-width='TYPE=="inner" ? 1 : 0.7' stroke-dasharray='4 2' \
 -filter 'TYPE=="inner"' \
 -style target=us-state fill='STUSPS=="SC" ? "none" : "#ccc"' stroke=none \
--innerlines + name=st-lines \
+-lines + name=st-lines \
 -style 'stroke="rgba(0,0,0,0.7)"' \
 -style target=rectangle fill='rgba(160,216,242,1)' stroke=none \
 -style target=labels label-text='NAME.toUpperCase()' dy=4 fill='#aaa' font-size=10px \
