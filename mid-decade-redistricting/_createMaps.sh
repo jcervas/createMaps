@@ -18,7 +18,7 @@ mapshaper \
 -o target=data "clipped/${base}.json" \
 -innerlines + name=inner \
 -style target=inner stroke=#fff \
--o target=data,inner "svg/${base}.svg"
+-o target=data,inner "../state-svg/${base}.svg"
 done
 
 
@@ -65,10 +65,10 @@ PENDING_PATTERN=(
   "opacity=0.5"
 )
 
-
+cd '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/mid-decade-redistricting'
 mapshaper \
--i '../states.json' name=states \
--i '../redistrict-map.csv' \
+-i 'states.json' name=states \
+-i 'redistrict-map.csv' \
 -join target=states source=redistrict-map keys=NAME,state \
 -proj target=states albersusa \
 -lines + name=borders \
@@ -84,8 +84,8 @@ mapshaper \
 -style where='status=="proposed"' "${PROPOSED[@]}" \
 -dissolve + name=US \
 -style fill='#fafafa' \
--o format=topojson target=states ../redistricting2026.json \
--o target=US,borders,states ../svg/redistricting2026.svg
+-o format=topojson target=states redistricting2026.json \
+-o target=US,borders,states svg/redistricting2026.svg
 
 
 

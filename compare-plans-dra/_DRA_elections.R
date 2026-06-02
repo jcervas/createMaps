@@ -1,11 +1,11 @@
 
 
-cd '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/PA/data/elections'
+cd '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/LA/data/elections'
 
 mkdir -p old_cleaned_dra
 mkdir -p new_cleaned_dra
 
-for f in Benninghoff-map-dra/*.csv; do
+for f in 2024-map-dra/*.csv; do
   out="./old_cleaned_dra/$(basename "$f")"
   awk -F',' '
     NR==1 { print; next }
@@ -17,7 +17,7 @@ for f in Benninghoff-map-dra/*.csv; do
   ' "$f" > "$out"
 done
 
-for f in 2022-map-dra/*.csv; do
+for f in 2026-map-dra/*.csv; do
   out="./new_cleaned_dra/$(basename "$f")"
   awk -F',' '
     NR==1 { print; next }
@@ -44,9 +44,8 @@ results <- data.frame(
   stringsAsFactors = FALSE
 )
 
+states <- c("LA","TN","MO","OH","NC","CA","TX","FL","VA","UT")
 res_all <- vector("list", length(states))
-
-states <- c("TN","MO", "OH", "NC", "CA", "TX", "FL", "VA", "UT")
 
 for (j in seq_along(states)) {
   # Main Folder
