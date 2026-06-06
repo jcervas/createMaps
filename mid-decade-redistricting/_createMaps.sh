@@ -1,20 +1,74 @@
 cd '/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/mid-decade-redistricting/mid-decade'
 
+declare -A EPSG=(
+  [AL]=2759
+  [AK]=3338
+  [AZ]=2762
+  [AR]=2764
+  [CA]=3311
+  [CO]=2773
+  [CT]=2775
+  [DE]=2776
+  [FL]=2777
+  [GA]=2780
+  [HI]=2784
+  [ID]=2788
+  [IL]=2790
+  [IN]=2792
+  [IA]=2794
+  [KS]=2796
+  [KY]=2798
+  [LA]=2800
+  [ME]=2802
+  [MD]=2804
+  [MA]=2805
+  [MI]=2808
+  [MN]=2811
+  [MS]=2813
+  [MO]=2816
+  [MT]=2818
+  [NE]=2819
+  [NV]=2821
+  [NH]=2823
+  [NJ]=2824
+  [NM]=2826
+  [NY]=2829
+  [NC]=3358
+  [ND]=2832
+  [OH]=2834
+  [OK]=2836
+  [OR]=2838
+  [PA]=3362
+  [RI]=2840
+  [SC]=3360
+  [SD]=2841
+  [TN]=2843
+  [TX]=2845
+  [UT]=2850
+  [VT]=2852
+  [VA]=2853
+  [WA]=2855
+  [WV]=2857
+  [WI]=2860
+  [WY]=2863
+)
+
 mkdir -p clipped
 mkdir -p svg
 
 for f in *.geojson; do
 base=$(basename "$f" .geojson)
+STATE=${base:0:2}
 
 mapshaper \
 -i "$f" name=data \
 -i '../states.json' name=states \
 -clip target=data source=states \
--proj target=data albersusa \
--each DEM='DemPct / (DemPct + RepPct)' \
--each Party='DEM > 0.5 ? "DEM" : "GOP"' \
--each winning_pct_display='Party === "DEM" ? DEM * 100 : (1 - DEM) * 100' \
--style target=data fill='Party === "DEM" ? (winning_pct_display >= 65 ? "#1375B7" : winning_pct_display >= 60 ? "#5295CC" : winning_pct_display >= 55 ? "#92BDE0" : "#CEEAFD") : Party === "GOP" ? (winning_pct_display >= 65 ? "#C93135" : winning_pct_display >= 60 ? "#DB7171" : winning_pct_display >= 55 ? "#EAA9A9" : "#FCE0E0") : "none"' opacity=0.8 stroke=none \
+-proj "epsg:${EPSG[$STATE]}" \
+-each 'DEM=DemPct / (DemPct + RepPct)' \
+-each 'Party=DEM > 0.5 ? "DEM" : "GOP"' \
+-each 'winning_pct_display=Party === "DEM" ? DEM * 100 : (1 - DEM) * 100' \
+-style target=data 'fill=Party === "DEM" ? (winning_pct_display >= 65 ? "#1375B7" : winning_pct_display >= 60 ? "#5295CC" : winning_pct_display >= 55 ? "#92BDE0" : "#CEEAFD") : Party === "GOP" ? (winning_pct_display >= 65 ? "#C93135" : winning_pct_display >= 60 ? "#DB7171" : winning_pct_display >= 55 ? "#EAA9A9" : "#FCE0E0") : "none"' opacity=0.8 stroke=none \
 -o target=data "clipped/${base}.json" \
 -innerlines + name=inner \
 -style target=inner stroke=#fff \
