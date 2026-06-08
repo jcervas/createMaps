@@ -66,7 +66,7 @@ mapshaper \
 -clip target=data source=states \
 -proj "epsg:${EPSG[$STATE]}" \
 -each 'DEM=DemPct / (DemPct + RepPct)' \
--each 'Party=DEM > 0.5 ? "DEM" : "GOP"' \
+-each 'Party=DemPct > RepPct ? "DEM" : "GOP"' \
 -each 'winning_pct_display=Party === "DEM" ? DEM * 100 : (1 - DEM) * 100' \
 -style target=data 'fill=Party === "DEM" ? (winning_pct_display >= 65 ? "#1375B7" : winning_pct_display >= 60 ? "#5295CC" : winning_pct_display >= 55 ? "#92BDE0" : "#CEEAFD") : Party === "GOP" ? (winning_pct_display >= 65 ? "#C93135" : winning_pct_display >= 60 ? "#DB7171" : winning_pct_display >= 55 ? "#EAA9A9" : "#FCE0E0") : "none"' opacity=0.8 stroke=none \
 -o target=data "clipped/${base}.json" \
