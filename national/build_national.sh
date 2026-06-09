@@ -25,13 +25,16 @@ for YEAR in 2022 2024 2026; do
   python3 "$SCRIPT_DIR/build_national.py" --year "$YEAR"
 
   echo ""
-  echo "--- Step 2: Clip water and clean lines ---"
+  echo "--- Step 2: Clip water, clean lines, and calculate area ---"
   mapshaper \
     -i "$RAW" name=cd \
     -i "$US_STATE" name=us-state \
     -dissolve target=us-state \
     -clip target=cd source=us-state \
     -clean target=cd \
+    -proj aea +lat_1=29.5 +lat_2=45.5 +lat_0=23 +lon_0=-96 target=cd \
+    -each 'area_sqmi = Math.round(this.area / 2589988.11)' target=cd \
+    -proj wgs84 target=cd \
     -o "$OUT" target=cd format=geojson
 
   echo ""
