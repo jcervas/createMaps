@@ -20,7 +20,7 @@
 set -euo pipefail
 
 # ── Configuration ─────────────────────────────────────────────────────────────
-PLANS_DIR="../mid-decade-redistricting/mid-decade"
+PLANS_DIR="../Congressional-Plans"
 PP_CSV="compactness_pp.csv"
 OUTFILE="compactness_results.csv"
 SVG_DIR="compactness_svgs"
