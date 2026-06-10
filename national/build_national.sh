@@ -34,6 +34,10 @@ for YEAR in 2022 2024 2026; do
     -clean target=cd \
     -proj aea +lat_1=29.5 +lat_2=45.5 +lat_0=23 +lon_0=-96 target=cd \
     -each 'area_sqmi = Math.round(this.area / 2589988.11)' target=cd \
+    -each 'polsby_popper = (4 * Math.PI * this.area) / Math.pow(this.perimeter, 2)' \
+    -points inner target=cd + name=labels \
+    -each 'lon=this.x, lat=this.y' target=labels \
+    -join target=cd source=labels keys=id,id fields=lon,lat \
     -proj wgs84 target=cd \
     -o "$OUT" target=cd format=geojson
 
