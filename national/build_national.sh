@@ -1,8 +1,17 @@
 #!/usr/bin/env bash
 # ============================================================
 # build_national.sh
-# Builds national-cd-{2022,2024,2026}.geojson and .svg from
-# per-state congressional district files. Run from this directory.
+# Combines per-state congressional district plans into a single
+# national GeoJSON and SVG for each plan year.
+#
+# Outputs per year (2022, 2024, 2026):
+#   output/national-cd-{year}.geojson   clipped, cleaned GeoJSON
+#   output/national-cd-{year}.svg       overview map colored by 2024 vote
+#
+# Does NOT add compactness, area, or centroids — those are
+# computed in the district-guess build-map.sh pipeline.
+#
+# Requires: mapshaper ≥ 0.6, python3
 # ============================================================
 set -euo pipefail
 
@@ -14,7 +23,7 @@ mkdir -p "$OUT_DIR"
 
 for YEAR in 2022 2024 2026; do
   echo "========================================"
-  echo "=== Building $YEAR map ==="
+  echo "=== Building $YEAR national map ==="
   echo "========================================"
 
   RAW="$OUT_DIR/national-cd-${YEAR}-raw.geojson"
@@ -25,24 +34,17 @@ for YEAR in 2022 2024 2026; do
   python3 "$SCRIPT_DIR/build_national.py" --year "$YEAR"
 
   echo ""
-  echo "--- Step 2: Clip water, clean lines, and calculate area ---"
+  echo "--- Step 2: Clip water and clean ---"
   mapshaper \
     -i "$RAW" name=cd \
     -i "$US_STATE" name=us-state \
     -dissolve target=us-state \
     -clip target=cd source=us-state \
     -clean target=cd \
-    -proj aea +lat_1=29.5 +lat_2=45.5 +lat_0=23 +lon_0=-96 target=cd \
-    -each 'area_sqmi = Math.round(this.area / 2589988.11)' target=cd \
-    -each 'polsby_popper = (4 * Math.PI * this.area) / Math.pow(this.perimeter, 2)' \
-    -points inner target=cd + name=labels \
-    -each 'lon=this.x, lat=this.y' target=labels \
-    -join target=cd source=labels keys=id,id fields=lon,lat \
-    -proj wgs84 target=cd \
     -o "$OUT" target=cd format=geojson
 
   echo ""
-  echo "--- Step 3: Generate SVG ---"
+  echo "--- Step 3: Generate SVG (colored by 2024 presidential vote) ---"
   mapshaper \
     -i "$OUT" name=cd \
     -proj albersusa \
@@ -64,7 +66,7 @@ for YEAR in 2022 2024 2026; do
     -o "$SVG" target=cd,state-lines,district-lines,changed-states format=svg
 
   echo ""
-  echo "--- Step 4: District count ---"
+  echo "--- Step 4: District seat count ---"
   mapshaper -i "$OUT" -calc 'dem=sum(Margin2024Pres > 0 ? 1 : 0); rep=sum(Margin2024Pres < 0 ? 1 : 0)'
 
   echo ""
@@ -73,4 +75,5 @@ for YEAR in 2022 2024 2026; do
   echo ""
 done
 
-echo "All maps built."
+echo "All years complete."
+echo "Next: run build-map.sh in the district-guess folder to enrich and package for the game."
