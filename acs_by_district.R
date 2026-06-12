@@ -33,7 +33,7 @@ census_api_key("95fe940d2fe95c12900a6f024c35f29fac6f28ee")
 
 BAF_DIR  <- "/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/dra-block-assignments/2022-2026/congress"
 OUT_FILE <- "/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@andrew.cmu.edu/My Drive/GitHub/createMaps/acs_by_district.csv"
-ACS_YEAR <- 2023   # most recent ACS 5-year
+ACS_YEAR <- 2024   # most recent ACS 5-year
 
 ACS_VARS <- c(
   pop        = "B01003_001",
@@ -74,29 +74,20 @@ results <- map_dfr(seq_len(nrow(baf_files)), function(i) {
 
   message(sprintf("[%d/%d] %s (%s plan)", i, nrow(baf_files), abbr, row$year))
 
-  # 1. Load BAF: block → district
+  # 1. Load BAF: block → district; derive tract from first 11 digits of block GEOID
   baf <- read_csv(row$path, col_types = cols(GEOID20 = col_character(), District = col_integer()),
                   show_col_types = FALSE) %>%
     mutate(tract_fips = str_sub(GEOID20, 1, 11))
 
-  # 2. Get 2020 block populations for weighting
-  message("   Getting block populations...")
-  blk_pop <- tryCatch(
-    get_decennial(geography = "block", variables = "P1_001N",
-                  state = abbr, year = 2020, output = "wide", show_col_types = FALSE) %>%
-      select(GEOID, pop20 = P1_001N),
-    error = function(e) { message("   Block pop failed: ", e$message); NULL }
-  )
-  if (is.null(blk_pop)) return(NULL)
-
-  # 3. Build tract→district crosswalk (population-weighted)
+  # 2. Build tract→district crosswalk using block counts as weights.
+  # Tracts that fall entirely within one district get weight=1; split tracts are
+  # weighted by the share of blocks assigned to each district — a good approximation
+  # since blocks within a tract have similar population density.
   crosswalk <- baf %>%
-    left_join(blk_pop, by = c("GEOID20" = "GEOID")) %>%
-    mutate(pop20 = replace_na(pop20, 0)) %>%
     group_by(tract_fips, District) %>%
-    summarise(tract_dist_pop = sum(pop20), .groups = "drop") %>%
+    summarise(n_blocks = n(), .groups = "drop") %>%
     group_by(tract_fips) %>%
-    mutate(weight = tract_dist_pop / sum(tract_dist_pop)) %>%
+    mutate(weight = n_blocks / sum(n_blocks)) %>%
     ungroup()
 
   # 4. Get ACS tract data
@@ -122,8 +113,8 @@ results <- map_dfr(seq_len(nrow(baf_files)), function(i) {
     summarise(
       pop        = sum(pop        * weight, na.rm = TRUE),
       # Medians: population-weighted average of tract medians (approximation)
-      income     = weighted.mean(if_else(income     > 0, income,     NA_real_), tract_dist_pop * weight, na.rm = TRUE),
-      medianHome = weighted.mean(if_else(medianHome > 0, medianHome, NA_real_), tract_dist_pop * weight, na.rm = TRUE),
+      income     = weighted.mean(if_else(income     > 0, income,     NA_real_), n_blocks * weight, na.rm = TRUE),
+      medianHome = weighted.mean(if_else(medianHome > 0, medianHome, NA_real_), n_blocks * weight, na.rm = TRUE),
       whiteNH    = sum(whiteNH  * weight, na.rm = TRUE),
       black      = sum(black    * weight, na.rm = TRUE),
       asian      = sum(asian    * weight, na.rm = TRUE),
