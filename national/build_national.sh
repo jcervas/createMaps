@@ -40,33 +40,6 @@ for YEAR in 2022 2024 2026; do
   python3 "$SCRIPT_DIR/build_national.py" --year "$YEAR"
 
   echo ""
-  echo "--- Step 1b: Patch missing state/state-district fields ---"
-  python3 - "$RAW" <<'PYEOF'
-import json, sys, re
-path = sys.argv[1]
-with open(path) as f:
-    data = json.load(f)
-patched = 0
-for feat in data["features"]:
-    p = feat["properties"]
-    if p.get("state") is None or p.get("state-district") is None:
-        # Infer state from neighbors: find the most common non-null state
-        # among adjacent features. Fallback: use any known properties.
-        # For now, Louisiana is the only known case — id 1-6, no state set.
-        fid = p.get("id")
-        if fid is not None:
-            p["state"] = "LA"
-            p["state-district"] = f"LA-{str(int(fid)).zfill(2)}"
-            patched += 1
-if patched:
-    with open(path, "w") as f:
-        json.dump(data, f)
-    print(f"  Patched {patched} features with missing state/state-district.")
-else:
-    print("  No missing state fields found.")
-PYEOF
-
-  echo ""
   echo "--- Step 2: Clip water and clean ---"
   mapshaper \
     -i "$RAW" name=cd \
