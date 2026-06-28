@@ -21,6 +21,12 @@ US_STATE="$SCRIPT_DIR/../us-state.json"
 
 mkdir -p "$OUT_DIR"
 
+# Canonicalize the per-state plan files first (adds year/state/state-district, drops
+# DRA label fields) so every input is uniform regardless of how it was exported. Only
+# rewrites files that need it. New plans dropped into Congressional-Plans get fixed here.
+echo "--- Step 0: Normalize per-state plan files ---"
+python3 "$SCRIPT_DIR/normalize_plans.py"
+
 for YEAR in 2022 2024 2026; do
   echo "========================================"
   echo "=== Building $YEAR national map ==="
