@@ -137,6 +137,17 @@ for state, (fname, year) in sorted(state_files.items()):
                 props["Margin2024Pres"] = round(dem - rep, 6)
             note = DRA_NOTE
 
+        # Stamp the plan year from the filename (authoritative — some source files,
+        # e.g. LA-2026, don't carry a `year`/`state`/`state-district` property). Fill
+        # state + state-district only when the source omits them, deriving the district
+        # from the feature id (1..N -> ST-01..ST-NN); this generalizes what was a
+        # Louisiana-only patch in build_national.sh.
+        props["year"] = year
+        if props.get("state") is None:
+            props["state"] = state
+        if props.get("state-district") is None and props.get("id") is not None:
+            props["state-district"] = f"{state}-{int(props['id']):02d}"
+
         # Mark whether this state's map changed vs the previous cycle
         # (no states change in the 2022 baseline; 2024/2026 mark their new files)
         props["changed"] = 1 if (year == MAX_YEAR and MAX_YEAR > 2022) else 0
