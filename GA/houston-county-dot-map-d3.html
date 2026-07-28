@@ -354,12 +354,12 @@ header .header-pill {
 
   <div id="layers-panel">
     <div class="layers-title">Layers</div>
-    <label><input type="checkbox" id="layer-outlines" checked> Block group outlines</label>
+    <label><input type="checkbox" id="layer-outlines"> Block group outlines</label>
     <label><input type="checkbox" id="layer-county" checked> Houston County boundary</label>
     <label><input type="checkbox" id="layer-city" checked> City shading</label>
-    <label><input type="checkbox" id="layer-precincts"> 2024 precincts</label>
-    <label><input type="checkbox" id="layer-labels"> City labels</label>
-    <label><input type="checkbox" id="layer-precinct-labels"> Precinct labels</label>
+    <label><input type="checkbox" id="layer-precincts" checked> 2024 precincts</label>
+    <label><input type="checkbox" id="layer-labels" checked> City labels</label>
+    <label><input type="checkbox" id="layer-precinct-labels" checked> Precinct labels</label>
   </div>
 
   <div id="zoom-controls">
@@ -592,6 +592,7 @@ const PRECINCT_LABELS = [{"name":"HEFS","lon":-83.78120903116321,"lat":32.348827
     .join('path')
     .attr('class', 'bg-outline')
     .attr('d', path);
+  gOutlines.style('display', 'none'); // hidden by default; enabled via the layers panel
 
   // ---- Houston County's own boundary, loaded independently of the block
   // groups (see COUNTY_BOUNDARY note above). On by default. ----
@@ -609,21 +610,17 @@ const PRECINCT_LABELS = [{"name":"HEFS","lon":-83.78120903116321,"lat":32.348827
     .attr('class', 'city-shade')
     .attr('d', path);
 
-  // ---- 2024 precinct boundaries, off by default (new context layer; the
-  // block-group and county-line layers already establish geography, so this
-  // is opt-in rather than on-by-default clutter). ----
+  // ---- 2024 precinct boundaries ----
   gPrecincts.selectAll('path')
     .data(PRECINCTS_24.features)
     .join('path')
     .attr('class', 'precinct-line')
     .attr('d', path);
-  gPrecincts.style('display', 'none');
 
   // ---- city labels: pole-of-inaccessibility point per city (precomputed
   // with mapshaper's "-points inner" against tl_2020_13_place.json, same
   // convention used for district labels elsewhere in this project -- stays
-  // inside concave shapes where a plain centroid would not), toggled off by
-  // default via the layers panel. ----
+  // inside concave shapes where a plain centroid would not). ----
   gLabels.selectAll('g')
     .data(CITY_LABELS)
     .join('g')
@@ -636,13 +633,11 @@ const PRECINCT_LABELS = [{"name":"HEFS","lon":-83.78120903116321,"lat":32.348827
       sel.append('text').attr('class', 'city-label-halo').text(function (d) { return d.name.toUpperCase(); });
       sel.append('text').attr('class', 'city-label-text').text(function (d) { return d.name.toUpperCase(); });
     });
-  gLabels.style('display', 'none'); // hidden by default; enabled via the layers panel
 
   // ---- precinct labels: same pole-of-inaccessibility convention as the city
   // labels above, computed from PRECINCTS_24 via "-points inner". Kept in
   // the precinct's own original casing (not uppercased) and a smaller font,
-  // since 17 labels in a county this size need to stay unobtrusive. Off by
-  // default. ----
+  // since 17 labels in a county this size need to stay unobtrusive. ----
   gPrecinctLabels.selectAll('g')
     .data(PRECINCT_LABELS)
     .join('g')
@@ -655,7 +650,6 @@ const PRECINCT_LABELS = [{"name":"HEFS","lon":-83.78120903116321,"lat":32.348827
       sel.append('text').attr('class', 'precinct-label-halo').text(function (d) { return d.name; });
       sel.append('text').attr('class', 'precinct-label-text').text(function (d) { return d.name; });
     });
-  gPrecinctLabels.style('display', 'none'); // hidden by default; enabled via the layers panel
 
   // ---- dot radius scale: sqrt(|Black VAP - White VAP|) * K, matching the
   // static map's r = Math.max(1.5, Math.sqrt(Math.abs(diff))*0.7) convention
@@ -904,21 +898,26 @@ const PRECINCT_LABELS = [{"name":"HEFS","lon":-83.78120903116321,"lat":32.348827
       var strokeOp = Math.max(MIN_STROKE_OPACITY, fillOp * 0.9);
       dot(x, cy, 7, 'rgba(' + rgb + ',' + fillOp + ')', 'rgba(' + rgb + ',' + strokeOp + ')');
     }
+    // x-offsets (10, 32, 55, 72) match the live #population-legend-svg's own
+    // cx/x values exactly -- these were previously 7/27/47/66, close enough
+    // to look similar but 2-3px tighter than live at every gap, which was
+    // enough to make "1,000"/"2,000" visibly overlap here even though they
+    // don't (quite) touch live.
     cy += 22;
-    popDot('216,179,101', 500, padX + 7);
-    popDot('216,179,101', 1000, padX + 27);
-    popDot('216,179,101', 2000, padX + 47);
-    txt(padX + 66, cy + 4, 11, 400, mutedColor, liveText('#population-legend-svg .cap-pop-white'));
+    popDot('216,179,101', 500, padX + 10);
+    popDot('216,179,101', 1000, padX + 32);
+    popDot('216,179,101', 2000, padX + 55);
+    txt(padX + 72, cy + 4, 11, 400, mutedColor, liveText('#population-legend-svg .cap-pop-white'));
     cy += 22;
-    popDot('90,180,172', 500, padX + 7);
-    popDot('90,180,172', 1000, padX + 27);
-    popDot('90,180,172', 2000, padX + 47);
-    txt(padX + 66, cy + 4, 11, 400, mutedColor, liveText('#population-legend-svg .cap-pop-black'));
+    popDot('90,180,172', 500, padX + 10);
+    popDot('90,180,172', 1000, padX + 32);
+    popDot('90,180,172', 2000, padX + 55);
+    txt(padX + 72, cy + 4, 11, 400, mutedColor, liveText('#population-legend-svg .cap-pop-black'));
     cy += 21;
-    txt(padX + 7, cy, 8.5, 400, mutedColor, '500', 'middle');
-    txt(padX + 27, cy, 8.5, 400, mutedColor, '1,000', 'middle');
-    txt(padX + 47, cy, 8.5, 400, mutedColor, '2,000', 'middle');
-    txt(padX + 66, cy, 9, 400, mutedColor, liveText('#population-legend-svg .cap-pop-total'));
+    txt(padX + 10, cy, 8.5, 400, mutedColor, '500', 'middle');
+    txt(padX + 32, cy, 8.5, 400, mutedColor, '1,000', 'middle');
+    txt(padX + 55, cy, 8.5, 400, mutedColor, '2,000', 'middle');
+    txt(padX + 72, cy, 9, 400, mutedColor, liveText('#population-legend-svg .cap-pop-total'));
     cy += 20;
 
     // ---- size legend: same nested-circle bubble convention as the live
@@ -957,8 +956,12 @@ const PRECINCT_LABELS = [{"name":"HEFS","lon":-83.78120903116321,"lat":32.348827
     var frag = '<g>' + bgRect + parts.join('') + '</g>';
     var parsed = new DOMParser().parseFromString('<svg xmlns="http://www.w3.org/2000/svg">' + frag + '</svg>', 'image/svg+xml').documentElement.firstChild;
 
+    // Top-left, not bottom-left like the live on-screen legend -- the county
+    // polygon's own shape often extends into the bottom-left corner of the
+    // frame, so a bottom-anchored legend there overlaps the map; top-left is
+    // clear in every county's frame this map has been pointed at so far.
     var margin = 16;
-    parsed.setAttribute('transform', 'translate(' + margin + ',' + (H - boxH - margin) + ')');
+    parsed.setAttribute('transform', 'translate(' + margin + ',' + margin + ')');
     return parsed;
   }
 
