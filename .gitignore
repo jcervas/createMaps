@@ -14,3 +14,6 @@ TN/data/GIS/tn_2024_gen_2020_blocks.json
 us-urban.json
 us-urban.json
 dra-data/
+GA/data/GIS/blockgroups.json
+GA/data/GIS/tracts.json
+GA/data/GIS/tl_2020_13_place.json
