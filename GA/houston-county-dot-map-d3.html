@@ -392,22 +392,22 @@ header .header-pill {
         <circle class="pop-demo" data-vap="500" cx="10" cy="12" r="7" fill="rgb(216,179,101)" stroke="rgb(216,179,101)"/>
         <circle class="pop-demo" data-vap="1000" cx="32" cy="12" r="7" fill="rgb(216,179,101)" stroke="rgb(216,179,101)"/>
         <circle class="pop-demo" data-vap="2000" cx="55" cy="12" r="7" fill="rgb(216,179,101)" stroke="rgb(216,179,101)"/>
-        <text x="72" y="16" font-size="11" fill="var(--muted)">White-majority</text>
+        <text class="cap-pop-white" x="72" y="16" font-size="11" fill="var(--muted)">White-majority</text>
         <circle class="pop-demo" data-vap="500" cx="10" cy="34" r="7" fill="rgb(90,180,172)" stroke="rgb(90,180,172)"/>
         <circle class="pop-demo" data-vap="1000" cx="32" cy="34" r="7" fill="rgb(90,180,172)" stroke="rgb(90,180,172)"/>
         <circle class="pop-demo" data-vap="2000" cx="55" cy="34" r="7" fill="rgb(90,180,172)" stroke="rgb(90,180,172)"/>
-        <text x="72" y="38" font-size="11" fill="var(--muted)">Black-majority</text>
+        <text class="cap-pop-black" x="72" y="38" font-size="11" fill="var(--muted)">Black-majority</text>
         <text x="10" y="55" text-anchor="middle" font-size="8.5" fill="var(--muted)">500</text>
         <text x="32" y="55" text-anchor="middle" font-size="8.5" fill="var(--muted)">1,000</text>
         <text x="55" y="55" text-anchor="middle" font-size="8.5" fill="var(--muted)">2,000</text>
-        <text x="72" y="55" font-size="9" fill="var(--muted)">Total VAP</text>
+        <text class="cap-pop-total" x="72" y="55" font-size="9" fill="var(--muted)">Total VAP</text>
       </svg>
     </div>
     <div class="size-demo">
       <svg id="size-legend-svg" width="70" height="80" aria-hidden="true"></svg>
-      <span>Black−White VAP gap</span>
+      <span class="cap-vap-gap">Black−White VAP gap</span>
     </div>
-    <div class="legend-note">Dot size scales with the raw voting-age-population gap between Black and White (sqrt of the count difference); opacity scales with total voting-age population (VAP). Gray shading marks Warner Robins city. Drag any dot; scroll or use the controls to zoom.</div>
+    <div class="legend-note">Dot size scales with the gap between Black and White voting-age-population; opacity scales with total voting-age population (VAP). Gray shading marks city boundaries. Red dotted lines are the precincts.</div>
   </div>
 
   <div id="tooltip"></div>
@@ -849,6 +849,37 @@ const PRECINCT_LABELS = [{"name":"HEFS","lon":-83.78120903116321,"lat":32.348827
     var boxW = 268, padX = 16;
     var cy = 0, parts = [];
 
+    // ---- read caption/note text straight from the live legend, rather than
+    // duplicating it as hardcoded strings here -- a hardcoded copy silently
+    // drifts out of sync the next time someone edits the wording live (that's
+    // exactly how the footer note went stale after the precinct/city-boundary
+    // layers were added: this function still said "Gray shading marks Warner
+    // Robins city" with no mention of precincts at all). ----
+    function liveText(selector) {
+      var el = document.querySelector(selector);
+      return el ? el.textContent.trim() : '';
+    }
+    var measureCanvas = document.createElement('canvas');
+    var measureCtx = measureCanvas.getContext('2d');
+    function textWidth(str, size, weight) {
+      measureCtx.font = (weight || 400) + ' ' + size + 'px ' + font.replace(/'/g, '');
+      return measureCtx.measureText(str).width;
+    }
+    function wrapText(str, maxWidth, size, weight) {
+      var words = str.split(/\s+/), lines = [], line = '';
+      words.forEach(function (w) {
+        var candidate = line ? line + ' ' + w : w;
+        if (line && textWidth(candidate, size, weight) > maxWidth) {
+          lines.push(line);
+          line = w;
+        } else {
+          line = candidate;
+        }
+      });
+      if (line) lines.push(line);
+      return lines;
+    }
+
     function txt(x, y, size, weight, color, content, anchor) {
       parts.push('<text x="' + x + '" y="' + y + '" font-family="' + font + '" font-size="' + size + '" font-weight="' + weight + '" fill="' + color + '" text-anchor="' + (anchor || 'start') + '">' + content + '</text>');
     }
@@ -860,7 +891,7 @@ const PRECINCT_LABELS = [{"name":"HEFS","lon":-83.78120903116321,"lat":32.348827
     }
 
     cy += 24;
-    txt(padX, cy, 13.5, 700, textColor, 'Race by block group');
+    txt(padX, cy, 13.5, 700, textColor, liveText('#legend .legend-title'));
 
     // ---- population-size demo: one row of circles per majority color,
     // sharing a single tick-value axis (500 / 1,000 / 2,000) labeled "Total
@@ -877,17 +908,17 @@ const PRECINCT_LABELS = [{"name":"HEFS","lon":-83.78120903116321,"lat":32.348827
     popDot('216,179,101', 500, padX + 7);
     popDot('216,179,101', 1000, padX + 27);
     popDot('216,179,101', 2000, padX + 47);
-    txt(padX + 66, cy + 4, 11, 400, mutedColor, 'White-majority');
+    txt(padX + 66, cy + 4, 11, 400, mutedColor, liveText('#population-legend-svg .cap-pop-white'));
     cy += 22;
     popDot('90,180,172', 500, padX + 7);
     popDot('90,180,172', 1000, padX + 27);
     popDot('90,180,172', 2000, padX + 47);
-    txt(padX + 66, cy + 4, 11, 400, mutedColor, 'Black-majority');
+    txt(padX + 66, cy + 4, 11, 400, mutedColor, liveText('#population-legend-svg .cap-pop-black'));
     cy += 21;
     txt(padX + 7, cy, 8.5, 400, mutedColor, '500', 'middle');
     txt(padX + 27, cy, 8.5, 400, mutedColor, '1,000', 'middle');
     txt(padX + 47, cy, 8.5, 400, mutedColor, '2,000', 'middle');
-    txt(padX + 66, cy, 9, 400, mutedColor, 'Total VAP');
+    txt(padX + 66, cy, 9, 400, mutedColor, liveText('#population-legend-svg .cap-pop-total'));
     cy += 20;
 
     // ---- size legend: same nested-circle bubble convention as the live
@@ -903,19 +934,19 @@ const PRECINCT_LABELS = [{"name":"HEFS","lon":-83.78120903116321,"lat":32.348827
     // centered box left empty space on both sides whenever the real radius
     // was smaller than the box assumed, which read as an oversized margin.
     var iconCx = padX + maxR + 3;
-    var iconBaseline = cy + maxR + 13;
+    var iconBaseline = cy + 2 * maxR + 13;
     sizeTicks.forEach(function (d) {
       var r = radiusForDiff(d);
       ring(iconCx, iconBaseline - r, r, 'rgb(90,180,172)');
       txt(iconCx, iconBaseline - 2 * r - 3, 9, 400, mutedColor, d3.format(',')(Math.round(d)), 'middle');
     });
     var rowBottom = iconBaseline + 4;
-    txt(padX + 2 * maxR + 15, cy + (rowBottom - cy) / 2 + 4, 11, 400, mutedColor, 'Black−White VAP gap');
+    txt(padX + 2 * maxR + 15, cy + (rowBottom - cy) / 2 + 4, 11, 400, mutedColor, liveText('#legend .cap-vap-gap'));
     cy = rowBottom + 12;
 
     parts.push('<line x1="' + padX + '" y1="' + cy + '" x2="' + (boxW - padX) + '" y2="' + cy + '" stroke="' + borderColor + '" stroke-width="1"/>');
     cy += 18;
-    ['Dot size scales with sqrt(|Black VAP', '− White VAP|); opacity scales with', 'total VAP. Gray shading marks Warner', 'Robins city.'].forEach(function (line) {
+    wrapText(liveText('#legend .legend-note'), boxW - 2 * padX, 10.5).forEach(function (line) {
       txt(padX, cy, 10.5, 400, mutedColor, line);
       cy += 14;
     });
