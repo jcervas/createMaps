@@ -17,3 +17,8 @@ dra-data/
 GA/data/GIS/blockgroups.json
 GA/data/GIS/tracts.json
 GA/data/GIS/tl_2020_13_place.json
+
+# National block spine — rebuildable from Census sources, too large for git
+national/blocks/us_blocks_2020.csv.gz
+national/blocks/us_blocks_2020_baf.csv.gz
+national/blocks/by_state/
