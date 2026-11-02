@@ -17,3 +17,5 @@ dra-data/
 GA/data/GIS/blockgroups.json
 GA/data/GIS/tracts.json
 GA/data/GIS/tl_2020_13_place.json
+national/blocks/us_blocks_2020.csv.gz
+national/blocks/us_blocks_2020_baf.csv.gz
